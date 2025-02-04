@@ -1,0 +1,6 @@
+LeafNodeTest.NodeCreation 1 0.00370392
+DecisionNodeTest.ChildAssignment1 0 0
+DecisionNodeTest.ChildAssignment2 0 0
+---
+DecisionNodeTest.ChildAssignment1
+DecisionNodeTest.ChildAssignment2

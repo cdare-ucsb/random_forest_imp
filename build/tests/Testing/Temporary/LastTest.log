@@ -1,0 +1,315 @@
+Start testing: Feb 04 13:56 PST
+----------------------------------------------------------
+1/12 Testing: LeafNodeTest.NodeCreation
+1/12 Test: LeafNodeTest.NodeCreation
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests" "--gtest_filter=LeafNodeTest.NodeCreation" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"LeafNodeTest.NodeCreation" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = LeafNodeTest.NodeCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from LeafNodeTest
+[ RUN      ] LeafNodeTest.NodeCreation
+[       OK ] LeafNodeTest.NodeCreation (0 ms)
+[----------] 1 test from LeafNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"LeafNodeTest.NodeCreation" end time: Feb 04 13:56 PST
+"LeafNodeTest.NodeCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/12 Testing: DecisionNodeTest.PredictTest1
+2/12 Test: DecisionNodeTest.PredictTest1
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests" "--gtest_filter=DecisionNodeTest.PredictTest1" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.PredictTest1" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.PredictTest1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.PredictTest1
+[       OK ] DecisionNodeTest.PredictTest1 (0 ms)
+[----------] 1 test from DecisionNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DecisionNodeTest.PredictTest1" end time: Feb 04 13:56 PST
+"DecisionNodeTest.PredictTest1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/12 Testing: DecisionNodeTest.PredictTest2
+3/12 Test: DecisionNodeTest.PredictTest2
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests" "--gtest_filter=DecisionNodeTest.PredictTest2" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.PredictTest2" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.PredictTest2
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.PredictTest2
+[       OK ] DecisionNodeTest.PredictTest2 (0 ms)
+[----------] 1 test from DecisionNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DecisionNodeTest.PredictTest2" end time: Feb 04 13:56 PST
+"DecisionNodeTest.PredictTest2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: DecisionNodeTest.PrintTest1
+4/12 Test: DecisionNodeTest.PrintTest1
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests" "--gtest_filter=DecisionNodeTest.PrintTest1" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.PrintTest1" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.PrintTest1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.PrintTest1
+[       OK ] DecisionNodeTest.PrintTest1 (0 ms)
+[----------] 1 test from DecisionNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DecisionNodeTest.PrintTest1" end time: Feb 04 13:56 PST
+"DecisionNodeTest.PrintTest1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: DecisionNodeTest.AccessorMutatorTest1
+5/12 Test: DecisionNodeTest.AccessorMutatorTest1
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests" "--gtest_filter=DecisionNodeTest.AccessorMutatorTest1" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.AccessorMutatorTest1" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.AccessorMutatorTest1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.AccessorMutatorTest1
+[       OK ] DecisionNodeTest.AccessorMutatorTest1 (0 ms)
+[----------] 1 test from DecisionNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DecisionNodeTest.AccessorMutatorTest1" end time: Feb 04 13:56 PST
+"DecisionNodeTest.AccessorMutatorTest1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/12 Testing: DataFrameTest.DataFrameCreation
+6/12 Test: DataFrameTest.DataFrameCreation
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameCreation" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameCreation" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameCreation
+[       OK ] DataFrameTest.DataFrameCreation (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameCreation" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/12 Testing: DataFrameTest.DataFrameColumnRetrieval
+7/12 Test: DataFrameTest.DataFrameColumnRetrieval
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameColumnRetrieval" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameColumnRetrieval" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameColumnRetrieval
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameColumnRetrieval
+[       OK ] DataFrameTest.DataFrameColumnRetrieval (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameColumnRetrieval" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameColumnRetrieval" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/12 Testing: DataFrameTest.DataFrameInformationGainCalculation
+8/12 Test: DataFrameTest.DataFrameInformationGainCalculation
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameInformationGainCalculation" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameInformationGainCalculation" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameInformationGainCalculation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameInformationGainCalculation
+[       OK ] DataFrameTest.DataFrameInformationGainCalculation (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameInformationGainCalculation" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameInformationGainCalculation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: DataFrameTest.DataFrameBestAttributeSelection
+9/12 Test: DataFrameTest.DataFrameBestAttributeSelection
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameBestAttributeSelection" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameBestAttributeSelection" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameBestAttributeSelection
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameBestAttributeSelection
+[       OK ] DataFrameTest.DataFrameBestAttributeSelection (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameBestAttributeSelection" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameBestAttributeSelection" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: DataFrameTest.DataFramePrint
+10/12 Test: DataFrameTest.DataFramePrint
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFramePrint" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFramePrint" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFramePrint
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFramePrint
+[       OK ] DataFrameTest.DataFramePrint (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFramePrint" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFramePrint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/12 Testing: DataFrameTest.DataFrameColumnMedian
+11/12 Test: DataFrameTest.DataFrameColumnMedian
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameColumnMedian" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameColumnMedian" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameColumnMedian
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameColumnMedian
+[       OK ] DataFrameTest.DataFrameColumnMedian (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameColumnMedian" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameColumnMedian" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/12 Testing: DataFrameTest.DataFrameFilter
+12/12 Test: DataFrameTest.DataFrameFilter
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests" "--gtest_filter=DataFrameTest.DataFrameFilter" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DataFrameTest.DataFrameFilter" start time: Feb 04 13:56 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DataFrameTest.DataFrameFilter
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DataFrameTest
+[ RUN      ] DataFrameTest.DataFrameFilter
+[       OK ] DataFrameTest.DataFrameFilter (0 ms)
+[----------] 1 test from DataFrameTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DataFrameTest.DataFrameFilter" end time: Feb 04 13:56 PST
+"DataFrameTest.DataFrameFilter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 04 13:56 PST

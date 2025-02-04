@@ -1,0 +1,69 @@
+Start testing: Feb 03 12:34 PST
+----------------------------------------------------------
+1/3 Testing: LeafNodeTest.NodeCreation
+1/3 Test: LeafNodeTest.NodeCreation
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/tree_node_tests" "--gtest_filter=LeafNodeTest.NodeCreation" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"LeafNodeTest.NodeCreation" start time: Feb 03 12:34 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = LeafNodeTest.NodeCreation
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from LeafNodeTest
+[ RUN      ] LeafNodeTest.NodeCreation
+[       OK ] LeafNodeTest.NodeCreation (0 ms)
+[----------] 1 test from LeafNodeTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"LeafNodeTest.NodeCreation" end time: Feb 03 12:34 PST
+"LeafNodeTest.NodeCreation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: DecisionNodeTest.ChildAssignment1
+2/3 Test: DecisionNodeTest.ChildAssignment1
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/tree_node_tests" "--gtest_filter=DecisionNodeTest.ChildAssignment1" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.ChildAssignment1" start time: Feb 03 12:34 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.ChildAssignment1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.ChildAssignment1
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"DecisionNodeTest.ChildAssignment1" end time: Feb 03 12:34 PST
+"DecisionNodeTest.ChildAssignment1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: DecisionNodeTest.ChildAssignment2
+3/3 Test: DecisionNodeTest.ChildAssignment2
+Command: "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/tree_node_tests" "--gtest_filter=DecisionNodeTest.ChildAssignment2" "--gtest_also_run_disabled_tests"
+Directory: /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests
+"DecisionNodeTest.ChildAssignment2" start time: Feb 03 12:34 PST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = DecisionNodeTest.ChildAssignment2
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecisionNodeTest
+[ RUN      ] DecisionNodeTest.ChildAssignment2
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"DecisionNodeTest.ChildAssignment2" end time: Feb 03 12:34 PST
+"DecisionNodeTest.ChildAssignment2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 03 12:34 PST

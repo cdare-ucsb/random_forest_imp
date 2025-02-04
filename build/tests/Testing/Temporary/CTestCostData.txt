@@ -1,0 +1,15 @@
+LeafNodeTest.NodeCreation 7 0.000788439
+DecisionNodeTest.ChildAssignment1 1 0.0035888
+DecisionNodeTest.ChildAssignment2 1 0.0040276
+DecisionNodeTest.PredictTest1 4 0.00128922
+DecisionNodeTest.PredictTest2 4 0.000880952
+DecisionNodeTest.PrintTest1 4 0.000857061
+DecisionNodeTest.AccessorMutatorTest1 4 0.000883551
+DataFrameTest.DataFrameCreation 1 0.00422441
+DataFrameTest.DataFrameColumnRetrieval 1 0.00397188
+DataFrameTest.DataFrameInformationGainCalculation 1 0.00390077
+DataFrameTest.DataFrameBestAttributeSelection 1 0.003752
+DataFrameTest.DataFramePrint 1 0.00410526
+DataFrameTest.DataFrameColumnMedian 1 0.00406476
+DataFrameTest.DataFrameFilter 1 0.00385419
+---
