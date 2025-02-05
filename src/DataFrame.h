@@ -7,8 +7,6 @@ using std::string;
 class DataFrame {
     protected:
         vector<vector<double>> data;
-        vector<string> target;
-
 
         // Helper functions
         double calculateEntropy(const vector<double>& labels);

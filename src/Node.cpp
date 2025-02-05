@@ -16,16 +16,23 @@ double Node::predict(std::vector<double> sample) {
     return 0.0;
 }
 
-std::string Node::print() {
+std::string Node::print(std::vector<std::string> col_names) {
     return "Empty node";
 }
 
+int get_num_nodes() {
+    return 1;
+}
 
+int get_height() {
+    return 1;
+}
 
 
 // --------------- LeafNode Class ---------------
 
-LeafNode::LeafNode(double val) : value(val) {}
+LeafNode::LeafNode(double val) : value(val), left(nullptr), right(nullptr) {}
+
 LeafNode::~LeafNode() {}
 
 double LeafNode::predict(std::vector<double> sample) {
@@ -36,18 +43,22 @@ void LeafNode::set_value(double val) {
     value = val;
 }
 
-std::string LeafNode::print() {
+std::string LeafNode::print(std::vector<std::string> col_names) {
     return "(" + std::to_string(value) + ")";
 }
 
+int LeafNode::get_num_nodes() {
+    return 1;
+}
 
+int LeafNode::get_height() {
+    return 1;
+}
 
 // --------------- DecisionNode Class ---------------
 
-DecisionNode::DecisionNode(int feature_index, double threshold, Node* left_child, Node* right_child) : feature_index(feature_index), threshold(threshold) {
-    this->left = left_child;
-    this->right = right_child;
-}
+DecisionNode::DecisionNode(int feature_index, double threshold, Node* left_child, Node* right_child) : feature_index(feature_index), threshold(threshold), left(left_child), right(right_child) {}
+
 
 double DecisionNode::predict(std::vector<double> sample) {
     if (sample[feature_index] <= threshold) {
@@ -58,16 +69,14 @@ double DecisionNode::predict(std::vector<double> sample) {
 }
 
 DecisionNode::~DecisionNode() {
-    delete left;
-    delete right;
+    left = nullptr;
+    right = nullptr;
 }
 
-std::string DecisionNode::print() {
-    std::string ret_str =  "[idx:" + std::to_string(feature_index) + ", thr:" + std::to_string(threshold) + "]\n";
-    ret_str += "Left Child: " + left->print() + "\n";
-    ret_str += "Right Child: " + right->print();
-    return ret_str;
+std::string DecisionNode::print(std::vector<std::string> col_names) {
+    return  "[" + col_names[feature_index] + " <= " + std::to_string(threshold) + "]";
 }
+
 
 // Setters implementation
 
@@ -79,13 +88,6 @@ void DecisionNode::set_threshold(double thr) {
     threshold = thr;
 }
 
-void DecisionNode::set_left(Node* left_child) {
-    left = left_child;
-}
-
-void DecisionNode::set_right(Node* right_child) {
-    right = right_child;
-}
 
 
 // Getters implementation
@@ -97,14 +99,36 @@ double DecisionNode::get_threshold() {
     return threshold;
 }
 
-Node* DecisionNode::get_left() {
-    return left;
+
+int DecisionNode::get_num_nodes() {
+    if (left == nullptr && right == nullptr) {
+        return 1;
+    }
+    else if (left == nullptr) {
+        return 1 + right->get_num_nodes();
+    }
+    else if (right == nullptr) {
+        return 1 + left->get_num_nodes();
+    }
+    else {
+        return 1 + left->get_num_nodes() + right->get_num_nodes();
+    }
 }
 
-Node* DecisionNode::get_right() {
-    return right;
+int DecisionNode::get_height() {
+    if (left == nullptr && right == nullptr) {
+        return 1;
+    }
+    else if (left == nullptr) {
+        return 1 + right->get_height();
+    }
+    else if (right == nullptr) {
+        return 1 + left->get_height();
+    }
+    else {
+        return 1 + std::max(left->get_height(), right->get_height());
+    }
 }
-
 
 
 

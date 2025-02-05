@@ -2,22 +2,25 @@
 #define NODE_H
 
 class Node {
-    protected:
+    public:
         Node* left;
         Node* right;
-    public:
         // Constructor
         Node();
         // Destructor
         virtual  ~Node();
         virtual double predict(std::vector<double> sample) = 0;
-        virtual std::string print() = 0;
+        virtual std::string print(std::vector<std::string> col_names) = 0;
+        virtual int get_num_nodes() = 0;
+        virtual int get_height() = 0;
 };
 
 
 class LeafNode : public Node {
     protected:
         double value;
+        Node* left;
+        Node* right;
     public:
         // Constructor
         LeafNode(double val);
@@ -26,10 +29,12 @@ class LeafNode : public Node {
 
         // Override methods
         double predict(std::vector<double> sample) override;
-        std::string print() override;
+        std::string print(std::vector<std::string> col_names) override;
 
         // Setters
         void set_value(double val);
+        int get_num_nodes() override;
+        int get_height() override;
         
 };
 
@@ -37,9 +42,10 @@ class DecisionNode : public Node{
     protected:
         int feature_index;
         double threshold;
+
+    public:
         Node* left;
         Node* right;
-    public:
         // Constructor
         DecisionNode(int feature_index, double threshold, Node* left_child, Node* right_child);
         // Destructor
@@ -47,19 +53,17 @@ class DecisionNode : public Node{
 
         // Override methods
         double predict(std::vector<double> sample) override;
-        std::string print() override;
+        std::string print(std::vector<std::string> col_names) override;
 
         // Setters
         void set_feature_index(int idx);
         void set_threshold(double thr);
-        void set_left(Node* left_child);
-        void set_right(Node* right_child);
 
         // Getters
         int get_feature_index();
         double get_threshold();
-        Node* get_left();
-        Node* get_right();
+        int get_num_nodes() override;
+        int get_height() override;
 };
 
 #endif // NODE_H

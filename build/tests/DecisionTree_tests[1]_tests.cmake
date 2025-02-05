@@ -1,0 +1,5 @@
+add_test([=[DecisionTreeTest.DecisionTreeCreation]=]  [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DecisionTree_tests]==] [==[--gtest_filter=DecisionTreeTest.DecisionTreeCreation]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[DecisionTreeTest.DecisionTreeCreation]=]  PROPERTIES WORKING_DIRECTORY [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests]==] SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[DecisionTreeTest.DecisionTreeNumNodes]=]  [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DecisionTree_tests]==] [==[--gtest_filter=DecisionTreeTest.DecisionTreeNumNodes]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[DecisionTreeTest.DecisionTreeNumNodes]=]  PROPERTIES WORKING_DIRECTORY [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests]==] SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  DecisionTree_tests_TESTS DecisionTreeTest.DecisionTreeCreation DecisionTreeTest.DecisionTreeNumNodes)
