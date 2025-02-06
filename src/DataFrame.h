@@ -138,6 +138,22 @@ class DataFrame {
          * @throws std::out_of_range if the column name is not found
          * 
          * This function returns a vector containing the values of the specified column.
+         * 
+         * @code
+         * vector<vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * 
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * vector<double> column_b = df.get_column("b");
+         * vector<double> expected_b = {0, 0, 2, 3, 0};
+         * 
+         * printf("Column correctly gives %s : %s", column_b, column_b == expected_b ? "TRUE" : "FALSE" );
+         * @endcode
          */
         vector<double> get_column(string col_name);
 
@@ -152,7 +168,24 @@ class DataFrame {
          * @param label_column Name of the column containing the labels
          * @return Index of the attribute with the greatest information gain
          * 
-         * This function calculates the information gain for each attribute in the DataFrame and returns the index of the attribute with the greatest information gain.
+         * This function calculates the information gain for each attribute in the DataFrame and returns the
+         * index of the attribute with the greatest information gain.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0, 0, 0, 0},
+         * {-4, 2, 0.5, 1},
+         * {0.1, 4.1, 0, 2},
+         * {-2.9, 6.2, 3, 3},
+         * {0.1, 8.3,  0, 4}};      // Notice the label is roughly one half the value of the second column
+         * 
+         * std::vector<std::string> columns = {"Feature1", "Feature2", "Feature3", "Label"};
+         * 
+         * DataFrame df(sample, columns);
+         * int best_attribute = df.selectBestAttribute("Label");
+         * 
+         * printf("Best attribute is %s: %s\n", columns[1], best_attribute == 1 ? "TRUE" : "FALSE");
+         * @endcode
          */
         int selectBestAttribute(string label_column);
 
@@ -193,6 +226,25 @@ class DataFrame {
          * - "!=" (not equal to)
          * 
          * The function returns a new DataFrame containing only the rows that satisfy the condition, using the specified attribute and threshold.
+         * 
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> filtered_df = df.filter(0, 1, "<");
+         * std::vector<std::vector<double>> expected_data = {
+         * {0,0,0,0},
+         * {0,2,0,2}
+         * };
+         * 
+         * printf("Filtered DataFrame correctly gives %s : %s", expected_data, filtered_df->get_data() == expected_data ? "TRUE" : "FALSE" );
+         * @endcode
          */
         unique_ptr<DataFrame> filter(int attributeIndex, double threshold, string condition);
 

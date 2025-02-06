@@ -100,7 +100,7 @@ unique_ptr<DataFrame> DataFrame::filter_lt(int attributeIndex, double threshold)
             filtered_data.push_back(row);
         }
     }
-
+    
     return std::make_unique<DataFrame>(filtered_data, this->columns);
 }
 

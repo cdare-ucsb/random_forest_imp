@@ -67,6 +67,21 @@ TEST(DataFrameTest, DataFrameBestAttributeSelection) {
     EXPECT_EQ(df.selectBestAttribute("b"), 3);
     EXPECT_EQ(df.selectBestAttribute("c"), 0);
 
+
+
+
+    vector<vector<double>> sample2 = {
+          {0, 0, 0, 0},
+          {-4, 2, 0.5, 1},
+          {0.1, 4.1, 0, 2},
+          {-2.9, 6.2, 3, 3},
+          {0.1, 8.3,  0, 4}};      // Notice the label is roughly one half the value of the second column
+          
+    DataFrame df2(sample2, {"Feature1", "Feature2", "Feature3", "Label"});
+
+    // Check if the best attribute is correctly selected
+    EXPECT_EQ(df2.selectBestAttribute("Label"), 1);
+
     // Check that invalid arguments throw exceptions
     EXPECT_THROW(df.selectBestAttribute("z"), std::invalid_argument);
     EXPECT_THROW(df.selectBestAttribute("e"), std::invalid_argument);
