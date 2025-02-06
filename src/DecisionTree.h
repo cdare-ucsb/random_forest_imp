@@ -91,7 +91,9 @@ class DecisionTree {
          * decision rules at each node to determine the predicted class label for the sample. The actual recusion
          * is implemented in the Node class, and this function simply calls the predict() method of the root node.
          * 
-         * @see Node::predict(const vector<double>& sample)
+         * @see Node::predict(std::vector<double> sample)
+         * @see DecisionNode::predict(const std::vector<double>& sample) const
+         * @see LeafNode::predict(const vector<double>& sample) const
          * 
          * @code
          * std::vector<std::vector<double>> data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};

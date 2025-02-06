@@ -8,72 +8,66 @@
 \DoxyCodeLine{00004\ \textcolor{keyword}{using\ }std::unique\_ptr;}
 \DoxyCodeLine{00005\ \textcolor{keyword}{using\ }std::vector;}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }Node\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ left;}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ right;}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Node();}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \ \string~Node();}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ predict(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ print()\ =\ 0;}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ get\_num\_nodes()\ =\ 0;}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ get\_height()\ =\ 0;}
-\DoxyCodeLine{00020\ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }LeafNode\ :\ \textcolor{keyword}{public}\ Node\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ value;}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ left;}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ right;}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ LeafNode(\textcolor{keywordtype}{double}\ val);}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \string~LeafNode();}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Override\ methods}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ predict(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::string\ print()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_value(\textcolor{keywordtype}{double}\ val);}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_nodes()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_height()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00043\ \};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }DecisionNode\ :\ \textcolor{keyword}{public}\ Node\{}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ feature\_index;}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ threshold;}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ left;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ right;}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ DecisionNode(\textcolor{keywordtype}{int}\ feature\_index,\ \textcolor{keywordtype}{double}\ threshold,\ unique\_ptr<Node>\ left\_child,\ unique\_ptr<Node>\ right\_child);}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \string~DecisionNode();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Override\ methods}}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ predict(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::string\ print()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_feature\_index(\textcolor{keywordtype}{int}\ idx);}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_threshold(\textcolor{keywordtype}{double}\ thr);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_feature\_index()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ get\_threshold()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_nodes()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_height()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00071\ \};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NODE\_H}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ \mbox{\hyperlink{class_node_a45121b79c7ce5151664b76188d613ed0}{left}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ \mbox{\hyperlink{class_node_aa0e6fd281068bb34c5b7442bddd567b4}{right}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \ \mbox{\hyperlink{class_node_aa0840c3cb5c7159be6d992adecd2097c}{\string~Node}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}{predict}}(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_node_abd3b4b561203553104c753fb944b2dad}{print}}()\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_node_a79538468d2e025e22bbfd5089f364921}{get\_num\_nodes}}()\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{get\_height}}()\ =\ 0;}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}{LeafNode}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node}}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_leaf_node_a804a0c1ada30c1c0025ba98e8999c092}{value}};\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}{LeafNode}}(\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leaf_node_a187a88df5fb9fbd6983dab0888345ed8}{\string~LeafNode}}();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}{predict}}(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}{print}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leaf_node_aa18afe60343225f7028d344be16f809f}{set\_value}}(\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}{get\_num\_nodes}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}{get\_height}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_decision_node_a7c1e80ff87e99986e3f96979dc8002b4}{DecisionNode}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_node_ad7a34779cad45d997bfd6d3d8043c75f}{Node}}\{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_node_a3702271193eb7798180b96d8cf6ed4f3}{feature\_index}};\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_decision_node_a3c647d210ebc81ea45138d95b4ad759b}{threshold}};\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ \mbox{\hyperlink{class_decision_node_afb5fabd6981844bf54519c2fba6652f5}{left}};\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ \mbox{\hyperlink{class_decision_node_aa9a24a6d941c61fbc43ec644ea518345}{right}};\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_decision_node_a7c1e80ff87e99986e3f96979dc8002b4}{DecisionNode}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_node_a3702271193eb7798180b96d8cf6ed4f3}{feature\_index}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_decision_node_a3c647d210ebc81ea45138d95b4ad759b}{threshold}},\ unique\_ptr<Node>\ left\_child,\ unique\_ptr<Node>\ right\_child);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_decision_node_ae0f701d6611eaeed4ff96aa978068a25}{\string~DecisionNode}}();}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9}{predict}}(\textcolor{keyword}{const}\ vector<double>\&\ sample)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{print}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decision_node_ab1d515884940f3093b5b12b7f35e1fef}{set\_feature\_index}}(\textcolor{keywordtype}{int}\ idx);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decision_node_aac62382d66731ad4da8acba9ff276504}{set\_threshold}}(\textcolor{keywordtype}{double}\ thr);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_node_a2d28a72547269535728146fc1789975a}{get\_feature\_index}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_decision_node_af7335e5cb2a1942780065ddffd73a71d}{get\_threshold}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}{get\_num\_nodes}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}{get\_height}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00295\ \};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NODE\_H}}
 
 \end{DoxyCode}

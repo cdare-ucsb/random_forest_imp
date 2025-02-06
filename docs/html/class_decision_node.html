@@ -111,68 +111,164 @@ $(function(){initNavTree('class_decision_node.html',''); initResizable(true); })
   <div class="headertitle"><div class="title">DecisionNode Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that represents a decision node in a decision tree.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_node_8h_source.html">Node.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DecisionNode:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_decision_node.png" usemap="#DecisionNode_map" alt=""/>
   <map id="DecisionNode_map" name="DecisionNode_map">
-<area href="class_node.html" alt="Node" shape="rect" coords="0,0,91,24"/>
+<area href="class_node.html" title="A class that represents a node in a decision tree." alt="Node" shape="rect" coords="0,0,91,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c1e80ff87e99986e3f96979dc8002b4" id="r_a7c1e80ff87e99986e3f96979dc8002b4"><td class="memItemLeft" align="right" valign="top"><a id="a7c1e80ff87e99986e3f96979dc8002b4" name="a7c1e80ff87e99986e3f96979dc8002b4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DecisionNode</b> (int feature_index, double threshold, unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt; left_child, unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt; right_child)</td></tr>
+<tr class="memitem:a7c1e80ff87e99986e3f96979dc8002b4" id="r_a7c1e80ff87e99986e3f96979dc8002b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c1e80ff87e99986e3f96979dc8002b4">DecisionNode</a> (int <a class="el" href="#a3702271193eb7798180b96d8cf6ed4f3">feature_index</a>, double <a class="el" href="#a3c647d210ebc81ea45138d95b4ad759b">threshold</a>, unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt; left_child, unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt; right_child)</td></tr>
+<tr class="memdesc:a7c1e80ff87e99986e3f96979dc8002b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_decision_node.html" title="A class that represents a decision node in a decision tree.">DecisionNode</a>.  <br /></td></tr>
 <tr class="separator:a7c1e80ff87e99986e3f96979dc8002b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f701d6611eaeed4ff96aa978068a25" id="r_ae0f701d6611eaeed4ff96aa978068a25"><td class="memItemLeft" align="right" valign="top"><a id="ae0f701d6611eaeed4ff96aa978068a25" name="ae0f701d6611eaeed4ff96aa978068a25"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~DecisionNode</b> ()</td></tr>
+<tr class="memdesc:ae0f701d6611eaeed4ff96aa978068a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_decision_node.html" title="A class that represents a decision node in a decision tree.">DecisionNode</a>. <br /></td></tr>
+<tr class="separator:ae0f701d6611eaeed4ff96aa978068a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3269bf9a2a8f8f5e01a61b67fcca1e9" id="r_af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9">predict</a> (const vector&lt; double &gt; &amp;sample) const override</td></tr>
+<tr class="memdesc:af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict method.  <br /></td></tr>
 <tr class="separator:af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6df40dc71b2ce75bb6b682057d5e7fc" id="r_ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6df40dc71b2ce75bb6b682057d5e7fc">print</a> () override</td></tr>
+<tr class="memdesc:ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print method.  <br /></td></tr>
 <tr class="separator:ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1d515884940f3093b5b12b7f35e1fef" id="r_ab1d515884940f3093b5b12b7f35e1fef"><td class="memItemLeft" align="right" valign="top"><a id="ab1d515884940f3093b5b12b7f35e1fef" name="ab1d515884940f3093b5b12b7f35e1fef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_feature_index</b> (int idx)</td></tr>
+<tr class="memitem:ab1d515884940f3093b5b12b7f35e1fef" id="r_ab1d515884940f3093b5b12b7f35e1fef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d515884940f3093b5b12b7f35e1fef">set_feature_index</a> (int idx)</td></tr>
+<tr class="memdesc:ab1d515884940f3093b5b12b7f35e1fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the feature index.  <br /></td></tr>
 <tr class="separator:ab1d515884940f3093b5b12b7f35e1fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac62382d66731ad4da8acba9ff276504" id="r_aac62382d66731ad4da8acba9ff276504"><td class="memItemLeft" align="right" valign="top"><a id="aac62382d66731ad4da8acba9ff276504" name="aac62382d66731ad4da8acba9ff276504"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_threshold</b> (double thr)</td></tr>
+<tr class="memitem:aac62382d66731ad4da8acba9ff276504" id="r_aac62382d66731ad4da8acba9ff276504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac62382d66731ad4da8acba9ff276504">set_threshold</a> (double thr)</td></tr>
+<tr class="memdesc:aac62382d66731ad4da8acba9ff276504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the threshold.  <br /></td></tr>
 <tr class="separator:aac62382d66731ad4da8acba9ff276504"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d28a72547269535728146fc1789975a" id="r_a2d28a72547269535728146fc1789975a"><td class="memItemLeft" align="right" valign="top"><a id="a2d28a72547269535728146fc1789975a" name="a2d28a72547269535728146fc1789975a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_feature_index</b> () const</td></tr>
+<tr class="memitem:a2d28a72547269535728146fc1789975a" id="r_a2d28a72547269535728146fc1789975a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d28a72547269535728146fc1789975a">get_feature_index</a> () const</td></tr>
+<tr class="memdesc:a2d28a72547269535728146fc1789975a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the feature index.  <br /></td></tr>
 <tr class="separator:a2d28a72547269535728146fc1789975a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7335e5cb2a1942780065ddffd73a71d" id="r_af7335e5cb2a1942780065ddffd73a71d"><td class="memItemLeft" align="right" valign="top"><a id="af7335e5cb2a1942780065ddffd73a71d" name="af7335e5cb2a1942780065ddffd73a71d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_threshold</b> () const</td></tr>
+<tr class="memitem:af7335e5cb2a1942780065ddffd73a71d" id="r_af7335e5cb2a1942780065ddffd73a71d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7335e5cb2a1942780065ddffd73a71d">get_threshold</a> () const</td></tr>
+<tr class="memdesc:af7335e5cb2a1942780065ddffd73a71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the threshold.  <br /></td></tr>
 <tr class="separator:af7335e5cb2a1942780065ddffd73a71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afebb779c1a5dc736746f65e8b7c7b8fa" id="r_afebb779c1a5dc736746f65e8b7c7b8fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afebb779c1a5dc736746f65e8b7c7b8fa">get_num_nodes</a> () override</td></tr>
+<tr class="memdesc:afebb779c1a5dc736746f65e8b7c7b8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of nodes in the subtree rooted at this node.  <br /></td></tr>
 <tr class="separator:afebb779c1a5dc736746f65e8b7c7b8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add4bd7ef5bdf6a83f445f9689ce0ee16" id="r_add4bd7ef5bdf6a83f445f9689ce0ee16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add4bd7ef5bdf6a83f445f9689ce0ee16">get_height</a> () override</td></tr>
+<tr class="memdesc:add4bd7ef5bdf6a83f445f9689ce0ee16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height of the subtree rooted at this node.  <br /></td></tr>
 <tr class="separator:add4bd7ef5bdf6a83f445f9689ce0ee16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_node.html">Node</a></td></tr>
+<tr class="memitem:ad7a34779cad45d997bfd6d3d8043c75f inherit pub_methods_class_node" id="r_ad7a34779cad45d997bfd6d3d8043c75f"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> ()</td></tr>
+<tr class="memdesc:ad7a34779cad45d997bfd6d3d8043c75f inherit pub_methods_class_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> class. <br /></td></tr>
+<tr class="separator:ad7a34779cad45d997bfd6d3d8043c75f inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0840c3cb5c7159be6d992adecd2097c inherit pub_methods_class_node" id="r_aa0840c3cb5c7159be6d992adecd2097c"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Node</b> ()</td></tr>
+<tr class="memdesc:aa0840c3cb5c7159be6d992adecd2097c inherit pub_methods_class_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> class. <br /></td></tr>
+<tr class="separator:aa0840c3cb5c7159be6d992adecd2097c inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:afb5fabd6981844bf54519c2fba6652f5" id="r_afb5fabd6981844bf54519c2fba6652f5"><td class="memItemLeft" align="right" valign="top"><a id="afb5fabd6981844bf54519c2fba6652f5" name="afb5fabd6981844bf54519c2fba6652f5"></a>
 unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>left</b></td></tr>
+<tr class="memdesc:afb5fabd6981844bf54519c2fba6652f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the left child node. <br /></td></tr>
 <tr class="separator:afb5fabd6981844bf54519c2fba6652f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9a24a6d941c61fbc43ec644ea518345" id="r_aa9a24a6d941c61fbc43ec644ea518345"><td class="memItemLeft" align="right" valign="top"><a id="aa9a24a6d941c61fbc43ec644ea518345" name="aa9a24a6d941c61fbc43ec644ea518345"></a>
 unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>right</b></td></tr>
+<tr class="memdesc:aa9a24a6d941c61fbc43ec644ea518345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the right child node. <br /></td></tr>
 <tr class="separator:aa9a24a6d941c61fbc43ec644ea518345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_node"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_node')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_node.html">Node</a></td></tr>
 <tr class="memitem:a45121b79c7ce5151664b76188d613ed0 inherit pub_attribs_class_node" id="r_a45121b79c7ce5151664b76188d613ed0"><td class="memItemLeft" align="right" valign="top">
 unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>left</b></td></tr>
+<tr class="memdesc:a45121b79c7ce5151664b76188d613ed0 inherit pub_attribs_class_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the left child node. <br /></td></tr>
 <tr class="separator:a45121b79c7ce5151664b76188d613ed0 inherit pub_attribs_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e6fd281068bb34c5b7442bddd567b4 inherit pub_attribs_class_node" id="r_aa0e6fd281068bb34c5b7442bddd567b4"><td class="memItemLeft" align="right" valign="top">
 unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>right</b></td></tr>
+<tr class="memdesc:aa0e6fd281068bb34c5b7442bddd567b4 inherit pub_attribs_class_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the right child node. <br /></td></tr>
 <tr class="separator:aa0e6fd281068bb34c5b7442bddd567b4 inherit pub_attribs_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a3702271193eb7798180b96d8cf6ed4f3" id="r_a3702271193eb7798180b96d8cf6ed4f3"><td class="memItemLeft" align="right" valign="top"><a id="a3702271193eb7798180b96d8cf6ed4f3" name="a3702271193eb7798180b96d8cf6ed4f3"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>feature_index</b></td></tr>
+<tr class="memdesc:a3702271193eb7798180b96d8cf6ed4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the feature used for the decision rule. <br /></td></tr>
 <tr class="separator:a3702271193eb7798180b96d8cf6ed4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c647d210ebc81ea45138d95b4ad759b" id="r_a3c647d210ebc81ea45138d95b4ad759b"><td class="memItemLeft" align="right" valign="top"><a id="a3c647d210ebc81ea45138d95b4ad759b" name="a3c647d210ebc81ea45138d95b4ad759b"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td></tr>
+<tr class="memdesc:a3c647d210ebc81ea45138d95b4ad759b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Threshold value for the decision rule. <br /></td></tr>
 <tr class="separator:a3c647d210ebc81ea45138d95b4ad759b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that represents a decision node in a decision tree. </p>
+<p>This class represents a decision node in a decision tree. A decision node contains a decision rule based on an attribute and a value, and pointers to its left and right child nodes. The <a class="el" href="class_decision_node.html" title="A class that represents a decision node in a decision tree.">DecisionNode</a> class inherits from the <a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> class and implements the pure virtual methods defined in the <a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> class.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7c1e80ff87e99986e3f96979dc8002b4" name="a7c1e80ff87e99986e3f96979dc8002b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1e80ff87e99986e3f96979dc8002b4">&#9670;&#160;</a></span>DecisionNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DecisionNode::DecisionNode </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>feature_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>left_child</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unique_ptr&lt; <a class="el" href="class_node.html">Node</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>right_child</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_decision_node.html" title="A class that represents a decision node in a decision tree.">DecisionNode</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">feature_index</td><td>Index of the feature used for the decision rule </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the decision rule </td></tr>
+    <tr><td class="paramname">left_child</td><td>Pointer to the left child node </td></tr>
+    <tr><td class="paramname">right_child</td><td>Pointer to the right child node</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This constructor initializes a <a class="el" href="class_decision_node.html" title="A class that represents a decision node in a decision tree.">DecisionNode</a> with a given feature index, threshold, and pointers to its left and right child nodes. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2d28a72547269535728146fc1789975a" name="a2d28a72547269535728146fc1789975a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d28a72547269535728146fc1789975a">&#9670;&#160;</a></span>get_feature_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DecisionNode::get_feature_index </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the feature index. </p>
+<dl class="section return"><dt>Returns</dt><dd>Index of the feature used for the decision rule </dd></dl>
+
+</div>
+</div>
 <a id="add4bd7ef5bdf6a83f445f9689ce0ee16" name="add4bd7ef5bdf6a83f445f9689ce0ee16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add4bd7ef5bdf6a83f445f9689ce0ee16">&#9670;&#160;</a></span>get_height()</h2>
 
@@ -196,7 +292,16 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td><
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_node.html">Node</a>.</p>
+<p>Get the height of the subtree rooted at this node. </p>
+<dl class="section return"><dt>Returns</dt><dd>Height of the subtree rooted at this node</dd></dl>
+<p>This function returns the height of the subtree rooted at this node. Since the node is a decision node, the function recursively calculates the height of the subtree by calling the <a class="el" href="#add4bd7ef5bdf6a83f445f9689ce0ee16" title="Get the height of the subtree rooted at this node.">get_height()</a> method of the left and right child nodes. The function is called by the <a class="el" href="#add4bd7ef5bdf6a83f445f9689ce0ee16" title="Get the height of the subtree rooted at this node.">get_height()</a> method of the <a class="el" href="class_decision_tree.html" title="A class that represents a decision tree model using the ID3 algorithm for classification.">DecisionTree</a> class.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a375a37a13ace5f6e303f7e180f73f0e8" title="Get the height of the decision tree.">DecisionTree::get_height()</a> </dd>
+<dd>
+<a class="el" href="#add4bd7ef5bdf6a83f445f9689ce0ee16" title="Get the height of the subtree rooted at this node.">DecisionNode::get_height()</a> </dd>
+<dd>
+<a class="el" href="class_leaf_node.html#a4ee9a05ea28248b080ec0c42a4747490" title="Get the height of the subtree rooted at this node.">LeafNode::get_height()</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_node.html#aa8ce774f99b4384d233dd8daa896b2f0">Node</a>.</p>
 
 </div>
 </div>
@@ -223,7 +328,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td><
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_node.html">Node</a>.</p>
+<p>Get the number of nodes in the subtree rooted at this node. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of nodes in the subtree rooted at this node</dd></dl>
+<p>This function returns the number of nodes in the subtree rooted at this node. Since the node is a decision node, the function recursively calculates the number of nodes in the subtree by calling the <a class="el" href="#afebb779c1a5dc736746f65e8b7c7b8fa" title="Get the number of nodes in the subtree rooted at this node.">get_num_nodes()</a> method of the left and right child nodes. The function is called by the <a class="el" href="#afebb779c1a5dc736746f65e8b7c7b8fa" title="Get the number of nodes in the subtree rooted at this node.">get_num_nodes()</a> method of the <a class="el" href="class_decision_tree.html" title="A class that represents a decision tree model using the ID3 algorithm for classification.">DecisionTree</a> class.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a" title="Get the number of nodes in the decision tree.">DecisionTree::get_num_nodes()</a> </dd>
+<dd>
+<a class="el" href="#afebb779c1a5dc736746f65e8b7c7b8fa" title="Get the number of nodes in the subtree rooted at this node.">DecisionNode::get_num_nodes()</a> </dd>
+<dd>
+<a class="el" href="class_leaf_node.html#a8ffeee81f3646b47ce0661439c478585" title="Get the value of the leaf node.">LeafNode::get_num_nodes()</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_node.html#a79538468d2e025e22bbfd5089f364921">Node</a>.</p>
+
+</div>
+</div>
+<a id="af7335e5cb2a1942780065ddffd73a71d" name="af7335e5cb2a1942780065ddffd73a71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7335e5cb2a1942780065ddffd73a71d">&#9670;&#160;</a></span>get_threshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DecisionNode::get_threshold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>Threshold value for the decision rule </dd></dl>
 
 </div>
 </div>
@@ -250,7 +384,20 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td><
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_node.html">Node</a>.</p>
+<p>Predict method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>Vector of feature values for a single sample </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Predicted value for the sample</dd></dl>
+<p>This function takes a vector of feature values for a single sample and returns the predicted value. Since the node is a decision node, it checks the value of the feature at the feature index and compares it to the threshold. If the value is less than the threshold, the function calls the <a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9" title="Predict method.">predict()</a> method of the left child node. Otherwise, it calls the <a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9" title="Predict method.">predict()</a> method of the right child node.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5" title="Predict method.">DecisionTree::predict(std::vector&lt;double&gt; sample)</a> </dd>
+<dd>
+Node::predict(std::vector&lt;double&gt; sample) </dd></dl>
+
+<p>Implements <a class="el" href="class_node.html#a3e25c1fda66492a49fdc8dfcb02931a2">Node</a>.</p>
 
 </div>
 </div>
@@ -277,7 +424,64 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td><
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_node.html">Node</a>.</p>
+<p>Print method. </p>
+<dl class="section return"><dt>Returns</dt><dd>String representation of the node</dd></dl>
+<p>This function returns a string representation of the node. The function prints the decision rule based on the feature index and threshold, and the left and right child nodes. The function is called by the <a class="el" href="#ac6df40dc71b2ce75bb6b682057d5e7fc" title="Print method.">print()</a> method of the <a class="el" href="class_decision_tree.html" title="A class that represents a decision tree model using the ID3 algorithm for classification.">DecisionTree</a> class. The format of the string is "Feature &lt;feature_index&gt; &lt;= &lt;threshold&gt; ? &lt;left_child&gt; : &lt;right_child&gt;". For example, if the feature index is 0, the threshold is 0.5, and the left and right child nodes are leaf nodes with values 1.0 and 0.0, respectively, the string representation would be "Feature 0 &lt;= 0.5 ? (1.0) : (0.0)".</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e" title="Print method for the decision tree.">DecisionTree::print()</a> </dd>
+<dd>
+<a class="el" href="class_node.html#abd3b4b561203553104c753fb944b2dad" title="Print method.">Node::print()</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_node.html#abd3b4b561203553104c753fb944b2dad">Node</a>.</p>
+
+</div>
+</div>
+<a id="ab1d515884940f3093b5b12b7f35e1fef" name="ab1d515884940f3093b5b12b7f35e1fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d515884940f3093b5b12b7f35e1fef">&#9670;&#160;</a></span>set_feature_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DecisionNode::set_feature_index </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the feature index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>Index of the feature used for the decision rule </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac62382d66731ad4da8acba9ff276504" name="aac62382d66731ad4da8acba9ff276504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac62382d66731ad4da8acba9ff276504">&#9670;&#160;</a></span>set_threshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DecisionNode::set_threshold </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>thr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thr</td><td>Threshold value for the decision rule </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

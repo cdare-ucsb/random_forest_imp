@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['dataframe_0',['DataFrame',['../class_data_frame.html',1,'']]],
-  ['decisionnode_1',['DecisionNode',['../class_decision_node.html',1,'']]],
-  ['decisiontree_2',['DecisionTree',['../class_decision_tree.html',1,'DecisionTree'],['../class_decision_tree.html#a470fba8e51d63ec23701050de3f06647',1,'DecisionTree::DecisionTree()']]]
+  ['calculateentropy_0',['calculateEntropy',['../class_data_frame.html#a1be1d2d322cd5d633c6ce6afe10526c3',1,'DataFrame']]],
+  ['calculateinformationgain_1',['calculateInformationGain',['../class_data_frame.html#a61187bfa789567ccc329a3b363b6929f',1,'DataFrame']]],
+  ['column_5fmedian_2',['column_median',['../class_data_frame.html#a4dffdfe5c861ace228a1b07524729918',1,'DataFrame']]],
+  ['column_5fmode_3',['column_mode',['../class_data_frame.html#ac9a62f0b7229277c1aac323781f5f7c9',1,'DataFrame']]],
+  ['columns_4',['columns',['../class_data_frame.html#abff6edf35e7ad9d320c729e90014e1a5',1,'DataFrame']]]
 ];

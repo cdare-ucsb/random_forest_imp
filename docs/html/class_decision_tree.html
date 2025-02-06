@@ -129,6 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f555b5ecf4a639abae198d996e49a5a" id="r_a5f555b5ecf4a639abae198d996e49a5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f555b5ecf4a639abae198d996e49a5a">get_num_nodes</a> ()</td></tr>
 <tr class="memdesc:a5f555b5ecf4a639abae198d996e49a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of nodes in the decision tree.  <br /></td></tr>
 <tr class="separator:a5f555b5ecf4a639abae198d996e49a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375a37a13ace5f6e303f7e180f73f0e8" id="r_a375a37a13ace5f6e303f7e180f73f0e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a375a37a13ace5f6e303f7e180f73f0e8">get_height</a> ()</td></tr>
+<tr class="memdesc:a375a37a13ace5f6e303f7e180f73f0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height of the decision tree.  <br /></td></tr>
+<tr class="separator:a375a37a13ace5f6e303f7e180f73f0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b385d7f9b6650e12a8dcace04866456" id="r_a6b385d7f9b6650e12a8dcace04866456"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b385d7f9b6650e12a8dcace04866456">fit</a> (unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; df, string label_column, int max_depth, int minSamplesSplit)</td></tr>
 <tr class="memdesc:a6b385d7f9b6650e12a8dcace04866456"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fit method trains the decision tree using the ID3 algorithm.  <br /></td></tr>
 <tr class="separator:a6b385d7f9b6650e12a8dcace04866456"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +141,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class that represents a decision tree model using the ID3 algorithm for classification. </p>
-<p>This class represents a decision tree model that can be used for classification tasks. The tree is built using the ID3 algorithm, which is a top-down, greedy algorithm that selects the best attribute to split the data at each node based on the information gain. The tree is represented as a collection of nodes, where each node contains a decision rule based on an attribute and a value, and a pointer to its child nodes. The tree can be trained using the fit method, which takes a <a class="el" href="class_data_frame.html">DataFrame</a> object containing the training data and a label column, and builds the tree using the ID3 algorithm. The tree can be printed using the print method, which returns a string representation of the tree. The tree can be used to make predictions using the predict method, which takes a sample vector of feature values and returns the predicted class label. </p>
+<p>This class represents a decision tree model that can be used for classification tasks. The tree is built using the ID3 algorithm, which is a top-down, greedy algorithm that selects the best attribute to split the data at each node based on the information gain. The tree is represented as a collection of nodes, where each node contains a decision rule based on an attribute and a value, and a pointer to its child nodes. The tree can be trained using the fit method, which takes a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> object containing the training data and a label column, and builds the tree using the ID3 algorithm. The tree can be printed using the print method, which returns a string representation of the tree. The tree can be used to make predictions using the predict method, which takes a sample vector of feature values and returns the predicted class label. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a470fba8e51d63ec23701050de3f06647" name="a470fba8e51d63ec23701050de3f06647"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a470fba8e51d63ec23701050de3f06647">&#9670;&#160;</a></span>DecisionTree()</h2>
@@ -221,14 +224,14 @@ Public Member Functions</h2></td></tr>
 <p>The fit method trains the decision tree using the ID3 algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">df</td><td>unique_ptr to the <a class="el" href="class_data_frame.html">DataFrame</a> object containing the training data </td></tr>
-    <tr><td class="paramname">label_column</td><td>Name of the column in the <a class="el" href="class_data_frame.html">DataFrame</a> that contains the class labels </td></tr>
+    <tr><td class="paramname">df</td><td>unique_ptr to the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> object containing the training data </td></tr>
+    <tr><td class="paramname">label_column</td><td>Name of the column in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> that contains the class labels </td></tr>
     <tr><td class="paramname">max_depth</td><td>Maximum depth of the decision tree </td></tr>
     <tr><td class="paramname">minSamplesSplit</td><td>Minimum number of samples required to split a node</td></tr>
   </table>
   </dd>
 </dl>
-<p>This is the entry point for training the decision tree. The function takes a unique_ptr to a <a class="el" href="class_data_frame.html">DataFrame</a> and the name of the column containing the class labels, as well as the maximum depth of the tree and the minimum number of samples required to split a node. The function then calls the fit_helper() method to build the decision tree using the ID3 algorithm.</p>
+<p>This is the entry point for training the decision tree. The function takes a unique_ptr to a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> and the name of the column containing the class labels, as well as the maximum depth of the tree and the minimum number of samples required to split a node. The function then calls the fit_helper() method to build the decision tree using the ID3 algorithm.</p>
 <dl class="section see"><dt>See also</dt><dd>fit_helper(unique_ptr&lt;DataFrame&gt; df, string label_column, int max_depth, int minSamplesSplit)</dd></dl>
 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};</div>
 <div class="line">std::vector&lt;std::string&gt; columns1 = {<span class="stringliteral">&quot;A&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;C&quot;</span>};</div>
@@ -238,6 +241,28 @@ Public Member Functions</h2></td></tr>
 <div class="ttc" id="aclass_decision_tree_html_a470fba8e51d63ec23701050de3f06647"><div class="ttname"><a href="#a470fba8e51d63ec23701050de3f06647">DecisionTree::DecisionTree</a></div><div class="ttdeci">DecisionTree()</div><div class="ttdoc">Constructor for the DecisionTree class.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:86</div></div>
 <div class="ttc" id="aclass_decision_tree_html_a6b385d7f9b6650e12a8dcace04866456"><div class="ttname"><a href="#a6b385d7f9b6650e12a8dcace04866456">DecisionTree::fit</a></div><div class="ttdeci">void fit(unique_ptr&lt; DataFrame &gt; df, string label_column, int max_depth, int minSamplesSplit)</div><div class="ttdoc">The fit method trains the decision tree using the ID3 algorithm.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:101</div></div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="a375a37a13ace5f6e303f7e180f73f0e8" name="a375a37a13ace5f6e303f7e180f73f0e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375a37a13ace5f6e303f7e180f73f0e8">&#9670;&#160;</a></span>get_height()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DecisionTree::get_height </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the height of the decision tree. </p>
+<dl class="section return"><dt>Returns</dt><dd>the height, as an integer, of the fitted decision tree.</dd></dl>
+<p>This function returns the height of the decision tree starting from the root node. In the case that tree is empty or consists of a single leaf node (i.e. the root is a leaf node) the function returns 0. The function simply calls the <a class="el" href="#a375a37a13ace5f6e303f7e180f73f0e8" title="Get the height of the decision tree.">get_height()</a> method of the root, which recursively calculates the height of its children.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_node.html#aa8ce774f99b4384d233dd8daa896b2f0" title="Get the height of the subtree rooted at this node.">Node::get_height()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a5f555b5ecf4a639abae198d996e49a5a" name="a5f555b5ecf4a639abae198d996e49a5a"></a>
@@ -258,7 +283,7 @@ Public Member Functions</h2></td></tr>
 <p>Get the number of nodes in the decision tree. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of nodes in the decision tree</dd></dl>
 <p>This function returns the number of nodes in the decision tree. The function simply calls the <a class="el" href="#a5f555b5ecf4a639abae198d996e49a5a" title="Get the number of nodes in the decision tree.">get_num_nodes()</a> method of the root node, which recursively calculates the number of nodes in the tree.</p>
-<dl class="section see"><dt>See also</dt><dd>Node::get_num_nodes() </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_node.html#a79538468d2e025e22bbfd5089f364921" title="Get the number of nodes in the subtree rooted at this node.">Node::get_num_nodes()</a> </dd></dl>
 
 </div>
 </div>
@@ -291,8 +316,12 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>This function takes a vector of feature values for a single sample and returns the predicted. class label. The function traverses the decision tree starting from the root node and follows the decision rules at each node to determine the predicted class label for the sample. The actual recusion is implemented in the <a class="el" href="class_node.html">Node</a> class, and this function simply calls the <a class="el" href="#a30ee6b32be46c944992d22298a9d03d5" title="Predict method.">predict()</a> method of the root node.</p>
-<dl class="section see"><dt>See also</dt><dd>Node::predict(const vector&lt;double&gt;&amp; sample)</dd></dl>
+<p>This function takes a vector of feature values for a single sample and returns the predicted. class label. The function traverses the decision tree starting from the root node and follows the decision rules at each node to determine the predicted class label for the sample. The actual recusion is implemented in the <a class="el" href="class_node.html" title="A class that represents a node in a decision tree.">Node</a> class, and this function simply calls the <a class="el" href="#a30ee6b32be46c944992d22298a9d03d5" title="Predict method.">predict()</a> method of the root node.</p>
+<dl class="section see"><dt>See also</dt><dd>Node::predict(std::vector&lt;double&gt; sample) </dd>
+<dd>
+DecisionNode::predict(const std::vector&lt;double&gt;&amp; sample) const </dd>
+<dd>
+<a class="el" href="class_leaf_node.html#a0ae89708c0dc131c1c2741a8b01b70a9" title="Predict the value for a given sample.">LeafNode::predict(const vector&lt;double&gt;&amp; sample) const</a></dd></dl>
 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};</div>
 <div class="line">std::vector&lt;std::string&gt; columns1 = {<span class="stringliteral">&quot;A&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;C&quot;</span>};</div>
 <div class="line">unique_ptr&lt;DataFrame&gt; df1 = std::make_unique&lt;DataFrame&gt;(data1, columns1);</div>
@@ -321,7 +350,7 @@ Public Member Functions</h2></td></tr>
 <p>Print method for the decision tree. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">col_names</td><td>Vector of column names from the <a class="el" href="class_data_frame.html">DataFrame</a> that was used to train the decision tree </td></tr>
+    <tr><td class="paramname">col_names</td><td>Vector of column names from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> that was used to train the decision tree </td></tr>
   </table>
   </dd>
 </dl>
@@ -329,7 +358,7 @@ Public Member Functions</h2></td></tr>
 <p>This function returns a string representation of the decision tree. The function calls the print_helper() method to traverse the tree starting from the root node and build the string representation of the tree.</p>
 <dl class="section see"><dt>See also</dt><dd>print_helper(const Node* node, const vector&lt;string&gt;&amp; col_names, const string&amp; prefix, bool isLeft, std::ostringstream&amp; oss) </dd>
 <dd>
-Node::print()</dd></dl>
+<a class="el" href="class_node.html#abd3b4b561203553104c753fb944b2dad" title="Print method.">Node::print()</a></dd></dl>
 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};</div>
 <div class="line">std::vector&lt;std::string&gt; columns1 = {<span class="stringliteral">&quot;A&quot;</span>, <span class="stringliteral">&quot;B&quot;</span>, <span class="stringliteral">&quot;C&quot;</span>};</div>
 <div class="line">unique_ptr&lt;DataFrame&gt; df1 = std::make_unique&lt;DataFrame&gt;(data1, columns1);</div>

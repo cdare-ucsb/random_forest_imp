@@ -1,5 +1,14 @@
 \doxysection{Leaf\+Node Class Reference}
 \hypertarget{class_leaf_node}{}\label{class_leaf_node}\index{LeafNode@{LeafNode}}
+
+
+A class that represents a leaf node in a decision tree.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
 Inheritance diagram for Leaf\+Node\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,40 +18,72 @@ Inheritance diagram for Leaf\+Node\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}\label{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739} 
-{\bfseries Leaf\+Node} (double val)
-\item 
+\mbox{\hyperlink{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}{Leaf\+Node}} (double val)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_leaf_node}{Leaf\+Node}. \end{DoxyCompactList}\item 
+\Hypertarget{class_leaf_node_a187a88df5fb9fbd6983dab0888345ed8}\label{class_leaf_node_a187a88df5fb9fbd6983dab0888345ed8} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Leaf\+Node} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_leaf_node}{Leaf\+Node}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}{predict}} (const vector$<$ double $>$ \&sample) const override
-\item 
+\begin{DoxyCompactList}\small\item\em Predict the value for a given sample. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}{print}} () override
-\item 
-\Hypertarget{class_leaf_node_aa18afe60343225f7028d344be16f809f}\label{class_leaf_node_aa18afe60343225f7028d344be16f809f} 
-void {\bfseries set\+\_\+value} (double val)
-\item 
+\begin{DoxyCompactList}\small\item\em Print the leaf node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leaf_node_aa18afe60343225f7028d344be16f809f}{set\+\_\+value}} (double val)
+\begin{DoxyCompactList}\small\item\em Set the value of the leaf node. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}{get\+\_\+num\+\_\+nodes}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Get the value of the leaf node. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}{get\+\_\+height}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the height of the subtree rooted at this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_node}{Node}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Node} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_node}{Node} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Node} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_node}{Node} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_leaf_node_a804a0c1ada30c1c0025ba98e8999c092}\label{class_leaf_node_a804a0c1ada30c1c0025ba98e8999c092} 
 double {\bfseries value}
-\item 
-\Hypertarget{class_leaf_node_a340f36a6fb42d297f79418a4bde6de76}\label{class_leaf_node_a340f36a6fb42d297f79418a4bde6de76} 
-unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
-\item 
-\Hypertarget{class_leaf_node_a63f6b6229ecc90a852ecf91cb3962d38}\label{class_leaf_node_a63f6b6229ecc90a852ecf91cb3962d38} 
-unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Value that the leaf node should predict in the decision tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_node}{Node}}}
 \begin{DoxyCompactItemize}
 \item 
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
-\item 
+\begin{DoxyCompactList}\small\item\em Pointer to the left child node. \end{DoxyCompactList}\item 
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to the right child node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents a leaf node in a decision tree. 
+
+This class represents a leaf node in a decision tree. A leaf node contains a predicted value for the target variable. The \doxylink{class_leaf_node}{Leaf\+Node} class inherits from the \doxylink{class_node}{Node} class and implements the pure virtual methods defined in the \doxylink{class_node}{Node} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_node}{Node} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}\index{LeafNode@{LeafNode}!LeafNode@{LeafNode}}
+\index{LeafNode@{LeafNode}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{LeafNode()}{LeafNode()}}
+{\footnotesize\ttfamily \label{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739} 
+Leaf\+Node\+::\+Leaf\+Node (\begin{DoxyParamCaption}\item[{double}]{val}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_leaf_node}{Leaf\+Node}. 
+
+This constructor initializes a \doxylink{class_leaf_node}{Leaf\+Node} with a given value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value that the leaf node should predict \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -54,7 +95,23 @@ int Leaf\+Node\+::get\+\_\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCap
 
 
 
-Implements \mbox{\hyperlink{class_node}{Node}}.
+Get the height of the subtree rooted at this node. 
+
+\begin{DoxyReturn}{Returns}
+Height of the subtree rooted at this node
+\end{DoxyReturn}
+This method overrides the corresponding method in the \doxylink{class_node}{Node} class; since the node is a leaf node, it should have no children and thus return 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8}{Decision\+Tree\+::get\+\_\+height()} 
+
+\doxylink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{Node\+::get\+\_\+height()} 
+
+\doxylink{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}{Decision\+Node\+::get\+\_\+height()} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{Node}}.
 
 \Hypertarget{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}\index{LeafNode@{LeafNode}!get\_num\_nodes@{get\_num\_nodes}}
 \index{get\_num\_nodes@{get\_num\_nodes}!LeafNode@{LeafNode}}
@@ -64,7 +121,23 @@ int Leaf\+Node\+::get\+\_\+num\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{Doxy
 
 
 
-Implements \mbox{\hyperlink{class_node}{Node}}.
+Get the value of the leaf node. 
+
+\begin{DoxyReturn}{Returns}
+The value that the leaf node should predict
+\end{DoxyReturn}
+This method overrides the corresponding method in the \doxylink{class_node}{Node} class; since the node is a leaf node, it should have no children and thus return just itself.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}{Decision\+Tree\+::get\+\_\+num\+\_\+nodes()} 
+
+\doxylink{class_node_a79538468d2e025e22bbfd5089f364921}{Node\+::get\+\_\+num\+\_\+nodes()} 
+
+\doxylink{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}{Decision\+Node\+::get\+\_\+num\+\_\+nodes()} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_node_a79538468d2e025e22bbfd5089f364921}{Node}}.
 
 \Hypertarget{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}\index{LeafNode@{LeafNode}!predict@{predict}}
 \index{predict@{predict}!LeafNode@{LeafNode}}
@@ -74,7 +147,28 @@ double Leaf\+Node\+::predict (\begin{DoxyParamCaption}\item[{const vector$<$ dou
 
 
 
-Implements \mbox{\hyperlink{class_node}{Node}}.
+Predict the value for a given sample. 
+
+This method predicts the value for the target variable based on the given sample. Since the node is a leaf node, it simply the value that the leaf node should predict (i.\+e. the value variable).
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A vector of feature values representing the sample \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predicted value for the target variable
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}{Decision\+Tree\+::predict(std\+::vector$<$double$>$ sample)} 
+
+Node\+::predict(std\+::vector$<$double$>$ sample) 
+
+Decision\+Node\+::predict(std\+::vector$<$double$>$ sample) 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}{Node}}.
 
 \Hypertarget{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}\index{LeafNode@{LeafNode}!print@{print}}
 \index{print@{print}!LeafNode@{LeafNode}}
@@ -84,9 +178,40 @@ std\+::string Leaf\+Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCap
 
 
 
-Implements \mbox{\hyperlink{class_node}{Node}}.
+Print the leaf node. 
+
+\begin{DoxyReturn}{Returns}
+A string representation of the leaf node
+\end{DoxyReturn}
+This method returns a string representation of the leaf node. The string representation includes the value that the leaf node should predict. The format of the string is "{}(value)"{}. For example, if the value is 1.\+0, the string representation would be "{}(1.\+0)"{}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a87a02c9842a2e727248535d86bcfb29e}{Decision\+Tree\+::print()} 
+
+\doxylink{class_node_abd3b4b561203553104c753fb944b2dad}{Node\+::print()} 
+
+\doxylink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{Decision\+Node\+::print()} 
+\end{DoxySeeAlso}
 
 
+Implements \mbox{\hyperlink{class_node_abd3b4b561203553104c753fb944b2dad}{Node}}.
+
+\Hypertarget{class_leaf_node_aa18afe60343225f7028d344be16f809f}\index{LeafNode@{LeafNode}!set\_value@{set\_value}}
+\index{set\_value@{set\_value}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{set\_value()}{set\_value()}}
+{\footnotesize\ttfamily \label{class_leaf_node_aa18afe60343225f7028d344be16f809f} 
+void Leaf\+Node\+::set\+\_\+value (\begin{DoxyParamCaption}\item[{double}]{val}{}\end{DoxyParamCaption})}
+
+
+
+Set the value of the leaf node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value that the leaf node should predict\\
+\hline
+\end{DoxyParams}
+This method sets the value that the leaf node should predict. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

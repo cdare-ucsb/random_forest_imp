@@ -13,7 +13,11 @@ using std::string;
 using std::unique_ptr;
 
 
-// Helper functions
+/* -------------------------------------------------- */
+/* -------------- HELPER FUNCTIONS -------------------*/
+/* -------------------------------------------------- */
+
+
 // Function to calculate entropy of a dataset
 double DataFrame::calculateEntropy(const vector<double>& labels) {
 
@@ -32,7 +36,9 @@ double DataFrame::calculateEntropy(const vector<double>& labels) {
 
     return entropy;
 }
-        // Function to calculate information gain of an attribute
+
+
+// Function to calculate information gain of an attribute
 double DataFrame::calculateInformationGain(int attributeIndex, string label_column) {
 
     // Check if the attribute index is valid
@@ -81,6 +87,8 @@ double DataFrame::calculateInformationGain(int attributeIndex, string label_colu
     return initialEntropy - weightedEntropy;
 }
 
+
+// Helper functions for filtering
 unique_ptr<DataFrame> DataFrame::filter_lt(int attributeIndex, double threshold) {
     if (attributeIndex >= this->columns.size() || attributeIndex < 0) {
         throw std::invalid_argument("Attribute index out of range");
@@ -170,6 +178,12 @@ unique_ptr<DataFrame> DataFrame::filter_neq(int attributeIndex, double threshold
 
     return std::make_unique<DataFrame>(filtered_data, this->columns);
 }
+
+
+
+/* -------------------------------------------------- */
+/* -------------- CLASS IMPLEMENTATION ---------------*/
+/* -------------------------------------------------- */
 
 
 // Constructor
@@ -308,9 +322,11 @@ int DataFrame::selectBestAttribute(string label_column) {
     return bestAttribute;
 }
 
-
+// Returns the median of the specified column
 double DataFrame::column_median(string col_name) {
     vector<double> column = this->get_column(col_name);
+
+    // Ensure the column is not empty
     size_t size = column.size();
     if (size == 0) {
         throw std::invalid_argument("Column is empty");
@@ -324,7 +340,7 @@ double DataFrame::column_median(string col_name) {
     }
 }
 
-
+// Returns the mode (most frequent value) of the specified column
 double DataFrame::column_mode(string col_name) {
     vector<double> column = this->get_column(col_name);
     std::map<double, int> frequency;
@@ -362,8 +378,3 @@ unique_ptr<DataFrame> DataFrame::filter(int attributeIndex, double threshold, st
         throw std::invalid_argument("Invalid condition");
     }
 }
-
-
-
-
-

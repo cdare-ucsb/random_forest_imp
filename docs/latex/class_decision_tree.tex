@@ -20,6 +20,8 @@ double \mbox{\hyperlink{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}{p
 \begin{DoxyCompactList}\small\item\em Predict method. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}{get\+\_\+num\+\_\+nodes}} ()
 \begin{DoxyCompactList}\small\item\em Get the number of nodes in the decision tree. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8}{get\+\_\+height}} ()
+\begin{DoxyCompactList}\small\item\em Get the height of the decision tree. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_decision_tree_a6b385d7f9b6650e12a8dcace04866456}{fit}} (unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ df, string label\+\_\+column, int max\+\_\+depth, int min\+Samples\+Split)
 \begin{DoxyCompactList}\small\item\em The fit method trains the decision tree using the ID3 algorithm. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_decision_tree_a87a02c9842a2e727248535d86bcfb29e}{print}} (vector$<$ string $>$ col\+\_\+names)
@@ -90,7 +92,25 @@ fit\+\_\+helper(unique\+\_\+ptr$<$\+Data\+Frame$>$ df, string label\+\_\+column,
 \DoxyCodeLine{dt1.\mbox{\hyperlink{class_decision_tree_a6b385d7f9b6650e12a8dcace04866456}{fit}}(std::move(df1),\ \textcolor{stringliteral}{"{}C"{}},\ 3,\ 1);}
 
 \end{DoxyCode}
- \Hypertarget{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}\index{DecisionTree@{DecisionTree}!get\_num\_nodes@{get\_num\_nodes}}
+ \Hypertarget{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8}\index{DecisionTree@{DecisionTree}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!DecisionTree@{DecisionTree}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily \label{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8} 
+int Decision\+Tree\+::get\+\_\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the height of the decision tree. 
+
+\begin{DoxyReturn}{Returns}
+the height, as an integer, of the fitted decision tree.
+\end{DoxyReturn}
+This function returns the height of the decision tree starting from the root node. In the case that tree is empty or consists of a single leaf node (i.\+e. the root is a leaf node) the function returns 0. The function simply calls the \doxylink{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8}{get\+\_\+height()} method of the root, which recursively calculates the height of its children.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{Node\+::get\+\_\+height()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}\index{DecisionTree@{DecisionTree}!get\_num\_nodes@{get\_num\_nodes}}
 \index{get\_num\_nodes@{get\_num\_nodes}!DecisionTree@{DecisionTree}}
 \doxysubsubsection{\texorpdfstring{get\_num\_nodes()}{get\_num\_nodes()}}
 {\footnotesize\ttfamily \label{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a} 
@@ -106,7 +126,7 @@ Number of nodes in the decision tree
 This function returns the number of nodes in the decision tree. The function simply calls the \doxylink{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}{get\+\_\+num\+\_\+nodes()} method of the root node, which recursively calculates the number of nodes in the tree.
 
 \begin{DoxySeeAlso}{See also}
-Node\+::get\+\_\+num\+\_\+nodes() 
+\doxylink{class_node_a79538468d2e025e22bbfd5089f364921}{Node\+::get\+\_\+num\+\_\+nodes()} 
 \end{DoxySeeAlso}
 \Hypertarget{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}\index{DecisionTree@{DecisionTree}!predict@{predict}}
 \index{predict@{predict}!DecisionTree@{DecisionTree}}
@@ -134,7 +154,11 @@ Predicted class label for the sample
 This function takes a vector of feature values for a single sample and returns the predicted. class label. The function traverses the decision tree starting from the root node and follows the decision rules at each node to determine the predicted class label for the sample. The actual recusion is implemented in the \doxylink{class_node}{Node} class, and this function simply calls the \doxylink{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}{predict()} method of the root node.
 
 \begin{DoxySeeAlso}{See also}
-Node\+::predict(const vector$<$double$>$\& sample)
+Node\+::predict(std\+::vector$<$double$>$ sample) 
+
+Decision\+Node\+::predict(const std\+::vector$<$double$>$\& sample) const 
+
+\doxylink{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}{Leaf\+Node\+::predict(const vector$<$double$>$\& sample) const}
 \end{DoxySeeAlso}
 
 \begin{DoxyCode}{0}
@@ -169,7 +193,7 @@ This function returns a string representation of the decision tree. The function
 \begin{DoxySeeAlso}{See also}
 print\+\_\+helper(const Node\texorpdfstring{$\ast$}{*} node, const vector$<$string$>$\& col\+\_\+names, const string\& prefix, bool is\+Left, std\+::ostringstream\& oss) 
 
-Node\+::print()
+\doxylink{class_node_abd3b4b561203553104c753fb944b2dad}{Node\+::print()}
 \end{DoxySeeAlso}
 
 \begin{DoxyCode}{0}

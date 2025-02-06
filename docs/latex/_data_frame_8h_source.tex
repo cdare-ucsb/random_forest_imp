@@ -9,56 +9,53 @@
 \DoxyCodeLine{00005\ \textcolor{keyword}{using\ }std::string;}
 \DoxyCodeLine{00006\ \textcolor{keyword}{using\ }std::unique\_ptr;}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }DataFrame\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ vector<vector<double>>\ data;}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ calculate\ entropy\ of\ a\ dataset}}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ calculateEntropy(\textcolor{keyword}{const}\ vector<double>\&\ labels);}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ calculate\ information\ gain\ of\ an\ attribute}}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ calculateInformationGain(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{string}\ label\_column);}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_lt(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_leq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_gt(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_geq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_eq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_neq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ vector<string>\ columns;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ DataFrame(std::vector<vector<double>>\ data,\ vector<string>\ columns);}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \string~DataFrame();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ vector<vector<double>>\ get\_data();}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_rows();}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ vector<double>\ get\_column(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ print\ the\ DataFrame}}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ print();}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ find\ the\ best\ attribute\ (highest\ information\ gain)}}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ selectBestAttribute(\textcolor{keywordtype}{string}\ label\_column);}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ column\_median(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ column\_mode(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Filter\ method}}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold,\ \textcolor{keywordtype}{string}\ condition);}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_frame_a386118b2c08f3261812f70bfa16501f9}{DataFrame}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ vector<vector<double>>\ \mbox{\hyperlink{class_data_frame_a3af5e5864b06c416027e9da0530ddb1c}{data}};\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a1be1d2d322cd5d633c6ce6afe10526c3}{calculateEntropy}}(\textcolor{keyword}{const}\ vector<double>\&\ labels);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a61187bfa789567ccc329a3b363b6929f}{calculateInformationGain}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{string}\ label\_column);}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00049\ \};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a3e4fa2414fcd8a0046f35a80508497bc}{filter\_lt}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAFRAME\_H}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a1333d70f6c8852915b60a854a125a835}{filter\_leq}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a8235d871a79ee7fd312b3327545a14e8}{filter\_gt}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a73963447b6f22f9e07fc3e3d32a5a082}{filter\_geq}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a34413f4375d53e1d03d7e0b87120ea45}{filter\_eq}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_af2dac7b5d6f47ce370f46782fc0fbc84}{filter\_neq}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}};\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_a386118b2c08f3261812f70bfa16501f9}{DataFrame}}(std::vector<vector<double>>\ \mbox{\hyperlink{class_data_frame_a3af5e5864b06c416027e9da0530ddb1c}{data}},\ vector<string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_ae8baea1e0005895e8b18870befe21112}{\string~DataFrame}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ vector<vector<double>>\ \mbox{\hyperlink{class_data_frame_a59923427bd0a1af4a8a3c555d2836f36}{get\_data}}();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_frame_a58fd05fb5f216fdb64a5daeea411b450}{get\_num\_rows}}();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ vector<double>\ \mbox{\hyperlink{class_data_frame_ac0df43cb83d0f8d7a41a0ab153c76aa3}{get\_column}}(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_abc5875fe944b7482cfe727576df8f17d}{print}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_frame_ae0a9596528bc58a13b7a2f9282ab1b0d}{selectBestAttribute}}(\textcolor{keywordtype}{string}\ label\_column);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a4dffdfe5c861ace228a1b07524729918}{column\_median}}(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_ac9a62f0b7229277c1aac323781f5f7c9}{column\_mode}}(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a04a5009251e037857f4d31bc2c19a64c}{filter}}(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold,\ \textcolor{keywordtype}{string}\ condition);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00200\ \};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAFRAME\_H}}
 
 \end{DoxyCode}

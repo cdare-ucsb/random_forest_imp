@@ -112,76 +112,680 @@ $(function(){initNavTree('class_data_frame.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">DataFrame Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> class.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_data_frame_8h_source.html">DataFrame.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a386118b2c08f3261812f70bfa16501f9" id="r_a386118b2c08f3261812f70bfa16501f9"><td class="memItemLeft" align="right" valign="top"><a id="a386118b2c08f3261812f70bfa16501f9" name="a386118b2c08f3261812f70bfa16501f9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DataFrame</b> (std::vector&lt; vector&lt; double &gt; &gt; data, vector&lt; string &gt; columns)</td></tr>
+<tr class="memitem:a386118b2c08f3261812f70bfa16501f9" id="r_a386118b2c08f3261812f70bfa16501f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a386118b2c08f3261812f70bfa16501f9">DataFrame</a> (std::vector&lt; vector&lt; double &gt; &gt; <a class="el" href="#a3af5e5864b06c416027e9da0530ddb1c">data</a>, vector&lt; string &gt; <a class="el" href="#abff6edf35e7ad9d320c729e90014e1a5">columns</a>)</td></tr>
+<tr class="memdesc:a386118b2c08f3261812f70bfa16501f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
 <tr class="separator:a386118b2c08f3261812f70bfa16501f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59923427bd0a1af4a8a3c555d2836f36" id="r_a59923427bd0a1af4a8a3c555d2836f36"><td class="memItemLeft" align="right" valign="top"><a id="a59923427bd0a1af4a8a3c555d2836f36" name="a59923427bd0a1af4a8a3c555d2836f36"></a>
-vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_data</b> ()</td></tr>
+<tr class="memitem:ae8baea1e0005895e8b18870befe21112" id="r_ae8baea1e0005895e8b18870befe21112"><td class="memItemLeft" align="right" valign="top"><a id="ae8baea1e0005895e8b18870befe21112" name="ae8baea1e0005895e8b18870befe21112"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~DataFrame</b> ()</td></tr>
+<tr class="memdesc:ae8baea1e0005895e8b18870befe21112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. <br /></td></tr>
+<tr class="separator:ae8baea1e0005895e8b18870befe21112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59923427bd0a1af4a8a3c555d2836f36" id="r_a59923427bd0a1af4a8a3c555d2836f36"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59923427bd0a1af4a8a3c555d2836f36">get_data</a> ()</td></tr>
+<tr class="memdesc:a59923427bd0a1af4a8a3c555d2836f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the data of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
 <tr class="separator:a59923427bd0a1af4a8a3c555d2836f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58fd05fb5f216fdb64a5daeea411b450" id="r_a58fd05fb5f216fdb64a5daeea411b450"><td class="memItemLeft" align="right" valign="top"><a id="a58fd05fb5f216fdb64a5daeea411b450" name="a58fd05fb5f216fdb64a5daeea411b450"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_num_rows</b> ()</td></tr>
+<tr class="memitem:a58fd05fb5f216fdb64a5daeea411b450" id="r_a58fd05fb5f216fdb64a5daeea411b450"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fd05fb5f216fdb64a5daeea411b450">get_num_rows</a> ()</td></tr>
+<tr class="memdesc:a58fd05fb5f216fdb64a5daeea411b450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the column names of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
 <tr class="separator:a58fd05fb5f216fdb64a5daeea411b450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0df43cb83d0f8d7a41a0ab153c76aa3" id="r_ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="memItemLeft" align="right" valign="top"><a id="ac0df43cb83d0f8d7a41a0ab153c76aa3" name="ac0df43cb83d0f8d7a41a0ab153c76aa3"></a>
-vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_column</b> (string col_name)</td></tr>
+<tr class="memitem:ac0df43cb83d0f8d7a41a0ab153c76aa3" id="r_ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0df43cb83d0f8d7a41a0ab153c76aa3">get_column</a> (string col_name)</td></tr>
+<tr class="memdesc:ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the number of columns in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
 <tr class="separator:ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc5875fe944b7482cfe727576df8f17d" id="r_abc5875fe944b7482cfe727576df8f17d"><td class="memItemLeft" align="right" valign="top"><a id="abc5875fe944b7482cfe727576df8f17d" name="abc5875fe944b7482cfe727576df8f17d"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:abc5875fe944b7482cfe727576df8f17d" id="r_abc5875fe944b7482cfe727576df8f17d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc5875fe944b7482cfe727576df8f17d">print</a> ()</td></tr>
+<tr class="memdesc:abc5875fe944b7482cfe727576df8f17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which prints the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> as a table.  <br /></td></tr>
 <tr class="separator:abc5875fe944b7482cfe727576df8f17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0a9596528bc58a13b7a2f9282ab1b0d" id="r_ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="memItemLeft" align="right" valign="top"><a id="ae0a9596528bc58a13b7a2f9282ab1b0d" name="ae0a9596528bc58a13b7a2f9282ab1b0d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>selectBestAttribute</b> (string label_column)</td></tr>
+<tr class="memitem:ae0a9596528bc58a13b7a2f9282ab1b0d" id="r_ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0a9596528bc58a13b7a2f9282ab1b0d">selectBestAttribute</a> (string label_column)</td></tr>
+<tr class="memdesc:ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which calculates the attribute with the greatest information gain.  <br /></td></tr>
 <tr class="separator:ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dffdfe5c861ace228a1b07524729918" id="r_a4dffdfe5c861ace228a1b07524729918"><td class="memItemLeft" align="right" valign="top"><a id="a4dffdfe5c861ace228a1b07524729918" name="a4dffdfe5c861ace228a1b07524729918"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>column_median</b> (string col_name)</td></tr>
+<tr class="memitem:a4dffdfe5c861ace228a1b07524729918" id="r_a4dffdfe5c861ace228a1b07524729918"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dffdfe5c861ace228a1b07524729918">column_median</a> (string col_name)</td></tr>
+<tr class="memdesc:a4dffdfe5c861ace228a1b07524729918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the median of a column.  <br /></td></tr>
 <tr class="separator:a4dffdfe5c861ace228a1b07524729918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a62f0b7229277c1aac323781f5f7c9" id="r_ac9a62f0b7229277c1aac323781f5f7c9"><td class="memItemLeft" align="right" valign="top"><a id="ac9a62f0b7229277c1aac323781f5f7c9" name="ac9a62f0b7229277c1aac323781f5f7c9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>column_mode</b> (string col_name)</td></tr>
+<tr class="memitem:ac9a62f0b7229277c1aac323781f5f7c9" id="r_ac9a62f0b7229277c1aac323781f5f7c9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a62f0b7229277c1aac323781f5f7c9">column_mode</a> (string col_name)</td></tr>
+<tr class="memdesc:ac9a62f0b7229277c1aac323781f5f7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the mode of a column.  <br /></td></tr>
 <tr class="separator:ac9a62f0b7229277c1aac323781f5f7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04a5009251e037857f4d31bc2c19a64c" id="r_a04a5009251e037857f4d31bc2c19a64c"><td class="memItemLeft" align="right" valign="top"><a id="a04a5009251e037857f4d31bc2c19a64c" name="a04a5009251e037857f4d31bc2c19a64c"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter</b> (int attributeIndex, double threshold, string condition)</td></tr>
+<tr class="memitem:a04a5009251e037857f4d31bc2c19a64c" id="r_a04a5009251e037857f4d31bc2c19a64c"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04a5009251e037857f4d31bc2c19a64c">filter</a> (int attributeIndex, double threshold, string condition)</td></tr>
+<tr class="memdesc:a04a5009251e037857f4d31bc2c19a64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to filter the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on a condition.  <br /></td></tr>
 <tr class="separator:a04a5009251e037857f4d31bc2c19a64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:abff6edf35e7ad9d320c729e90014e1a5" id="r_abff6edf35e7ad9d320c729e90014e1a5"><td class="memItemLeft" align="right" valign="top"><a id="abff6edf35e7ad9d320c729e90014e1a5" name="abff6edf35e7ad9d320c729e90014e1a5"></a>
 vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>columns</b></td></tr>
+<tr class="memdesc:abff6edf35e7ad9d320c729e90014e1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of column names. <br /></td></tr>
 <tr class="separator:abff6edf35e7ad9d320c729e90014e1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1be1d2d322cd5d633c6ce6afe10526c3" id="r_a1be1d2d322cd5d633c6ce6afe10526c3"><td class="memItemLeft" align="right" valign="top"><a id="a1be1d2d322cd5d633c6ce6afe10526c3" name="a1be1d2d322cd5d633c6ce6afe10526c3"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>calculateEntropy</b> (const vector&lt; double &gt; &amp;labels)</td></tr>
+<tr class="memitem:a1be1d2d322cd5d633c6ce6afe10526c3" id="r_a1be1d2d322cd5d633c6ce6afe10526c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1be1d2d322cd5d633c6ce6afe10526c3">calculateEntropy</a> (const vector&lt; double &gt; &amp;labels)</td></tr>
+<tr class="memdesc:a1be1d2d322cd5d633c6ce6afe10526c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate the entropy of a set of labels.  <br /></td></tr>
 <tr class="separator:a1be1d2d322cd5d633c6ce6afe10526c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61187bfa789567ccc329a3b363b6929f" id="r_a61187bfa789567ccc329a3b363b6929f"><td class="memItemLeft" align="right" valign="top"><a id="a61187bfa789567ccc329a3b363b6929f" name="a61187bfa789567ccc329a3b363b6929f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>calculateInformationGain</b> (int attributeIndex, string label_column)</td></tr>
+<tr class="memitem:a61187bfa789567ccc329a3b363b6929f" id="r_a61187bfa789567ccc329a3b363b6929f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61187bfa789567ccc329a3b363b6929f">calculateInformationGain</a> (int attributeIndex, string label_column)</td></tr>
+<tr class="memdesc:a61187bfa789567ccc329a3b363b6929f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate the information gain of an attribute.  <br /></td></tr>
 <tr class="separator:a61187bfa789567ccc329a3b363b6929f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e4fa2414fcd8a0046f35a80508497bc" id="r_a3e4fa2414fcd8a0046f35a80508497bc"><td class="memItemLeft" align="right" valign="top"><a id="a3e4fa2414fcd8a0046f35a80508497bc" name="a3e4fa2414fcd8a0046f35a80508497bc"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_lt</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:a3e4fa2414fcd8a0046f35a80508497bc" id="r_a3e4fa2414fcd8a0046f35a80508497bc"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4fa2414fcd8a0046f35a80508497bc">filter_lt</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:a3e4fa2414fcd8a0046f35a80508497bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than the threshold.  <br /></td></tr>
 <tr class="separator:a3e4fa2414fcd8a0046f35a80508497bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1333d70f6c8852915b60a854a125a835" id="r_a1333d70f6c8852915b60a854a125a835"><td class="memItemLeft" align="right" valign="top"><a id="a1333d70f6c8852915b60a854a125a835" name="a1333d70f6c8852915b60a854a125a835"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_leq</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:a1333d70f6c8852915b60a854a125a835" id="r_a1333d70f6c8852915b60a854a125a835"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1333d70f6c8852915b60a854a125a835">filter_leq</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:a1333d70f6c8852915b60a854a125a835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold.  <br /></td></tr>
 <tr class="separator:a1333d70f6c8852915b60a854a125a835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8235d871a79ee7fd312b3327545a14e8" id="r_a8235d871a79ee7fd312b3327545a14e8"><td class="memItemLeft" align="right" valign="top"><a id="a8235d871a79ee7fd312b3327545a14e8" name="a8235d871a79ee7fd312b3327545a14e8"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_gt</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:a8235d871a79ee7fd312b3327545a14e8" id="r_a8235d871a79ee7fd312b3327545a14e8"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8235d871a79ee7fd312b3327545a14e8">filter_gt</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:a8235d871a79ee7fd312b3327545a14e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold.  <br /></td></tr>
 <tr class="separator:a8235d871a79ee7fd312b3327545a14e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73963447b6f22f9e07fc3e3d32a5a082" id="r_a73963447b6f22f9e07fc3e3d32a5a082"><td class="memItemLeft" align="right" valign="top"><a id="a73963447b6f22f9e07fc3e3d32a5a082" name="a73963447b6f22f9e07fc3e3d32a5a082"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_geq</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:a73963447b6f22f9e07fc3e3d32a5a082" id="r_a73963447b6f22f9e07fc3e3d32a5a082"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73963447b6f22f9e07fc3e3d32a5a082">filter_geq</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:a73963447b6f22f9e07fc3e3d32a5a082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold.  <br /></td></tr>
 <tr class="separator:a73963447b6f22f9e07fc3e3d32a5a082"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34413f4375d53e1d03d7e0b87120ea45" id="r_a34413f4375d53e1d03d7e0b87120ea45"><td class="memItemLeft" align="right" valign="top"><a id="a34413f4375d53e1d03d7e0b87120ea45" name="a34413f4375d53e1d03d7e0b87120ea45"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_eq</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:a34413f4375d53e1d03d7e0b87120ea45" id="r_a34413f4375d53e1d03d7e0b87120ea45"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34413f4375d53e1d03d7e0b87120ea45">filter_eq</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:a34413f4375d53e1d03d7e0b87120ea45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold.  <br /></td></tr>
 <tr class="separator:a34413f4375d53e1d03d7e0b87120ea45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2dac7b5d6f47ce370f46782fc0fbc84" id="r_af2dac7b5d6f47ce370f46782fc0fbc84"><td class="memItemLeft" align="right" valign="top"><a id="af2dac7b5d6f47ce370f46782fc0fbc84" name="af2dac7b5d6f47ce370f46782fc0fbc84"></a>
-unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>filter_neq</b> (int attributeIndex, double threshold)</td></tr>
+<tr class="memitem:af2dac7b5d6f47ce370f46782fc0fbc84" id="r_af2dac7b5d6f47ce370f46782fc0fbc84"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2dac7b5d6f47ce370f46782fc0fbc84">filter_neq</a> (int attributeIndex, double threshold)</td></tr>
+<tr class="memdesc:af2dac7b5d6f47ce370f46782fc0fbc84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold.  <br /></td></tr>
 <tr class="separator:af2dac7b5d6f47ce370f46782fc0fbc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a3af5e5864b06c416027e9da0530ddb1c" id="r_a3af5e5864b06c416027e9da0530ddb1c"><td class="memItemLeft" align="right" valign="top"><a id="a3af5e5864b06c416027e9da0530ddb1c" name="a3af5e5864b06c416027e9da0530ddb1c"></a>
 vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="memdesc:a3af5e5864b06c416027e9da0530ddb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D matrix of data <br /></td></tr>
 <tr class="separator:a3af5e5864b06c416027e9da0530ddb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> class. </p>
+<p>This class represents a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> object, which is a formatted 2D matrix of data along with column names. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a386118b2c08f3261812f70bfa16501f9" name="a386118b2c08f3261812f70bfa16501f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a386118b2c08f3261812f70bfa16501f9">&#9670;&#160;</a></span>DataFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataFrame::DataFrame </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; vector&lt; double &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt;</td>          <td class="paramname"><span class="paramname"><em>columns</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>2D matrix of data </td></tr>
+    <tr><td class="paramname">columns</td><td>Vector of column names </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1be1d2d322cd5d633c6ce6afe10526c3" name="a1be1d2d322cd5d633c6ce6afe10526c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be1d2d322cd5d633c6ce6afe10526c3">&#9670;&#160;</a></span>calculateEntropy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DataFrame::calculateEntropy </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>labels</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to calculate the entropy of a set of labels. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">labels</td><td>vector of labels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double entropy of the set of labels</dd></dl>
+<p>The entropy of a set of labels is calculated as follows:</p><ol type="1">
+<li>Count the frequency of each unique label in the set.</li>
+<li>For each unique label, calculate the probability of that label by dividing its frequency by the total number of labels.</li>
+<li>For each unique label, calculate the term -p * log2(p), where p is the probability of the label.</li>
+<li>Sum all the terms calculated in step 3 to get the entropy.</li>
+</ol>
+<p>Entropy is a measure of the impurity or disorder of the set of labels. A higher entropy value indicates more disorder. </p>
+
+</div>
+</div>
+<a id="a61187bfa789567ccc329a3b363b6929f" name="a61187bfa789567ccc329a3b363b6929f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61187bfa789567ccc329a3b363b6929f">&#9670;&#160;</a></span>calculateInformationGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DataFrame::calculateInformationGain </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to calculate the information gain of an attribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute for which to calculate information gain </td></tr>
+    <tr><td class="paramname">label_column</td><td>Name of the column containing the labels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double information gain of the attribute</dd></dl>
+<p>Information gain is a measure of the reduction in entropy that results from splitting a set of data on a particular attribute. The information gain of an attribute is calculated as follows:</p><ol type="1">
+<li>Calculate the entropy of the set of labels.</li>
+<li>For each unique value of the attribute, calculate the weighted average of the entropy of the labels after splitting on that value.</li>
+<li>Calculate the information gain as the entropy of the set of labels minus the weighted average entropy after splitting.</li>
+<li>Return the information gain. </li>
+</ol>
+
+</div>
+</div>
+<a id="a4dffdfe5c861ace228a1b07524729918" name="a4dffdfe5c861ace228a1b07524729918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dffdfe5c861ace228a1b07524729918">&#9670;&#160;</a></span>column_median()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DataFrame::column_median </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the median of a column. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col_name</td><td>Name of the column </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double median of the column </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function calculates the median of the specified column. </p>
+
+</div>
+</div>
+<a id="ac9a62f0b7229277c1aac323781f5f7c9" name="ac9a62f0b7229277c1aac323781f5f7c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a62f0b7229277c1aac323781f5f7c9">&#9670;&#160;</a></span>column_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DataFrame::column_mode </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the mode of a column. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col_name</td><td>Name of the column </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double mode of the column </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function calculates the mode of the specified column. </p>
+
+</div>
+</div>
+<a id="a04a5009251e037857f4d31bc2c19a64c" name="a04a5009251e037857f4d31bc2c19a64c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a5009251e037857f4d31bc2c19a64c">&#9670;&#160;</a></span>filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>condition</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to filter the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on a condition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+    <tr><td class="paramname">condition</td><td>Condition for the filter (e.g., "lt", "leq", "gt", "geq", "eq", "neq") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows that satisfy the condition </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if the condition is not recognized</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the specified condition. The condition can be one of the following:</p><ul>
+<li>"&lt;" (less than)</li>
+<li>"&lt;=" (less than or equal to)</li>
+<li>"&gt;" (greater than)</li>
+<li>"&gt;=" (greater than or equal to)</li>
+<li>"==" (equal to)</li>
+<li>"!=" (not equal to)</li>
+</ul>
+<p>The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows that satisfy the condition, using the specified attribute and threshold. </p>
+
+</div>
+</div>
+<a id="a34413f4375d53e1d03d7e0b87120ea45" name="a34413f4375d53e1d03d7e0b87120ea45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34413f4375d53e1d03d7e0b87120ea45">&#9670;&#160;</a></span>filter_eq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_eq </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being equal to the threshold. </p>
+
+</div>
+</div>
+<a id="a73963447b6f22f9e07fc3e3d32a5a082" name="a73963447b6f22f9e07fc3e3d32a5a082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73963447b6f22f9e07fc3e3d32a5a082">&#9670;&#160;</a></span>filter_geq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_geq </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than or equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than or equal to the threshold. </p>
+
+</div>
+</div>
+<a id="a8235d871a79ee7fd312b3327545a14e8" name="a8235d871a79ee7fd312b3327545a14e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8235d871a79ee7fd312b3327545a14e8">&#9670;&#160;</a></span>filter_gt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_gt </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than the threshold. </p>
+
+</div>
+</div>
+<a id="a1333d70f6c8852915b60a854a125a835" name="a1333d70f6c8852915b60a854a125a835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1333d70f6c8852915b60a854a125a835">&#9670;&#160;</a></span>filter_leq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_leq </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than or equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than or equal to the threshold. </p>
+
+</div>
+</div>
+<a id="a3e4fa2414fcd8a0046f35a80508497bc" name="a3e4fa2414fcd8a0046f35a80508497bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4fa2414fcd8a0046f35a80508497bc">&#9670;&#160;</a></span>filter_lt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_lt </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is less than the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than the threshold. </p>
+
+</div>
+</div>
+<a id="af2dac7b5d6f47ce370f46782fc0fbc84" name="af2dac7b5d6f47ce370f46782fc0fbc84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2dac7b5d6f47ce370f46782fc0fbc84">&#9670;&#160;</a></span>filter_neq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_neq </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is not equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being not equal to the threshold. </p>
+
+</div>
+</div>
+<a id="ac0df43cb83d0f8d7a41a0ab153c76aa3" name="ac0df43cb83d0f8d7a41a0ab153c76aa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0df43cb83d0f8d7a41a0ab153c76aa3">&#9670;&#160;</a></span>get_column()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; double &gt; DataFrame::get_column </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the number of columns in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of columns </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function returns a vector containing the values of the specified column. </p>
+
+</div>
+</div>
+<a id="a59923427bd0a1af4a8a3c555d2836f36" name="a59923427bd0a1af4a8a3c555d2836f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59923427bd0a1af4a8a3c555d2836f36">&#9670;&#160;</a></span>get_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; vector&lt; double &gt; &gt; DataFrame::get_data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the data of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>2D matrix of data </dd></dl>
+
+</div>
+</div>
+<a id="a58fd05fb5f216fdb64a5daeea411b450" name="a58fd05fb5f216fdb64a5daeea411b450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58fd05fb5f216fdb64a5daeea411b450">&#9670;&#160;</a></span>get_num_rows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataFrame::get_num_rows </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the column names of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of column names </dd></dl>
+
+</div>
+</div>
+<a id="abc5875fe944b7482cfe727576df8f17d" name="abc5875fe944b7482cfe727576df8f17d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5875fe944b7482cfe727576df8f17d">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DataFrame::print </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function which prints the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> as a table. </p>
+<dl class="section return"><dt>Returns</dt><dd>string representation of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae0a9596528bc58a13b7a2f9282ab1b0d" name="ae0a9596528bc58a13b7a2f9282ab1b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0a9596528bc58a13b7a2f9282ab1b0d">&#9670;&#160;</a></span>selectBestAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataFrame::selectBestAttribute </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function which calculates the attribute with the greatest information gain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label_column</td><td>Name of the column containing the labels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the attribute with the greatest information gain</dd></dl>
+<p>This function calculates the information gain for each attribute in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> and returns the index of the attribute with the greatest information gain. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_data_frame_8h_source.html">DataFrame.h</a></li>
 <li>src/<b>DataFrame.cpp</b></li>

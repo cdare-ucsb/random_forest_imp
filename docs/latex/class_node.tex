@@ -1,5 +1,14 @@
 \doxysection{Node Class Reference}
 \hypertarget{class_node}{}\label{class_node}\index{Node@{Node}}
+
+
+A class that represents a node in a decision tree.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
 Inheritance diagram for Node\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,27 +18,146 @@ Inheritance diagram for Node\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}\label{class_node_a3e25c1fda66492a49fdc8dfcb02931a2} 
-virtual double {\bfseries predict} (const vector$<$ double $>$ \&sample) const =0
-\item 
-\Hypertarget{class_node_abd3b4b561203553104c753fb944b2dad}\label{class_node_abd3b4b561203553104c753fb944b2dad} 
-virtual std\+::string {\bfseries print} ()=0
-\item 
-\Hypertarget{class_node_a79538468d2e025e22bbfd5089f364921}\label{class_node_a79538468d2e025e22bbfd5089f364921} 
-virtual int {\bfseries get\+\_\+num\+\_\+nodes} ()=0
-\item 
-\Hypertarget{class_node_aa8ce774f99b4384d233dd8daa896b2f0}\label{class_node_aa8ce774f99b4384d233dd8daa896b2f0} 
-virtual int {\bfseries get\+\_\+height} ()=0
-\end{DoxyCompactItemize}
+\Hypertarget{class_node_ad7a34779cad45d997bfd6d3d8043c75f}\label{class_node_ad7a34779cad45d997bfd6d3d8043c75f} 
+{\bfseries Node} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_node}{Node} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_node_aa0840c3cb5c7159be6d992adecd2097c}\label{class_node_aa0840c3cb5c7159be6d992adecd2097c} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Node} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_node}{Node} class. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}{predict}} (const vector$<$ double $>$ \&sample) const =0
+\begin{DoxyCompactList}\small\item\em Predict method. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_node_abd3b4b561203553104c753fb944b2dad}{print}} ()=0
+\begin{DoxyCompactList}\small\item\em Print method. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_node_a79538468d2e025e22bbfd5089f364921}{get\+\_\+num\+\_\+nodes}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the number of nodes in the subtree rooted at this node. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{get\+\_\+height}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the height of the subtree rooted at this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_node_a45121b79c7ce5151664b76188d613ed0}\label{class_node_a45121b79c7ce5151664b76188d613ed0} 
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
-\item 
+\begin{DoxyCompactList}\small\item\em Pointer to the left child node. \end{DoxyCompactList}\item 
 \Hypertarget{class_node_aa0e6fd281068bb34c5b7442bddd567b4}\label{class_node_aa0e6fd281068bb34c5b7442bddd567b4} 
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to the right child node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents a node in a decision tree. 
+
+This class represents a node in a decision tree. The node can be either a decision node or a leaf node. A decision node contains a decision rule based on an attribute and a value, and pointers to its left and right child nodes. A leaf node contains a predicted value for the target variable. The node class is an abstract class that is inherited by the \doxylink{class_decision_node}{Decision\+Node} and \doxylink{class_leaf_node}{Leaf\+Node} classes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_node_aa8ce774f99b4384d233dd8daa896b2f0}\index{Node@{Node}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily \label{class_node_aa8ce774f99b4384d233dd8daa896b2f0} 
+virtual int Node\+::get\+\_\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the height of the subtree rooted at this node. 
+
+\begin{DoxyReturn}{Returns}
+Height of the subtree rooted at this node
+\end{DoxyReturn}
+This function returns the height of the subtree rooted at this node. The function recursively calculates the height of the subtree by calling the \doxylink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{get\+\_\+height()} method of the left and right child nodes. The function is implemented in the derived classes \doxylink{class_leaf_node}{Leaf\+Node} and \doxylink{class_decision_node}{Decision\+Node}, and is called by the \doxylink{class_node_aa8ce774f99b4384d233dd8daa896b2f0}{get\+\_\+height()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class. For the base class \doxylink{class_node}{Node} and the \doxylink{class_leaf_node}{Leaf\+Node} class, the function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a375a37a13ace5f6e303f7e180f73f0e8}{Decision\+Tree\+::get\+\_\+height()} 
+
+\doxylink{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}{Decision\+Node\+::get\+\_\+height()} 
+
+\doxylink{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}{Leaf\+Node\+::get\+\_\+height()} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}{Decision\+Node}}, and \mbox{\hyperlink{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}{Leaf\+Node}}.
+
+\Hypertarget{class_node_a79538468d2e025e22bbfd5089f364921}\index{Node@{Node}!get\_num\_nodes@{get\_num\_nodes}}
+\index{get\_num\_nodes@{get\_num\_nodes}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{get\_num\_nodes()}{get\_num\_nodes()}}
+{\footnotesize\ttfamily \label{class_node_a79538468d2e025e22bbfd5089f364921} 
+virtual int Node\+::get\+\_\+num\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the number of nodes in the subtree rooted at this node. 
+
+\begin{DoxyReturn}{Returns}
+Number of nodes in the subtree rooted at this node
+\end{DoxyReturn}
+This function returns the number of nodes in the subtree rooted at this node. The function recursively calculates the number of nodes in the subtree by calling the \doxylink{class_node_a79538468d2e025e22bbfd5089f364921}{get\+\_\+num\+\_\+nodes()} method of the left and right child nodes. The function is implemented in the derived classes \doxylink{class_leaf_node}{Leaf\+Node} and \doxylink{class_decision_node}{Decision\+Node}, and is called by the \doxylink{class_node_a79538468d2e025e22bbfd5089f364921}{get\+\_\+num\+\_\+nodes()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class. For the base class \doxylink{class_node}{Node} and the \doxylink{class_leaf_node}{Leaf\+Node} class, the function returns 1.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}{Decision\+Tree\+::get\+\_\+num\+\_\+nodes()} 
+
+\doxylink{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}{Decision\+Node\+::get\+\_\+num\+\_\+nodes()} 
+
+\doxylink{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}{Leaf\+Node\+::get\+\_\+num\+\_\+nodes()} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}{Decision\+Node}}, and \mbox{\hyperlink{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}{Leaf\+Node}}.
+
+\Hypertarget{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}\index{Node@{Node}!predict@{predict}}
+\index{predict@{predict}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{class_node_a3e25c1fda66492a49fdc8dfcb02931a2} 
+double Node\+::predict (\begin{DoxyParamCaption}\item[{const vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Predict method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Vector of feature values for a single sample \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Predicted value for the sample
+\end{DoxyReturn}
+This function takes a vector of feature values for a single sample and returns the predicted value. The function is implemented in the derived classes \doxylink{class_leaf_node}{Leaf\+Node} and \doxylink{class_decision_node}{Decision\+Node}, and is called by the \doxylink{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}{predict()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}{Decision\+Tree\+::predict(std\+::vector$<$double$>$ sample)} 
+
+Decision\+Node\+::predict(std\+::vector$<$double$>$ sample) 
+
+Leaf\+Node\+::predict(std\+::vector$<$double$>$ sample) 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9}{Decision\+Node}}, and \mbox{\hyperlink{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}{Leaf\+Node}}.
+
+\Hypertarget{class_node_abd3b4b561203553104c753fb944b2dad}\index{Node@{Node}!print@{print}}
+\index{print@{print}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_node_abd3b4b561203553104c753fb944b2dad} 
+std\+::string Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Print method. 
+
+\begin{DoxyReturn}{Returns}
+String representation of the node
+\end{DoxyReturn}
+This function returns a string representation of the node. The function is implemented in the derived classes \doxylink{class_leaf_node}{Leaf\+Node} and \doxylink{class_decision_node}{Decision\+Node}, and is called by the \doxylink{class_node_abd3b4b561203553104c753fb944b2dad}{print()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_decision_tree_a87a02c9842a2e727248535d86bcfb29e}{Decision\+Tree\+::print()} 
+
+\doxylink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{Decision\+Node\+::print()} 
+
+\doxylink{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}{Leaf\+Node\+::print()} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{Decision\+Node}}, and \mbox{\hyperlink{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}{Leaf\+Node}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
