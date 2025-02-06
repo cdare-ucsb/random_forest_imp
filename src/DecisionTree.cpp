@@ -1,10 +1,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <map>
-#include <cmath>
-#include <limits>
-#include <queue>
 #include <iomanip>
 #include <sstream>
 
@@ -14,179 +10,116 @@
 
 using std::string;
 using std::vector;
+using std::unique_ptr;
 
 
-/* -------------------------------------------
-*             CONSTRUCTOR/DESTRUCTOR
-----------------------------------------------*/
-DecisionTree::DecisionTree(): root(nullptr){}
-
-
-DecisionTree::~DecisionTree() {
-    root = nullptr;
-}
-
-/* -------------------------------------------
-*             GETTERS
-----------------------------------------------*/
-
-int DecisionTree::get_num_nodes() {
-    if (root == nullptr) {
-        return 0;
-    }
-    return root->get_num_nodes();
-}
-
-
-/* -------------------------------------------
-*             FIT METHOD
-----------------------------------------------*/
-
-
-void DecisionTree::fit(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
-    this->root = fit_helper(df, label_column, max_depth, minSamplesSplit);
-
-    printf("\n\nFit_helper finished:\n root node is %s\n", root->print(df->columns).c_str());
-    printf("Left child is %s\n", root->left->print(df->columns).c_str());
-    printf("Right child is %s\n", root->right->print(df->columns).c_str());
-}
-
-Node* DecisionTree::fit_helper(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
-    printf("Call to fit_helper; input dataframe:\n%s\n", df->print().c_str());
-    printf("Label column: %s\n", label_column.c_str());
-    printf("Max depth: %d\n", max_depth);
-    printf("Min samples split: %d\n", minSamplesSplit);
-    
-    // Extract the target column
-    vector<double> labels = df->get_column(label_column);
-
-    // Base case: if the max depth is reached or if the number of samples is less than the minimum required
-    if (max_depth == 0 || df->get_num_rows() < minSamplesSplit) {
-        if (max_depth == 0) printf("Max depth reached\n");
-        if (df->get_num_rows() < minSamplesSplit) printf("Min samples split reached\n");
-        return new LeafNode(df->column_median(label_column));
+// Helper function for printing the tree recursively
+void DecisionTree::print_helper(const Node* node, const vector<string>& col_names,
+                                const string& prefix, bool isLeft, std::ostringstream& oss) {
+    if (!node) {
+        return;
     }
 
-    // Edge case: if all the labels are the same
-    bool same_labels = true;
-    for (size_t i = 1; i < labels.size(); i++) {
-        if (labels[i] != labels[0]) {
-            same_labels = false;
-            break;
-        }
+    // Print decision nodes
+    const DecisionNode* decisionNode = dynamic_cast<const DecisionNode*>(node);
+    if (decisionNode) {
+        oss << prefix;
+        oss << (isLeft ? "├── " : "└── ");
+        oss << "[ " << col_names[decisionNode->get_feature_index()] << " <= " << decisionNode->get_threshold() << " ]\n";
+        
+        // Recur for left and right children
+        print_helper(decisionNode->left.get(), col_names, prefix + (isLeft ? "│   " : "    "), true, oss);
+        print_helper(decisionNode->right.get(), col_names, prefix + (isLeft ? "│   " : "    "), false, oss);
     }
-    if (same_labels) {
-        if (same_labels) printf("All labels are the same\n");
-        return new LeafNode(labels[0]);
+
+    // Print leaf nodes
+    const LeafNode* leafNode = dynamic_cast<const LeafNode*>(node);
+    if (leafNode) {
+        oss << prefix;
+        oss << (isLeft ? "├── " : "└── ");
+        oss << "( " << leafNode->predict({}) << " )\n"; // Print label
+    }
+}
+
+unique_ptr<Node> DecisionTree::fit_helper(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
+    // Base cases for recursion
+    if (df->get_num_rows() < minSamplesSplit || max_depth == 0) {
+        // Compute the most common label in the dataset
+        return std::make_unique<LeafNode>(df->column_mode(label_column));
     }
 
     // Find the best attribute to split on
-    int bestAttribute = df->selectBestAttribute(label_column);
-    if (bestAttribute == -1) {
-        return new LeafNode(df->column_median(label_column));
+    int best_feature = df->selectBestAttribute(label_column);
+    if (best_feature == -1) {
+        return std::make_unique<LeafNode>(df->column_mode(label_column));
     }
 
-    printf("Split choice: [%s <= %f]\n", df->columns[bestAttribute].c_str(), df->column_median(df->columns[bestAttribute]));
+    // Determine threshold for splitting (using median for continuous data)
+    double threshold = df->column_median(df->columns[best_feature]);
 
+    // Split data into left and right subsets
+    unique_ptr<DataFrame> left_df = df->filter(best_feature, threshold, "<=");
+    unique_ptr<DataFrame> right_df = df->filter(best_feature, threshold, ">");
 
-    // Split the dataset based on the best attribute
-    DataFrame* left_df = df->filter(bestAttribute, df->column_median(df->columns[bestAttribute]), "<=");
-    DataFrame* right_df = df->filter(bestAttribute, df->column_median(df->columns[bestAttribute]), ">");
-    printf("Left dataframe after splitting:\n%s\n", left_df->print().c_str());
-    printf("Right dataframe after splitting:\n%s\n", right_df->print().c_str());
+    // If splitting doesn't separate data, return a leaf node
+    if (left_df->get_num_rows() == 0 || right_df->get_num_rows() == 0) {
+        return std::make_unique<LeafNode>(df->column_mode(label_column));
+    }
 
+    // Recursively build left and right subtrees
+    unique_ptr<Node> left_child = fit_helper(left_df.get(), label_column, max_depth - 1, minSamplesSplit);
+    unique_ptr<Node> right_child = fit_helper(right_df.get(), label_column, max_depth - 1, minSamplesSplit);
 
-    // Recursively build the tree
-    Node* left_child = fit_helper(left_df, label_column, max_depth - 1, minSamplesSplit);
-    Node* right_child = fit_helper(right_df, label_column, max_depth - 1, minSamplesSplit);
-
-    // Create a decision node
-    DecisionNode* decision_node = new DecisionNode(bestAttribute, df->column_median(df->columns[bestAttribute]),
-                                          left_child, right_child);
-    printf("Decision node created: %s\n", decision_node->print(df->columns).c_str());
-    if (decision_node->left == nullptr) printf("Left child is null\n");
-    else printf("Left child is %s\n", decision_node->left->print(df->columns).c_str());
-    if (decision_node->right == nullptr) printf("Right child is null\n");
-    else printf("Right child is %s\n", decision_node->right->print(df->columns).c_str());
-
-    // Clean up
-    delete left_df;
-    delete right_df;
-
-    return decision_node;
+    // Return the constructed decision node
+    return std::make_unique<DecisionNode>(best_feature, threshold, std::move(left_child), std::move(right_child));
 }
 
-/* -------------------------------------------
-*             PRINT METHOD
-----------------------------------------------*/
-// string DecisionTree::print(vector<string> col_names) {
+        
 
-//     if (root == nullptr)
-//         return "";
+// Constructor
+DecisionTree::DecisionTree() : root(nullptr) {}
+// Destructor
+DecisionTree::~DecisionTree() = default;
 
-//     std::ostringstream output;
-//     int height = root->get_height();
-//     int maxWidth = (1 << height) - 1;  // Maximum width of last level (2^h - 1)
+// Predict method
+double DecisionTree::predict(vector<double> sample) {
+    if (!root) {
+        throw std::runtime_error("Decision tree is not trained.");
+    }
 
-//     std::queue<std::unique_ptr<Node>> q;
-//     q.push(root);
+    Node* current = root.get();
 
-//     int level = 0;
-//     while (!q.empty()) {
-//         int count = q.size();
-//         int spaces = (maxWidth / (1 << level)) - 1;  // Leading spaces
-//         int betweenSpaces = (spaces * 2) + 1;        // Spaces between nodes
+    // Traverse the tree until we reach a leaf node
+    while (auto* decisionNode = dynamic_cast<DecisionNode*>(current)) {
+        if (sample[decisionNode->get_feature_index()] <= decisionNode->get_threshold()) {
+            current = decisionNode->left.get();
+        } else {
+            current = decisionNode->right.get();
+        }
+    }
 
-//         output << std::string(spaces, ' ');  // Leading spaces
+    // Return the value from the leaf node
+    auto* leafNode = dynamic_cast<LeafNode*>(current);
+    if (leafNode) {
+        return leafNode->predict(sample);
+    }
 
-//         std::queue<std::unique_ptr<Node>> tempQueue;  // Next level queue
-//         while (count--) {
-//             std::unique_ptr<Node> node = q.front();
-//             q.pop();
-
-//             if (node) {
-//                 output << std::setw(2) << node->print(col_names);  // Print node value
-//                 tempQueue.push(node->left);
-//                 tempQueue.push(node->right);
-//             } else {
-//                 output << "  ";  // Empty space for NULL nodes
-//                 tempQueue.push(nullptr);
-//                 tempQueue.push(nullptr);
-//             }
-
-//             if (count)
-//                 output << std::string(betweenSpaces, ' ');  // Spacing between nodes
-//         }
-//         output << "\n";  // New line for next level
-
-//         // Check if all nodes in next level are null (stop early)
-//         bool allNull = true;
-//         size_t tempQueueSize = tempQueue.size();
-//         for (size_t i = 0; i < tempQueueSize; i++) {
-//             std::unique_ptr<Node> node = tempQueue.front();
-//             tempQueue.pop();
-//             if (node) allNull = false;
-//             tempQueue.push(node);
-//         }
-//         if (allNull) break;
-
-//         q = tempQueue;
-//         level++;
-//     }
-
-//     return output.str();  // Return the formatted tree as a string
-// }
+    throw std::runtime_error("Tree structure is invalid.");
+}
 
 
-int main(int argc, char* argv[]) {
-    // Create a simple decision tree
-    DataFrame df({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, {"A", "B", "C"});
-    DecisionTree dt;
-    dt.fit(&df, "C", 5, 1);
-    // std::string tree_str = dt.print({"A", "B", "C"});
-    // printf("%s\n", tree_str.c_str());
-    printf("%s\n", dt.root->print({"A", "B", "C"}).c_str());
-    printf("%d\n", dt.root->left == nullptr ? 1 : 0);
-    printf("%d\n", dt.root->right == nullptr ? 1 : 0);
-    return 0;
+// Fit method: Entry point for training the decision tree
+void DecisionTree::fit(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
+    root = fit_helper(df, label_column, max_depth, minSamplesSplit);
+}
+
+
+string DecisionTree::print(vector<string> col_names) {
+    if (!root) {
+        return "Empty Decision Tree";
+    }
+
+    std::ostringstream oss;
+    print_helper(root.get(), col_names, "", true, oss);
+    return oss.str();
 }

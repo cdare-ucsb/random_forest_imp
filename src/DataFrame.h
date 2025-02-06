@@ -3,25 +3,29 @@
 
 using std::vector;
 using std::string;
+using std::unique_ptr;
 
 class DataFrame {
     protected:
         vector<vector<double>> data;
 
-        // Helper functions
+        // Function to calculate entropy of a dataset
         double calculateEntropy(const vector<double>& labels);
-        DataFrame* filter_lt(int attributeIndex, double threshold);
-        DataFrame* filter_gt(int attributeIndex, double threshold);
-        DataFrame* filter_leq(int attributeIndex, double threshold);
-        DataFrame* filter_geq(int attributeIndex, double threshold);
-        DataFrame* filter_eq(int attributeIndex, double threshold);
-        DataFrame* filter_neq(int attributeIndex, double threshold);
+        // Function to calculate information gain of an attribute
+        double calculateInformationGain(int attributeIndex, string label_column);
+        unique_ptr<DataFrame> filter_lt(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_leq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_gt(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_geq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_eq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_neq(int attributeIndex, double threshold);
+
 
     public:
         vector<string> columns;
 
         // Constructor
-        DataFrame(vector<vector<double>> data, vector<string> columns);
+        DataFrame(std::vector<vector<double>> data, vector<string> columns);
         // Destructor
         ~DataFrame();
 
@@ -30,20 +34,24 @@ class DataFrame {
         int get_num_rows();
         vector<double> get_column(string col_name);
 
-        // Print method
+        // Function to print the DataFrame
         string print();
 
+        // Function to find the best attribute (highest information gain)
         int selectBestAttribute(string label_column);
         double column_median(string col_name);
+        double column_mode(string col_name);
 
         // Filter method
-        DataFrame* filter(int attributeIndex, double threshold, string condition);
+        unique_ptr<DataFrame> filter(int attributeIndex, double threshold, string condition);
 
-        // Helper functions
-        
-        double calculateInformationGain(int attributeIndex, string label_column);
         
 };
+
+
+
+
+
 
 
 
