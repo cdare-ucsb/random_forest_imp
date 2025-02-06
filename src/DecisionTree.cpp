@@ -20,9 +20,11 @@ void DecisionTree::print_helper(const Node* node, const vector<string>& col_name
         return;
     }
 
-    // Print decision nodes
+    // Attempt to typecast the node to a DecisionNode; if successful, it is a decision node
+    // NOTE: this is why we use a raw pointer as an argument instead of a unique_ptr
     const DecisionNode* decisionNode = dynamic_cast<const DecisionNode*>(node);
     if (decisionNode) {
+        // Print decision nodes
         oss << prefix;
         oss << (isLeft ? "├── " : "└── ");
         oss << "[ " << col_names[decisionNode->get_feature_index()] << " <= " << decisionNode->get_threshold() << " ]\n";
@@ -32,16 +34,20 @@ void DecisionTree::print_helper(const Node* node, const vector<string>& col_name
         print_helper(decisionNode->right.get(), col_names, prefix + (isLeft ? "│   " : "    "), false, oss);
     }
 
-    // Print leaf nodes
+    // Attempt to typecast the node to a LeafNode; if successful, it is a leaf node
+    // NOTE: this is why we use a raw pointer as an argument instead of a unique_ptr
     const LeafNode* leafNode = dynamic_cast<const LeafNode*>(node);
     if (leafNode) {
+        // Print leaf nodes
         oss << prefix;
         oss << (isLeft ? "├── " : "└── ");
         oss << "( " << leafNode->predict({}) << " )\n"; // Print label
     }
 }
 
-unique_ptr<Node> DecisionTree::fit_helper(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
+// Helper function for fitting the decision tree recursively. 
+// This is the main implementation of the ID3 algorithm.
+unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit) {
     // Base cases for recursion
     if (df->get_num_rows() < minSamplesSplit || max_depth == 0) {
         // Compute the most common label in the dataset
@@ -67,8 +73,8 @@ unique_ptr<Node> DecisionTree::fit_helper(DataFrame* df, string label_column, in
     }
 
     // Recursively build left and right subtrees
-    unique_ptr<Node> left_child = fit_helper(left_df.get(), label_column, max_depth - 1, minSamplesSplit);
-    unique_ptr<Node> right_child = fit_helper(right_df.get(), label_column, max_depth - 1, minSamplesSplit);
+    unique_ptr<Node> left_child = fit_helper(std::move(left_df), label_column, max_depth - 1, minSamplesSplit);
+    unique_ptr<Node> right_child = fit_helper(std::move(right_df), label_column, max_depth - 1, minSamplesSplit);
 
     // Return the constructed decision node
     return std::make_unique<DecisionNode>(best_feature, threshold, std::move(left_child), std::move(right_child));
@@ -78,42 +84,25 @@ unique_ptr<Node> DecisionTree::fit_helper(DataFrame* df, string label_column, in
 
 // Constructor
 DecisionTree::DecisionTree() : root(nullptr) {}
-// Destructor
+// Destructor; the default destructor handles destruction of the root node and its children
 DecisionTree::~DecisionTree() = default;
 
-// Predict method
+// Predict method; simply utilize the functionality from the Node class
 double DecisionTree::predict(vector<double> sample) {
     if (!root) {
         throw std::runtime_error("Decision tree is not trained.");
     }
 
-    Node* current = root.get();
-
-    // Traverse the tree until we reach a leaf node
-    while (auto* decisionNode = dynamic_cast<DecisionNode*>(current)) {
-        if (sample[decisionNode->get_feature_index()] <= decisionNode->get_threshold()) {
-            current = decisionNode->left.get();
-        } else {
-            current = decisionNode->right.get();
-        }
-    }
-
-    // Return the value from the leaf node
-    auto* leafNode = dynamic_cast<LeafNode*>(current);
-    if (leafNode) {
-        return leafNode->predict(sample);
-    }
-
-    throw std::runtime_error("Tree structure is invalid.");
+    return root->predict(sample);
 }
 
 
 // Fit method: Entry point for training the decision tree
-void DecisionTree::fit(DataFrame* df, string label_column, int max_depth, int minSamplesSplit) {
-    root = fit_helper(df, label_column, max_depth, minSamplesSplit);
+void DecisionTree::fit(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit) {
+    root = fit_helper(std::move(df), label_column, max_depth, minSamplesSplit);
 }
 
-
+// Print method: Entry point for printing the decision tree
 string DecisionTree::print(vector<string> col_names) {
     if (!root) {
         return "Empty Decision Tree";
@@ -122,4 +111,22 @@ string DecisionTree::print(vector<string> col_names) {
     std::ostringstream oss;
     print_helper(root.get(), col_names, "", true, oss);
     return oss.str();
+}
+
+// Get number of nodes; simply utilize the functionality from the Node class
+int DecisionTree::get_num_nodes() {
+    if (!root) {
+        return 0;
+    }
+
+    return root->get_num_nodes();
+}
+
+// Get height of decision tree; simply utilize the functionality from the Node class
+int DecisionTree::get_height() {
+    if (!root) {
+        return 0;
+    }
+
+    return root->get_height();
 }

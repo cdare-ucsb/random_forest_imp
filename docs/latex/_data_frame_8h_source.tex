@@ -1,0 +1,64 @@
+\doxysection{Data\+Frame.\+h}
+\hypertarget{_data_frame_8h_source}{}\label{_data_frame_8h_source}\index{src/DataFrame.h@{src/DataFrame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DATAFRAME\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DATAFRAME\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ }std::unique\_ptr;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }DataFrame\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ vector<vector<double>>\ data;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ calculate\ entropy\ of\ a\ dataset}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ calculateEntropy(\textcolor{keyword}{const}\ vector<double>\&\ labels);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ calculate\ information\ gain\ of\ an\ attribute}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ calculateInformationGain(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{string}\ label\_column);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_lt(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_leq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_gt(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_geq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_eq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter\_neq(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ vector<string>\ columns;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ DataFrame(std::vector<vector<double>>\ data,\ vector<string>\ columns);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \string~DataFrame();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ vector<vector<double>>\ get\_data();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ get\_num\_rows();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ vector<double>\ get\_column(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ print\ the\ DataFrame}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ print();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Function\ to\ find\ the\ best\ attribute\ (highest\ information\ gain)}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ selectBestAttribute(\textcolor{keywordtype}{string}\ label\_column);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ column\_median(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ column\_mode(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Filter\ method}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ filter(\textcolor{keywordtype}{int}\ attributeIndex,\ \textcolor{keywordtype}{double}\ threshold,\ \textcolor{keywordtype}{string}\ condition);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAFRAME\_H}}
+
+\end{DoxyCode}

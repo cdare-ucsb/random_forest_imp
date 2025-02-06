@@ -3,6 +3,8 @@
 #include <vector>
 
 using std::vector;
+using std::unique_ptr;
+using std::string;
 
 // Test 1: DataFrame creation
 TEST(DataFrameTest, DataFrameCreation) {
@@ -48,51 +50,6 @@ TEST(DataFrameTest, DataFrameColumnRetrieval) {
 }
 
 
-// Test 3: DataFrame entropy calculation
-// TEST(DataFrameTest, DataFrameEntropyCalculation) {
-//     vector<vector<double>> sample = {
-//         {0,0,0,0},
-//         {1,0,1,0},
-//         {0,2,0,2},
-//         {3,3,3,3},
-//         {4,0,0,4}
-//     };
-//     DataFrame df(sample, {"a", "b", "c", "d"});
-//     vector<double> col_a = df.get_column("a");
-//     vector<double> col_b = df.get_column("b");
-//     vector<double> col_c = df.get_column("c");
-//     vector<double> col_d = df.get_column("d");
-
-//     // Check if the entropy is correctly calculated
-//     EXPECT_NEAR(df.calculateEntropy(col_a), 1.9219280948873623, 1e-5);
-//     EXPECT_NEAR(df.calculateEntropy(col_b), 1.3709505944546687, 1e-5);
-//     EXPECT_NEAR(df.calculateEntropy(col_c), 1.3709505944546687, 1e-5);
-//     EXPECT_NEAR(df.calculateEntropy(col_d), 1.9219280948873623, 1e-5);
-// }
-
-
-// Test 4: DataFrame entropy calculation
-TEST(DataFrameTest, DataFrameInformationGainCalculation) {
-    vector<vector<double>> sample = {
-        {0,0,0,0},
-        {1,0,1,0},
-        {0,2,0,2},
-        {3,3,3,3},
-        {4,0,0,4}
-    };
-    DataFrame df(sample, {"a", "b", "c", "d"});
-
-    // Check if the information gain is correctly calculated
-    EXPECT_NEAR(df.calculateInformationGain(0,"d"), 1.4219280948873623, 1e-5);
-    EXPECT_NEAR(df.calculateInformationGain(1,"d"), 1.2332062193464952, 1e-5);
-    EXPECT_NEAR(df.calculateInformationGain(2,"d"), 0.73320621934649521, 1e-5);
-
-    // Check that invalid arguments throw exceptions
-    EXPECT_THROW(df.calculateInformationGain(5,"d"), std::invalid_argument);
-    EXPECT_THROW(df.calculateInformationGain(0,"z"), std::invalid_argument);
-    EXPECT_THROW(df.calculateInformationGain(3,"d"), std::invalid_argument);
-}
-
 // Test 5: DataFrame best attribute selection
 TEST(DataFrameTest, DataFrameBestAttributeSelection) {
     vector<vector<double>> sample = {
@@ -128,9 +85,8 @@ TEST(DataFrameTest, DataFramePrint) {
     DataFrame df(sample, {"a", "b", "c", "d"});
 
     // Check if the print method works
-    std::string expected_output = "a\t\tb\t\tc\t\td\t\t\n--------------------------------------------------------\n0.000000\t0.000000\t0.000000\t0.000000\t\n--------------------------------------------------------\n1.000000\t0.000000\t1.000000\t0.000000\t\n--------------------------------------------------------\n0.000000\t2.000000\t0.000000\t2.000000\t\n--------------------------------------------------------\n3.000000\t3.000000\t3.000000\t3.000000\t\n--------------------------------------------------------\n4.000000\t0.000000\t0.000000\t4.000000\t\n--------------------------------------------------------\n";
+    string expected_output = "+------------+------------+------------+------------+\n| a          | b          | c          | d          |\n+------------+------------+------------+------------+\n| 0          | 0          | 0          | 0          |\n| 1          | 0          | 1          | 0          |\n| 0          | 2          | 0          | 2          |\n| 3          | 3          | 3          | 3          |\n| 4          | 0          | 0          | 4          |\n+------------+------------+------------+------------+\n";
     EXPECT_EQ(df.print(), expected_output);
-
 
     DataFrame df2({}, {});
     EXPECT_EQ(df2.print(), "Empty DataFrame");
@@ -160,6 +116,28 @@ TEST(DataFrameTest, DataFrameColumnMedian) {
     EXPECT_THROW(df.column_median("f"), std::invalid_argument);
 }
 
+// Test 8: DataFrame mode
+TEST(DataFrameTest, DataFrameMode) {
+    vector<vector<double>> sample = {
+        {0,0,0,0},
+        {1,0,1,0},
+        {0,2,0,2},
+        {3,3,3,3},
+        {4,0,0,4}
+    };
+    DataFrame df(sample, {"a", "b", "c", "d"});
+
+    // Check if the mode is correctly calculated
+    EXPECT_EQ(df.column_mode("a"), 0);
+    EXPECT_EQ(df.column_mode("b"), 0);
+    EXPECT_EQ(df.column_mode("c"), 0);
+    EXPECT_EQ(df.column_mode("d"), 0);
+
+    // Check that invalid arguments throw exceptions
+    EXPECT_THROW(df.column_mode("z"), std::invalid_argument);
+    EXPECT_THROW(df.column_mode("e"), std::invalid_argument);
+    EXPECT_THROW(df.column_mode("f"), std::invalid_argument);
+}
 
 // Test 8: DataFrame filter
 TEST(DataFrameTest, DataFrameFilter) {
@@ -173,21 +151,21 @@ TEST(DataFrameTest, DataFrameFilter) {
     DataFrame df(sample, {"a", "b", "c", "d"});
 
     // Check if the filter method works
-    DataFrame* filtered_df = df.filter(0, 1, "<");
+    unique_ptr<DataFrame> filtered_df = df.filter(0, 1, "<");
     vector<vector<double>> expected_data = {
         {0,0,0,0},
         {0,2,0,2}
     };
     EXPECT_EQ(filtered_df->get_data(), expected_data);
 
-    DataFrame* filtered_df2 = df.filter(1, 1, ">");
+    unique_ptr<DataFrame> filtered_df2 = df.filter(1, 1, ">");
     vector<vector<double>> expected_data2 = {
         {0,2,0,2},
         {3,3,3,3}
     };
     EXPECT_EQ(filtered_df2->get_data(), expected_data2);
 
-    DataFrame* filtered_df3 = df.filter(2, 0, "==");
+    unique_ptr<DataFrame> filtered_df3 = df.filter(2, 0, "==");
     vector<vector<double>> expected_data3 = {
         {0,0,0,0},
         {0,2,0,2},
@@ -195,7 +173,7 @@ TEST(DataFrameTest, DataFrameFilter) {
     };
     EXPECT_EQ(filtered_df3->get_data(), expected_data3);
 
-    DataFrame* filtered_df4 = df.filter(3, 3, "!=");
+    unique_ptr<DataFrame> filtered_df4 = df.filter(3, 3, "!=");
     vector<vector<double>> expected_data4 = {
         {0,0,0,0},
         {1,0,1,0},

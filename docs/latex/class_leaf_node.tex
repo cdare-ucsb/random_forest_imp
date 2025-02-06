@@ -1,0 +1,94 @@
+\doxysection{Leaf\+Node Class Reference}
+\hypertarget{class_leaf_node}{}\label{class_leaf_node}\index{LeafNode@{LeafNode}}
+Inheritance diagram for Leaf\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_leaf_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739}\label{class_leaf_node_a0a4eabf79cc3ead091804f61d19a7739} 
+{\bfseries Leaf\+Node} (double val)
+\item 
+double \mbox{\hyperlink{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}{predict}} (const vector$<$ double $>$ \&sample) const override
+\item 
+std\+::string \mbox{\hyperlink{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}{print}} () override
+\item 
+\Hypertarget{class_leaf_node_aa18afe60343225f7028d344be16f809f}\label{class_leaf_node_aa18afe60343225f7028d344be16f809f} 
+void {\bfseries set\+\_\+value} (double val)
+\item 
+int \mbox{\hyperlink{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}{get\+\_\+num\+\_\+nodes}} () override
+\item 
+int \mbox{\hyperlink{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}{get\+\_\+height}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_leaf_node_a804a0c1ada30c1c0025ba98e8999c092}\label{class_leaf_node_a804a0c1ada30c1c0025ba98e8999c092} 
+double {\bfseries value}
+\item 
+\Hypertarget{class_leaf_node_a340f36a6fb42d297f79418a4bde6de76}\label{class_leaf_node_a340f36a6fb42d297f79418a4bde6de76} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
+\item 
+\Hypertarget{class_leaf_node_a63f6b6229ecc90a852ecf91cb3962d38}\label{class_leaf_node_a63f6b6229ecc90a852ecf91cb3962d38} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_node}{Node}}}
+\begin{DoxyCompactItemize}
+\item 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
+\item 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490}\index{LeafNode@{LeafNode}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily \label{class_leaf_node_a4ee9a05ea28248b080ec0c42a4747490} 
+int Leaf\+Node\+::get\+\_\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_leaf_node_a8ffeee81f3646b47ce0661439c478585}\index{LeafNode@{LeafNode}!get\_num\_nodes@{get\_num\_nodes}}
+\index{get\_num\_nodes@{get\_num\_nodes}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{get\_num\_nodes()}{get\_num\_nodes()}}
+{\footnotesize\ttfamily \label{class_leaf_node_a8ffeee81f3646b47ce0661439c478585} 
+int Leaf\+Node\+::get\+\_\+num\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9}\index{LeafNode@{LeafNode}!predict@{predict}}
+\index{predict@{predict}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{class_leaf_node_a0ae89708c0dc131c1c2741a8b01b70a9} 
+double Leaf\+Node\+::predict (\begin{DoxyParamCaption}\item[{const vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3}\index{LeafNode@{LeafNode}!print@{print}}
+\index{print@{print}!LeafNode@{LeafNode}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_leaf_node_ab385bb5e46b0ff231ea432f89b3674b3} 
+std\+::string Leaf\+Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Node.\+h\item 
+src/Node.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\doxysection{Decision\+Node Class Reference}
+\hypertarget{class_decision_node}{}\label{class_decision_node}\index{DecisionNode@{DecisionNode}}
+Inheritance diagram for Decision\+Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_decision_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_decision_node_a7c1e80ff87e99986e3f96979dc8002b4}\label{class_decision_node_a7c1e80ff87e99986e3f96979dc8002b4} 
+{\bfseries Decision\+Node} (int feature\+\_\+index, double threshold, unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ left\+\_\+child, unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ right\+\_\+child)
+\item 
+double \mbox{\hyperlink{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9}{predict}} (const vector$<$ double $>$ \&sample) const override
+\item 
+std\+::string \mbox{\hyperlink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{print}} () override
+\item 
+\Hypertarget{class_decision_node_ab1d515884940f3093b5b12b7f35e1fef}\label{class_decision_node_ab1d515884940f3093b5b12b7f35e1fef} 
+void {\bfseries set\+\_\+feature\+\_\+index} (int idx)
+\item 
+\Hypertarget{class_decision_node_aac62382d66731ad4da8acba9ff276504}\label{class_decision_node_aac62382d66731ad4da8acba9ff276504} 
+void {\bfseries set\+\_\+threshold} (double thr)
+\item 
+\Hypertarget{class_decision_node_a2d28a72547269535728146fc1789975a}\label{class_decision_node_a2d28a72547269535728146fc1789975a} 
+int {\bfseries get\+\_\+feature\+\_\+index} () const
+\item 
+\Hypertarget{class_decision_node_af7335e5cb2a1942780065ddffd73a71d}\label{class_decision_node_af7335e5cb2a1942780065ddffd73a71d} 
+double {\bfseries get\+\_\+threshold} () const
+\item 
+int \mbox{\hyperlink{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}{get\+\_\+num\+\_\+nodes}} () override
+\item 
+int \mbox{\hyperlink{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}{get\+\_\+height}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_decision_node_afb5fabd6981844bf54519c2fba6652f5}\label{class_decision_node_afb5fabd6981844bf54519c2fba6652f5} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
+\item 
+\Hypertarget{class_decision_node_aa9a24a6d941c61fbc43ec644ea518345}\label{class_decision_node_aa9a24a6d941c61fbc43ec644ea518345} 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_node}{Node}}}
+\begin{DoxyCompactItemize}
+\item 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries left}
+\item 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ {\bfseries right}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_decision_node_a3702271193eb7798180b96d8cf6ed4f3}\label{class_decision_node_a3702271193eb7798180b96d8cf6ed4f3} 
+int {\bfseries feature\+\_\+index}
+\item 
+\Hypertarget{class_decision_node_a3c647d210ebc81ea45138d95b4ad759b}\label{class_decision_node_a3c647d210ebc81ea45138d95b4ad759b} 
+double {\bfseries threshold}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16}\index{DecisionNode@{DecisionNode}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!DecisionNode@{DecisionNode}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily \label{class_decision_node_add4bd7ef5bdf6a83f445f9689ce0ee16} 
+int Decision\+Node\+::get\+\_\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa}\index{DecisionNode@{DecisionNode}!get\_num\_nodes@{get\_num\_nodes}}
+\index{get\_num\_nodes@{get\_num\_nodes}!DecisionNode@{DecisionNode}}
+\doxysubsubsection{\texorpdfstring{get\_num\_nodes()}{get\_num\_nodes()}}
+{\footnotesize\ttfamily \label{class_decision_node_afebb779c1a5dc736746f65e8b7c7b8fa} 
+int Decision\+Node\+::get\+\_\+num\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9}\index{DecisionNode@{DecisionNode}!predict@{predict}}
+\index{predict@{predict}!DecisionNode@{DecisionNode}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9} 
+double Decision\+Node\+::predict (\begin{DoxyParamCaption}\item[{const vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+\Hypertarget{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}\index{DecisionNode@{DecisionNode}!print@{print}}
+\index{print@{print}!DecisionNode@{DecisionNode}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc} 
+std\+::string Decision\+Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_node}{Node}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Node.\+h\item 
+src/Node.\+cpp\end{DoxyCompactItemize}

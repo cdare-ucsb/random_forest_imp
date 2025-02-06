@@ -1,0 +1,45 @@
+\doxysection{Decision\+Tree.\+h}
+\hypertarget{_decision_tree_8h_source}{}\label{_decision_tree_8h_source}\index{src/DecisionTree.h@{src/DecisionTree.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DECISIONTREE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DECISIONTREE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Node.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}DataFrame.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::unique\_ptr;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_decision_tree_a470fba8e51d63ec23701050de3f06647}{DecisionTree}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ root;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ print\_helper(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_node}{Node}}*\ node,\ \textcolor{keyword}{const}\ vector<string>\&\ col\_names,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ prefix,\ \textcolor{keywordtype}{bool}\ isLeft,\ std::ostringstream\&\ oss);\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ unique\_ptr<Node>\ fit\_helper(unique\_ptr<DataFrame>\ df,\ \textcolor{keywordtype}{string}\ label\_column,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ minSamplesSplit);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_decision_tree_a470fba8e51d63ec23701050de3f06647}{DecisionTree}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_decision_tree_a02eeb6db8794933b278d5e1399551058}{\string~DecisionTree}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_decision_tree_a30ee6b32be46c944992d22298a9d03d5}{predict}}(std::vector<double>\ sample);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_decision_tree_a5f555b5ecf4a639abae198d996e49a5a}{get\_num\_nodes}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_decision_tree_a6b385d7f9b6650e12a8dcace04866456}{fit}}(unique\_ptr<DataFrame>\ df,\ \textcolor{keywordtype}{string}\ label\_column,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ minSamplesSplit);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_decision_tree_a87a02c9842a2e727248535d86bcfb29e}{print}}(vector<string>\ col\_names);}
+\DoxyCodeLine{00167\ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DECISIONTREE\_H}}
+
+\end{DoxyCode}

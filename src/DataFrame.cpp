@@ -13,8 +13,8 @@ using std::string;
 using std::unique_ptr;
 
 
-        // Helper functions
-        // Function to calculate entropy of a dataset
+// Helper functions
+// Function to calculate entropy of a dataset
 double DataFrame::calculateEntropy(const vector<double>& labels) {
 
     std::map<double, double> frequency;

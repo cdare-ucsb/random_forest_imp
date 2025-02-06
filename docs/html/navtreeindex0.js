@@ -1,0 +1,26 @@
+var NAVTREEINDEX0 =
+{
+"_data_frame_8h_source.html":[1,0,0,0],
+"_decision_tree_8h_source.html":[1,0,0,1],
+"_node_8h_source.html":[1,0,0,2],
+"annotated.html":[0,0],
+"class_data_frame.html":[0,0,0],
+"class_decision_node.html":[0,0,1],
+"class_decision_tree.html":[0,0,2],
+"class_decision_tree.html#a02eeb6db8794933b278d5e1399551058":[0,0,2,1],
+"class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5":[0,0,2,4],
+"class_decision_tree.html#a470fba8e51d63ec23701050de3f06647":[0,0,2,0],
+"class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a":[0,0,2,3],
+"class_decision_tree.html#a6b385d7f9b6650e12a8dcace04866456":[0,0,2,2],
+"class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e":[0,0,2,5],
+"class_leaf_node.html":[0,0,3],
+"class_node.html":[0,0,4],
+"classes.html":[0,1],
+"dir_68267d1309a1af8e8297ef4c3efbcdba.html":[1,0,0],
+"files.html":[1,0],
+"functions.html":[0,3,0],
+"functions_func.html":[0,3,1],
+"hierarchy.html":[0,2],
+"index.html":[],
+"pages.html":[]
+};

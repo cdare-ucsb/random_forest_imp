@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googlemock/include -isystem /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googlemock -isystem /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include -isystem /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest
 
-CXX_FLAGS = -std=c++14 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1  -DGTEST_HAS_PTHREAD=1  
+CXX_FLAGS = -std=c++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1  -DGTEST_HAS_PTHREAD=1  
 

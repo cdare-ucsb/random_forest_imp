@@ -4,7 +4,7 @@ project(RandomForestImp)
 set(GOOGLETEST_VERSION 1.15.2)
 
 # GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 enable_testing() #to  discover tests in test explorer
 

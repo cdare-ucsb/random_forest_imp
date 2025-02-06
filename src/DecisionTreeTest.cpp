@@ -55,13 +55,13 @@ int main() {
         {5.0, 2.5, 1}
     };
     vector<string> columns = {"feature1", "feature2", "label"};
-    DataFrame df(data, columns);
+    unique_ptr<DataFrame> df = std::make_unique<DataFrame>(data, columns);
 
-    std::cout << "DataFrame:\n" << df.print() << std::endl;
+    std::cout << "DataFrame:\n" << df->print() << std::endl;
 
     // Train Decision Tree
     DecisionTree tree;
-    tree.fit(&df, "label", 3, 1);
+    tree.fit(std::move(df), "label", 3, 1);
 
     // Print the trained tree structure
     std::cout << "Trained Decision Tree:\n" << tree.print(columns) << std::endl;

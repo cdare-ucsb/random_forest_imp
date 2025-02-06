@@ -6,7 +6,6 @@
 
 using std::vector;
 using std::unique_ptr;
-using std::make_unique;
 
 
 // --------------- Node Class ---------------
@@ -26,7 +25,7 @@ int get_num_nodes() {
 }
 
 int get_height() {
-    return 1;
+    return 0;
 }
 
 
@@ -86,12 +85,6 @@ int DecisionNode::get_feature_index() const {
     return feature_index;
 }
 
-std::string DecisionNode::print()  {
-    return "[Feature " + std::to_string(feature_index) + " <= " + std::to_string(threshold) + "]\n" +
-            "├── Left: " + (left ? left->print() : "NULL") + "\n" +
-            "└── Right: " + (right ? right->print() : "NULL");
-}
-
 
 int DecisionNode::get_num_nodes() {
     if (left == nullptr && right == nullptr) {
@@ -121,4 +114,22 @@ int DecisionNode::get_height() {
     else {
         return 1 + std::max(left->get_height(), right->get_height());
     }
+}
+
+
+// Setters
+void DecisionNode::set_feature_index(int idx) {
+    feature_index = idx;
+}
+        
+void DecisionNode::set_threshold(double thr) {
+    threshold = thr;
+}
+
+
+
+std::string DecisionNode::print()  {
+    return "[Feature " + std::to_string(feature_index) + " <= " + std::to_string(threshold) + "]\n" +
+            "├── Left: " + (left ? left->print() : "NULL") + "\n" +
+            "└── Right: " + (right ? right->print() : "NULL");
 }

@@ -158,11 +158,13 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest_main.dir/cle
 # Recursive "all" directory target.
 src/all: src/CMakeFiles/Node_lib.dir/all
 src/all: src/CMakeFiles/DataFrame_lib.dir/all
+src/all: src/CMakeFiles/DecisionTree_lib.dir/all
 .PHONY : src/all
 
 # Recursive "codegen" directory target.
 src/codegen: src/CMakeFiles/Node_lib.dir/codegen
 src/codegen: src/CMakeFiles/DataFrame_lib.dir/codegen
+src/codegen: src/CMakeFiles/DecisionTree_lib.dir/codegen
 .PHONY : src/codegen
 
 # Recursive "preinstall" directory target.
@@ -172,6 +174,7 @@ src/preinstall:
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/Node_lib.dir/clean
 src/clean: src/CMakeFiles/DataFrame_lib.dir/clean
+src/clean: src/CMakeFiles/DecisionTree_lib.dir/clean
 .PHONY : src/clean
 
 #=============================================================================
@@ -180,11 +183,13 @@ src/clean: src/CMakeFiles/DataFrame_lib.dir/clean
 # Recursive "all" directory target.
 tests/all: tests/CMakeFiles/Node_tests.dir/all
 tests/all: tests/CMakeFiles/DataFrame_tests.dir/all
+tests/all: tests/CMakeFiles/DecisionTree_tests.dir/all
 .PHONY : tests/all
 
 # Recursive "codegen" directory target.
 tests/codegen: tests/CMakeFiles/Node_tests.dir/codegen
 tests/codegen: tests/CMakeFiles/DataFrame_tests.dir/codegen
+tests/codegen: tests/CMakeFiles/DecisionTree_tests.dir/codegen
 .PHONY : tests/codegen
 
 # Recursive "preinstall" directory target.
@@ -194,6 +199,7 @@ tests/preinstall:
 # Recursive "clean" directory target.
 tests/clean: tests/CMakeFiles/Node_tests.dir/clean
 tests/clean: tests/CMakeFiles/DataFrame_tests.dir/clean
+tests/clean: tests/CMakeFiles/DecisionTree_tests.dir/clean
 .PHONY : tests/clean
 
 #=============================================================================
@@ -203,7 +209,7 @@ tests/clean: tests/CMakeFiles/DataFrame_tests.dir/clean
 src/CMakeFiles/Node_lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Node_lib.dir/build.make src/CMakeFiles/Node_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Node_lib.dir/build.make src/CMakeFiles/Node_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=5,6 "Built target Node_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=9,10 "Built target Node_lib"
 .PHONY : src/CMakeFiles/Node_lib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -220,7 +226,7 @@ Node_lib: src/CMakeFiles/Node_lib.dir/rule
 # codegen rule for target.
 src/CMakeFiles/Node_lib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Node_lib.dir/build.make src/CMakeFiles/Node_lib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=5,6 "Finished codegen for target Node_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=9,10 "Finished codegen for target Node_lib"
 .PHONY : src/CMakeFiles/Node_lib.dir/codegen
 
 # clean rule for target.
@@ -261,6 +267,38 @@ src/CMakeFiles/DataFrame_lib.dir/clean:
 .PHONY : src/CMakeFiles/DataFrame_lib.dir/clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/DecisionTree_lib.dir
+
+# All Build rule for target.
+src/CMakeFiles/DecisionTree_lib.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/DecisionTree_lib.dir/build.make src/CMakeFiles/DecisionTree_lib.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/DecisionTree_lib.dir/build.make src/CMakeFiles/DecisionTree_lib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=5,6 "Built target DecisionTree_lib"
+.PHONY : src/CMakeFiles/DecisionTree_lib.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/DecisionTree_lib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/DecisionTree_lib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/DecisionTree_lib.dir/rule
+
+# Convenience name for target.
+DecisionTree_lib: src/CMakeFiles/DecisionTree_lib.dir/rule
+.PHONY : DecisionTree_lib
+
+# codegen rule for target.
+src/CMakeFiles/DecisionTree_lib.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/DecisionTree_lib.dir/build.make src/CMakeFiles/DecisionTree_lib.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=5,6 "Finished codegen for target DecisionTree_lib"
+.PHONY : src/CMakeFiles/DecisionTree_lib.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/DecisionTree_lib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/DecisionTree_lib.dir/build.make src/CMakeFiles/DecisionTree_lib.dir/clean
+.PHONY : src/CMakeFiles/DecisionTree_lib.dir/clean
+
+#=============================================================================
 # Target rules for target tests/CMakeFiles/Node_tests.dir
 
 # All Build rule for target.
@@ -269,7 +307,7 @@ tests/CMakeFiles/Node_tests.dir/all: googletest/googletest/CMakeFiles/gtest.dir/
 tests/CMakeFiles/Node_tests.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Node_tests.dir/build.make tests/CMakeFiles/Node_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Node_tests.dir/build.make tests/CMakeFiles/Node_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=7,8 "Built target Node_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=11,12 "Built target Node_tests"
 .PHONY : tests/CMakeFiles/Node_tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -286,7 +324,7 @@ Node_tests: tests/CMakeFiles/Node_tests.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/Node_tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Node_tests.dir/build.make tests/CMakeFiles/Node_tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=7,8 "Finished codegen for target Node_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=11,12 "Finished codegen for target Node_tests"
 .PHONY : tests/CMakeFiles/Node_tests.dir/codegen
 
 # clean rule for target.
@@ -329,13 +367,49 @@ tests/CMakeFiles/DataFrame_tests.dir/clean:
 .PHONY : tests/CMakeFiles/DataFrame_tests.dir/clean
 
 #=============================================================================
+# Target rules for target tests/CMakeFiles/DecisionTree_tests.dir
+
+# All Build rule for target.
+tests/CMakeFiles/DecisionTree_tests.dir/all: src/CMakeFiles/Node_lib.dir/all
+tests/CMakeFiles/DecisionTree_tests.dir/all: src/CMakeFiles/DataFrame_lib.dir/all
+tests/CMakeFiles/DecisionTree_tests.dir/all: src/CMakeFiles/DecisionTree_lib.dir/all
+tests/CMakeFiles/DecisionTree_tests.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+tests/CMakeFiles/DecisionTree_tests.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DecisionTree_tests.dir/build.make tests/CMakeFiles/DecisionTree_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DecisionTree_tests.dir/build.make tests/CMakeFiles/DecisionTree_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=7,8 "Built target DecisionTree_tests"
+.PHONY : tests/CMakeFiles/DecisionTree_tests.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/DecisionTree_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/DecisionTree_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/DecisionTree_tests.dir/rule
+
+# Convenience name for target.
+DecisionTree_tests: tests/CMakeFiles/DecisionTree_tests.dir/rule
+.PHONY : DecisionTree_tests
+
+# codegen rule for target.
+tests/CMakeFiles/DecisionTree_tests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DecisionTree_tests.dir/build.make tests/CMakeFiles/DecisionTree_tests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=7,8 "Finished codegen for target DecisionTree_tests"
+.PHONY : tests/CMakeFiles/DecisionTree_tests.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/DecisionTree_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DecisionTree_tests.dir/build.make tests/CMakeFiles/DecisionTree_tests.dir/clean
+.PHONY : tests/CMakeFiles/DecisionTree_tests.dir/clean
+
+#=============================================================================
 # Target rules for target googletest/googlemock/CMakeFiles/gmock.dir
 
 # All Build rule for target.
 googletest/googlemock/CMakeFiles/gmock.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=9,10 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=13,14 "Built target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -352,7 +426,7 @@ gmock: googletest/googlemock/CMakeFiles/gmock.dir/rule
 # codegen rule for target.
 googletest/googlemock/CMakeFiles/gmock.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=9,10 "Finished codegen for target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=13,14 "Finished codegen for target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/codegen
 
 # clean rule for target.
@@ -368,7 +442,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMake
 googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=11,12 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=15,16 "Built target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -385,7 +459,7 @@ gmock_main: googletest/googlemock/CMakeFiles/gmock_main.dir/rule
 # codegen rule for target.
 googletest/googlemock/CMakeFiles/gmock_main.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=11,12 "Finished codegen for target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=15,16 "Finished codegen for target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/codegen
 
 # clean rule for target.
@@ -400,7 +474,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=13,14 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=17,18 "Built target gtest"
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -417,7 +491,7 @@ gtest: googletest/googletest/CMakeFiles/gtest.dir/rule
 # codegen rule for target.
 googletest/googletest/CMakeFiles/gtest.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=13,14 "Finished codegen for target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=17,18 "Finished codegen for target gtest"
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/codegen
 
 # clean rule for target.
@@ -432,7 +506,7 @@ googletest/googletest/CMakeFiles/gtest.dir/clean:
 googletest/googletest/CMakeFiles/gtest_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=15,16 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=19,20 "Built target gtest_main"
 .PHONY : googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -449,7 +523,7 @@ gtest_main: googletest/googletest/CMakeFiles/gtest_main.dir/rule
 # codegen rule for target.
 googletest/googletest/CMakeFiles/gtest_main.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=15,16 "Finished codegen for target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/CMakeFiles --progress-num=19,20 "Finished codegen for target gtest_main"
 .PHONY : googletest/googletest/CMakeFiles/gtest_main.dir/codegen
 
 # clean rule for target.
