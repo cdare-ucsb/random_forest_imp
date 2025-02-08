@@ -6,4 +6,4 @@ add_library(Node_lib Node.cpp Node.h)
 
 add_library(DataFrame_lib DataFrame.cpp DataFrame.h)
 
-add_library(DecisionTree_lib DecisionTree.cpp DecisionTree.h)
+# add_library(DecisionTree_lib DecisionTree.cpp DecisionTree.h)

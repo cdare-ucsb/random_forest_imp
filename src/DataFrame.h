@@ -1,24 +1,224 @@
 #ifndef DATAFRAME_H
 #define DATAFRAME_H
 
+#include <variant>
+#include <unordered_map>
+
 using std::vector;
 using std::string;
 using std::unique_ptr;
 
+using Cell = std::variant<int,double,string>;
+
+
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+/* ----------------- SEREIS CLASS --------------------*/
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
 
 /**
- * @class DataFrame
- * @brief DataFrame class
+ * @class Series
+ * @brief Series class, representing a column of data
  * 
- * This class represents a DataFrame object, which is a formatted 2D matrix of data along with column names.
+ * This class represents a Series object, which is a column of data values. The data values can be of type int, double, or string.
+ * The Series class provides methods for adding data values, retrieving data values, and performing operations on the data.
+ * 
  */
-class DataFrame {
-    protected:
-        vector<vector<double>> data; ///< 2D matrix of data
+class Series {
+
+    protected :
+        vector<Cell> data; ///< Vector of data values
+
+    public:
+        bool is_numeric; ///< Flag indicating whether the data is numeric
+
+        /**
+         * @brief Constructor for Series
+         */
+        Series();
+        /**
+         * @brief Constructor for Series
+         * @param data Vector of data values
+         */
+        Series(vector<Cell> data);
+
+        /**
+         * @brief Destructor for Series
+         */
+        ~Series();
+
+        /**
+         * @brief Function to add a data value to the Series
+         * @param value Data value to add
+         * 
+         * This function adds a data value to the Series. The function also updates the is_numeric flag based on the type of the data value.
+         */
+        void push_back(Cell value);
+        /**
+         * @brief Function to retrieve a data value from the Series
+         * @return Data value at the specified index
+         * @throws std::runtime_error if the index is out of bounds
+         * @param row Index of the data value to retrieve
+         * 
+         * This function retrieves the data value at the specified index from the Series.
+         */
+        Cell retrieve(size_t row) const;
+
+        /**
+         * @brief Function to get the size of the Series
+         * @return Size of the Series
+         * 
+         * This function returns the number of data values in the Series.
+         */
+        size_t size() const;
+
+        /**
+         * @brief Function to check if the Series is empty
+         * @return true if the Series is empty, false otherwise
+         * 
+         * This function checks if the Series is empty, i.e., if it contains no data values.
+         */
+        bool empty() const;
+
+        /**
+         * @brief Function to print the Series
+         * @return string representation of the Series
+         * 
+         * This function returns a string representation of the Series, with each data value separated by a space.
+         */
+        string print() const;
+
+        /**
+         * @brief Calculates the mode / most frequent entry of the Series
+         * @return mode (i.e. most frequent entry) of the column as a Cell
+         * @throws runtime_error if the column is empty
+         * 
+         * This function calculates the mode of the specified column.
+         */
+        Cell mode() const;
+
+
+        /**
+         * @brief Function to convert the Series to numeric classes
+         * @return Series containing the data values converted to numeric classes
+         * @throws std::runtime_error if the column is not entirely numeric
+         * 
+         * This function converts the data values of the Series to numeric classes and returns a new Series containing the converted values.
+         * This can be thought of as a generalization of one-hot encoding, where each unique value in the column is assigned a unique numeric class.
+         */
+        Series convertToNumericClasses() const;
+
+        /**
+         * @brief Calculates the median of the Series, assuming it is numeric
+         * @return double median of the column
+         * @throws std::runtime_error if the column is empty or not numeric
+         * 
+         * This function calculates the median of the specified column.
+         */
+        double median() const;
+
+        /**
+         * @brief Function to add two Series together
+         * @param other Series to add
+         * @return Series containing the sum of the two Series
+         * @throws std::runtime_error if the sizes of the two Series do not match or the types are not compatible
+         * 
+         * This function adds the data values of the two Series together and returns a new Series containing the sum.
+         * The function checks that the sizes of the two Series match and that the data values are compatible for addition.
+         * 
+         * @code
+         * Series col1 = Series({1, 2, 3, 4, 5});
+         * Series col2 = Series({4, 8, 3, -1, -7});
+         * 
+         * Series sum = col1 + col2;
+         * 
+         * printf("Sum of the two Series is {5, 10, 6, 3, -2}: %s", sum == Series({5, 10, 6, 3, -2}) ? "TRUE" : "FALSE");
+         * 
+         * @endcode
+         * 
+         */
+        Series operator+(const Series& other) const;
+
+        /**
+         * @brief Function to access a data value in the Series
+         * @param index Index of the data value to access
+         * @return Reference to the data value at the specified index
+         * @throws std::out_of_range if the index is out of bounds
+         * @see Series::retrieve
+         * 
+         * This function allows access to a data value in the Series using the [] operator.
+         */
+        Cell& operator[](size_t index);
+
+        /**
+         * @brief Function to get an iterator to the beginning of the Series
+         * @return Iterator to the beginning of the Series
+         * 
+         * This function returns an iterator to the beginning of the Series.
+         */
+        std::vector<Cell>::iterator begin();
+
+        /**
+         * @brief Function to get an iterator to the end of the Series
+         * @return Iterator to the end of the Series
+         * 
+         * This function returns an iterator to the end of the Series.
+         */
+        std::vector<Cell>::iterator end();
+
+        /**
+         * @brief Function to compare two Series for equality
+         * @param other Series to compare
+         * @return true if the two Series are equal, false otherwise
+         * 
+         * This function compares two Series for equality. Two Series are considered equal if they have the same size and contain the same data values in the same order.
+         * 
+         * @code
+         * 
+         * 
+         * Series col1 = Series({1, 2, 3, 4, 5});
+         * Series col2 = Series({1, 2, 3, 4, 5});
+         * Series col3 = Series({1, 2, 3, 4, 6});
+         * 
+         * //TRUE
+         * printf("col1 and col2 are equal: %s", col1 == col2 ? "TRUE" : "FALSE");
+         * //FALSE
+         * printf("col1 and col3 are equal: %s", col1 == col3 ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        bool operator==(const Series& other) const;
+
+        /**
+         * @brief Helper function to convert a column to numeric values
+         * @param column_name Name of the column to convert
+         * @return Vector of numeric values
+         * @throws std::out_of_range if the column name is not found
+         * @throws std::runtime_error if the column does not entirely consist of numeric data
+         * @see Series::convert_to_string
+         * 
+         * This function converts the values of the specified column to numeric values and returns them as a vector.
+         */
+        vector<double> convert_to_numeric() const;
+
+
+        /**
+         * @brief Helper function to convert a column to string values
+         * @param column_name Name of the column to convert
+         * @return Vector of string values
+         * @throws std::out_of_range if the column name is not found
+         * @throws std::runtime_error if the column does not entirely consist of string data
+         * @see Series::convert_to_numeric
+         * 
+         * This function converts the values of the specified column to string values and returns them as a vector.
+         */
+        vector<string> convert_to_string() const;
 
         /**
          * @brief Function to calculate the entropy of a set of labels
-         * @param labels vector of labels
+         * @param column_name Name of the column containing the labels
          * @return double entropy of the set of labels
          * 
          * The entropy of a set of labels is calculated as follows:
@@ -29,7 +229,39 @@ class DataFrame {
          * 
          * Entropy is a measure of the impurity or disorder of the set of labels. A higher entropy value indicates more disorder.
          */
-        double calculateEntropy(const vector<double>& labels);
+        double calculateEntropy() const;
+
+
+};
+
+
+
+
+
+
+
+
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+/* ----------------DATAFRAME CLASS -------------------*/
+/* -------------------------------------------------- */
+/* -------------------------------------------------- */
+
+
+/**
+ * @class DataFrame
+ * @brief DataFrame class
+ * 
+ * This class represents a DataFrame object, which is a formatted 2D matrix of data along with column names.
+ */
+class DataFrame {
+    protected:
+
+        std::unordered_map<string, Series> data; ///< Map of column names to column data
+        vector<string> columns; ///< Vector of column names
+
+
+
         /**
          * @brief Function to calculate the information gain of an attribute
          * @param attributeIndex Index of the attribute for which to calculate information gain
@@ -43,88 +275,113 @@ class DataFrame {
          * 3. Calculate the information gain as the entropy of the set of labels minus the weighted average entropy after splitting.
          * 4. Return the information gain.
          */
-        double calculateInformationGain(int attributeIndex, string label_column);
+        double calculateInformationGain(string attribute_column, string label_column) const;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is less than the threshold
-         * @param attributeIndex Index of the attribute to filter on
+         * @param column_name Name of the column to filter on
          * @param threshold Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is less than the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being less than the threshold.
          */
-        unique_ptr<DataFrame> filter_lt(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> numeric_filter_lt(string column_name, double threshold) const;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold
-         * @param attributeIndex Index of the attribute to filter on
+         * @param column_name Name of the column to filter on
          * @param threshold Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is less than or equal to the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being less than or equal to the threshold.
          */
-        unique_ptr<DataFrame> filter_leq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> numeric_filter_leq(string column_name, double threshold) const;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold
-         * @param attributeIndex Index of the attribute to filter on
+         * @param column_name Name of the column to filter on
          * @param threshold Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is greater than the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being greater than the threshold.
          */
-        unique_ptr<DataFrame> filter_gt(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> numeric_filter_gt(string column_name, double threshold) const;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold
-         * @param attributeIndex Index of the attribute to filter on
+         * @param column_name Name of the column to filter on
          * @param threshold Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is greater than or equal to the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being greater than or equal to the threshold.
          */
-        unique_ptr<DataFrame> filter_geq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> numeric_filter_geq(string column_name, double threshold) const ;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold
-         * @param attributeIndex Index of the attribute to filter on
-         * @param threshold Threshold value for the filter
+         * @param column_name Name of the column to filter on
+         * @param value Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is equal to the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being equal to the threshold.
          */
-        unique_ptr<DataFrame> filter_eq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_eq(string column_name, Cell value) const;
 
         /**
          * @brief Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold
          * @param attributeIndex Index of the attribute to filter on
-         * @param threshold Threshold value for the filter
+         * @param value Threshold value for the filter
          * @return DataFrame containing only the rows where the value of the attribute is not equal to the threshold
          * 
          * This function filters the rows of the DataFrame based on the value of the attribute at the given index being not equal to the threshold.
          */
-        unique_ptr<DataFrame> filter_neq(int attributeIndex, double threshold);
+        unique_ptr<DataFrame> filter_neq(string column_name, Cell value) const;
 
+        /**
+         * @brief Helper function to print a single cell of the data frame
+         * @param cell Cell to print
+         * @return string representation of the cell
+         * @see DataFrame::print
+         * 
+         * This function returns a string representation of a single cell of the data frame.
+         * The representation depends on the type of the cell (int, double, or string).
+         * This helper function is primarily used by the DataFrame::print function.
+         */
+        string cellToString(const Cell& cell) const;
 
     public:
-        vector<string> columns; ///< Vector of column names
 
         /**
          * @brief Constructor for DataFrame
          * @param data 2D matrix of data
          * @param columns Vector of column names
          */
-        DataFrame(std::vector<vector<double>> data, vector<string> columns);
+        DataFrame();
         /**
          * @brief Destructor for DataFrame
          */
         ~DataFrame();
 
+
         /**
-         * @brief Function to get the data of the DataFrame
-         * @return 2D matrix of data
+         * @brief Constructor for DataFrame
+         * @param data 2D matrix of data
+         * @param columns Vector of column names
+         * 
+         * Static function to cast a Cell to an integer
          */
-        vector<vector<double>> get_data();
+        static int int_cast(Cell cell);
+
+        /**
+         * @brief Static function to cast a Cell to a double
+         * @param cell Cell to cast
+         * @return double value of the Cell
+         * 
+         * Static function to cast a Cell to a double
+         */
+        static string str_cast(Cell cell);
+
+
 
         /**
          * @brief Function to get the column names of the DataFrame
@@ -140,28 +397,74 @@ class DataFrame {
          * This function returns a vector containing the values of the specified column.
          * 
          * @code
-         * vector<vector<double>> sample = {
-         * {0,0,0,0},
-         * {1,0,1,0},
-         * {0,2,0,2},
-         * {3,3,3,3},
-         * {4,0,0,4}};
+         * DataFrame df;
          * 
-         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * df.addColumn("a");
+         * df.addColumn("b");
+         * df.addColumn("c");
+         * df.addColumn("d");
          * 
-         * vector<double> column_b = df.get_column("b");
-         * vector<double> expected_b = {0, 0, 2, 3, 0};
+         * df.addRow({0,0,0,0});
+         * df.addRow({1,0,1,0});
+         * df.addRow({0,2,0,2});
+         * df.addRow({3,3,3,3});
+         * df.addRow({4,0,0,4});;
+         * 
+         * Series column_b = df.get_column("b");
+         * Series expected_b = {0, 0, 2, 3, 0};
          * 
          * printf("Column correctly gives %s : %s", column_b, column_b == expected_b ? "TRUE" : "FALSE" );
          * @endcode
          */
-        vector<double> get_column(string col_name);
+        Series get_column(string col_name);
+
+        /**
+        * @brief Adds a column to the DataFrame.
+        * @param name Column name.
+        */
+        void addColumn(const std::string& name);
+
+        /**
+        * @brief Adds a row of values to the DataFrame.
+        * @param values A vector of Cell (int, double, or string) matching column count.
+        */
+        void addRow(const std::vector<Cell>& values);
+
+        /**
+         * @brief Function to retrieve a data value from the DataFrame
+         * @param row Index of the row
+         * @param col Name of the column --- this can be either a string or an integer
+         * @return Data value at the specified row and column
+         * @throws std::out_of_range if the column name is not found
+         * 
+         * This function retrieves the data value at the specified row and column from the DataFrame.
+         * The column can be specified using either the column name or the column index.
+         * 
+         * @code
+         * DataFrame df;
+         * 
+         * df.addColumn("a");
+         * df.addColumn("b");
+         * df.addColumn("c");
+         * df.addColumn("d");
+         * 
+         * df.addRow({0,0,0,0});
+         * df.addRow({1,0,1,0});
+         * df.addRow({0,2,0,2});
+         * df.addRow({3,3,3,3});
+         * df.addRow({4,0,0,4});
+         * 
+         * printf("Value at row 2, column 'c' is 0: %s", df.retrieve(2, "c") == 0 ? "TRUE" : "FALSE");
+         * @endcode
+         * 
+         */
+        Cell retrieve(size_t row, Cell col);
 
         /**
          * @brief Function which prints the DataFrame as a table
          * @return string representation of the DataFrame
          */
-        string print();
+        string print() const;
 
         /**
          * @brief Function which calculates the attribute with the greatest information gain
@@ -187,27 +490,7 @@ class DataFrame {
          * printf("Best attribute is %s: %s\n", columns[1], best_attribute == 1 ? "TRUE" : "FALSE");
          * @endcode
          */
-        int selectBestAttribute(string label_column);
-
-        /**
-         * @brief Calculates the median of a column
-         * @param col_name Name of the column
-         * @return double median of the column
-         * @throws std::out_of_range if the column name is not found
-         * 
-         * This function calculates the median of the specified column.
-         */
-        double column_median(string col_name);
-
-        /**
-         * @brief Calculates the mode of a column
-         * @param col_name Name of the column
-         * @return double mode of the column
-         * @throws std::out_of_range if the column name is not found
-         * 
-         * This function calculates the mode of the specified column.
-         */
-        double column_mode(string col_name);
+        string selectBestAttribute(string label_name);
 
         /**
          * @brief Function to filter the DataFrame based on a condition
@@ -246,7 +529,7 @@ class DataFrame {
          * printf("Filtered DataFrame correctly gives %s : %s", expected_data, filtered_df->get_data() == expected_data ? "TRUE" : "FALSE" );
          * @endcode
          */
-        unique_ptr<DataFrame> filter(int attributeIndex, double threshold, string condition);
+        unique_ptr<DataFrame> filter(string column_name, Cell threshold, string condition);
 
         
 };

@@ -51,17 +51,17 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
     // Base cases for recursion
     if (df->get_num_rows() < minSamplesSplit || max_depth == 0) {
         // Compute the most common label in the dataset
-        return std::make_unique<LeafNode>(df->column_mode(label_column));
+        return std::make_unique<LeafNode>(df->get_column(label_column).mode());
     }
 
     // Find the best attribute to split on
-    int best_feature = df->selectBestAttribute(label_column);
-    if (best_feature == -1) {
-        return std::make_unique<LeafNode>(df->column_mode(label_column));
-    }
+    string best_feature = df->selectBestAttribute(label_column);
+    Series best_feature_data = df->get_column(best_feature);
+
+
 
     // Determine threshold for splitting (using median for continuous data)
-    double threshold = df->column_median(df->columns[best_feature]);
+    double threshold = df->get_column(best_feature).median();
 
     // Split data into left and right subsets
     unique_ptr<DataFrame> left_df = df->filter(best_feature, threshold, "<=");
@@ -69,7 +69,7 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
 
     // If splitting doesn't separate data, return a leaf node
     if (left_df->get_num_rows() == 0 || right_df->get_num_rows() == 0) {
-        return std::make_unique<LeafNode>(df->column_mode(label_column));
+        return std::make_unique<LeafNode>(df->get_column(label_column).mode());
     }
 
     // Recursively build left and right subtrees

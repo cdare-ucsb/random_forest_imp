@@ -198,19 +198,6 @@ DataFrame_lib/fast:
 .PHONY : DataFrame_lib/fast
 
 #=============================================================================
-# Target rules for targets named DecisionTree_lib
-
-# Build rule for target.
-DecisionTree_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DecisionTree_lib
-.PHONY : DecisionTree_lib
-
-# fast build rule for target.
-DecisionTree_lib/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/DecisionTree_lib.dir/build.make src/CMakeFiles/DecisionTree_lib.dir/build
-.PHONY : DecisionTree_lib/fast
-
-#=============================================================================
 # Target rules for targets named Node_tests
 
 # Build rule for target.
@@ -235,19 +222,6 @@ DataFrame_tests: cmake_check_build_system
 DataFrame_tests/fast:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DataFrame_tests.dir/build.make tests/CMakeFiles/DataFrame_tests.dir/build
 .PHONY : DataFrame_tests/fast
-
-#=============================================================================
-# Target rules for targets named DecisionTree_tests
-
-# Build rule for target.
-DecisionTree_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DecisionTree_tests
-.PHONY : DecisionTree_tests
-
-# fast build rule for target.
-DecisionTree_tests/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/DecisionTree_tests.dir/build.make tests/CMakeFiles/DecisionTree_tests.dir/build
-.PHONY : DecisionTree_tests/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -316,8 +290,6 @@ help:
 	@echo "... test"
 	@echo "... DataFrame_lib"
 	@echo "... DataFrame_tests"
-	@echo "... DecisionTree_lib"
-	@echo "... DecisionTree_tests"
 	@echo "... Node_lib"
 	@echo "... Node_tests"
 	@echo "... gmock"
