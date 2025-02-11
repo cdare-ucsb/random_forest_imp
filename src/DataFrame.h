@@ -14,7 +14,7 @@ using Cell = std::variant<int,double,string>;
 
 /* -------------------------------------------------- */
 /* -------------------------------------------------- */
-/* ----------------- SEREIS CLASS --------------------*/
+/* ----------------- SERIES CLASS --------------------*/
 /* -------------------------------------------------- */
 /* -------------------------------------------------- */
 
@@ -120,6 +120,16 @@ class Series {
          */
         double median() const;
 
+
+        /**
+         * @brief Calculates the mean of the Series, assuming it is numeric
+         * @return double mean of the column
+         * @throws std::runtime_error if the column is empty or not numeric
+         * 
+         * This function calculates the mean of the specified column.
+         */
+        double mean() const;
+
         /**
          * @brief Function to add two Series together
          * @param other Series to add
@@ -159,7 +169,7 @@ class Series {
          * 
          * This function returns an iterator to the beginning of the Series.
          */
-        std::vector<Cell>::iterator begin();
+        std::vector<Cell>::const_iterator begin() const;
 
         /**
          * @brief Function to get an iterator to the end of the Series
@@ -167,7 +177,7 @@ class Series {
          * 
          * This function returns an iterator to the end of the Series.
          */
-        std::vector<Cell>::iterator end();
+        std::vector<Cell>::const_iterator end() const;
 
         /**
          * @brief Function to compare two Series for equality
@@ -490,6 +500,8 @@ class DataFrame {
         */
         void add_column(const std::string& name);
 
+        void add_column(const std::string& name, const Series& column);
+
         /**
         * @brief Adds a row of values to the DataFrame.
         * @param values A vector of Cell (int, double, or string) matching column count.
@@ -755,13 +767,94 @@ class DataFrame {
          * This function converts a column of string data to numeric categories, which is necessary
          * for some some classification algorithms. Thhe algorithms iterates through the data and 
          * assigns a unique numeric value to each unique string value.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0, "Yes"},
+         * {1,0,1,0, "No"},
+         * {0,2,0,2, "Yes"},
+         * {3,3,3,3, "No"},
+         * {4,0,0,4, "No"}};
+         * DataFrame df(sample, {"a", "b", "c", "d", "e"});
+         * 
+         * df.one_hot_encode("e");
+         * 
+         * printf("Column 'e' is now numeric: %s", df.get_column("e").is_numeric() ? "TRUE" : "FALSE");
          */
         void one_hot_encode(string col_name);
 
+        
+        /**
+         * @brief Function to read a CSV file into a DataFrame
+         * @param file_path Path to the CSV file
+         * @return DataFrame containing the data from the CSV file
+         * 
+         * This function reads a CSV file into a DataFrame. The CSV file is expected to have a header row with column names.
+         * The function returns a DataFrame containing the data from the CSV file.
+         * 
+         * @code
+         * std::unique_ptr<DataFrame> df = DataFrame::read_csv("data.csv");
+         * @endcode
+         */
         static unique_ptr<DataFrame> read_csv(const std::string& file_path);
         
 
+        /**
+         * @brief Function to split the DataFrame into training and testing sets
+         * @param percent_training Percentage of the data to include in the training set
+         * @return Pair of DataFrames containing the training and testing sets
+         * 
+         * This function splits the DataFrame into training and testing sets based on the specified percentage.
+         * The function returns a pair of DataFrames containing the training and testing sets.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> train_test = df.split_train_test(0.8);
+         * 
+         * printf("Training set has 80%% of the data: %s", train_test.first->get_num_rows() == 4 ? "TRUE" : "FALSE");
+         * printf("Testing set has 20%% of the data: %s", train_test.second->get_num_rows() == 1 ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        std::pair<unique_ptr<DataFrame>, unique_ptr<DataFrame>> split_train_test(double percent_training);
+
+
+        /**
+         * @brief Function to split the DataFrame into training and testing sets with a specified random state
+         * @param percent_training Percentage of the data to include in the training set
+         * @param random_state Random seed for splitting the data
+         * @return Pair of DataFrames containing the training and testing sets
+         * 
+         * This function splits the DataFrame into training and testing sets based on the specified percentage and random seed.
+         * The function returns a pair of DataFrames containing the training and testing sets.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> train_test = df.split_train_test(0.8, 42);
+         * 
+         * printf("Training set has 80%% of the data: %s", train_test.first->get_num_rows() == 4 ? "TRUE" : "FALSE");
+         * printf("Testing set has 20%% of the data: %s", train_test.second->get_num_rows() == 1 ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        std::pair<unique_ptr<DataFrame>, unique_ptr<DataFrame>> split_train_test(double percent_training, size_t random_state);
         
+        vector<unique_ptr<DataFrame>> split_k_fold(size_t n_folds);
+        vector<unique_ptr<DataFrame>> split_k_fold(size_t n_folds, size_t seed);
+
+        unique_ptr<DataFrame> copy() const;
 };
 
 

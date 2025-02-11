@@ -298,6 +298,42 @@ TEST(DataFrameTest, HeadAndTailTest) {
     EXPECT_EQ(DataFrame::str_cast(tail->retrieve(1, "Day")), "Mon");
 }
 
+
+TEST(DataFrameTest, CopyTest) {
+
+    DataFrame df2;
+    df2.add_column("Temp");
+    df2.add_column("Day");
+    df2.add_column("IsWeekend");
+    df2.add_column("Humidity");
+
+    df2.add_row({32.4, "Sat", "Yes", 10.1});
+    df2.add_row({36.2, "Sun", "Yes", 9.2});
+    df2.add_row({30.4, "Mon", "No", 9.4});
+    df2.add_row({39.5, "Tue", "No", 9.6});
+    df2.add_row({42.1, "Wed", "No", 13.1});
+    df2.add_row({44.3, "Thu", "No", 12.9});
+    df2.add_row({40.9, "Fri", "No", 11.1});
+    df2.add_row({41.5, "Sat", "Yes", 8.5});
+    df2.add_row({38.1, "Sun", "Yes", 8.1});
+    df2.add_row({37.7, "Mon", "No", 10.2});
+
+    unique_ptr<DataFrame> copy = df2.copy();
+
+    EXPECT_EQ(copy->get_num_rows(), 10);
+    EXPECT_EQ(copy->get_num_columns(), 4);
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(0, "Day")), "Sat");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(1, "Day")), "Sun");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(2, "Day")), "Mon");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(3, "Day")), "Tue");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(4, "Day")), "Wed");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(5, "Day")), "Thu");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(6, "Day")), "Fri");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(7, "Day")), "Sat");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(8, "Day")), "Sun");
+    EXPECT_EQ(DataFrame::str_cast(copy->retrieve(9, "Day")), "Mon");
+}
+
 TEST(DataFrameTest, OneHotEncodeTest) {
     DataFrame df;
 
@@ -411,6 +447,19 @@ TEST(SeriesTest, SeriesNumericCatagories) {
     EXPECT_EQ(DataFrame::int_cast(cat2.retrieve(9)), 2);
 }
 
+TEST(SeriesTest, MeanTest) {
+    Series col1 = Series({1, 2, 3, 4, 5});
+    Series col2 = Series({1, 2, 3, 4, 6});
+    Series col3 = Series({1, 2, 3, 4, 7, 8});
+
+    EXPECT_EQ(col1.mean(), 3);
+    EXPECT_EQ(col2.mean(), 3.2);
+    EXPECT_EQ(col3.mean(), 4.166666666666667);
+
+    Series emptycol = Series();
+    EXPECT_THROW(emptycol.mean(), std::runtime_error);
+}
+
 
 /**
  * @brief Unit tests for data frame operations
@@ -453,6 +502,34 @@ TEST(DataFrameTest, BootstrapSampleTest) {
     EXPECT_THROW(DataFrame::int_cast(sample2->retrieve(1, "a")), std::out_of_range);
 }
 
+
+TEST(DataFrameTest, SplitKFoldTest) {
+    DataFrame df2;
+    df2.add_column("Temp");
+    df2.add_column("Day");
+    df2.add_column("IsWeekend");
+    df2.add_column("Humidity");
+
+    df2.add_row({32.4, "Sat", "Yes", 10.1});
+    df2.add_row({36.2, "Sun", "Yes", 9.2});
+    df2.add_row({30.4, "Mon", "No", 9.4});
+    df2.add_row({39.5, "Tue", "No", 9.6});
+    df2.add_row({42.1, "Wed", "No", 13.1});
+    df2.add_row({44.3, "Thu", "No", 12.9});
+    df2.add_row({40.9, "Fri", "No", 11.1});
+    df2.add_row({41.5, "Sat", "Yes", 8.5});
+    df2.add_row({38.1, "Sun", "Yes", 8.1});
+    df2.add_row({37.7, "Mon", "No", 10.2});
+
+    vector<unique_ptr<DataFrame>> folds = df2.split_k_fold(3, 123456);
+
+    EXPECT_EQ(folds.size(), 3);
+    EXPECT_EQ(folds[0]->get_num_rows(), 4);
+    EXPECT_EQ(folds[1]->get_num_rows(), 3);
+    EXPECT_EQ(folds[2]->get_num_rows(), 3);
+
+
+}
 
 
 int main(int argc, char* argv[])

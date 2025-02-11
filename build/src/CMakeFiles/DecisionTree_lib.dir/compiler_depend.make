@@ -427,6 +427,7 @@ src/CMakeFiles/DecisionTree_lib.dir/DecisionTree.cpp.o: /Users/chris/Documents/S
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.1.6/include/stdint.h \
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Classifier.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DataFrame.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Node.h
@@ -437,6 +438,8 @@ src/CMakeFiles/DecisionTree_lib.dir/DecisionTree.cpp.o: /Users/chris/Documents/S
 /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h:
 
 /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DataFrame.h:
+
+/Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Classifier.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/xlocale/_wctype.h:
 

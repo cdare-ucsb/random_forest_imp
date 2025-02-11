@@ -6,6 +6,7 @@
 
 #include "DecisionTree.h"
 #include "DataFrame.h"
+#include "Classifier.h"
 
 using std::vector;
 
@@ -20,10 +21,10 @@ using std::vector;
  * The Random Forest class provides methods for fitting the model to the data and making predictions. 
  */
 
-class RandomForest {
+class RandomForest : public Classifier {
 
     private:
-        std::vector<std::unique_ptr<DecisionTree>> trees; ///< Vector of decision trees in the forest
+        std::vector<std::shared_ptr<DecisionTree>> trees; ///< Vector of decision trees in the forest
         size_t num_trees;   ///< Number of trees in the forest
         size_t num_features; ///< Number of features to consider when looking for the best split
         size_t max_depth; ///< Maximum depth of the trees
@@ -32,8 +33,8 @@ class RandomForest {
         size_t random_state; ///< Random seed for the random number generator
         
         std::vector<std::string> full_feature_names; ///< Original feature names; used when mapping the features back to the original dataset
-        std::map<DecisionTree*, std::vector<std::string>> tree_feature_map; ///< Map of decision trees to the features they were trained on
-
+        std::map<std::shared_ptr<DecisionTree>, std::vector<std::string>> tree_feature_map; ///< Map of decision trees to the features they were trained on
+        mutable std::mutex map_mutex; ///< Mutex to protect the tree_feature_map
 
         /**
          * @brief Function to get the index of a column in the DataFrame
@@ -93,7 +94,7 @@ class RandomForest {
          * The function takes a DataFrame containing the data and the name of the column containing the labels.
          * For each decision tree, bootstrap samples are created from the data, and the tree is trained on the samples.
          */
-        void fit(std::unique_ptr<DataFrame> data, const std::string& label_column);
+        void fit(std::shared_ptr<DataFrame> data, const std::string& label_column) override;
 
         /**
          * @brief Function to make predictions using the RandomForest
@@ -103,7 +104,7 @@ class RandomForest {
          * This function makes predictions using the RandomForest on the specified sample.
          * The function returns the prediction from the RandomForest.
          */
-        double predict(const std::vector<double>& sample) const;
+        double predict(const std::vector<double>& sample) const override;
 
 
         /**
@@ -114,5 +115,12 @@ class RandomForest {
          * individual decision trees in the forest.
          */
         std::string print();
+
+
+        static std::tuple<int,int,int,int> hypertune(std::unique_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
+                             const std::vector<int>& num_trees_values,
+                             const std::vector<int>& max_depth_values,
+                            const std::vector<int>& min_samples_split_values,
+                             const std::vector<int>& num_features_values);
 
 };

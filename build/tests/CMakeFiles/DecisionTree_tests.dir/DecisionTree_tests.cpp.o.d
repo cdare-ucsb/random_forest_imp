@@ -475,4 +475,5 @@ tests/CMakeFiles/DecisionTree_tests.dir/DecisionTree_tests.cpp.o: \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include/gtest/gtest_prod.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/tests/../src/DataFrame.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/tests/../src/DecisionTree.h \
-  /Users/chris/Documents/SourceCode/c++/random_forest_imp/tests/../src/Node.h
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/tests/../src/Node.h \
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/tests/../src/Classifier.h

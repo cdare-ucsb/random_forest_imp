@@ -33,3 +33,57 @@ TEST(RandomForestTest, RandomForestPredict) {
 
     EXPECT_THROW(rf.predict({0.0, 12.8, 5.0, 4.7, 0.0}), std::runtime_error);
 }
+
+TEST(RandomForestTest, RandomForestPredict2) {
+    
+    int num_trees = 6;
+    int max_depth = 4;
+    int min_samples_split = 1;
+    int num_features = 3;
+    RandomForest rf(num_trees, max_depth, min_samples_split, num_features, 123456);
+
+    
+    unique_ptr<DataFrame> df = DataFrame::read_csv("../../samples/seattle-weather.csv")->head(100);
+
+    // Clean data
+    df->drop_column("date");
+    df->one_hot_encode("weather");
+    vector<string> columns = df->columns;
+
+    rf.fit(std::move(df), "weather");
+
+    EXPECT_EQ(rf.predict({0.0, 12.8, 5.0, 4.7}), 0);
+    EXPECT_EQ(rf.predict({1.0, 9.8, -1.0, 6.7}), 1);
+    EXPECT_EQ(rf.predict({4.0, 1.8, -3.0, 2.7}), 1);
+
+
+}
+
+
+TEST(RandomForestTest, RandomForestHypertune) {
+
+    unique_ptr<DataFrame> df = DataFrame::read_csv("../../samples/seattle-weather.csv")->head(100);
+
+    // Clean data
+    df->drop_column("date");
+    df->one_hot_encode("weather");
+    vector<string> columns = df->columns;
+
+    vector<int> num_trees_values = {1, 2, 4, 8};
+    vector<int> max_depth_values = {1, 2, 3, 4};
+    vector<int> min_samples_split_values = {1, 2, 3, 4};
+    vector<int> num_features_values = {1, 2, 3};
+
+
+    auto [best_num_trees, best_max_depth, best_min_samples_split, best_num_features] = RandomForest::hypertune(std::move(df),
+                                                                                    "weather", 3, 123456,
+                                                                                    num_trees_values,
+                                                                                    max_depth_values,
+                                                                                    min_samples_split_values,
+                                                                                    num_features_values);
+
+    EXPECT_EQ(best_num_trees, 8);
+    EXPECT_EQ(best_max_depth, 3);
+    EXPECT_EQ(best_min_samples_split, 1);
+    EXPECT_EQ(best_num_features, 2);
+}

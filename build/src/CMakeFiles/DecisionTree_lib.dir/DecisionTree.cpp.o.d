@@ -427,4 +427,5 @@ src/CMakeFiles/DecisionTree_lib.dir/DecisionTree.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__node_handle \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/optional \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Node.h \
-  /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h \
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Classifier.h

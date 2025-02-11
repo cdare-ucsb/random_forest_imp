@@ -106,6 +106,14 @@ Cell Series::mode() const {
     return mode_value;
 }
 
+double Series::mean() const {
+    if (data.empty()) {
+        throw std::runtime_error("Cannot compute mode on an empty column!");
+    }
+    std::vector<double> numeric_values = this->convert_to_numeric();
+    return std::accumulate(numeric_values.begin(), numeric_values.end(), 0.0) / numeric_values.size();
+}
+
 
 double Series::median() const {
 
@@ -260,11 +268,11 @@ bool Series::operator==(const Series& other) const {
 }
 
 
-std::vector<Cell>::iterator Series::begin() {
+std::vector<Cell>::const_iterator Series::begin() const {
     return data.begin();
 }
 
-std::vector<Cell>::iterator Series::end() {
+std::vector<Cell>::const_iterator Series::end() const {
     return data.end();
 }
 
@@ -686,6 +694,14 @@ void DataFrame::add_column(const std::string& name) {
     }
 }
 
+void DataFrame::add_column(const std::string& name, const Series& column) {
+    if (data.find(name) == data.end()) {
+        data[name] = column;
+        columns.push_back(name);
+    } else {
+        throw std::runtime_error("Column already exists");
+    }
+}
 
 
 Series DataFrame::get_column(string col_name) const {
@@ -784,6 +800,28 @@ string DataFrame::cellToString(const Cell& cell) const {
 }
 
 
+std::unique_ptr<DataFrame> DataFrame::copy() const {
+    // Create a new DataFrame
+    auto new_df = std::make_unique<DataFrame>();
+
+    // Copy column names
+    for (const auto& col : columns) {
+        new_df->add_column(col);
+    }
+
+    // Copy data for each column
+    for (const auto& col : columns) {
+        Series new_series;
+        for (const auto& value : data.at(col)) {
+            new_series.push_back(value);  // Deep copy each cell value
+        }
+        new_df->data[col] = std::move(new_series);  // Move the new Series into the new DataFrame
+    }
+
+    return new_df;
+}
+
+
 string DataFrame::print() const {
     if (data.empty()) {
         return "Empty DataFrame!\n";
@@ -879,9 +917,12 @@ void DataFrame::one_hot_encode(string col_name) {
     }
 
     Series column_data = data.at(col_name);
-
     Series categorical_column = column_data.numeric_classes();
 
+    // Since the column is now numeric, we can safely set is_numeric to true
+    column_data.is_numeric = true;
+
+    // Remove the original column
     data[col_name] = categorical_column;
 }
 
@@ -1215,6 +1256,197 @@ std::unique_ptr<DataFrame> DataFrame::read_csv(const std::string& file_path) {
 
     return df;
 }
+
+
+
+std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> DataFrame::split_train_test(double percent_training) {
+    if (percent_training <= 0.0 || percent_training >= 100.0) {
+        throw std::invalid_argument("percent_training must be between 0 and 100 (exclusive)");
+    }
+
+    size_t total_rows = this->get_num_rows();
+    size_t num_train_rows = static_cast<size_t>(std::round((percent_training / 100.0) * total_rows));
+
+    // Create new DataFrames for training and testing sets
+    auto train_df = std::make_unique<DataFrame>();
+    auto test_df = std::make_unique<DataFrame>();
+
+    // Copy column names to the new DataFrames
+    for (const auto& col : columns) {
+        train_df->add_column(col);
+        test_df->add_column(col);
+    }
+
+    // Generate a sequence of row indices and shuffle them
+    std::vector<size_t> indices(total_rows);
+    for (size_t i = 0; i < total_rows; ++i) {
+        indices[i] = i;
+    }
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(indices.begin(), indices.end(), g);
+
+    // Add rows to the training set
+    for (size_t i = 0; i < num_train_rows; ++i) {
+        train_df->add_row(this->get_row(indices[i]));
+    }
+
+    // Add remaining rows to the testing set
+    for (size_t i = num_train_rows; i < total_rows; ++i) {
+        test_df->add_row(this->get_row(indices[i]));
+    }
+
+    return std::make_pair(std::move(train_df), std::move(test_df));
+}
+
+
+std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> DataFrame::split_train_test(double percent_training, size_t seed) {
+    if (percent_training <= 0.0 || percent_training >= 100.0) {
+        throw std::invalid_argument("percent_training must be between 0 and 100 (exclusive)");
+    }
+
+    size_t total_rows = this->get_num_rows();
+    size_t num_train_rows = static_cast<size_t>(std::round((percent_training / 100.0) * total_rows));
+
+    // Create new DataFrames for training and testing sets
+    auto train_df = std::make_unique<DataFrame>();
+    auto test_df = std::make_unique<DataFrame>();
+
+    // Copy column names to the new DataFrames
+    for (const auto& col : columns) {
+        train_df->add_column(col);
+        test_df->add_column(col);
+    }
+
+    // Generate a sequence of row indices and shuffle them with the given seed
+    std::vector<size_t> indices(total_rows);
+    for (size_t i = 0; i < total_rows; ++i) {
+        indices[i] = i;
+    }
+    std::mt19937 generator(seed);  // Seed the random generator with the given seed
+    std::shuffle(indices.begin(), indices.end(), generator);
+
+    // Add rows to the training set
+    for (size_t i = 0; i < num_train_rows; ++i) {
+        train_df->add_row(this->get_row(indices[i]));
+    }
+
+    // Add remaining rows to the testing set
+    for (size_t i = num_train_rows; i < total_rows; ++i) {
+        test_df->add_row(this->get_row(indices[i]));
+    }
+
+    return std::make_pair(std::move(train_df), std::move(test_df));
+}
+
+
+
+std::vector<std::unique_ptr<DataFrame>> DataFrame::split_k_fold(size_t n_folds) {
+    if (n_folds < 2) {
+        throw std::invalid_argument("n_folds must be at least 2");
+    }
+
+    size_t total_rows = this->get_num_rows();
+    if (n_folds > total_rows) {
+        throw std::invalid_argument("n_folds cannot be greater than the number of rows in the DataFrame");
+    }
+
+    // Generate a sequence of row indices and shuffle them with the given seed
+    std::vector<size_t> indices(total_rows);
+    for (size_t i = 0; i < total_rows; ++i) {
+        indices[i] = i;
+    }
+
+    // Shuffle the indices
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::shuffle(indices.begin(), indices.end(), generator);
+
+    // Calculate the fold size
+    size_t fold_size = total_rows / n_folds;
+    size_t remainder = total_rows % n_folds;  // Handle extra rows that don't fit evenly
+
+    std::vector<std::unique_ptr<DataFrame>> folds;
+    size_t start = 0;
+
+    for (size_t i = 0; i < n_folds; ++i) {
+        size_t end = start + fold_size + (i < remainder ? 1 : 0);  // Distribute extra rows across folds
+
+        // Create a new DataFrame for the current fold
+        auto fold_df = std::make_unique<DataFrame>();
+
+        // Copy column names to the new DataFrame
+        for (const auto& col : columns) {
+            fold_df->add_column(col);
+        }
+
+        // Add rows for this fold
+        for (size_t j = start; j < end; ++j) {
+            fold_df->add_row(this->get_row(indices[j]));
+        }
+
+        folds.push_back(std::move(fold_df));
+        start = end;
+    }
+
+    return folds;
+}
+
+
+
+std::vector<std::unique_ptr<DataFrame>> DataFrame::split_k_fold(size_t n_folds, size_t seed) {
+    if (n_folds < 2) {
+        throw std::invalid_argument("n_folds must be at least 2");
+    }
+
+    size_t total_rows = this->get_num_rows();
+    if (n_folds > total_rows) {
+        throw std::invalid_argument("n_folds cannot be greater than the number of rows in the DataFrame");
+    }
+
+    // Generate a sequence of row indices and shuffle them with the given seed
+    std::vector<size_t> indices(total_rows);
+    for (size_t i = 0; i < total_rows; ++i) {
+        indices[i] = i;
+    }
+
+    // Shuffle the indices
+    std::mt19937 generator(seed);
+    std::shuffle(indices.begin(), indices.end(), generator);
+
+    // Calculate the fold size
+    size_t fold_size = total_rows / n_folds;
+    size_t remainder = total_rows % n_folds;  // Handle extra rows that don't fit evenly
+
+    std::vector<std::unique_ptr<DataFrame>> folds;
+    size_t start = 0;
+
+    for (size_t i = 0; i < n_folds; ++i) {
+        size_t end = start + fold_size + (i < remainder ? 1 : 0);  // Distribute extra rows across folds
+
+        // Create a new DataFrame for the current fold
+        auto fold_df = std::make_unique<DataFrame>();
+
+        // Copy column names to the new DataFrame
+        for (const auto& col : columns) {
+            fold_df->add_column(col);
+        }
+
+        // Add rows for this fold
+        for (size_t j = start; j < end; ++j) {
+            fold_df->add_row(this->get_row(indices[j]));
+        }
+
+        folds.push_back(std::move(fold_df));
+        start = end;
+    }
+
+    return folds;
+}
+
+
+
+
 
 // Utility functions to check if a string is an integer or double
 bool DataFrame::is_integer(const std::string& str) {

@@ -475,12 +475,15 @@ tests/CMakeFiles/DecisionTree_tests.dir/DecisionTree_tests.cpp.o: /Users/chris/D
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include/gtest/internal/gtest-port.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include/gtest/internal/gtest-string.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+  /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Classifier.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DataFrame.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h \
   /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Node.h
 
 
 /Users/chris/Documents/SourceCode/c++/random_forest_imp/src/DecisionTree.h:
+
+/Users/chris/Documents/SourceCode/c++/random_forest_imp/src/Classifier.h:
 
 /Users/chris/Documents/SourceCode/c++/random_forest_imp/googletest/googletest/include/gtest/internal/gtest-string.h:
 

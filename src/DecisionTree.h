@@ -4,6 +4,7 @@
 #include <vector>
 #include "Node.h"
 #include "DataFrame.h"
+#include "Classifier.h"
 
 using std::string;
 using std::vector;
@@ -25,11 +26,11 @@ using std::unique_ptr;
  * of the tree. The tree can be used to make predictions using the predict method, which takes a sample
  * vector of feature values and returns the predicted class label.
  */
-class DecisionTree {
+class DecisionTree : public Classifier {
     private:
         unique_ptr<Node> root; ///< Pointer to the root node of the decision tree
         int max_depth; ///< Maximum depth of the decision tree
-        int minSamplesSplit; ///< Minimum number of samples required to split a node
+        int min_samples_split; ///< Minimum number of samples required to split a node
         
         /**
          * @brief Helper method for the print function
@@ -56,15 +57,15 @@ class DecisionTree {
          * @param df Pointer to the DataFrame object containing the training data
          * @param label_column Name of the column in the DataFrame that contains the class labels
          * @param max_depth Maximum depth of the decision tree
-         * @param minSamplesSplit Minimum number of samples required to split a node
+         * @param min_samples_split Minimum number of samples required to split a node
          * @return Pointer to the root node of the decision tree
          * 
          * This is a recursive helper function that builds the decision tree by selecting the best attribute. 
          * For the most part, the ID3 algorithm is implemented in this function and not in the fit() function.
          * 
-         * @see fit(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit)
+         * @see fit(unique_ptr<DataFrame> df, string label_column, int max_depth, int min_samples_split)
          */
-        unique_ptr<Node> fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit);
+        unique_ptr<Node> fit_helper(std::shared_ptr<DataFrame> df, string label_column, int max_depth, int min_samples_split);
 
         
     public:
@@ -73,7 +74,7 @@ class DecisionTree {
          * 
          * The default constructor is used here to initialize the root node to nullptr.
          */
-        DecisionTree(int max_depth, int minSamplesSplit);
+        DecisionTree(int max_depth, int min_samples_split);
         /**
          * @brief Destructor for the DecisionTree class
          * 
@@ -96,6 +97,7 @@ class DecisionTree {
          * @see Node::predict(std::vector<double> sample)
          * @see DecisionNode::predict(const std::vector<double>& sample) const
          * @see LeafNode::predict(const vector<double>& sample) const
+         * @see Classifier::predict(std::vector<double> sample)
          * 
          * @code
          * std::vector<std::vector<double>> data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};
@@ -106,7 +108,7 @@ class DecisionTree {
          * std::cout << dt1.predict({2.5, 1.5}) << std::endl;
          * @endcode
          */
-        double predict(std::vector<double> sample);
+        double predict(const std::vector<double>& sample) const override;
 
         /**
          * @brief Get the number of nodes in the decision tree
@@ -143,7 +145,8 @@ class DecisionTree {
          * a DataFrame and the name of the column containing the class labels. The function then calls
          * the fit_helper() method to build the decision tree using the ID3 algorithm.
          * 
-         * @see fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit)
+         * @see fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int min_samples_split)
+         * @see Classifier::fit(unique_ptr<DataFrame> df, string label_column)
          * 
          * @code
          * std::vector<std::vector<double>> data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};
@@ -153,7 +156,7 @@ class DecisionTree {
          * dt1.fit(std::move(df1), "C");
          * @endcode
          */
-        void fit(unique_ptr<DataFrame> df, string label_column);
+        void fit(std::shared_ptr<DataFrame> df, const std::string& label_column) override;
 
         /**
          * @brief Print method for the decision tree

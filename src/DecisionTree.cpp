@@ -47,9 +47,9 @@ void DecisionTree::print_helper(const Node* node, const vector<string>& col_name
 
 // Helper function for fitting the decision tree recursively. 
 // This is the main implementation of the ID3 algorithm.
-unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit) {
+unique_ptr<Node> DecisionTree::fit_helper(std::shared_ptr<DataFrame> df, string label_column, int max_depth, int min_samples_split) {
     // Base cases for recursion
-    if (df->get_num_rows() < minSamplesSplit || max_depth == 0) {
+    if (df->get_num_rows() < min_samples_split || max_depth == 0) {
         // Compute the most common label in the dataset
         return std::make_unique<LeafNode>(DataFrame::double_cast(df->get_column(label_column).mode()));
     }
@@ -73,8 +73,8 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
     }
 
     // Recursively build left and right subtrees
-    unique_ptr<Node> left_child = fit_helper(std::move(left_df), label_column, max_depth - 1, minSamplesSplit);
-    unique_ptr<Node> right_child = fit_helper(std::move(right_df), label_column, max_depth - 1, minSamplesSplit);
+    unique_ptr<Node> left_child = fit_helper(std::move(left_df), label_column, max_depth - 1, min_samples_split);
+    unique_ptr<Node> right_child = fit_helper(std::move(right_df), label_column, max_depth - 1, min_samples_split);
 
     // Return the constructed decision node
     return std::make_unique<DecisionNode>(best_feature_index, threshold, std::move(left_child), std::move(right_child));
@@ -83,12 +83,12 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
         
 
 // Constructor
-DecisionTree::DecisionTree(int max_depth, int minSamplesSplit) : root(nullptr), max_depth(max_depth), minSamplesSplit(minSamplesSplit) {}
+DecisionTree::DecisionTree(int max_depth, int min_samples_split) : root(nullptr), max_depth(max_depth), min_samples_split(min_samples_split) {}
 // Destructor; the default destructor handles destruction of the root node and its children
 DecisionTree::~DecisionTree() = default;
 
 // Predict method; simply utilize the functionality from the Node class
-double DecisionTree::predict(vector<double> sample) {
+double DecisionTree::predict(const vector<double>& sample) const {
     if (!root) {
         throw std::runtime_error("Decision tree is not trained.");
     }
@@ -98,8 +98,8 @@ double DecisionTree::predict(vector<double> sample) {
 
 
 // Fit method: Entry point for training the decision tree
-void DecisionTree::fit(unique_ptr<DataFrame> df, string label_column) {
-    root = fit_helper(std::move(df), label_column, max_depth, minSamplesSplit);
+void DecisionTree::fit(std::shared_ptr<DataFrame> df, const string& label_column) {
+    root = fit_helper(df, label_column, max_depth, min_samples_split);
 }
 
 // Print method: Entry point for printing the decision tree
