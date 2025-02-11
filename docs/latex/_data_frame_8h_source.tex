@@ -18,7 +18,7 @@
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
 \DoxyCodeLine{00016\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00017\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ SEREIS\ CLASS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ SERIES\ CLASS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
 \DoxyCodeLine{00018\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
 \DoxyCodeLine{00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
 \DoxyCodeLine{00020\ }
@@ -48,134 +48,147 @@
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ Cell\ \mbox{\hyperlink{class_series_aba2e0ca93cfa8e40634b9b07e13cd009}{mode}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00103\ }
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ \mbox{\hyperlink{class_series_affa1a6ed484623a11df7415ba8f8f6d2}{numeric\_classes}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1}{median}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ \mbox{\hyperlink{class_series_a1a27416f63787f2b6fff1ecfd5dcc024}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ Cell\&\ \mbox{\hyperlink{class_series_a3013c89b78f5269c1309b1bb00def80e}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index);}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ std::vector<Cell>::iterator\ \mbox{\hyperlink{class_series_a4d9f73dc5d862013718eaa5c026b78c0}{begin}}();}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ std::vector<Cell>::iterator\ \mbox{\hyperlink{class_series_af1f148100837e72cf8d5b54cfb81390c}{end}}();}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_series_aa1d3a2913ac8501b17b43cc280ae59ee}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ vector<double>\ \mbox{\hyperlink{class_series_ac0517a0381d272f0d2bca9f64592e89a}{convert\_to\_numeric}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_series_aee8b676d4b811218c4826f58e7a5da6d}{convert\_to\_string}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ \mbox{\hyperlink{class_series_affa1a6ed484623a11df7415ba8f8f6d2}{numeric\_classes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1}{median}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a2015da8b8606d547fc587652ad848c50}{mean}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ \mbox{\hyperlink{class_series_a1a27416f63787f2b6fff1ecfd5dcc024}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ Cell\&\ \mbox{\hyperlink{class_series_a3013c89b78f5269c1309b1bb00def80e}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ std::vector<Cell>::const\_iterator\ \mbox{\hyperlink{class_series_a8b4dd3b8c57e59a531c596153613785e}{begin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::vector<Cell>::const\_iterator\ \mbox{\hyperlink{class_series_ab2222d6f0ad7dfdbac9119b53c1835e2}{end}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_series_aa1d3a2913ac8501b17b43cc280ae59ee}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\&\ other)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00218\ }
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a3f10d48f56d65efeebcc585e8029db76}{calculateEntropy}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ }
-\DoxyCodeLine{00235\ \};}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00241\ }
-\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ vector<double>\ \mbox{\hyperlink{class_series_ac0517a0381d272f0d2bca9f64592e89a}{convert\_to\_numeric}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_series_aee8b676d4b811218c4826f58e7a5da6d}{convert\_to\_string}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00243\ }
-\DoxyCodeLine{00244\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00245\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00246\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/DATAFRAME\ CLASS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{00247\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00248\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
-\DoxyCodeLine{00249\ }
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00257\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ \{}
-\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a3f10d48f56d65efeebcc585e8029db76}{calculateEntropy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00258\ }
 \DoxyCodeLine{00259\ }
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ std::unordered\_map<string,\ Series>\ \mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}};\ }
+\DoxyCodeLine{00260\ \};}
 \DoxyCodeLine{00261\ }
 \DoxyCodeLine{00262\ }
 \DoxyCodeLine{00263\ }
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a86a2338ca0616795a3afaa961ca6289e}{calculateInformationGain}}(\textcolor{keywordtype}{string}\ attribute\_column,\ \textcolor{keywordtype}{string}\ label\_column)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00278\ }
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a297108c177939d209b42c3922ed109d4}{numeric\_filter\_lt}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00270\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00271\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/DATAFRAME\ CLASS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00272\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00273\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00282\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ std::unordered\_map<string,\ Series>\ \mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}};\ }
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ }
 \DoxyCodeLine{00288\ }
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a87e2e7a7584fba57a29789eba058ff61}{numeric\_filter\_leq}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00298\ }
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a407c106e9a4e6ccac80e67867bf54055}{numeric\_filter\_gt}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a2081c2c9dc356a160afb7deb9d71d00d}{numeric\_filter\_geq}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const}\ ;}
-\DoxyCodeLine{00318\ }
-\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ab9a4f5e12a6fac1acdb88b59eabc84f6}{filter\_eq}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ value)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00328\ }
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a85b78b5b94187bf92ff94562c88c0c5c}{filter\_neq}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ value)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00338\ }
-\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_ac25925294568c6da41098ddfc84c4a7b}{cellToString}}(\textcolor{keyword}{const}\ Cell\&\ cell)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00350\ }
-\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_frame_a24c9305ef61562c7c65633d9c5c90a11}{is\_integer}}(\textcolor{keyword}{const}\ std::string\&\ str);}
-\DoxyCodeLine{00360\ }
-\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_frame_a1ce70d04e6545bd0af1e1c567d2da148}{is\_double}}(\textcolor{keyword}{const}\ std::string\&\ str);}
-\DoxyCodeLine{00370\ }
-\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00372\ }
-\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}};\ }
-\DoxyCodeLine{00374\ }
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}();}
-\DoxyCodeLine{00381\ }
-\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}(\textcolor{keyword}{const}\ vector<vector<double>>\&\ \mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}},\ \textcolor{keyword}{const}\ vector<string>\&\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}});}
-\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_ae8baea1e0005895e8b18870befe21112}{\string~DataFrame}}();}
-\DoxyCodeLine{00392\ }
-\DoxyCodeLine{00393\ }
-\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_frame_afc18015a572455c258e599b5a17c0db1}{int\_cast}}(Cell\ cell);}
-\DoxyCodeLine{00402\ }
-\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}{double\_cast}}(Cell\ cell);}
-\DoxyCodeLine{00411\ }
-\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{str\_cast}}(Cell\ cell);}
-\DoxyCodeLine{00420\ }
-\DoxyCodeLine{00421\ }
-\DoxyCodeLine{00422\ }
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_frame_a8a3d112a971e78551f4c27ad3f28d8a0}{get\_num\_rows}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00428\ }
-\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_frame_a0869365560e4964a24d289be30ad1106}{get\_num\_columns}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00434\ }
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ get\_column\_index(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{00457\ }
-\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series}{Series}}\ \mbox{\hyperlink{class_data_frame_abb4ad8341df2a5ee00398848464c8f48}{get\_column}}(\textcolor{keywordtype}{string}\ col\_name)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00486\ }
-\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{keyword}{const}\ std::string\&\ name);}
-\DoxyCodeLine{00492\ }
-\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\textcolor{keyword}{const}\ std::vector<Cell>\&\ values);}
-\DoxyCodeLine{00498\ }
-\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ vector<Cell>\ \mbox{\hyperlink{class_data_frame_ad9f3c2ef9538a748020a448b45ea9ca3}{get\_row}}(\textcolor{keywordtype}{size\_t}\ row)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00508\ }
-\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ Cell\ \mbox{\hyperlink{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf}{retrieve}}(\textcolor{keywordtype}{size\_t}\ row,\ Cell\ col);}
-\DoxyCodeLine{00538\ }
-\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}{print}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00544\ }
-\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_afc18adaa108a156b862221a92cb52d82}{selectBestAttribute}}(\textcolor{keywordtype}{string}\ label\_name);}
-\DoxyCodeLine{00570\ }
-\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}();}
-\DoxyCodeLine{00593\ }
-\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}(\textcolor{keywordtype}{size\_t}\ num\_features,\ \textcolor{keywordtype}{string}\ label\_column);}
-\DoxyCodeLine{00619\ }
-\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}(\textcolor{keywordtype}{size\_t}\ num\_features,\ \textcolor{keywordtype}{string}\ label\_column,\ \textcolor{keywordtype}{size\_t}\ random\_state);}
-\DoxyCodeLine{00646\ }
-\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a4bcca3ce2045f697c1f0f7b5a7cdbf8f}{filter}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ threshold,\ \textcolor{keywordtype}{string}\ condition);}
-\DoxyCodeLine{00685\ }
-\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_af310b50395b0b3a0f678de4384a26c0d}{head}}(\textcolor{keywordtype}{size\_t}\ num\_rows)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00713\ }
-\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}{tail}}(\textcolor{keywordtype}{size\_t}\ num\_rows)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00741\ }
-\DoxyCodeLine{00742\ }
-\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0}{drop\_column}}(\textcolor{keywordtype}{string}\ column\_name);}
-\DoxyCodeLine{00750\ }
-\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a2338da6c31a355698d87be44ad181f8c}{one\_hot\_encode}}(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{00760\ }
-\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ unique\_ptr<DataFrame>\ read\_csv(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
-\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00763\ }
-\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00765\ \};}
-\DoxyCodeLine{00766\ }
-\DoxyCodeLine{00767\ }
-\DoxyCodeLine{00768\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAFRAME\_H}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a86a2338ca0616795a3afaa961ca6289e}{calculateInformationGain}}(\textcolor{keywordtype}{string}\ attribute\_column,\ \textcolor{keywordtype}{string}\ label\_column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a297108c177939d209b42c3922ed109d4}{numeric\_filter\_lt}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a87e2e7a7584fba57a29789eba058ff61}{numeric\_filter\_leq}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a407c106e9a4e6ccac80e67867bf54055}{numeric\_filter\_gt}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a2081c2c9dc356a160afb7deb9d71d00d}{numeric\_filter\_geq}}(\textcolor{keywordtype}{string}\ column\_name,\ \textcolor{keywordtype}{double}\ threshold)\ \textcolor{keyword}{const}\ ;}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ab9a4f5e12a6fac1acdb88b59eabc84f6}{filter\_eq}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a85b78b5b94187bf92ff94562c88c0c5c}{filter\_neq}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_frame_a24c9305ef61562c7c65633d9c5c90a11}{is\_integer}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_frame_a1ce70d04e6545bd0af1e1c567d2da148}{is\_double}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ vector<string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}};\ }
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}();}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}(\textcolor{keyword}{const}\ vector<vector<double>>\&\ \mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}},\ \textcolor{keyword}{const}\ vector<string>\&\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}});}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_frame_ae8baea1e0005895e8b18870befe21112}{\string~DataFrame}}();}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_frame_afc18015a572455c258e599b5a17c0db1}{int\_cast}}(Cell\ cell);}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}{double\_cast}}(Cell\ cell);}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{str\_cast}}(Cell\ cell);}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_frame_a8a3d112a971e78551f4c27ad3f28d8a0}{get\_num\_rows}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_frame_a0869365560e4964a24d289be30ad1106}{get\_num\_columns}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_data_frame_ad8c2ed4b889059c36e24c96a80536f6a}{get\_column\_index}}(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_series}{Series}}\ \mbox{\hyperlink{class_data_frame_abb4ad8341df2a5ee00398848464c8f48}{get\_column}}(\textcolor{keywordtype}{string}\ col\_name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_series}{Series}}\&\ column);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\textcolor{keyword}{const}\ std::vector<Cell>\&\ values);}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ vector<Cell>\ \mbox{\hyperlink{class_data_frame_ad9f3c2ef9538a748020a448b45ea9ca3}{get\_row}}(\textcolor{keywordtype}{size\_t}\ row)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ Cell\ \mbox{\hyperlink{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf}{retrieve}}(\textcolor{keywordtype}{size\_t}\ row,\ Cell\ col);}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}{print}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00614\ }
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_data_frame_afc18adaa108a156b862221a92cb52d82}{selectBestAttribute}}(\textcolor{keywordtype}{string}\ label\_name);}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}();}
+\DoxyCodeLine{00663\ }
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}(\textcolor{keywordtype}{size\_t}\ num\_features,\ \textcolor{keywordtype}{string}\ label\_column);}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_ad3314dae1299481f12b92efb87c4398b}{bootstrap\_sample}}(\textcolor{keywordtype}{size\_t}\ num\_features,\ \textcolor{keywordtype}{string}\ label\_column,\ \textcolor{keywordtype}{size\_t}\ random\_state);}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a4bcca3ce2045f697c1f0f7b5a7cdbf8f}{filter}}(\textcolor{keywordtype}{string}\ column\_name,\ Cell\ threshold,\ \textcolor{keywordtype}{string}\ condition);}
+\DoxyCodeLine{00755\ }
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_af310b50395b0b3a0f678de4384a26c0d}{head}}(\textcolor{keywordtype}{size\_t}\ num\_rows)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00783\ }
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}{tail}}(\textcolor{keywordtype}{size\_t}\ num\_rows)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00811\ }
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0}{drop\_column}}(\textcolor{keywordtype}{string}\ column\_name);}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_frame_a2338da6c31a355698d87be44ad181f8c}{one\_hot\_encode}}(\textcolor{keywordtype}{string}\ col\_name);}
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}{read\_csv}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ std::pair<unique\_ptr<DataFrame>,\ unique\_ptr<DataFrame>>\ \mbox{\hyperlink{class_data_frame_a7ac7b27308d9fae54b509dcd7a966ae9}{split\_train\_test}}(\textcolor{keywordtype}{double}\ percent\_training);}
+\DoxyCodeLine{00885\ }
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ std::pair<unique\_ptr<DataFrame>,\ unique\_ptr<DataFrame>>\ \mbox{\hyperlink{class_data_frame_a7ac7b27308d9fae54b509dcd7a966ae9}{split\_train\_test}}(\textcolor{keywordtype}{double}\ percent\_training,\ \textcolor{keywordtype}{size\_t}\ random\_state);}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ vector<unique\_ptr<DataFrame>>\ \mbox{\hyperlink{class_data_frame_aec2c8e3a943f4bff7c754c9552ad12c6}{split\_k\_fold}}(\textcolor{keywordtype}{size\_t}\ n\_folds);}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ vector<unique\_ptr<DataFrame>>\ \mbox{\hyperlink{class_data_frame_aec2c8e3a943f4bff7c754c9552ad12c6}{split\_k\_fold}}(\textcolor{keywordtype}{size\_t}\ n\_folds,\ \textcolor{keywordtype}{size\_t}\ seed);}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a26734f426b98bb2375cd7102cf8c05ab}{copy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00942\ \};}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00944\ }
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAFRAME\_H}}
 
 \end{DoxyCode}

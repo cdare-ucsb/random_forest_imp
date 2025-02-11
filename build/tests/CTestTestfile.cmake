@@ -7,3 +7,5 @@
 include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/Node_tests[1]_include.cmake")
 include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DataFrame_tests[1]_include.cmake")
 include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/DecisionTree_tests[1]_include.cmake")
+include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/RandomForest_tests[1]_include.cmake")
+include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/GradientBoostedTrees_tests[1]_include.cmake")

@@ -224,6 +224,19 @@ RandomForest_lib/fast:
 .PHONY : RandomForest_lib/fast
 
 #=============================================================================
+# Target rules for targets named GradientBoostedTrees_lib
+
+# Build rule for target.
+GradientBoostedTrees_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GradientBoostedTrees_lib
+.PHONY : GradientBoostedTrees_lib
+
+# fast build rule for target.
+GradientBoostedTrees_lib/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/GradientBoostedTrees_lib.dir/build.make src/CMakeFiles/GradientBoostedTrees_lib.dir/build
+.PHONY : GradientBoostedTrees_lib/fast
+
+#=============================================================================
 # Target rules for targets named Node_tests
 
 # Build rule for target.
@@ -274,6 +287,19 @@ RandomForest_tests: cmake_check_build_system
 RandomForest_tests/fast:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/RandomForest_tests.dir/build.make tests/CMakeFiles/RandomForest_tests.dir/build
 .PHONY : RandomForest_tests/fast
+
+#=============================================================================
+# Target rules for targets named GradientBoostedTrees_tests
+
+# Build rule for target.
+GradientBoostedTrees_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GradientBoostedTrees_tests
+.PHONY : GradientBoostedTrees_tests
+
+# fast build rule for target.
+GradientBoostedTrees_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/GradientBoostedTrees_tests.dir/build.make tests/CMakeFiles/GradientBoostedTrees_tests.dir/build
+.PHONY : GradientBoostedTrees_tests/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -344,6 +370,8 @@ help:
 	@echo "... DataFrame_tests"
 	@echo "... DecisionTree_lib"
 	@echo "... DecisionTree_tests"
+	@echo "... GradientBoostedTrees_lib"
+	@echo "... GradientBoostedTrees_tests"
 	@echo "... Node_lib"
 	@echo "... Node_tests"
 	@echo "... RandomForest_lib"

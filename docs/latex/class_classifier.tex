@@ -1,0 +1,43 @@
+\doxysection{Classifier Class Reference}
+\hypertarget{class_classifier}{}\label{class_classifier}\index{Classifier@{Classifier}}
+Inheritance diagram for Classifier\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_classifier}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \mbox{\hyperlink{class_classifier_a34f8e29864efc1d59f8569c7104ad35c}{predict}} (const std\+::vector$<$ double $>$ \&sample) const =0
+\item 
+virtual void \mbox{\hyperlink{class_classifier_ac81925bedbb5a8f81cfab6ca6fb4e47d}{fit}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_classifier_ac81925bedbb5a8f81cfab6ca6fb4e47d}\index{Classifier@{Classifier}!fit@{fit}}
+\index{fit@{fit}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily \label{class_classifier_ac81925bedbb5a8f81cfab6ca6fb4e47d} 
+virtual void Classifier\+::fit (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$}]{data}{, }\item[{const std\+::string \&}]{label\+\_\+column}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_decision_tree_ad2548d5cda462085844cb8d977f9f8cd}{Decision\+Tree}}, and \mbox{\hyperlink{class_random_forest_a772ac1d5e98bbea98034c5586d0d65d2}{Random\+Forest}}.
+
+\Hypertarget{class_classifier_a34f8e29864efc1d59f8569c7104ad35c}\index{Classifier@{Classifier}!predict@{predict}}
+\index{predict@{predict}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{class_classifier_a34f8e29864efc1d59f8569c7104ad35c} 
+virtual double Classifier\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_decision_tree_a012ddf141c98805dee234feda82bfbb7}{Decision\+Tree}}, and \mbox{\hyperlink{class_random_forest_ae936f48ca4926beea871917dee0e48b8}{Random\+Forest}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Classifier.\+h\end{DoxyCompactItemize}

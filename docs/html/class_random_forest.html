@@ -105,6 +105,7 @@ $(function(){initNavTree('class_random_forest.html',''); initResizable(true); })
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_random_forest-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">RandomForest Class Reference</div></div>
 </div><!--header-->
@@ -114,6 +115,15 @@ $(function(){initNavTree('class_random_forest.html',''); initResizable(true); })
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_random_forest_8h_source.html">RandomForest.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for RandomForest:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_random_forest.png" usemap="#RandomForest_map" alt=""/>
+  <map id="RandomForest_map" name="RandomForest_map">
+<area href="class_classifier.html" alt="Classifier" shape="rect" coords="0,0,93,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -123,15 +133,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2422475d146f89a36eaf13de81f0a114" id="r_a2422475d146f89a36eaf13de81f0a114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2422475d146f89a36eaf13de81f0a114">RandomForest</a> (int num_trees, int max_depth, int min_samples_split, int num_features, size_t random_state)</td></tr>
 <tr class="memdesc:a2422475d146f89a36eaf13de81f0a114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> with random seed.  <br /></td></tr>
 <tr class="separator:a2422475d146f89a36eaf13de81f0a114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addb1a70699905af9ac8ab68d787ef246" id="r_addb1a70699905af9ac8ab68d787ef246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addb1a70699905af9ac8ab68d787ef246">fit</a> (std::unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; data, const std::string &amp;label_column)</td></tr>
-<tr class="memdesc:addb1a70699905af9ac8ab68d787ef246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to fit the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> to the data.  <br /></td></tr>
-<tr class="separator:addb1a70699905af9ac8ab68d787ef246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5fc5437c41182bc64bebd2f6a861726" id="r_ab5fc5437c41182bc64bebd2f6a861726"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5fc5437c41182bc64bebd2f6a861726">predict</a> (const std::vector&lt; double &gt; &amp;sample) const</td></tr>
-<tr class="memdesc:ab5fc5437c41182bc64bebd2f6a861726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to make predictions using the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>.  <br /></td></tr>
-<tr class="separator:ab5fc5437c41182bc64bebd2f6a861726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a772ac1d5e98bbea98034c5586d0d65d2" id="r_a772ac1d5e98bbea98034c5586d0d65d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a772ac1d5e98bbea98034c5586d0d65d2">fit</a> (std::shared_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; data, const std::string &amp;label_column) override</td></tr>
+<tr class="memdesc:a772ac1d5e98bbea98034c5586d0d65d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to fit the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> to the data.  <br /></td></tr>
+<tr class="separator:a772ac1d5e98bbea98034c5586d0d65d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae936f48ca4926beea871917dee0e48b8" id="r_ae936f48ca4926beea871917dee0e48b8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae936f48ca4926beea871917dee0e48b8">predict</a> (const std::vector&lt; double &gt; &amp;sample) const override</td></tr>
+<tr class="memdesc:ae936f48ca4926beea871917dee0e48b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to make predictions using the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>.  <br /></td></tr>
+<tr class="separator:ae936f48ca4926beea871917dee0e48b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a451f60b9317173176a5d167ad9545493" id="r_a451f60b9317173176a5d167ad9545493"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a451f60b9317173176a5d167ad9545493">print</a> ()</td></tr>
 <tr class="memdesc:a451f60b9317173176a5d167ad9545493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to print the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>.  <br /></td></tr>
 <tr class="separator:a451f60b9317173176a5d167ad9545493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8e9a4acbddc489597653be84b0cd0c6b" id="r_a8e9a4acbddc489597653be84b0cd0c6b"><td class="memItemLeft" align="right" valign="top">static std::tuple&lt; int, int, int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e9a4acbddc489597653be84b0cd0c6b">hypertune</a> (std::unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; data, const std::string &amp;label_column, size_t num_folds, size_t seed, const std::vector&lt; int &gt; &amp;num_trees_values, const std::vector&lt; int &gt; &amp;max_depth_values, const std::vector&lt; int &gt; &amp;min_samples_split_values, const std::vector&lt; int &gt; &amp;num_features_values)</td></tr>
+<tr class="memdesc:a8e9a4acbddc489597653be84b0cd0c6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to perform hyperparameter tuning for the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>.  <br /></td></tr>
+<tr class="separator:a8e9a4acbddc489597653be84b0cd0c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Random Forest class. </p>
@@ -230,16 +246,19 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="addb1a70699905af9ac8ab68d787ef246" name="addb1a70699905af9ac8ab68d787ef246"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addb1a70699905af9ac8ab68d787ef246">&#9670;&#160;</a></span>fit()</h2>
+<a id="a772ac1d5e98bbea98034c5586d0d65d2" name="a772ac1d5e98bbea98034c5586d0d65d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a772ac1d5e98bbea98034c5586d0d65d2">&#9670;&#160;</a></span>fit()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void RandomForest::fit </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -247,6 +266,11 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Function to fit the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> to the data. </p>
@@ -259,13 +283,115 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>This function fits the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> to the data by training the individual decision trees in the forest. The function takes a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the data and the name of the column containing the labels. For each decision tree, bootstrap samples are created from the data, and the tree is trained on the samples. </p>
 
+<p>Implements <a class="el" href="class_classifier.html">Classifier</a>.</p>
+
 </div>
 </div>
-<a id="ab5fc5437c41182bc64bebd2f6a861726" name="ab5fc5437c41182bc64bebd2f6a861726"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5fc5437c41182bc64bebd2f6a861726">&#9670;&#160;</a></span>predict()</h2>
+<a id="a8e9a4acbddc489597653be84b0cd0c6b" name="a8e9a4acbddc489597653be84b0cd0c6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e9a4acbddc489597653be84b0cd0c6b">&#9670;&#160;</a></span>hypertune()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; int, int, int, int &gt; RandomForest::hypertune </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num_folds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>seed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>num_trees_values</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>max_depth_values</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>min_samples_split_values</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>num_features_values</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to perform hyperparameter tuning for the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Data to perform hyperparameter tuning on </td></tr>
+    <tr><td class="paramname">label_column</td><td>Name of the column containing the labels </td></tr>
+    <tr><td class="paramname">num_folds</td><td>Number of folds for cross-validation </td></tr>
+    <tr><td class="paramname">seed</td><td>Random seed for the random number generator </td></tr>
+    <tr><td class="paramname">num_trees_values</td><td>Vector of values for the number of trees </td></tr>
+    <tr><td class="paramname">max_depth_values</td><td>Vector of values for the maximum depth </td></tr>
+    <tr><td class="paramname">min_samples_split_values</td><td>Vector of values for the minimum samples split </td></tr>
+    <tr><td class="paramname">num_features_values</td><td>Vector of values for the number of features </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tuple of hyperparameters with the best accuracy</dd></dl>
+<p>This function performs hyperparameter tuning for the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> by training the model on different hyperparameter values and evaluating the accuracy using cross-validation. The function returns a tuple of hyperparameters with the best accuracy.</p>
+<p>The function takes a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the data, the name of the column containing the labels, the number of folds for cross-validation, a random seed for the random number generator, and vectors of values for the number of trees, maximum depth, minimum samples split, and number of features.</p>
+<p>The function returns a tuple of hyperparameters with the best accuracy. The hyperparameters are the number of trees, maximum depth, minimum samples split, and number of features.</p>
+<p>The function uses cross-validation to evaluate the accuracy of the model with different hyperparameter values. It trains the model on a training set consisting of all folds except the current fold and evaluates the accuracy on the current fold. The function returns the average accuracy over all folds for each set of hyperparameters.</p>
+<div class="fragment"><div class="line"><span class="comment">// Create a DataFrame from a CSV file</span></div>
+<div class="line">std::uniqe_ptr&lt;DataFrame&gt; data = <a class="code hl_function" href="class_data_frame.html#a2ca1ac57b20291519e443ccdcc12ddd4">DataFrame::read_csv</a>(<span class="stringliteral">&quot;data.csv&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Perform hyperparameter tuning</span></div>
+<div class="line">std::vector&lt;int&gt; num_trees_values = {1, 2, 4, 8};</div>
+<div class="line">std::vector&lt;int&gt; max_depth_values = {1, 2, 3, 4};</div>
+<div class="line">std::vector&lt;int&gt; min_samples_split_values = {1, 2, 3, 4};</div>
+<div class="line">std::vector&lt;int&gt; num_features_values = {1, 2, 3};</div>
+<div class="line"><span class="keywordtype">size_t</span> num_folds = 3;</div>
+<div class="line"><span class="keywordtype">size_t</span> random_state = 123456;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> [best_num_trees, best_max_depth, best_min_samples_split, best_num_features] = <a class="code hl_function" href="#a8e9a4acbddc489597653be84b0cd0c6b">RandomForest::hypertune</a>(std::move(data),</div>
+<div class="line">                                                                                   <span class="stringliteral">&quot;label&quot;</span>, num_folds, random_state,</div>
+<div class="line">                                                                                  num_trees_values, max_depth_values,</div>
+<div class="line">                                                                                  min_samples_split_values, num_features_values);</div>
+<div class="ttc" id="aclass_data_frame_html_a2ca1ac57b20291519e443ccdcc12ddd4"><div class="ttname"><a href="class_data_frame.html#a2ca1ac57b20291519e443ccdcc12ddd4">DataFrame::read_csv</a></div><div class="ttdeci">static unique_ptr&lt; DataFrame &gt; read_csv(const std::string &amp;file_path)</div><div class="ttdoc">Function to read a CSV file into a DataFrame.</div><div class="ttdef"><b>Definition</b> DataFrame.cpp:1179</div></div>
+<div class="ttc" id="aclass_random_forest_html_a8e9a4acbddc489597653be84b0cd0c6b"><div class="ttname"><a href="#a8e9a4acbddc489597653be84b0cd0c6b">RandomForest::hypertune</a></div><div class="ttdeci">static std::tuple&lt; int, int, int, int &gt; hypertune(std::unique_ptr&lt; DataFrame &gt; data, const std::string &amp;label_column, size_t num_folds, size_t seed, const std::vector&lt; int &gt; &amp;num_trees_values, const std::vector&lt; int &gt; &amp;max_depth_values, const std::vector&lt; int &gt; &amp;min_samples_split_values, const std::vector&lt; int &gt; &amp;num_features_values)</div><div class="ttdoc">Function to perform hyperparameter tuning for the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:137</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ae936f48ca4926beea871917dee0e48b8" name="ae936f48ca4926beea871917dee0e48b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae936f48ca4926beea871917dee0e48b8">&#9670;&#160;</a></span>predict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double RandomForest::predict </td>
@@ -274,6 +400,11 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Function to make predictions using the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>. </p>
@@ -285,6 +416,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Prediction from the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a></dd></dl>
 <p>This function makes predictions using the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a> on the specified sample. The function returns the prediction from the <a class="el" href="class_random_forest.html" title="Random Forest class.">RandomForest</a>. </p>
+
+<p>Implements <a class="el" href="class_classifier.html">Classifier</a>.</p>
 
 </div>
 </div>

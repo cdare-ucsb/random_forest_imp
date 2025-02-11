@@ -1,0 +1,7 @@
+add_test([=[RandomForestTest.RandomForestPredict]=]  [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/RandomForest_tests]==] [==[--gtest_filter=RandomForestTest.RandomForestPredict]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[RandomForestTest.RandomForestPredict]=]  PROPERTIES WORKING_DIRECTORY [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests]==] SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[RandomForestTest.RandomForestPredict2]=]  [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/RandomForest_tests]==] [==[--gtest_filter=RandomForestTest.RandomForestPredict2]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[RandomForestTest.RandomForestPredict2]=]  PROPERTIES WORKING_DIRECTORY [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests]==] SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[RandomForestTest.RandomForestHypertune]=]  [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/RandomForest_tests]==] [==[--gtest_filter=RandomForestTest.RandomForestHypertune]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[RandomForestTest.RandomForestHypertune]=]  PROPERTIES WORKING_DIRECTORY [==[/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests]==] SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  RandomForest_tests_TESTS RandomForestTest.RandomForestPredict RandomForestTest.RandomForestPredict2 RandomForestTest.RandomForestHypertune)

@@ -138,17 +138,25 @@ std::tuple<int,int,int,int> RandomForest::hypertune(std::unique_ptr<DataFrame> d
                              const std::vector<int>& num_trees_values,
                              const std::vector<int>& max_depth_values,
                             const std::vector<int>& min_samples_split_values,
-                             const std::vector<int>& num_features_values) {
+                             const std::vector<int>& num_features_values,
+                             bool verbose) {
     std::map<std::tuple<int, int, int, int>, double> accuracy_map;
-
     vector<unique_ptr<DataFrame>> k_folds = data->split_k_fold(num_folds, seed);
 
+    // Calculate total combinations
+    size_t total_combinations = num_trees_values.size() * max_depth_values.size() * min_samples_split_values.size() * num_features_values.size();
+    size_t current_iteration = 0;
+
+    if (verbose) {
+        std::cout << "Performing hyperparameter tuning with " << total_combinations << " combinations\n";
+    }
 
     for (int num_trees : num_trees_values) {
         for (int max_depth : max_depth_values) {
             for (int min_samples_split : min_samples_split_values) {
                 for (int num_features : num_features_values) {
                     double all_folds_accuracy = 0.0;
+                    // Perform k-fold cross-validation
                     for (size_t i = 0; i < num_folds; ++i) {
                         double single_fold_accuracy = 0.0;
                         // Create a new DataFrame for training data consisting 
@@ -203,11 +211,19 @@ std::tuple<int,int,int,int> RandomForest::hypertune(std::unique_ptr<DataFrame> d
 
                     // Average accuracy across all folds
                     accuracy_map[{num_trees, max_depth, min_samples_split, num_features}] = all_folds_accuracy / num_folds;
-                    
+                    // Update progress bar if verbose is true
+                    if (verbose) {
+                        current_iteration++;
+                        int progress = static_cast<int>((100.0 * current_iteration) / total_combinations);
+                        std::cout << "\rProgress: \033[32m[" << std::string(progress / 2, '=') << std::string(50 - progress / 2, ' ')
+                                  << "] " << progress << "% complete\033[0m" << std::flush;
+                    }
                 }
             }
         }
     }
+
+    std::cout << std::endl; // Move to the next line after the progress bar finishes
 
     // Find the hyperparameters with the highest accuracy
     auto best_hyperparameters = std::max_element(accuracy_map.begin(), accuracy_map.end(),

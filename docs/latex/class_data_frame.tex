@@ -23,9 +23,13 @@ size\+\_\+t \mbox{\hyperlink{class_data_frame_a8a3d112a971e78551f4c27ad3f28d8a0}
 \begin{DoxyCompactList}\small\item\em Function to get the number of rows / samples in a data frame. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{class_data_frame_a0869365560e4964a24d289be30ad1106}{get\+\_\+num\+\_\+columns}} () const
 \begin{DoxyCompactList}\small\item\em Function to get the number of columns in a data frame. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_series}{Series}} \mbox{\hyperlink{class_data_frame_abb4ad8341df2a5ee00398848464c8f48}{get\+\_\+column}} (string col\+\_\+name) const
+size\+\_\+t \mbox{\hyperlink{class_data_frame_ad8c2ed4b889059c36e24c96a80536f6a}{get\+\_\+column\+\_\+index}} (string col\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Function to get the index of a column in the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_series}{Series}} \mbox{\hyperlink{class_data_frame_abb4ad8341df2a5ee00398848464c8f48}{get\+\_\+column}} (string col\+\_\+name) const
+\begin{DoxyCompactList}\small\item\em Function to get the number of columns in the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\+\_\+column}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Adds a column to the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_frame_a89c53e5854633805f16696d4481cc34f}{add\+\_\+column}} (const std\+::string \&name, const \mbox{\hyperlink{class_series}{Series}} \&column)
 \begin{DoxyCompactList}\small\item\em Adds a column to the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\+\_\+row}} (const std\+::vector$<$ Cell $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Adds a row of values to the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
@@ -52,7 +56,17 @@ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\h
 void \mbox{\hyperlink{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0}{drop\+\_\+column}} (string column\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Function to drop a column from the \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_data_frame_a2338da6c31a355698d87be44ad181f8c}{one\+\_\+hot\+\_\+encode}} (string col\+\_\+name)
-\begin{DoxyCompactList}\small\item\em Function which converts a row of string data to numeric categories. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function which converts a row of string data to numeric categories. \end{DoxyCompactList}\item 
+std\+::pair$<$ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$, unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ \mbox{\hyperlink{class_data_frame_a7ac7b27308d9fae54b509dcd7a966ae9}{split\+\_\+train\+\_\+test}} (double percent\+\_\+training)
+\begin{DoxyCompactList}\small\item\em Function to split the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets. \end{DoxyCompactList}\item 
+std\+::pair$<$ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$, unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ \mbox{\hyperlink{class_data_frame_a6169c2c4480bf8fee9708db9dd381265}{split\+\_\+train\+\_\+test}} (double percent\+\_\+training, size\+\_\+t random\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Function to split the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets with a specified random state. \end{DoxyCompactList}\item 
+vector$<$ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ \mbox{\hyperlink{class_data_frame_aec2c8e3a943f4bff7c754c9552ad12c6}{split\+\_\+k\+\_\+fold}} (size\+\_\+t n\+\_\+folds)
+\begin{DoxyCompactList}\small\item\em Function to split the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation. \end{DoxyCompactList}\item 
+vector$<$ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ \mbox{\hyperlink{class_data_frame_aa57ad02bca8f26bf113d16f164b8e5fa}{split\+\_\+k\+\_\+fold}} (size\+\_\+t n\+\_\+folds, size\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Function to split the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation with a specified random state. \end{DoxyCompactList}\item 
+unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\hyperlink{class_data_frame_a26734f426b98bb2375cd7102cf8c05ab}{copy}} () const
+\begin{DoxyCompactList}\small\item\em Creates a hard copy in memory of the current dataframe, returned as a unique\+\_\+ptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -62,9 +76,8 @@ static double \mbox{\hyperlink{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d
 \begin{DoxyCompactList}\small\item\em Static function to cast a Cell to a double. \end{DoxyCompactList}\item 
 static string \mbox{\hyperlink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{str\+\_\+cast}} (Cell cell)
 \begin{DoxyCompactList}\small\item\em Static function to cast a Cell to a double. \end{DoxyCompactList}\item 
-\Hypertarget{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}\label{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4} 
-static unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ {\bfseries read\+\_\+csv} (const std\+::string \&file\+\_\+path)
-\end{DoxyCompactItemize}
+static unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\hyperlink{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}{read\+\_\+csv}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Function to read a CSV file into a \doxylink{class_data_frame}{Data\+Frame}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,9 +100,7 @@ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\h
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\hyperlink{class_data_frame_ab9a4f5e12a6fac1acdb88b59eabc84f6}{filter\+\_\+eq}} (string column\+\_\+name, Cell value) const
 \begin{DoxyCompactList}\small\item\em Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold. \end{DoxyCompactList}\item 
 unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ \mbox{\hyperlink{class_data_frame_a85b78b5b94187bf92ff94562c88c0c5c}{filter\+\_\+neq}} (string column\+\_\+name, Cell value) const
-\begin{DoxyCompactList}\small\item\em Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold. \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_data_frame_ac25925294568c6da41098ddfc84c4a7b}{cell\+To\+String}} (const Cell \&cell) const
-\begin{DoxyCompactList}\small\item\em Helper function to print a single cell of the data frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -150,7 +161,7 @@ Constructor for \doxylink{class_data_frame}{Data\+Frame}.
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}\index{DataFrame@{DataFrame}!add\_column@{add\_column}}
 \index{add\_column@{add\_column}!DataFrame@{DataFrame}}
-\doxysubsubsection{\texorpdfstring{add\_column()}{add\_column()}}
+\doxysubsubsection{\texorpdfstring{add\_column()}{add\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1} 
 void Data\+Frame\+::add\+\_\+column (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
 
@@ -163,7 +174,24 @@ Adds a column to the \doxylink{class_data_frame}{Data\+Frame}.
 {\em name} & Column name. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_data_frame_af0570158f16c4086eb969f89efb239fa}\index{DataFrame@{DataFrame}!add\_row@{add\_row}}
+\Hypertarget{class_data_frame_a89c53e5854633805f16696d4481cc34f}\index{DataFrame@{DataFrame}!add\_column@{add\_column}}
+\index{add\_column@{add\_column}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{add\_column()}{add\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_data_frame_a89c53e5854633805f16696d4481cc34f} 
+void Data\+Frame\+::add\+\_\+column (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{const \mbox{\hyperlink{class_series}{Series}} \&}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Adds a column to the \doxylink{class_data_frame}{Data\+Frame}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Column name. \\
+\hline
+{\em column} & \doxylink{class_series}{Series} object containing the column data.\\
+\hline
+\end{DoxyParams}
+Overloaded method to add a column to the \doxylink{class_data_frame}{Data\+Frame} using a \doxylink{class_series}{Series} object. \Hypertarget{class_data_frame_af0570158f16c4086eb969f89efb239fa}\index{DataFrame@{DataFrame}!add\_row@{add\_row}}
 \index{add\_row@{add\_row}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{add\_row()}{add\_row()}}
 {\footnotesize\ttfamily \label{class_data_frame_af0570158f16c4086eb969f89efb239fa} 
@@ -312,28 +340,20 @@ Information gain is a measure of the reduction in entropy that results from spli
 \item For each unique value of the attribute, calculate the weighted average of the entropy of the labels after splitting on that value.
 \item Calculate the information gain as the entropy of the set of labels minus the weighted average entropy after splitting.
 \item Return the information gain. 
-\end{DoxyEnumerate}\Hypertarget{class_data_frame_ac25925294568c6da41098ddfc84c4a7b}\index{DataFrame@{DataFrame}!cellToString@{cellToString}}
-\index{cellToString@{cellToString}!DataFrame@{DataFrame}}
-\doxysubsubsection{\texorpdfstring{cellToString()}{cellToString()}}
-{\footnotesize\ttfamily \label{class_data_frame_ac25925294568c6da41098ddfc84c4a7b} 
-string Data\+Frame\+::cell\+To\+String (\begin{DoxyParamCaption}\item[{const Cell \&}]{cell}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+\end{DoxyEnumerate}\Hypertarget{class_data_frame_a26734f426b98bb2375cd7102cf8c05ab}\index{DataFrame@{DataFrame}!copy@{copy}}
+\index{copy@{copy}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \label{class_data_frame_a26734f426b98bb2375cd7102cf8c05ab} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ Data\+Frame\+::copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Helper function to print a single cell of the data frame. 
+Creates a hard copy in memory of the current dataframe, returned as a unique\+\_\+ptr. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em cell} & Cell to print \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string representation of the cell 
+unique\+\_\+ptr$<$\+Data\+Frame$>$ containing a copy of the current \doxylink{class_data_frame}{Data\+Frame}
 \end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-\doxylink{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}{Data\+Frame\+::print}
-\end{DoxySeeAlso}
-This function returns a string representation of a single cell of the data frame. The representation depends on the type of the cell (int, double, or string). This helper function is primarily used by the \doxylink{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}{Data\+Frame\+::print} function. \Hypertarget{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}\index{DataFrame@{DataFrame}!double\_cast@{double\_cast}}
+This function creates a hard copy of the current \doxylink{class_data_frame}{Data\+Frame} and returns it as a unique\+\_\+ptr. \Hypertarget{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}\index{DataFrame@{DataFrame}!double\_cast@{double\_cast}}
 \index{double\_cast@{double\_cast}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{double\_cast()}{double\_cast()}}
 {\footnotesize\ttfamily \label{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4} 
@@ -349,9 +369,31 @@ Static function to cast a Cell to a double.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double value of the Cell
+double value of the Cell 
 \end{DoxyReturn}
-Static function to cast a Cell to a double \Hypertarget{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0}\index{DataFrame@{DataFrame}!drop\_column@{drop\_column}}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_data_frame_afc18015a572455c258e599b5a17c0db1}{int\+\_\+cast} 
+
+\doxylink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{str\+\_\+cast}
+\end{DoxySeeAlso}
+Static function to cast a Cell to a double
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Series\ col1\ =\ Series(\{0,\ 2,\ 0,\ 4,\ 5,\ 1\});}
+\DoxyCodeLine{Series\ col2\ =\ Series(\{1.4,\ 2.0,\ 3.44,\ 3.1415,\ 0.0,\ 1.1\});}
+\DoxyCodeLine{Series\ col3\ =\ Series(\{\textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}Y"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df;}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}a"{}},\ col1);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}b"{}},\ col2);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}c"{}},\ col3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//TRUE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Value\ of\ cell\ in\ fourth\ row\ of\ column\ 'b'\ is\ 3.1415:\ \%s"{}},\ \mbox{\hyperlink{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}{DataFrame::double\_cast}}(df.retrieve(3,\ \textcolor{stringliteral}{"{}b"{}}))\ ==\ 3.1415\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0}\index{DataFrame@{DataFrame}!drop\_column@{drop\_column}}
 \index{drop\_column@{drop\_column}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{drop\_column()}{drop\_column()}}
 {\footnotesize\ttfamily \label{class_data_frame_a9a32a4f43211df1821e5e33b972b1bf0} 
@@ -472,6 +514,47 @@ This function filters the rows of the \doxylink{class_data_frame}{Data\+Frame} b
 
 
 
+Function to get the number of columns in the \doxylink{class_data_frame}{Data\+Frame}. 
+
+\begin{DoxyReturn}{Returns}
+Number of columns 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the column name is not found\\
+\hline
+\end{DoxyExceptions}
+This function returns a vector containing the values of the specified column.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df;}
+\DoxyCodeLine{}
+\DoxyCodeLine{vector<vector<double>>\ \mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}}\ =\ \{}
+\DoxyCodeLine{\ \{0,0,0,0\},}
+\DoxyCodeLine{\ \{1,0,1,0\},}
+\DoxyCodeLine{\ \{0,2,0,2\},}
+\DoxyCodeLine{\ \{3,3,3,3\},}
+\DoxyCodeLine{\ \{4,0,0,4\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{vector<string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}}\ =\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{unique\_ptr<DataFrame>\ df\ =\ std::make\_unique<DataFrame>(\mbox{\hyperlink{class_data_frame_a93813807dfe9ed4e6d97c75889b2ecbc}{data}},\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{Series\ column\_b\ =\ df.\mbox{\hyperlink{class_data_frame_abb4ad8341df2a5ee00398848464c8f48}{get\_column}}(\textcolor{stringliteral}{"{}b"{}});}
+\DoxyCodeLine{Series\ expected\_b\ =\ \{0,\ 0,\ 2,\ 3,\ 0\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Column\ correctly\ gives\ \%s\ :\ \%s"{}},\ column\_b,\ column\_b\ ==\ expected\_b\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}}\ );}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_ad8c2ed4b889059c36e24c96a80536f6a}\index{DataFrame@{DataFrame}!get\_column\_index@{get\_column\_index}}
+\index{get\_column\_index@{get\_column\_index}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{get\_column\_index()}{get\_column\_index()}}
+{\footnotesize\ttfamily \label{class_data_frame_ad8c2ed4b889059c36e24c96a80536f6a} 
+size\+\_\+t Data\+Frame\+::get\+\_\+column\+\_\+index (\begin{DoxyParamCaption}\item[{string}]{col\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
 Function to get the index of a column in the \doxylink{class_data_frame}{Data\+Frame}. 
 
 \begin{DoxyReturn}{Returns}
@@ -486,20 +569,19 @@ This function returns the index of the specified column in the \doxylink{class_d
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ std::vector<std::vector<double>>\ sample\ =\ \{}
-\DoxyCodeLine{\ \ \ \{0,0,0,0\},}
-\DoxyCodeLine{\ \ \ \{1,0,1,0\},}
-\DoxyCodeLine{\ \ \ \{0,2,0,2\},}
-\DoxyCodeLine{\ \ \ \{3,3,3,3\},}
-\DoxyCodeLine{\ \ \ \{4,0,0,4\}\};}
-\DoxyCodeLine{\ \ \ \mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
-\DoxyCodeLine{\ \ \ }
-\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ df.get\_column\_index(\textcolor{stringliteral}{"{}c"{}});}
-\DoxyCodeLine{\ \ \ \textcolor{comment}{//TRUE}}
-\DoxyCodeLine{\ \ \ printf(\textcolor{stringliteral}{"{}Index\ of\ column\ 'c'\ is\ 2:\ \%s"{}},\ index\ ==\ 2\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
-\DoxyCodeLine{\ \ /}
-\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ get\_column\_index(\textcolor{keywordtype}{string}\ col\_name);}
-\DoxyCodeLine{\end{DoxyCode}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ index\ =\ df.get\_column\_index(\textcolor{stringliteral}{"{}c"{}});}
+\DoxyCodeLine{\textcolor{comment}{//TRUE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Index\ of\ column\ 'c'\ is\ 2:\ \%s"{}},\ index\ ==\ 2\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
  \Hypertarget{class_data_frame_a0869365560e4964a24d289be30ad1106}\index{DataFrame@{DataFrame}!get\_num\_columns@{get\_num\_columns}}
 \index{get\_num\_columns@{get\_num\_columns}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{get\_num\_columns()}{get\_num\_columns()}}
@@ -571,6 +653,23 @@ This function returns a new \doxylink{class_data_frame}{Data\+Frame} containing 
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_af310b50395b0b3a0f678de4384a26c0d}{head}}\ =\ df.head(3);}
+\DoxyCodeLine{std::vector<std::vector<double>>\ expected\_data\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Head\ of\ DataFrame\ correctly\ gives\ \%s\ :\ \%s"{}},\ expected\_data,\ \mbox{\hyperlink{class_data_frame_af310b50395b0b3a0f678de4384a26c0d}{head}}-\/>get\_data()\ ==\ expected\_data\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}}\ );}
+
 \end{DoxyCode}
  \Hypertarget{class_data_frame_afc18015a572455c258e599b5a17c0db1}\index{DataFrame@{DataFrame}!int\_cast@{int\_cast}}
 \index{int\_cast@{int\_cast}!DataFrame@{DataFrame}}
@@ -586,10 +685,32 @@ Constructor for \doxylink{class_data_frame}{Data\+Frame}.
 \begin{DoxyParams}{Parameters}
 {\em data} & 2D matrix of data \\
 \hline
-{\em columns} & Vector of column names\\
+{\em columns} & Vector of column names \\
 \hline
 \end{DoxyParams}
-Static function to cast a Cell to an integer \Hypertarget{class_data_frame_a1ce70d04e6545bd0af1e1c567d2da148}\index{DataFrame@{DataFrame}!is\_double@{is\_double}}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_data_frame_a89fbeaaf2b344bceb811609854fdc5d4}{double\+\_\+cast} 
+
+\doxylink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{str\+\_\+cast}
+\end{DoxySeeAlso}
+Static function to cast a Cell to an integer
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Series\ col1\ =\ Series(\{0,\ 2,\ 0,\ 4,\ 5,\ 1\});}
+\DoxyCodeLine{Series\ col2\ =\ Series(\{1.4,\ 2.0,\ 3.44,\ 3.1415,\ 0.0,\ 1.1\});}
+\DoxyCodeLine{Series\ col3\ =\ Series(\{\textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}Y"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df;}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}a"{}},\ col1);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}b"{}},\ col2);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}c"{}},\ col3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//TRUE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Value\ of\ cell\ in\ third\ row\ of\ column\ 'a'\ is\ 0:\ \%s"{}},\ \mbox{\hyperlink{class_data_frame_afc18015a572455c258e599b5a17c0db1}{DataFrame::int\_cast}}(df.retrieve(2,\ \textcolor{stringliteral}{"{}a"{}}))\ ==\ 0\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_a1ce70d04e6545bd0af1e1c567d2da148}\index{DataFrame@{DataFrame}!is\_double@{is\_double}}
 \index{is\_double@{is\_double}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{is\_double()}{is\_double()}}
 {\footnotesize\ttfamily \label{class_data_frame_a1ce70d04e6545bd0af1e1c567d2da148} 
@@ -726,7 +847,24 @@ Function which converts a row of string data to numeric categories.
 {\em col\+\_\+name} & Name of the column to convert to numeric catagories\\
 \hline
 \end{DoxyParams}
-This function converts a column of string data to numeric categories, which is necessary for some some classification algorithms. Thhe algorithms iterates through the data and assigns a unique numeric value to each unique string value. \Hypertarget{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}\index{DataFrame@{DataFrame}!print@{print}}
+This function converts a column of string data to numeric categories, which is necessary for some some classification algorithms. Thhe algorithms iterates through the data and assigns a unique numeric value to each unique string value.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0,\ \textcolor{stringliteral}{"{}Yes"{}}\},}
+\DoxyCodeLine{\{1,0,1,0,\ \textcolor{stringliteral}{"{}No"{}}\},}
+\DoxyCodeLine{\{0,2,0,2,\ \textcolor{stringliteral}{"{}Yes"{}}\},}
+\DoxyCodeLine{\{3,3,3,3,\ \textcolor{stringliteral}{"{}No"{}}\},}
+\DoxyCodeLine{\{4,0,0,4,\ \textcolor{stringliteral}{"{}No"{}}\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}},\ \textcolor{stringliteral}{"{}e"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{df.one\_hot\_encode(\textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Column\ 'e'\ is\ now\ numeric:\ \%s"{}},\ df.get\_column(\textcolor{stringliteral}{"{}e"{}}).is\_numeric()\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_ac3945e60b39b991bb9473e9be79d1917}\index{DataFrame@{DataFrame}!print@{print}}
 \index{print@{print}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
 {\footnotesize\ttfamily \label{class_data_frame_ac3945e60b39b991bb9473e9be79d1917} 
@@ -739,7 +877,32 @@ Function which prints the \doxylink{class_data_frame}{Data\+Frame} as a table.
 \begin{DoxyReturn}{Returns}
 string representation of the \doxylink{class_data_frame}{Data\+Frame} 
 \end{DoxyReturn}
-\Hypertarget{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf}\index{DataFrame@{DataFrame}!retrieve@{retrieve}}
+\Hypertarget{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}\index{DataFrame@{DataFrame}!read\_csv@{read\_csv}}
+\index{read\_csv@{read\_csv}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{read\_csv()}{read\_csv()}}
+{\footnotesize\ttfamily \label{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ Data\+Frame\+::read\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to read a CSV file into a \doxylink{class_data_frame}{Data\+Frame}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & Path to the CSV file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_data_frame}{Data\+Frame} containing the data from the CSV file
+\end{DoxyReturn}
+This function reads a CSV file into a \doxylink{class_data_frame}{Data\+Frame}. The CSV file is expected to have a header row with column names. The function returns a \doxylink{class_data_frame}{Data\+Frame} containing the data from the CSV file.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::unique\_ptr<DataFrame>\ df\ =\ \mbox{\hyperlink{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}{DataFrame::read\_csv}}(\textcolor{stringliteral}{"{}data.csv"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf}\index{DataFrame@{DataFrame}!retrieve@{retrieve}}
 \index{retrieve@{retrieve}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{retrieve()}{retrieve()}}
 {\footnotesize\ttfamily \label{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf} 
@@ -768,6 +931,21 @@ This function retrieves the data value at the specified row and column from the 
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df;}
+\DoxyCodeLine{}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{stringliteral}{"{}b"{}});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{stringliteral}{"{}c"{}});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_a31ce818e42fdcd81e7dcd7a7b7f8c7e1}{add\_column}}(\textcolor{stringliteral}{"{}d"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\{0,0,0,0\});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\{1,0,1,0\});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\{0,2,0,2\});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\{3,3,3,3\});}
+\DoxyCodeLine{df.\mbox{\hyperlink{class_data_frame_af0570158f16c4086eb969f89efb239fa}{add\_row}}(\{4,0,0,4\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Value\ at\ row\ 2,\ column\ 'c'\ is\ 0:\ \%s"{}},\ df.\mbox{\hyperlink{class_data_frame_a7ee8ce2192ff32138106ccaf7855ecdf}{retrieve}}(2,\ \textcolor{stringliteral}{"{}c"{}})\ ==\ 0\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
 \end{DoxyCode}
  \Hypertarget{class_data_frame_afc18adaa108a156b862221a92cb52d82}\index{DataFrame@{DataFrame}!selectBestAttribute@{selectBestAttribute}}
 \index{selectBestAttribute@{selectBestAttribute}!DataFrame@{DataFrame}}
@@ -791,6 +969,132 @@ This function calculates the information gain for each attribute in the \doxylin
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,\ 0,\ 0,\ 0\},}
+\DoxyCodeLine{\{-\/4,\ 2,\ 0.5,\ 1\},}
+\DoxyCodeLine{\{0.1,\ 4.1,\ 0,\ 2\},}
+\DoxyCodeLine{\{-\/2.9,\ 6.2,\ 3,\ 3\},}
+\DoxyCodeLine{\{0.1,\ 8.3,\ \ 0,\ 4\}\};\ \ \ \ \ \ \textcolor{comment}{//\ Notice\ the\ label\ is\ roughly\ one\ half\ the\ value\ of\ the\ second\ column}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::vector<std::string>\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}}\ =\ \{\textcolor{stringliteral}{"{}Feature1"{}},\ \textcolor{stringliteral}{"{}Feature2"{}},\ \textcolor{stringliteral}{"{}Feature3"{}},\ \textcolor{stringliteral}{"{}Label"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ best\_attribute\ =\ df.selectBestAttribute(\textcolor{stringliteral}{"{}Label"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Best\ attribute\ is\ \%s:\ \%s\(\backslash\)n"{}},\ \mbox{\hyperlink{class_data_frame_abff6edf35e7ad9d320c729e90014e1a5}{columns}}[1],\ best\_attribute\ ==\ 1\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_aec2c8e3a943f4bff7c754c9552ad12c6}\index{DataFrame@{DataFrame}!split\_k\_fold@{split\_k\_fold}}
+\index{split\_k\_fold@{split\_k\_fold}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{split\_k\_fold()}{split\_k\_fold()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_data_frame_aec2c8e3a943f4bff7c754c9552ad12c6} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ Data\+Frame\+::split\+\_\+k\+\_\+fold (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+folds}{}\end{DoxyParamCaption})}
+
+
+
+Function to split the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+folds} & Number of folds for cross-\/validation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of Data\+Frames containing the k folds
+\end{DoxyReturn}
+This function splits the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation. The folds should roughly have the same size; however, stratified splitting is not used so there is no guarantee that the class distribution is the same in each fold. \Hypertarget{class_data_frame_aa57ad02bca8f26bf113d16f164b8e5fa}\index{DataFrame@{DataFrame}!split\_k\_fold@{split\_k\_fold}}
+\index{split\_k\_fold@{split\_k\_fold}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{split\_k\_fold()}{split\_k\_fold()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_data_frame_aa57ad02bca8f26bf113d16f164b8e5fa} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ Data\+Frame\+::split\+\_\+k\+\_\+fold (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+folds}{, }\item[{size\+\_\+t}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Function to split the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation with a specified random state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+folds} & Number of folds for cross-\/validation \\
+\hline
+{\em seed} & Random seed for splitting the data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of Data\+Frames containing the k folds
+\end{DoxyReturn}
+This function splits the \doxylink{class_data_frame}{Data\+Frame} into k folds for cross-\/validation using the specified random seed. The folds should roughly have the same size; however, stratified splitting is not used so there is no guarantee that the class distribution is the same in each fold. \Hypertarget{class_data_frame_a7ac7b27308d9fae54b509dcd7a966ae9}\index{DataFrame@{DataFrame}!split\_train\_test@{split\_train\_test}}
+\index{split\_train\_test@{split\_train\_test}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{split\_train\_test()}{split\_train\_test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_data_frame_a7ac7b27308d9fae54b509dcd7a966ae9} 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ Data\+Frame\+::split\+\_\+train\+\_\+test (\begin{DoxyParamCaption}\item[{double}]{percent\+\_\+training}{}\end{DoxyParamCaption})}
+
+
+
+Function to split the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent\+\_\+training} & Percentage of the data to include in the training set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of Data\+Frames containing the training and testing sets
+\end{DoxyReturn}
+This function splits the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets based on the specified percentage. The function returns a pair of Data\+Frames containing the training and testing sets.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::pair<std::unique\_ptr<DataFrame>,\ std::unique\_ptr<DataFrame>>\ train\_test\ =\ df.split\_train\_test(0.8);}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Training\ set\ has\ 80\%\%\ of\ the\ data:\ \%s"{}},\ train\_test.first-\/>get\_num\_rows()\ ==\ 4\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Testing\ set\ has\ 20\%\%\ of\ the\ data:\ \%s"{}},\ train\_test.second-\/>get\_num\_rows()\ ==\ 1\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_a6169c2c4480bf8fee9708db9dd381265}\index{DataFrame@{DataFrame}!split\_train\_test@{split\_train\_test}}
+\index{split\_train\_test@{split\_train\_test}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{split\_train\_test()}{split\_train\_test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_data_frame_a6169c2c4480bf8fee9708db9dd381265} 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ $>$ Data\+Frame\+::split\+\_\+train\+\_\+test (\begin{DoxyParamCaption}\item[{double}]{percent\+\_\+training}{, }\item[{size\+\_\+t}]{random\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Function to split the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets with a specified random state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent\+\_\+training} & Percentage of the data to include in the training set \\
+\hline
+{\em random\+\_\+state} & Random seed for splitting the data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of Data\+Frames containing the training and testing sets
+\end{DoxyReturn}
+This function splits the \doxylink{class_data_frame}{Data\+Frame} into training and testing sets based on the specified percentage and random seed. The function returns a pair of Data\+Frames containing the training and testing sets.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::pair<std::unique\_ptr<DataFrame>,\ std::unique\_ptr<DataFrame>>\ train\_test\ =\ df.split\_train\_test(0.8,\ 42);}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Training\ set\ has\ 80\%\%\ of\ the\ data:\ \%s"{}},\ train\_test.first-\/>get\_num\_rows()\ ==\ 4\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Testing\ set\ has\ 20\%\%\ of\ the\ data:\ \%s"{}},\ train\_test.second-\/>get\_num\_rows()\ ==\ 1\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
 \end{DoxyCode}
  \Hypertarget{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}\index{DataFrame@{DataFrame}!str\_cast@{str\_cast}}
 \index{str\_cast@{str\_cast}!DataFrame@{DataFrame}}
@@ -810,7 +1114,24 @@ Static function to cast a Cell to a double.
 \begin{DoxyReturn}{Returns}
 double value of the Cell
 \end{DoxyReturn}
-Static function to cast a Cell to a double \Hypertarget{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}\index{DataFrame@{DataFrame}!tail@{tail}}
+Static function to cast a Cell to a double
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Series\ col1\ =\ Series(\{0,\ 2,\ 0,\ 4,\ 5,\ 1\});}
+\DoxyCodeLine{Series\ col2\ =\ Series(\{1.4,\ 2.0,\ 3.44,\ 3.1415,\ 0.0,\ 1.1\});}
+\DoxyCodeLine{Series\ col3\ =\ Series(\{\textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}N"{}},\ \textcolor{stringliteral}{"{}Y"{}},\ \textcolor{stringliteral}{"{}Y"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df;}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}a"{}},\ col1);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}b"{}},\ col2);}
+\DoxyCodeLine{df.add\_column(\textcolor{stringliteral}{"{}c"{}},\ col3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//TRUE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Value\ of\ cell\ in\ first\ row\ of\ column\ 'c'\ is\ Y:\ \%s"{}},\ \mbox{\hyperlink{class_data_frame_a76fbea41eb1b951e4391d815981cbf7a}{DataFrame::str\_cast}}(df.retrieve(0,\ \textcolor{stringliteral}{"{}c"{}}))\ ==\ \textcolor{stringliteral}{"{}Y"{}}\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}\index{DataFrame@{DataFrame}!tail@{tail}}
 \index{tail@{tail}!DataFrame@{DataFrame}}
 \doxysubsubsection{\texorpdfstring{tail()}{tail()}}
 {\footnotesize\ttfamily \label{class_data_frame_a26e79ddcb7bb3d4247e344076750493f} 
@@ -832,6 +1153,23 @@ This function returns a new \doxylink{class_data_frame}{Data\+Frame} containing 
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<double>>\ sample\ =\ \{}
+\DoxyCodeLine{\{0,0,0,0\},}
+\DoxyCodeLine{\{1,0,1,0\},}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{class_data_frame_a69a9dc47b7506b8062fd34aedacbf579}{DataFrame}}\ df(sample,\ \{\textcolor{stringliteral}{"{}a"{}},\ \textcolor{stringliteral}{"{}b"{}},\ \textcolor{stringliteral}{"{}c"{}},\ \textcolor{stringliteral}{"{}d"{}}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unique\_ptr<DataFrame>\ \mbox{\hyperlink{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}{tail}}\ =\ df.tail(3);}
+\DoxyCodeLine{std::vector<std::vector<double>>\ expected\_data\ =\ \{}
+\DoxyCodeLine{\{0,2,0,2\},}
+\DoxyCodeLine{\{3,3,3,3\},}
+\DoxyCodeLine{\{4,0,0,4\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Tail\ of\ DataFrame\ correctly\ gives\ \%s\ :\ \%s"{}},\ expected\_data,\ \mbox{\hyperlink{class_data_frame_a26e79ddcb7bb3d4247e344076750493f}{tail}}-\/>get\_data()\ ==\ expected\_data\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}}\ );}
+
 \end{DoxyCode}
  
 

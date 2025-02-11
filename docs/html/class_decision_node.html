@@ -393,7 +393,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>threshold</b></td><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Predicted value for the sample</dd></dl>
 <p>This function takes a vector of feature values for a single sample and returns the predicted value. Since the node is a decision node, it checks the value of the feature at the feature index and compares it to the threshold. If the value is less than the threshold, the function calls the <a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9" title="Predict method.">predict()</a> method of the left child node. Otherwise, it calls the <a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9" title="Predict method.">predict()</a> method of the right child node.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5" title="Predict method.">DecisionTree::predict(std::vector&lt;double&gt; sample)</a> </dd>
+<dl class="section see"><dt>See also</dt><dd>DecisionTree::predict(std::vector&lt;double&gt; sample) </dd>
 <dd>
 Node::predict(std::vector&lt;double&gt; sample) </dd></dl>
 

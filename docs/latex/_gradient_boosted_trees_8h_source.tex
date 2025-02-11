@@ -1,0 +1,28 @@
+\doxysection{Gradient\+Boosted\+Trees.\+h}
+\hypertarget{_gradient_boosted_trees_8h_source}{}\label{_gradient_boosted_trees_8h_source}\index{src/GradientBoostedTrees.h@{src/GradientBoostedTrees.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}DecisionTree.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}DataFrame.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Classifier.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }GradientBoostedTrees\ :\ \textcolor{keyword}{public}\ Classifier\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_depth;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ min\_samples\_split;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_trees;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ learning\_rate;}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<std::unique\_ptr<DecisionTree>>\ trees;}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<double>\ base\_predictions;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ GradientBoostedTrees(\textcolor{keywordtype}{int}\ num\_trees,\ \textcolor{keywordtype}{double}\ learning\_rate,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ min\_samples\_split);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ GradientBoostedTrees::fit(std::unique\_ptr<DataFrame>\ data,\ \textcolor{keyword}{const}\ std::string\&\ label\_column);}
+\DoxyCodeLine{00022\ \};}
+
+\end{DoxyCode}

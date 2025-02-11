@@ -36,13 +36,15 @@ Cell \mbox{\hyperlink{class_series_aba2e0ca93cfa8e40634b9b07e13cd009}{mode}} () 
 \begin{DoxyCompactList}\small\item\em Function to convert the \doxylink{class_series}{Series} to numeric classes. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1}{median}} () const
 \begin{DoxyCompactList}\small\item\em Calculates the median of the \doxylink{class_series}{Series}, assuming it is numeric. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_series_a2015da8b8606d547fc587652ad848c50}{mean}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the mean of the \doxylink{class_series}{Series}, assuming it is numeric. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_series}{Series}} \mbox{\hyperlink{class_series_a1a27416f63787f2b6fff1ecfd5dcc024}{operator+}} (const \mbox{\hyperlink{class_series}{Series}} \&other) const
 \begin{DoxyCompactList}\small\item\em Function to add two \doxylink{class_series}{Series} together. \end{DoxyCompactList}\item 
 Cell \& \mbox{\hyperlink{class_series_a3013c89b78f5269c1309b1bb00def80e}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t index)
 \begin{DoxyCompactList}\small\item\em Function to access a data value in the \doxylink{class_series}{Series}. \end{DoxyCompactList}\item 
-std\+::vector$<$ Cell $>$\+::iterator \mbox{\hyperlink{class_series_a4d9f73dc5d862013718eaa5c026b78c0}{begin}} ()
+std\+::vector$<$ Cell $>$\+::const\+\_\+iterator \mbox{\hyperlink{class_series_a8b4dd3b8c57e59a531c596153613785e}{begin}} () const
 \begin{DoxyCompactList}\small\item\em Function to get an iterator to the beginning of the \doxylink{class_series}{Series}. \end{DoxyCompactList}\item 
-std\+::vector$<$ Cell $>$\+::iterator \mbox{\hyperlink{class_series_af1f148100837e72cf8d5b54cfb81390c}{end}} ()
+std\+::vector$<$ Cell $>$\+::const\+\_\+iterator \mbox{\hyperlink{class_series_ab2222d6f0ad7dfdbac9119b53c1835e2}{end}} () const
 \begin{DoxyCompactList}\small\item\em Function to get an iterator to the end of the \doxylink{class_series}{Series}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_series_aa1d3a2913ac8501b17b43cc280ae59ee}{operator==}} (const \mbox{\hyperlink{class_series}{Series}} \&other) const
 \begin{DoxyCompactList}\small\item\em Function to compare two \doxylink{class_series}{Series} for equality. \end{DoxyCompactList}\item 
@@ -90,11 +92,11 @@ Constructor for \doxylink{class_series}{Series}.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_series_a4d9f73dc5d862013718eaa5c026b78c0}\index{Series@{Series}!begin@{begin}}
+\Hypertarget{class_series_a8b4dd3b8c57e59a531c596153613785e}\index{Series@{Series}!begin@{begin}}
 \index{begin@{begin}!Series@{Series}}
 \doxysubsubsection{\texorpdfstring{begin()}{begin()}}
-{\footnotesize\ttfamily \label{class_series_a4d9f73dc5d862013718eaa5c026b78c0} 
-std\+::vector$<$ Cell $>$\+::iterator Series\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_series_a8b4dd3b8c57e59a531c596153613785e} 
+std\+::vector$<$ Cell $>$\+::const\+\_\+iterator Series\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -198,11 +200,11 @@ Function to check if the \doxylink{class_series}{Series} is empty.
 \begin{DoxyReturn}{Returns}
 true if the \doxylink{class_series}{Series} is empty, false otherwise
 \end{DoxyReturn}
-This function checks if the \doxylink{class_series}{Series} is empty, i.\+e., if it contains no data values. \Hypertarget{class_series_af1f148100837e72cf8d5b54cfb81390c}\index{Series@{Series}!end@{end}}
+This function checks if the \doxylink{class_series}{Series} is empty, i.\+e., if it contains no data values. \Hypertarget{class_series_ab2222d6f0ad7dfdbac9119b53c1835e2}\index{Series@{Series}!end@{end}}
 \index{end@{end}!Series@{Series}}
 \doxysubsubsection{\texorpdfstring{end()}{end()}}
-{\footnotesize\ttfamily \label{class_series_af1f148100837e72cf8d5b54cfb81390c} 
-std\+::vector$<$ Cell $>$\+::iterator Series\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_series_ab2222d6f0ad7dfdbac9119b53c1835e2} 
+std\+::vector$<$ Cell $>$\+::const\+\_\+iterator Series\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -211,7 +213,35 @@ Function to get an iterator to the end of the \doxylink{class_series}{Series}.
 \begin{DoxyReturn}{Returns}
 Iterator to the end of the \doxylink{class_series}{Series}
 \end{DoxyReturn}
-This function returns an iterator to the end of the \doxylink{class_series}{Series}. \Hypertarget{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1}\index{Series@{Series}!median@{median}}
+This function returns an iterator to the end of the \doxylink{class_series}{Series}. \Hypertarget{class_series_a2015da8b8606d547fc587652ad848c50}\index{Series@{Series}!mean@{mean}}
+\index{mean@{mean}!Series@{Series}}
+\doxysubsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily \label{class_series_a2015da8b8606d547fc587652ad848c50} 
+double Series\+::mean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Calculates the mean of the \doxylink{class_series}{Series}, assuming it is numeric. 
+
+\begin{DoxyReturn}{Returns}
+double mean of the column 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the column is empty or not numeric\\
+\hline
+\end{DoxyExceptions}
+This function calculates the mean of the specified column.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{1,\ 2,\ 3,\ 4,\ 5\});}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_series_a2015da8b8606d547fc587652ad848c50}{mean}}\ =\ col.\mbox{\hyperlink{class_series_a2015da8b8606d547fc587652ad848c50}{mean}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Mean\ of\ the\ column\ is\ 3:\ \%s"{}},\ \mbox{\hyperlink{class_series_a2015da8b8606d547fc587652ad848c50}{mean}}\ ==\ 3\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
+\end{DoxyCode}
+ \Hypertarget{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1}\index{Series@{Series}!median@{median}}
 \index{median@{median}!Series@{Series}}
 \doxysubsubsection{\texorpdfstring{median()}{median()}}
 {\footnotesize\ttfamily \label{class_series_a64e58a1c6fbbca80c536bcb42f7d75b1} 
@@ -265,7 +295,18 @@ Function to convert the \doxylink{class_series}{Series} to numeric classes.
 {\em std\+::runtime\+\_\+error} & if the column is not entirely numeric\\
 \hline
 \end{DoxyExceptions}
-This function converts the data values of the \doxylink{class_series}{Series} to numeric classes and returns a new \doxylink{class_series}{Series} containing the converted values. This can be thought of as a generalization of one-\/hot encoding, where each unique value in the column is assigned a unique numeric class. \Hypertarget{class_series_a1a27416f63787f2b6fff1ecfd5dcc024}\index{Series@{Series}!operator+@{operator+}}
+This function converts the data values of the \doxylink{class_series}{Series} to numeric classes and returns a new \doxylink{class_series}{Series} containing the converted values. This can be thought of as a generalization of one-\/hot encoding, where each unique value in the column is assigned a unique numeric class.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{\textcolor{stringliteral}{"{}A"{}},\ \textcolor{stringliteral}{"{}B"{}},\ \textcolor{stringliteral}{"{}A"{}},\ \textcolor{stringliteral}{"{}C"{}},\ \textcolor{stringliteral}{"{}B"{}}\});}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ numeric\_col\ =\ col.\mbox{\hyperlink{class_series_affa1a6ed484623a11df7415ba8f8f6d2}{numeric\_classes}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ numeric\_col\ contains\ \{0,\ 1,\ 0,\ 2,\ 1\}}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Numeric\ classes:\ \%s"{}},\ numeric\_col.print().c\_str());}
+
+\end{DoxyCode}
+ \Hypertarget{class_series_a1a27416f63787f2b6fff1ecfd5dcc024}\index{Series@{Series}!operator+@{operator+}}
 \index{operator+@{operator+}!Series@{Series}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
 {\footnotesize\ttfamily \label{class_series_a1a27416f63787f2b6fff1ecfd5dcc024} 
@@ -292,6 +333,13 @@ This function adds the data values of the two \doxylink{class_series}{Series} to
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col1\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{1,\ 2,\ 3,\ 4,\ 5\});}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col2\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{4,\ 8,\ 3,\ -\/1,\ -\/7\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ sum\ =\ col1\ +\ col2;}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Sum\ of\ the\ two\ Series\ is\ \{5,\ 10,\ 6,\ 3,\ -\/2\}:\ \%s"{}},\ sum\ ==\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{5,\ 10,\ 6,\ 3,\ -\/2\})\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
 \end{DoxyCode}
  \Hypertarget{class_series_aa1d3a2913ac8501b17b43cc280ae59ee}\index{Series@{Series}!operator==@{operator==}}
 \index{operator==@{operator==}!Series@{Series}}
@@ -315,6 +363,15 @@ This function compares two \doxylink{class_series}{Series} for equality. Two \do
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col1\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{1,\ 2,\ 3,\ 4,\ 5\});}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col2\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{1,\ 2,\ 3,\ 4,\ 5\});}
+\DoxyCodeLine{\mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}\ col3\ =\ \mbox{\hyperlink{class_series_ab0cc5b39ed4d0f70fd17121c52d758e3}{Series}}(\{1,\ 2,\ 3,\ 4,\ 6\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//TRUE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}col1\ and\ col2\ are\ equal:\ \%s"{}},\ col1\ ==\ col2\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+\DoxyCodeLine{\textcolor{comment}{//FALSE}}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}col1\ and\ col3\ are\ equal:\ \%s"{}},\ col1\ ==\ col3\ ?\ \textcolor{stringliteral}{"{}TRUE"{}}\ :\ \textcolor{stringliteral}{"{}FALSE"{}});}
+
 \end{DoxyCode}
  \Hypertarget{class_series_a3013c89b78f5269c1309b1bb00def80e}\index{Series@{Series}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!Series@{Series}}

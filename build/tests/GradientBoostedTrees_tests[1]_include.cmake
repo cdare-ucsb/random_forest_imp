@@ -1,0 +1,5 @@
+if(EXISTS "/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/GradientBoostedTrees_tests[1]_tests.cmake")
+  include("/Users/chris/Documents/SourceCode/c++/random_forest_imp/build/tests/GradientBoostedTrees_tests[1]_tests.cmake")
+else()
+  add_test(GradientBoostedTrees_tests_NOT_BUILT GradientBoostedTrees_tests_NOT_BUILT)
+endif()

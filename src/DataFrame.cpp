@@ -711,6 +711,28 @@ Series DataFrame::get_column(string col_name) const {
     return this->data.at(col_name);
 }
 
+void DataFrame::set_column(const std::string& name, const Series& column) {
+    if (data.empty()) {
+        add_column(name, column);
+    }
+    else { // DataFrame is not empty
+        size_t required_length = data.begin()->second.size();
+
+        // Ensure the new data does not have a different size
+        if (column.size() != required_length) {
+            throw std::invalid_argument("Column size mismatch");
+        }
+
+        // Either create a new column or overwrite the existing one
+        if (data.find(name) == data.end()) {
+            add_column(name, column);
+        } else {
+            data[name] = column;
+        }  
+    }
+}
+
+
 size_t DataFrame::get_num_columns() const {
     return columns.size();
 }   
@@ -788,21 +810,9 @@ Cell DataFrame::retrieve(size_t row, Cell col) {
 
 
 
-string DataFrame::cellToString(const Cell& cell) const {
-    return std::visit([](auto&& value) -> std::string {
-        using T = std::decay_t<decltype(value)>;
-        if constexpr (std::is_same_v<T, std::string>) {
-            return value;  // Keep strings as is
-        } else {
-            return std::to_string(value);  // Convert int & double to string
-        }
-    }, cell);
-}
-
-
-std::unique_ptr<DataFrame> DataFrame::copy() const {
+std::shared_ptr<DataFrame> DataFrame::copy() const {
     // Create a new DataFrame
-    auto new_df = std::make_unique<DataFrame>();
+    auto new_df = std::make_shared<DataFrame>();
 
     // Copy column names
     for (const auto& col : columns) {
@@ -839,7 +849,7 @@ string DataFrame::print() const {
     for (const auto& col : columns) {
         Series column_data = data.at(col);
         for (const auto& cell : column_data) {
-            size_t cell_width = cellToString(cell).size();
+            size_t cell_width = str_cast(cell).size();
             column_widths[col] = std::max(column_widths[col], cell_width);
         }
     }
@@ -870,7 +880,7 @@ string DataFrame::print() const {
     for (size_t row = 0; row < num_rows; ++row) {
         oss << "|";
         for (const auto& col : columns) {
-            oss << " " << std::setw(column_widths[col]) << std::left << cellToString(data.at(col).retrieve(row)) << " |";
+            oss << " " << std::setw(column_widths[col]) << std::left << str_cast(data.at(col).retrieve(row)) << " |";
         }
         oss << "\n";
     }
@@ -1182,7 +1192,7 @@ string DataFrame::str_cast(Cell cell) {
             if constexpr (std::is_same_v<T, string>) {
                 return static_cast<string>(value);
             } else {
-                throw std::invalid_argument("Cell is not a string");
+                return std::to_string(value);
             }
         }, cell);
 }

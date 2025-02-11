@@ -108,6 +108,14 @@ class Series {
          * 
          * This function converts the data values of the Series to numeric classes and returns a new Series containing the converted values.
          * This can be thought of as a generalization of one-hot encoding, where each unique value in the column is assigned a unique numeric class.
+         * 
+         * @code 
+         * Series col = Series({"A", "B", "A", "C", "B"});
+         * Series numeric_col = col.numeric_classes();
+         * 
+         * // numeric_col contains {0, 1, 0, 2, 1}
+         * printf("Numeric classes: %s", numeric_col.print().c_str());
+         * @endcode
          */
         Series numeric_classes() const;
 
@@ -127,6 +135,13 @@ class Series {
          * @throws std::runtime_error if the column is empty or not numeric
          * 
          * This function calculates the mean of the specified column.
+         * 
+         * @code
+         * Series col = Series({1, 2, 3, 4, 5});
+         * double mean = col.mean();
+         * 
+         * printf("Mean of the column is 3: %s", mean == 3 ? "TRUE" : "FALSE");
+         * @endcode
          */
         double mean() const;
 
@@ -347,18 +362,6 @@ class DataFrame {
         unique_ptr<DataFrame> filter_neq(string column_name, Cell value) const;
 
         /**
-         * @brief Helper function to print a single cell of the data frame
-         * @param cell Cell to print
-         * @return string representation of the cell
-         * @see DataFrame::print
-         * 
-         * This function returns a string representation of a single cell of the data frame.
-         * The representation depends on the type of the cell (int, double, or string).
-         * This helper function is primarily used by the DataFrame::print function.
-         */
-        string cellToString(const Cell& cell) const;
-
-        /**
          * @brief Helper function to check if a string is an integer
          * @param str String to check
          * @return true if the string is an integer, false otherwise
@@ -405,8 +408,25 @@ class DataFrame {
          * @brief Constructor for DataFrame
          * @param data 2D matrix of data
          * @param columns Vector of column names
+         * @see double_cast
+         * @see str_cast
          * 
          * Static function to cast a Cell to an integer
+         * 
+         * @code
+         * Series col1 = Series({0, 2, 0, 4, 5, 1});
+         * Series col2 = Series({1.4, 2.0, 3.44, 3.1415, 0.0, 1.1});
+         * Series col3 = Series({"Y", "N", "Y", "N", "Y", "Y"});
+         * 
+         * DataFrame df;
+         * df.add_column("a", col1);
+         * df.add_column("b", col2);
+         * df.add_column("c", col3);
+         * 
+         * //TRUE
+         * printf("Value of cell in third row of column 'a' is 0: %s", DataFrame::int_cast(df.retrieve(2, "a")) == 0 ? "TRUE" : "FALSE");
+         * 
+         * @endcode
          */
         static int int_cast(Cell cell);
 
@@ -414,8 +434,25 @@ class DataFrame {
          * @brief Static function to cast a Cell to a double
          * @param cell Cell to cast
          * @return double value of the Cell
+         * @see int_cast
+         * @see str_cast
          * 
          * Static function to cast a Cell to a double
+         * 
+         * @code
+         * Series col1 = Series({0, 2, 0, 4, 5, 1});
+         * Series col2 = Series({1.4, 2.0, 3.44, 3.1415, 0.0, 1.1});
+         * Series col3 = Series({"Y", "N", "Y", "N", "Y", "Y"});
+         * 
+         * DataFrame df;
+         * df.add_column("a", col1);
+         * df.add_column("b", col2);
+         * df.add_column("c", col3);
+         * 
+         * //TRUE
+         * printf("Value of cell in fourth row of column 'b' is 3.1415: %s", DataFrame::double_cast(df.retrieve(3, "b")) == 3.1415 ? "TRUE" : "FALSE");
+         * 
+         * @endcode
          */
         static double double_cast(Cell cell);
 
@@ -425,6 +462,20 @@ class DataFrame {
          * @return double value of the Cell
          * 
          * Static function to cast a Cell to a double
+         * 
+         * @code
+         * Series col1 = Series({0, 2, 0, 4, 5, 1});
+         * Series col2 = Series({1.4, 2.0, 3.44, 3.1415, 0.0, 1.1});
+         * Series col3 = Series({"Y", "N", "Y", "N", "Y", "Y"});
+         * 
+         * DataFrame df;
+         * df.add_column("a", col1);
+         * df.add_column("b", col2);
+         * df.add_column("c", col3);
+         * 
+         * //TRUE
+         * printf("Value of cell in first row of column 'c' is Y: %s", DataFrame::str_cast(df.retrieve(0, "c")) == "Y" ? "TRUE" : "FALSE");
+         * @endcode
          */
         static string str_cast(Cell cell);
 
@@ -462,6 +513,7 @@ class DataFrame {
          * size_t index = df.get_column_index("c");
          * //TRUE
          * printf("Index of column 'c' is 2: %s", index == 2 ? "TRUE" : "FALSE");
+         * @endcode
          */
         size_t get_column_index(string col_name);
 
@@ -500,7 +552,25 @@ class DataFrame {
         */
         void add_column(const std::string& name);
 
+        /**
+         * @brief Adds a column to the DataFrame.
+         * @param name Column name.
+         * @param column Series object containing the column data.
+         * 
+         * Overloaded method to add a column to the DataFrame using a Series object.
+         */
         void add_column(const std::string& name, const Series& column);
+
+        /**
+         * @brief Function to set a column in the DataFrame
+         * @param name Name of the column to set
+         * @param column Series object containing the column data
+         * @throws std::runtime_error if the length of column is not the same size as the existing columns in the DataFrame
+         * 
+         * This function sets the data values of the specified column in the DataFrame using the data values in the Series object. 
+         * If the DataFrame is empty or the column name does not exist, a new column is made with the specified name.
+         */
+        void set_column(const std::string& name, const Series& column);
 
         /**
         * @brief Adds a row of values to the DataFrame.
@@ -544,7 +614,6 @@ class DataFrame {
          * 
          * printf("Value at row 2, column 'c' is 0: %s", df.retrieve(2, "c") == 0 ? "TRUE" : "FALSE");
          * @endcode
-         * 
          */
         Cell retrieve(size_t row, Cell col);
 
@@ -780,6 +849,7 @@ class DataFrame {
          * df.one_hot_encode("e");
          * 
          * printf("Column 'e' is now numeric: %s", df.get_column("e").is_numeric() ? "TRUE" : "FALSE");
+         * @endcode
          */
         void one_hot_encode(string col_name);
 
@@ -851,10 +921,35 @@ class DataFrame {
          */
         std::pair<unique_ptr<DataFrame>, unique_ptr<DataFrame>> split_train_test(double percent_training, size_t random_state);
         
+        /**
+         * @brief Function to split the DataFrame into k folds for cross-validation
+         * @param n_folds Number of folds for cross-validation
+         * @return Vector of DataFrames containing the k folds
+         * 
+         * This function splits the DataFrame into k folds for cross-validation. The folds should roughly have the same size; 
+         * however, stratified splitting is not used so there is no guarantee that the class distribution is the same in each fold.
+         */
         vector<unique_ptr<DataFrame>> split_k_fold(size_t n_folds);
+
+        /**
+         * @brief Function to split the DataFrame into k folds for cross-validation with a specified random state
+         * @param n_folds Number of folds for cross-validation
+         * @param seed Random seed for splitting the data
+         * @return Vector of DataFrames containing the k folds
+         * 
+         * This function splits the DataFrame into k folds for cross-validation using the specified random seed.
+         * The folds should roughly have the same size; however, stratified splitting is not used so there is no guarantee that the
+         *  class distribution is the same in each fold.
+         */
         vector<unique_ptr<DataFrame>> split_k_fold(size_t n_folds, size_t seed);
 
-        unique_ptr<DataFrame> copy() const;
+        /**
+         * @brief Creates a hard copy in memory of the current dataframe, returned as a unique_ptr
+         * @return unique_ptr<DataFrame> containing a copy of the current DataFrame
+         * 
+         * This function creates a hard copy of the current DataFrame and returns it as a unique_ptr.
+         */
+        std::shared_ptr<DataFrame> copy() const;
 };
 
 

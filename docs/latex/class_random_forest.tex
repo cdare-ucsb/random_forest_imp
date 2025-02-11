@@ -9,6 +9,12 @@ Random Forest class.
 
 {\ttfamily \#include $<$Random\+Forest.\+h$>$}
 
+Inheritance diagram for Random\+Forest\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_random_forest}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,12 +22,17 @@ Random Forest class.
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_random_forest_a2422475d146f89a36eaf13de81f0a114}{Random\+Forest}} (int num\+\_\+trees, int max\+\_\+depth, int min\+\_\+samples\+\_\+split, int num\+\_\+features, size\+\_\+t random\+\_\+state)
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_random_forest}{Random\+Forest} with random seed. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_random_forest_addb1a70699905af9ac8ab68d787ef246}{fit}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column)
+void \mbox{\hyperlink{class_random_forest_a772ac1d5e98bbea98034c5586d0d65d2}{fit}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column) override
 \begin{DoxyCompactList}\small\item\em Function to fit the \doxylink{class_random_forest}{Random\+Forest} to the data. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726}{predict}} (const std\+::vector$<$ double $>$ \&sample) const
+double \mbox{\hyperlink{class_random_forest_ae936f48ca4926beea871917dee0e48b8}{predict}} (const std\+::vector$<$ double $>$ \&sample) const override
 \begin{DoxyCompactList}\small\item\em Function to make predictions using the \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_random_forest_a451f60b9317173176a5d167ad9545493}{print}} ()
 \begin{DoxyCompactList}\small\item\em Function to print the \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::tuple$<$ int, int, int, int $>$ \mbox{\hyperlink{class_random_forest_a8e9a4acbddc489597653be84b0cd0c6b}{hypertune}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column, size\+\_\+t num\+\_\+folds, size\+\_\+t seed, const std\+::vector$<$ int $>$ \&num\+\_\+trees\+\_\+values, const std\+::vector$<$ int $>$ \&max\+\_\+depth\+\_\+values, const std\+::vector$<$ int $>$ \&min\+\_\+samples\+\_\+split\+\_\+values, const std\+::vector$<$ int $>$ \&num\+\_\+features\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Function to perform hyperparameter tuning for the \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -77,11 +88,11 @@ Constructor for \doxylink{class_random_forest}{Random\+Forest} with random seed.
 Constructor for the \doxylink{class_random_forest}{Random\+Forest} class. The constructor initializes the \doxylink{class_random_forest}{Random\+Forest} with the specified number of trees, maximum depth of the trees, minimum number of samples required to split a node, number of features to consider when looking for the best split, and random seed for the random number generator. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_random_forest_addb1a70699905af9ac8ab68d787ef246}\index{RandomForest@{RandomForest}!fit@{fit}}
+\Hypertarget{class_random_forest_a772ac1d5e98bbea98034c5586d0d65d2}\index{RandomForest@{RandomForest}!fit@{fit}}
 \index{fit@{fit}!RandomForest@{RandomForest}}
 \doxysubsubsection{\texorpdfstring{fit()}{fit()}}
-{\footnotesize\ttfamily \label{class_random_forest_addb1a70699905af9ac8ab68d787ef246} 
-void Random\+Forest\+::fit (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$}]{data}{, }\item[{const std\+::string \&}]{label\+\_\+column}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_random_forest_a772ac1d5e98bbea98034c5586d0d65d2} 
+void Random\+Forest\+::fit (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$}]{data}{, }\item[{const std\+::string \&}]{label\+\_\+column}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -94,11 +105,75 @@ Function to fit the \doxylink{class_random_forest}{Random\+Forest} to the data.
 {\em label\+\_\+column} & Name of the column containing the labels\\
 \hline
 \end{DoxyParams}
-This function fits the \doxylink{class_random_forest}{Random\+Forest} to the data by training the individual decision trees in the forest. The function takes a \doxylink{class_data_frame}{Data\+Frame} containing the data and the name of the column containing the labels. For each decision tree, bootstrap samples are created from the data, and the tree is trained on the samples. \Hypertarget{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726}\index{RandomForest@{RandomForest}!predict@{predict}}
+This function fits the \doxylink{class_random_forest}{Random\+Forest} to the data by training the individual decision trees in the forest. The function takes a \doxylink{class_data_frame}{Data\+Frame} containing the data and the name of the column containing the labels. For each decision tree, bootstrap samples are created from the data, and the tree is trained on the samples. 
+
+Implements \mbox{\hyperlink{class_classifier}{Classifier}}.
+
+\Hypertarget{class_random_forest_a8e9a4acbddc489597653be84b0cd0c6b}\index{RandomForest@{RandomForest}!hypertune@{hypertune}}
+\index{hypertune@{hypertune}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{hypertune()}{hypertune()}}
+{\footnotesize\ttfamily \label{class_random_forest_a8e9a4acbddc489597653be84b0cd0c6b} 
+std\+::tuple$<$ int, int, int, int $>$ Random\+Forest\+::hypertune (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$}]{data}{, }\item[{const std\+::string \&}]{label\+\_\+column}{, }\item[{size\+\_\+t}]{num\+\_\+folds}{, }\item[{size\+\_\+t}]{seed}{, }\item[{const std\+::vector$<$ int $>$ \&}]{num\+\_\+trees\+\_\+values}{, }\item[{const std\+::vector$<$ int $>$ \&}]{max\+\_\+depth\+\_\+values}{, }\item[{const std\+::vector$<$ int $>$ \&}]{min\+\_\+samples\+\_\+split\+\_\+values}{, }\item[{const std\+::vector$<$ int $>$ \&}]{num\+\_\+features\+\_\+values}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to perform hyperparameter tuning for the \doxylink{class_random_forest}{Random\+Forest}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Data to perform hyperparameter tuning on \\
+\hline
+{\em label\+\_\+column} & Name of the column containing the labels \\
+\hline
+{\em num\+\_\+folds} & Number of folds for cross-\/validation \\
+\hline
+{\em seed} & Random seed for the random number generator \\
+\hline
+{\em num\+\_\+trees\+\_\+values} & Vector of values for the number of trees \\
+\hline
+{\em max\+\_\+depth\+\_\+values} & Vector of values for the maximum depth \\
+\hline
+{\em min\+\_\+samples\+\_\+split\+\_\+values} & Vector of values for the minimum samples split \\
+\hline
+{\em num\+\_\+features\+\_\+values} & Vector of values for the number of features \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tuple of hyperparameters with the best accuracy
+\end{DoxyReturn}
+This function performs hyperparameter tuning for the \doxylink{class_random_forest}{Random\+Forest} by training the model on different hyperparameter values and evaluating the accuracy using cross-\/validation. The function returns a tuple of hyperparameters with the best accuracy.
+
+The function takes a \doxylink{class_data_frame}{Data\+Frame} containing the data, the name of the column containing the labels, the number of folds for cross-\/validation, a random seed for the random number generator, and vectors of values for the number of trees, maximum depth, minimum samples split, and number of features.
+
+The function returns a tuple of hyperparameters with the best accuracy. The hyperparameters are the number of trees, maximum depth, minimum samples split, and number of features.
+
+The function uses cross-\/validation to evaluate the accuracy of the model with different hyperparameter values. It trains the model on a training set consisting of all folds except the current fold and evaluates the accuracy on the current fold. The function returns the average accuracy over all folds for each set of hyperparameters.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ DataFrame\ from\ a\ CSV\ file}}
+\DoxyCodeLine{std::uniqe\_ptr<DataFrame>\ data\ =\ \mbox{\hyperlink{class_data_frame_a2ca1ac57b20291519e443ccdcc12ddd4}{DataFrame::read\_csv}}(\textcolor{stringliteral}{"{}data.csv"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Perform\ hyperparameter\ tuning}}
+\DoxyCodeLine{std::vector<int>\ num\_trees\_values\ =\ \{1,\ 2,\ 4,\ 8\};}
+\DoxyCodeLine{std::vector<int>\ max\_depth\_values\ =\ \{1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{std::vector<int>\ min\_samples\_split\_values\ =\ \{1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{std::vector<int>\ num\_features\_values\ =\ \{1,\ 2,\ 3\};}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ num\_folds\ =\ 3;}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ random\_state\ =\ 123456;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [best\_num\_trees,\ best\_max\_depth,\ best\_min\_samples\_split,\ best\_num\_features]\ =\ \mbox{\hyperlink{class_random_forest_a8e9a4acbddc489597653be84b0cd0c6b}{RandomForest::hypertune}}(std::move(data),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}label"{}},\ num\_folds,\ random\_state,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num\_trees\_values,\ max\_depth\_values,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_samples\_split\_values,\ num\_features\_values);}
+
+\end{DoxyCode}
+ \Hypertarget{class_random_forest_ae936f48ca4926beea871917dee0e48b8}\index{RandomForest@{RandomForest}!predict@{predict}}
 \index{predict@{predict}!RandomForest@{RandomForest}}
 \doxysubsubsection{\texorpdfstring{predict()}{predict()}}
-{\footnotesize\ttfamily \label{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726} 
-double Random\+Forest\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_random_forest_ae936f48ca4926beea871917dee0e48b8} 
+double Random\+Forest\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -112,7 +187,11 @@ Function to make predictions using the \doxylink{class_random_forest}{Random\+Fo
 \begin{DoxyReturn}{Returns}
 Prediction from the \doxylink{class_random_forest}{Random\+Forest}
 \end{DoxyReturn}
-This function makes predictions using the \doxylink{class_random_forest}{Random\+Forest} on the specified sample. The function returns the prediction from the \doxylink{class_random_forest}{Random\+Forest}. \Hypertarget{class_random_forest_a451f60b9317173176a5d167ad9545493}\index{RandomForest@{RandomForest}!print@{print}}
+This function makes predictions using the \doxylink{class_random_forest}{Random\+Forest} on the specified sample. The function returns the prediction from the \doxylink{class_random_forest}{Random\+Forest}. 
+
+Implements \mbox{\hyperlink{class_classifier}{Classifier}}.
+
+\Hypertarget{class_random_forest_a451f60b9317173176a5d167ad9545493}\index{RandomForest@{RandomForest}!print@{print}}
 \index{print@{print}!RandomForest@{RandomForest}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
 {\footnotesize\ttfamily \label{class_random_forest_a451f60b9317173176a5d167ad9545493} 

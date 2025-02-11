@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_0',['Node',['../class_node.html',1,'']]]
+  ['gradientboostedtrees_0',['GradientBoostedTrees',['../class_gradient_boosted_trees.html',1,'']]]
 ];

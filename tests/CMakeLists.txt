@@ -2,6 +2,7 @@ add_executable(Node_tests Node_tests.cpp) # add this executable
 add_executable(DataFrame_tests DataFrame_tests.cpp) # add this executable
 add_executable(DecisionTree_tests DecisionTree_tests.cpp) # add this executable
 add_executable(RandomForest_tests RandomForest_tests.cpp) # add this executable
+add_executable(GradientBoostedTrees_tests GradientBoostedTrees_tests.cpp) # add this executable
 
 # Link your library (or source files) and Google Test libraries
 target_link_libraries(Node_tests PRIVATE
@@ -32,9 +33,20 @@ target_link_libraries(RandomForest_tests PRIVATE
         gtest_main  # Google Test main library; or gtest and define your own main
 )
 
+# Link your library (or source files) and Google Test libraries
+target_link_libraries(GradientBoostedTrees_tests PRIVATE
+        GradientBoostedTrees_lib
+        DecisionTree_lib
+        DataFrame_lib
+        Node_lib
+        gtest_main  # Google Test main library; or gtest and define your own main
+)
+
 
 # Register the tests with CTest
 include(GoogleTest)
 gtest_discover_tests(Node_tests)
 gtest_discover_tests(DataFrame_tests)
 gtest_discover_tests(DecisionTree_tests)
+gtest_discover_tests(RandomForest_tests)
+gtest_discover_tests(GradientBoostedTrees_tests)

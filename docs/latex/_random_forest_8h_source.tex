@@ -10,45 +10,53 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}DecisionTree.h"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}DataFrame.h"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::vector;}
-\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Classifier.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ }std::vector;}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}\ \{}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<DecisionTree>>\ trees;\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_trees;\ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_features;\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ max\_depth;\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ min\_samples\_split;\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ max\_features;\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ random\_state;\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<std::string>\ full\_feature\_names;\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::map<DecisionTree*,\ std::vector<std::string>>\ tree\_feature\_map;\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ original\_feature\_index(\textcolor{keyword}{const}\ std::string\&\ feature\_name)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ majorityVote(\textcolor{keyword}{const}\ std::vector<double>\&\ predictions)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}\ :\ \textcolor{keyword}{public}\ Classifier\ \{}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<DecisionTree>>\ trees;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_trees;\ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_features;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ max\_depth;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ min\_samples\_split;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ max\_features;\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ random\_state;\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<std::string>\ full\_feature\_names;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::map<std::shared\_ptr<DecisionTree>,\ std::vector<std::string>>\ tree\_feature\_map;\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ map\_mutex;\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ original\_feature\_index(\textcolor{keyword}{const}\ std::string\&\ feature\_name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ majorityVote(\textcolor{keyword}{const}\ std::vector<double>\&\ predictions)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}(\textcolor{keywordtype}{int}\ num\_trees,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ min\_samples\_split,\ \textcolor{keywordtype}{int}\ num\_features);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}(\textcolor{keywordtype}{int}\ num\_trees,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ min\_samples\_split,\ \textcolor{keywordtype}{int}\ num\_features,\ \textcolor{keywordtype}{size\_t}\ random\_state);}
-\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}(\textcolor{keywordtype}{int}\ num\_trees,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ min\_samples\_split,\ \textcolor{keywordtype}{int}\ num\_features);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{RandomForest}}(\textcolor{keywordtype}{int}\ num\_trees,\ \textcolor{keywordtype}{int}\ max\_depth,\ \textcolor{keywordtype}{int}\ min\_samples\_split,\ \textcolor{keywordtype}{int}\ num\_features,\ \textcolor{keywordtype}{size\_t}\ random\_state);}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_random_forest_addb1a70699905af9ac8ab68d787ef246}{fit}}(std::unique\_ptr<DataFrame>\ data,\ \textcolor{keyword}{const}\ std::string\&\ label\_column);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726}{predict}}(\textcolor{keyword}{const}\ std::vector<double>\&\ sample)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_random_forest_a772ac1d5e98bbea98034c5586d0d65d2}{fit}}(std::shared\_ptr<DataFrame>\ data,\ \textcolor{keyword}{const}\ std::string\&\ label\_column)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_random_forest_ae936f48ca4926beea871917dee0e48b8}{predict}}(\textcolor{keyword}{const}\ std::vector<double>\&\ sample)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00108\ }
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_random_forest_a451f60b9317173176a5d167ad9545493}{print}}();}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_random_forest_a451f60b9317173176a5d167ad9545493}{print}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::tuple<int,int,int,int>\ \mbox{\hyperlink{class_random_forest_a8e9a4acbddc489597653be84b0cd0c6b}{hypertune}}(std::unique\_ptr<DataFrame>\ data,\ \textcolor{keyword}{const}\ std::string\&\ label\_column,\ \textcolor{keywordtype}{size\_t}\ num\_folds,\ \textcolor{keywordtype}{size\_t}\ seed,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ num\_trees\_values,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ max\_depth\_values,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ min\_samples\_split\_values,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ num\_features\_values);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \};}
 
 \end{DoxyCode}

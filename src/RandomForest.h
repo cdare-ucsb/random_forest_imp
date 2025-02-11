@@ -116,11 +116,60 @@ class RandomForest : public Classifier {
          */
         std::string print();
 
-
+        /**
+         * @brief Function to perform hyperparameter tuning for the RandomForest
+         * @param data Data to perform hyperparameter tuning on
+         * @param label_column Name of the column containing the labels
+         * @param num_folds Number of folds for cross-validation
+         * @param seed Random seed for the random number generator
+         * @param num_trees_values Vector of values for the number of trees
+         * @param max_depth_values Vector of values for the maximum depth
+         * @param min_samples_split_values Vector of values for the minimum samples split
+         * @param num_features_values Vector of values for the number of features
+         * @return Tuple of hyperparameters with the best accuracy
+         * 
+         * This function performs hyperparameter tuning for the RandomForest by training the model on different
+         * hyperparameter values and evaluating the accuracy using cross-validation. The function returns a tuple
+         * of hyperparameters with the best accuracy.
+         * 
+         * The function takes a DataFrame containing the data, the name of the column containing the labels, the number
+         * of folds for cross-validation, a random seed for the random number generator, and vectors of values for the
+         * number of trees, maximum depth, minimum samples split, and number of features.
+         * 
+         * The function returns a tuple of hyperparameters with the best accuracy. The hyperparameters are the number of trees,
+         * maximum depth, minimum samples split, and number of features.
+         * 
+         * The function uses cross-validation to evaluate the accuracy of the model with different hyperparameter values.
+         * It trains the model on a training set consisting of all folds except the current fold and evaluates the accuracy
+         * on the current fold. The function returns the average accuracy over all folds for each set of hyperparameters.
+         * 
+         * @code
+         * 
+         * // Create a DataFrame from a CSV file
+         * std::uniqe_ptr<DataFrame> data = DataFrame::read_csv("data.csv");
+         * 
+         * 
+         * // Perform hyperparameter tuning
+         * std::vector<int> num_trees_values = {1, 2, 4, 8};
+         * std::vector<int> max_depth_values = {1, 2, 3, 4};
+         * std::vector<int> min_samples_split_values = {1, 2, 3, 4};
+         * std::vector<int> num_features_values = {1, 2, 3};
+         * size_t num_folds = 3;
+         * size_t random_state = 123456;
+         * 
+         * auto [best_num_trees, best_max_depth, best_min_samples_split, best_num_features] = RandomForest::hypertune(std::move(data),
+         *                                                                                    "label", num_folds, random_state,
+         *                                                                                   num_trees_values, max_depth_values,
+         *                                                                                   min_samples_split_values, num_features_values);
+         * 
+         * @endcode
+         */
+         
         static std::tuple<int,int,int,int> hypertune(std::unique_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
                              const std::vector<int>& num_trees_values,
                              const std::vector<int>& max_depth_values,
                             const std::vector<int>& min_samples_split_values,
-                             const std::vector<int>& num_features_values);
+                             const std::vector<int>& num_features_values,
+                             bool verbose = false);
 
 };

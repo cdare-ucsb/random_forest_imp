@@ -114,52 +114,61 @@ $(function(){initNavTree('_random_forest_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;DecisionTree.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;DataFrame.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::vector;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_random_forest.html">   23</a></span><span class="keyword">class </span><a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a> {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::vector&lt;std::unique_ptr&lt;DecisionTree&gt;&gt; trees; </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">size_t</span> num_trees;   </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">size_t</span> num_features; </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">size_t</span> max_depth; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">size_t</span> min_samples_split; </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">size_t</span> max_features; </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">size_t</span> random_state; </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        std::vector&lt;std::string&gt; full_feature_names; </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::map&lt;DecisionTree*, std::vector&lt;std::string&gt;&gt; tree_feature_map; </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">size_t</span> original_feature_index(<span class="keyword">const</span> std::string&amp; feature_name) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">double</span> majorityVote(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; predictions) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;Classifier.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>std::vector;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_random_forest.html">   24</a></span><span class="keyword">class </span><a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a> : <span class="keyword">public</span> Classifier {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        std::vector&lt;std::shared_ptr&lt;DecisionTree&gt;&gt; trees; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">size_t</span> num_trees;   </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">size_t</span> num_features; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">size_t</span> max_depth; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">size_t</span> min_samples_split; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">size_t</span> max_features; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">size_t</span> random_state; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::vector&lt;std::string&gt; full_feature_names; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::map&lt;std::shared_ptr&lt;DecisionTree&gt;, std::vector&lt;std::string&gt;&gt; tree_feature_map; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">mutable</span> std::mutex map_mutex; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">size_t</span> original_feature_index(<span class="keyword">const</span> std::string&amp; feature_name) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">double</span> majorityVote(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; predictions) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a>(<span class="keywordtype">int</span> num_trees, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> min_samples_split, <span class="keywordtype">int</span> num_features);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a>(<span class="keywordtype">int</span> num_trees, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> min_samples_split, <span class="keywordtype">int</span> num_features, <span class="keywordtype">size_t</span> random_state);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_random_forest.html#addb1a70699905af9ac8ab68d787ef246">fit</a>(std::unique_ptr&lt;DataFrame&gt; data, <span class="keyword">const</span> std::string&amp; label_column);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="class_random_forest.html#ab5fc5437c41182bc64bebd2f6a861726">predict</a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; sample) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        std::string <a class="code hl_function" href="class_random_forest.html#a451f60b9317173176a5d167ad9545493">print</a>();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a>(<span class="keywordtype">int</span> num_trees, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> min_samples_split, <span class="keywordtype">int</span> num_features);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest</a>(<span class="keywordtype">int</span> num_trees, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> min_samples_split, <span class="keywordtype">int</span> num_features, <span class="keywordtype">size_t</span> random_state);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_random_forest.html#a772ac1d5e98bbea98034c5586d0d65d2">fit</a>(std::shared_ptr&lt;DataFrame&gt; data, <span class="keyword">const</span> std::string&amp; label_column) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="class_random_forest.html#ae936f48ca4926beea871917dee0e48b8">predict</a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; sample) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        std::string <a class="code hl_function" href="class_random_forest.html#a451f60b9317173176a5d167ad9545493">print</a>();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>         </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keyword">static</span> std::tuple&lt;int,int,int,int&gt; <a class="code hl_function" href="class_random_forest.html#a8e9a4acbddc489597653be84b0cd0c6b">hypertune</a>(std::unique_ptr&lt;DataFrame&gt; data, <span class="keyword">const</span> std::string&amp; label_column, <span class="keywordtype">size_t</span> num_folds, <span class="keywordtype">size_t</span> seed,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                             <span class="keyword">const</span> std::vector&lt;int&gt;&amp; num_trees_values,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                             <span class="keyword">const</span> std::vector&lt;int&gt;&amp; max_depth_values,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                            <span class="keyword">const</span> std::vector&lt;int&gt;&amp; min_samples_split_values,</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                             <span class="keyword">const</span> std::vector&lt;int&gt;&amp; num_features_values);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>};</div>
 </div>
-<div class="ttc" id="aclass_random_forest_html_a451f60b9317173176a5d167ad9545493"><div class="ttname"><a href="class_random_forest.html#a451f60b9317173176a5d167ad9545493">RandomForest::print</a></div><div class="ttdeci">std::string print()</div><div class="ttdoc">Function to print the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:82</div></div>
-<div class="ttc" id="aclass_random_forest_html_a834c78860f10bb12320660e95f6f7b80"><div class="ttname"><a href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest::RandomForest</a></div><div class="ttdeci">RandomForest(int num_trees, int max_depth, int min_samples_split, int num_features)</div><div class="ttdoc">Constructor for RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:16</div></div>
-<div class="ttc" id="aclass_random_forest_html_ab5fc5437c41182bc64bebd2f6a861726"><div class="ttname"><a href="class_random_forest.html#ab5fc5437c41182bc64bebd2f6a861726">RandomForest::predict</a></div><div class="ttdeci">double predict(const std::vector&lt; double &gt; &amp;sample) const</div><div class="ttdoc">Function to make predictions using the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:55</div></div>
-<div class="ttc" id="aclass_random_forest_html_addb1a70699905af9ac8ab68d787ef246"><div class="ttname"><a href="class_random_forest.html#addb1a70699905af9ac8ab68d787ef246">RandomForest::fit</a></div><div class="ttdeci">void fit(std::unique_ptr&lt; DataFrame &gt; data, const std::string &amp;label_column)</div><div class="ttdoc">Function to fit the RandomForest to the data.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:22</div></div>
+<div class="ttc" id="aclass_random_forest_html_a451f60b9317173176a5d167ad9545493"><div class="ttname"><a href="class_random_forest.html#a451f60b9317173176a5d167ad9545493">RandomForest::print</a></div><div class="ttdeci">std::string print()</div><div class="ttdoc">Function to print the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:95</div></div>
+<div class="ttc" id="aclass_random_forest_html_a772ac1d5e98bbea98034c5586d0d65d2"><div class="ttname"><a href="class_random_forest.html#a772ac1d5e98bbea98034c5586d0d65d2">RandomForest::fit</a></div><div class="ttdeci">void fit(std::shared_ptr&lt; DataFrame &gt; data, const std::string &amp;label_column) override</div><div class="ttdoc">Function to fit the RandomForest to the data.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:25</div></div>
+<div class="ttc" id="aclass_random_forest_html_a834c78860f10bb12320660e95f6f7b80"><div class="ttname"><a href="class_random_forest.html#a834c78860f10bb12320660e95f6f7b80">RandomForest::RandomForest</a></div><div class="ttdeci">RandomForest(int num_trees, int max_depth, int min_samples_split, int num_features)</div><div class="ttdoc">Constructor for RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:17</div></div>
+<div class="ttc" id="aclass_random_forest_html_a8e9a4acbddc489597653be84b0cd0c6b"><div class="ttname"><a href="class_random_forest.html#a8e9a4acbddc489597653be84b0cd0c6b">RandomForest::hypertune</a></div><div class="ttdeci">static std::tuple&lt; int, int, int, int &gt; hypertune(std::unique_ptr&lt; DataFrame &gt; data, const std::string &amp;label_column, size_t num_folds, size_t seed, const std::vector&lt; int &gt; &amp;num_trees_values, const std::vector&lt; int &gt; &amp;max_depth_values, const std::vector&lt; int &gt; &amp;min_samples_split_values, const std::vector&lt; int &gt; &amp;num_features_values)</div><div class="ttdoc">Function to perform hyperparameter tuning for the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:137</div></div>
+<div class="ttc" id="aclass_random_forest_html_ae936f48ca4926beea871917dee0e48b8"><div class="ttname"><a href="class_random_forest.html#ae936f48ca4926beea871917dee0e48b8">RandomForest::predict</a></div><div class="ttdeci">double predict(const std::vector&lt; double &gt; &amp;sample) const override</div><div class="ttdoc">Function to make predictions using the RandomForest.</div><div class="ttdef"><b>Definition</b> RandomForest.cpp:60</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

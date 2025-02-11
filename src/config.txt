@@ -1,0 +1,4 @@
+num_trees: 2-5
+max_depth: 1-4
+min_samples_split: 1-4
+num_features: 1-3

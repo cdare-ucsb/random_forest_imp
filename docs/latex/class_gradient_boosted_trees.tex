@@ -1,0 +1,30 @@
+\doxysection{Gradient\+Boosted\+Trees Class Reference}
+\hypertarget{class_gradient_boosted_trees}{}\label{class_gradient_boosted_trees}\index{GradientBoostedTrees@{GradientBoostedTrees}}
+Inheritance diagram for Gradient\+Boosted\+Trees\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gradient_boosted_trees}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_gradient_boosted_trees_af4b5826db69c3ce0368f30324d2a9c65}\label{class_gradient_boosted_trees_af4b5826db69c3ce0368f30324d2a9c65} 
+{\bfseries Gradient\+Boosted\+Trees} (int num\+\_\+trees, double learning\+\_\+rate, int max\+\_\+depth, int min\+\_\+samples\+\_\+split)
+\item 
+\Hypertarget{class_gradient_boosted_trees_aab2db4e4e0c755a6c7c35db1162661ce}\label{class_gradient_boosted_trees_aab2db4e4e0c755a6c7c35db1162661ce} 
+void {\bfseries fit} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_classifier}{Classifier}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \mbox{\hyperlink{class_classifier_a34f8e29864efc1d59f8569c7104ad35c}{predict}} (const std\+::vector$<$ double $>$ \&sample) const =0
+\item 
+virtual void \mbox{\hyperlink{class_classifier_ac81925bedbb5a8f81cfab6ca6fb4e47d}{fit}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Gradient\+Boosted\+Trees.\+h\item 
+src/Gradient\+Boosted\+Trees.\+cpp\end{DoxyCompactItemize}

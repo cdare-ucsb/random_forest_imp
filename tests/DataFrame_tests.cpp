@@ -318,7 +318,7 @@ TEST(DataFrameTest, CopyTest) {
     df2.add_row({38.1, "Sun", "Yes", 8.1});
     df2.add_row({37.7, "Mon", "No", 10.2});
 
-    unique_ptr<DataFrame> copy = df2.copy();
+    std::shared_ptr<DataFrame> copy = df2.copy();
 
     EXPECT_EQ(copy->get_num_rows(), 10);
     EXPECT_EQ(copy->get_num_columns(), 4);
@@ -527,7 +527,48 @@ TEST(DataFrameTest, SplitKFoldTest) {
     EXPECT_EQ(folds[0]->get_num_rows(), 4);
     EXPECT_EQ(folds[1]->get_num_rows(), 3);
     EXPECT_EQ(folds[2]->get_num_rows(), 3);
+}
 
+
+TEST(DataFrameTest, SetColumnTest) {
+    DataFrame df2;
+    df2.add_column("Temp");
+    df2.add_column("Day");
+    df2.add_column("IsWeekend");
+    df2.add_column("Humidity");
+
+    df2.add_row({32.4, "Sat", "Yes", 10.1});
+    df2.add_row({36.2, "Sun", "Yes", 9.2});
+    df2.add_row({30.4, "Mon", "No", 9.4});
+    df2.add_row({39.5, "Tue", "No", 9.6});
+    df2.add_row({42.1, "Wed", "No", 13.1});
+    df2.add_row({44.3, "Thu", "No", 12.9});
+    df2.add_row({40.9, "Fri", "No", 11.1});
+    df2.add_row({41.5, "Sat", "Yes", 8.5});
+    df2.add_row({38.1, "Sun", "Yes", 8.1});
+    df2.add_row({37.7, "Mon", "No", 10.2});
+
+    Series col = Series({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    df2.set_column("Temp", col);
+
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(0, "Temp")), 1);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(1, "Temp")), 2);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(2, "Temp")), 3);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(3, "Temp")), 4);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(4, "Temp")), 5);
+
+    Series col2 = Series({1, 2, 3, 4, 5, 6, 7, 8, 9});
+    EXPECT_THROW(df2.set_column("Temp", col2), std::invalid_argument);
+
+    // Check creation of new column
+    Series col3 = Series({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    df2.set_column("NewColumn", col3);
+
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(0, "NewColumn")), 1);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(1, "NewColumn")), 2);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(2, "NewColumn")), 3);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(3, "NewColumn")), 4);
+    EXPECT_EQ(DataFrame::int_cast(df2.retrieve(4, "NewColumn")), 5);
 
 }
 

@@ -9,3 +9,5 @@ add_library(DataFrame_lib DataFrame.cpp DataFrame.h)
 add_library(DecisionTree_lib DecisionTree.cpp DecisionTree.h)
 
 add_library(RandomForest_lib RandomForest.cpp RandomForest.h)
+
+add_library(GradientBoostedTrees_lib GradientBoostedTrees.cpp GradientBoostedTrees.h)
