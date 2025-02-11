@@ -1,0 +1,133 @@
+\doxysection{Random\+Forest Class Reference}
+\hypertarget{class_random_forest}{}\label{class_random_forest}\index{RandomForest@{RandomForest}}
+
+
+Random Forest class.  
+
+
+
+
+{\ttfamily \#include $<$Random\+Forest.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_random_forest_a834c78860f10bb12320660e95f6f7b80}{Random\+Forest}} (int num\+\_\+trees, int max\+\_\+depth, int min\+\_\+samples\+\_\+split, int num\+\_\+features)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_random_forest_a2422475d146f89a36eaf13de81f0a114}{Random\+Forest}} (int num\+\_\+trees, int max\+\_\+depth, int min\+\_\+samples\+\_\+split, int num\+\_\+features, size\+\_\+t random\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_random_forest}{Random\+Forest} with random seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_random_forest_addb1a70699905af9ac8ab68d787ef246}{fit}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$ data, const std\+::string \&label\+\_\+column)
+\begin{DoxyCompactList}\small\item\em Function to fit the \doxylink{class_random_forest}{Random\+Forest} to the data. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726}{predict}} (const std\+::vector$<$ double $>$ \&sample) const
+\begin{DoxyCompactList}\small\item\em Function to make predictions using the \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_random_forest_a451f60b9317173176a5d167ad9545493}{print}} ()
+\begin{DoxyCompactList}\small\item\em Function to print the \doxylink{class_random_forest}{Random\+Forest}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Random Forest class. 
+
+This class represents a Random Forest model, which is an ensemble learning method that constructs a multitude of decision trees at training time and outputs the class that is the mode of the classes (classification) of the individual trees. Random decision forests correct for decision trees\textquotesingle{} habit of overfitting to their training set. The Random Forest class provides methods for fitting the model to the data and making predictions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_random_forest_a834c78860f10bb12320660e95f6f7b80}\index{RandomForest@{RandomForest}!RandomForest@{RandomForest}}
+\index{RandomForest@{RandomForest}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{RandomForest()}{RandomForest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_random_forest_a834c78860f10bb12320660e95f6f7b80} 
+Random\+Forest\+::\+Random\+Forest (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+trees}{, }\item[{int}]{max\+\_\+depth}{, }\item[{int}]{min\+\_\+samples\+\_\+split}{, }\item[{int}]{num\+\_\+features}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_random_forest}{Random\+Forest}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+trees} & Number of trees in the forest \\
+\hline
+{\em max\+\_\+depth} & Maximum depth of the trees \\
+\hline
+{\em min\+\_\+samples\+\_\+split} & Minimum number of samples required to split a node \\
+\hline
+{\em num\+\_\+features} & Number of features to consider when looking for the best split\\
+\hline
+\end{DoxyParams}
+Constructor for the \doxylink{class_random_forest}{Random\+Forest} class. The constructor initializes the \doxylink{class_random_forest}{Random\+Forest} with the specified number of trees, maximum depth of the trees, minimum number of samples required to split a node, and number of features to consider when looking for the best split. \Hypertarget{class_random_forest_a2422475d146f89a36eaf13de81f0a114}\index{RandomForest@{RandomForest}!RandomForest@{RandomForest}}
+\index{RandomForest@{RandomForest}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{RandomForest()}{RandomForest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_random_forest_a2422475d146f89a36eaf13de81f0a114} 
+Random\+Forest\+::\+Random\+Forest (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+trees}{, }\item[{int}]{max\+\_\+depth}{, }\item[{int}]{min\+\_\+samples\+\_\+split}{, }\item[{int}]{num\+\_\+features}{, }\item[{size\+\_\+t}]{random\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_random_forest}{Random\+Forest} with random seed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+trees} & Number of trees in the forest \\
+\hline
+{\em max\+\_\+depth} & Maximum depth of the trees \\
+\hline
+{\em min\+\_\+samples\+\_\+split} & Minimum number of samples required to split a node \\
+\hline
+{\em num\+\_\+features} & Number of features to consider when looking for the best split \\
+\hline
+{\em random\+\_\+state} & Random seed for the random number generator\\
+\hline
+\end{DoxyParams}
+Constructor for the \doxylink{class_random_forest}{Random\+Forest} class. The constructor initializes the \doxylink{class_random_forest}{Random\+Forest} with the specified number of trees, maximum depth of the trees, minimum number of samples required to split a node, number of features to consider when looking for the best split, and random seed for the random number generator. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_random_forest_addb1a70699905af9ac8ab68d787ef246}\index{RandomForest@{RandomForest}!fit@{fit}}
+\index{fit@{fit}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{fit()}{fit()}}
+{\footnotesize\ttfamily \label{class_random_forest_addb1a70699905af9ac8ab68d787ef246} 
+void Random\+Forest\+::fit (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_data_frame}{Data\+Frame}} $>$}]{data}{, }\item[{const std\+::string \&}]{label\+\_\+column}{}\end{DoxyParamCaption})}
+
+
+
+Function to fit the \doxylink{class_random_forest}{Random\+Forest} to the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Data to fit the \doxylink{class_random_forest}{Random\+Forest} to \\
+\hline
+{\em label\+\_\+column} & Name of the column containing the labels\\
+\hline
+\end{DoxyParams}
+This function fits the \doxylink{class_random_forest}{Random\+Forest} to the data by training the individual decision trees in the forest. The function takes a \doxylink{class_data_frame}{Data\+Frame} containing the data and the name of the column containing the labels. For each decision tree, bootstrap samples are created from the data, and the tree is trained on the samples. \Hypertarget{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726}\index{RandomForest@{RandomForest}!predict@{predict}}
+\index{predict@{predict}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{class_random_forest_ab5fc5437c41182bc64bebd2f6a861726} 
+double Random\+Forest\+::predict (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{sample}{}\end{DoxyParamCaption}) const}
+
+
+
+Function to make predictions using the \doxylink{class_random_forest}{Random\+Forest}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Sample to make predictions on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Prediction from the \doxylink{class_random_forest}{Random\+Forest}
+\end{DoxyReturn}
+This function makes predictions using the \doxylink{class_random_forest}{Random\+Forest} on the specified sample. The function returns the prediction from the \doxylink{class_random_forest}{Random\+Forest}. \Hypertarget{class_random_forest_a451f60b9317173176a5d167ad9545493}\index{RandomForest@{RandomForest}!print@{print}}
+\index{print@{print}!RandomForest@{RandomForest}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_random_forest_a451f60b9317173176a5d167ad9545493} 
+std\+::string Random\+Forest\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function to print the \doxylink{class_random_forest}{Random\+Forest}. 
+
+\begin{DoxyReturn}{Returns}
+String representation of the \doxylink{class_random_forest}{Random\+Forest}
+\end{DoxyReturn}
+This function returns a string representation of the \doxylink{class_random_forest}{Random\+Forest} by printing the individual decision trees in the forest. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Random\+Forest.\+h\item 
+src/Random\+Forest.\+cpp\end{DoxyCompactItemize}

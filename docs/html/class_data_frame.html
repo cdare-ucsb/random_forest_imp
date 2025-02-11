@@ -105,8 +105,10 @@ $(function(){initNavTree('class_data_frame.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_data_frame-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DataFrame Class Reference</div></div>
@@ -120,37 +122,82 @@ $(function(){initNavTree('class_data_frame.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a386118b2c08f3261812f70bfa16501f9" id="r_a386118b2c08f3261812f70bfa16501f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a386118b2c08f3261812f70bfa16501f9">DataFrame</a> (std::vector&lt; vector&lt; double &gt; &gt; <a class="el" href="#a3af5e5864b06c416027e9da0530ddb1c">data</a>, vector&lt; string &gt; <a class="el" href="#abff6edf35e7ad9d320c729e90014e1a5">columns</a>)</td></tr>
-<tr class="memdesc:a386118b2c08f3261812f70bfa16501f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
-<tr class="separator:a386118b2c08f3261812f70bfa16501f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a9dc47b7506b8062fd34aedacbf579" id="r_a69a9dc47b7506b8062fd34aedacbf579"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> ()</td></tr>
+<tr class="memdesc:a69a9dc47b7506b8062fd34aedacbf579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:a69a9dc47b7506b8062fd34aedacbf579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d289395a8fb1a00ccd6db60fd9d496" id="r_ad1d289395a8fb1a00ccd6db60fd9d496"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1d289395a8fb1a00ccd6db60fd9d496">DataFrame</a> (const vector&lt; vector&lt; double &gt; &gt; &amp;<a class="el" href="#a93813807dfe9ed4e6d97c75889b2ecbc">data</a>, const vector&lt; string &gt; &amp;<a class="el" href="#abff6edf35e7ad9d320c729e90014e1a5">columns</a>)</td></tr>
+<tr class="memdesc:ad1d289395a8fb1a00ccd6db60fd9d496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:ad1d289395a8fb1a00ccd6db60fd9d496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8baea1e0005895e8b18870befe21112" id="r_ae8baea1e0005895e8b18870befe21112"><td class="memItemLeft" align="right" valign="top"><a id="ae8baea1e0005895e8b18870befe21112" name="ae8baea1e0005895e8b18870befe21112"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~DataFrame</b> ()</td></tr>
 <tr class="memdesc:ae8baea1e0005895e8b18870befe21112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. <br /></td></tr>
 <tr class="separator:ae8baea1e0005895e8b18870befe21112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59923427bd0a1af4a8a3c555d2836f36" id="r_a59923427bd0a1af4a8a3c555d2836f36"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59923427bd0a1af4a8a3c555d2836f36">get_data</a> ()</td></tr>
-<tr class="memdesc:a59923427bd0a1af4a8a3c555d2836f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the data of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
-<tr class="separator:a59923427bd0a1af4a8a3c555d2836f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58fd05fb5f216fdb64a5daeea411b450" id="r_a58fd05fb5f216fdb64a5daeea411b450"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fd05fb5f216fdb64a5daeea411b450">get_num_rows</a> ()</td></tr>
-<tr class="memdesc:a58fd05fb5f216fdb64a5daeea411b450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the column names of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
-<tr class="separator:a58fd05fb5f216fdb64a5daeea411b450"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0df43cb83d0f8d7a41a0ab153c76aa3" id="r_ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0df43cb83d0f8d7a41a0ab153c76aa3">get_column</a> (string col_name)</td></tr>
-<tr class="memdesc:ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the number of columns in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
-<tr class="separator:ac0df43cb83d0f8d7a41a0ab153c76aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc5875fe944b7482cfe727576df8f17d" id="r_abc5875fe944b7482cfe727576df8f17d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc5875fe944b7482cfe727576df8f17d">print</a> ()</td></tr>
-<tr class="memdesc:abc5875fe944b7482cfe727576df8f17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which prints the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> as a table.  <br /></td></tr>
-<tr class="separator:abc5875fe944b7482cfe727576df8f17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0a9596528bc58a13b7a2f9282ab1b0d" id="r_ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0a9596528bc58a13b7a2f9282ab1b0d">selectBestAttribute</a> (string label_column)</td></tr>
-<tr class="memdesc:ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which calculates the attribute with the greatest information gain.  <br /></td></tr>
-<tr class="separator:ae0a9596528bc58a13b7a2f9282ab1b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dffdfe5c861ace228a1b07524729918" id="r_a4dffdfe5c861ace228a1b07524729918"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dffdfe5c861ace228a1b07524729918">column_median</a> (string col_name)</td></tr>
-<tr class="memdesc:a4dffdfe5c861ace228a1b07524729918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the median of a column.  <br /></td></tr>
-<tr class="separator:a4dffdfe5c861ace228a1b07524729918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a62f0b7229277c1aac323781f5f7c9" id="r_ac9a62f0b7229277c1aac323781f5f7c9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a62f0b7229277c1aac323781f5f7c9">column_mode</a> (string col_name)</td></tr>
-<tr class="memdesc:ac9a62f0b7229277c1aac323781f5f7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the mode of a column.  <br /></td></tr>
-<tr class="separator:ac9a62f0b7229277c1aac323781f5f7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04a5009251e037857f4d31bc2c19a64c" id="r_a04a5009251e037857f4d31bc2c19a64c"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04a5009251e037857f4d31bc2c19a64c">filter</a> (int attributeIndex, double threshold, string condition)</td></tr>
-<tr class="memdesc:a04a5009251e037857f4d31bc2c19a64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to filter the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on a condition.  <br /></td></tr>
-<tr class="separator:a04a5009251e037857f4d31bc2c19a64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3d112a971e78551f4c27ad3f28d8a0" id="r_a8a3d112a971e78551f4c27ad3f28d8a0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a3d112a971e78551f4c27ad3f28d8a0">get_num_rows</a> () const</td></tr>
+<tr class="memdesc:a8a3d112a971e78551f4c27ad3f28d8a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the number of rows / samples in a data frame.  <br /></td></tr>
+<tr class="separator:a8a3d112a971e78551f4c27ad3f28d8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0869365560e4964a24d289be30ad1106" id="r_a0869365560e4964a24d289be30ad1106"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0869365560e4964a24d289be30ad1106">get_num_columns</a> () const</td></tr>
+<tr class="memdesc:a0869365560e4964a24d289be30ad1106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the number of columns in a data frame.  <br /></td></tr>
+<tr class="separator:a0869365560e4964a24d289be30ad1106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4ad8341df2a5ee00398848464c8f48" id="r_abb4ad8341df2a5ee00398848464c8f48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_series.html">Series</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb4ad8341df2a5ee00398848464c8f48">get_column</a> (string col_name) const</td></tr>
+<tr class="memdesc:abb4ad8341df2a5ee00398848464c8f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the index of a column in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:abb4ad8341df2a5ee00398848464c8f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ce818e42fdcd81e7dcd7a7b7f8c7e1" id="r_a31ce818e42fdcd81e7dcd7a7b7f8c7e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31ce818e42fdcd81e7dcd7a7b7f8c7e1">add_column</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a31ce818e42fdcd81e7dcd7a7b7f8c7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a column to the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:a31ce818e42fdcd81e7dcd7a7b7f8c7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0570158f16c4086eb969f89efb239fa" id="r_af0570158f16c4086eb969f89efb239fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0570158f16c4086eb969f89efb239fa">add_row</a> (const std::vector&lt; Cell &gt; &amp;values)</td></tr>
+<tr class="memdesc:af0570158f16c4086eb969f89efb239fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a row of values to the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:af0570158f16c4086eb969f89efb239fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f3c2ef9538a748020a448b45ea9ca3" id="r_ad9f3c2ef9538a748020a448b45ea9ca3"><td class="memItemLeft" align="right" valign="top">vector&lt; Cell &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9f3c2ef9538a748020a448b45ea9ca3">get_row</a> (size_t row) const</td></tr>
+<tr class="memdesc:ad9f3c2ef9538a748020a448b45ea9ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get a row of data from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:ad9f3c2ef9538a748020a448b45ea9ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee8ce2192ff32138106ccaf7855ecdf" id="r_a7ee8ce2192ff32138106ccaf7855ecdf"><td class="memItemLeft" align="right" valign="top">Cell&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ee8ce2192ff32138106ccaf7855ecdf">retrieve</a> (size_t row, Cell col)</td></tr>
+<tr class="memdesc:a7ee8ce2192ff32138106ccaf7855ecdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to retrieve a data value from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:a7ee8ce2192ff32138106ccaf7855ecdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3945e60b39b991bb9473e9be79d1917" id="r_ac3945e60b39b991bb9473e9be79d1917"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3945e60b39b991bb9473e9be79d1917">print</a> () const</td></tr>
+<tr class="memdesc:ac3945e60b39b991bb9473e9be79d1917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which prints the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> as a table.  <br /></td></tr>
+<tr class="separator:ac3945e60b39b991bb9473e9be79d1917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc18adaa108a156b862221a92cb52d82" id="r_afc18adaa108a156b862221a92cb52d82"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc18adaa108a156b862221a92cb52d82">selectBestAttribute</a> (string label_name)</td></tr>
+<tr class="memdesc:afc18adaa108a156b862221a92cb52d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which calculates the attribute with the greatest information gain.  <br /></td></tr>
+<tr class="separator:afc18adaa108a156b862221a92cb52d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3314dae1299481f12b92efb87c4398b" id="r_ad3314dae1299481f12b92efb87c4398b"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a> ()</td></tr>
+<tr class="memdesc:ad3314dae1299481f12b92efb87c4398b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:ad3314dae1299481f12b92efb87c4398b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0a700a6b12f7060fee4116f0095e67" id="r_a7c0a700a6b12f7060fee4116f0095e67"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c0a700a6b12f7060fee4116f0095e67">bootstrap_sample</a> (size_t num_features, string label_column)</td></tr>
+<tr class="memdesc:a7c0a700a6b12f7060fee4116f0095e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> with a specified number of features.  <br /></td></tr>
+<tr class="separator:a7c0a700a6b12f7060fee4116f0095e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada47de8a90f07035c88fd30e14ee5564" id="r_ada47de8a90f07035c88fd30e14ee5564"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada47de8a90f07035c88fd30e14ee5564">bootstrap_sample</a> (size_t num_features, string label_column, size_t random_state)</td></tr>
+<tr class="memdesc:ada47de8a90f07035c88fd30e14ee5564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> with a specified number of features and random state.  <br /></td></tr>
+<tr class="separator:ada47de8a90f07035c88fd30e14ee5564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bcca3ce2045f697c1f0f7b5a7cdbf8f" id="r_a4bcca3ce2045f697c1f0f7b5a7cdbf8f"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bcca3ce2045f697c1f0f7b5a7cdbf8f">filter</a> (string column_name, Cell threshold, string condition)</td></tr>
+<tr class="memdesc:a4bcca3ce2045f697c1f0f7b5a7cdbf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to filter the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on a condition.  <br /></td></tr>
+<tr class="separator:a4bcca3ce2045f697c1f0f7b5a7cdbf8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af310b50395b0b3a0f678de4384a26c0d" id="r_af310b50395b0b3a0f678de4384a26c0d"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af310b50395b0b3a0f678de4384a26c0d">head</a> (size_t num_rows) const</td></tr>
+<tr class="memdesc:af310b50395b0b3a0f678de4384a26c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the head of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:af310b50395b0b3a0f678de4384a26c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e79ddcb7bb3d4247e344076750493f" id="r_a26e79ddcb7bb3d4247e344076750493f"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26e79ddcb7bb3d4247e344076750493f">tail</a> (size_t num_rows) const</td></tr>
+<tr class="memdesc:a26e79ddcb7bb3d4247e344076750493f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to get the tail of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:a26e79ddcb7bb3d4247e344076750493f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a32a4f43211df1821e5e33b972b1bf0" id="r_a9a32a4f43211df1821e5e33b972b1bf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a32a4f43211df1821e5e33b972b1bf0">drop_column</a> (string column_name)</td></tr>
+<tr class="memdesc:a9a32a4f43211df1821e5e33b972b1bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to drop a column from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:a9a32a4f43211df1821e5e33b972b1bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2338da6c31a355698d87be44ad181f8c" id="r_a2338da6c31a355698d87be44ad181f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2338da6c31a355698d87be44ad181f8c">one_hot_encode</a> (string col_name)</td></tr>
+<tr class="memdesc:a2338da6c31a355698d87be44ad181f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which converts a row of string data to numeric categories.  <br /></td></tr>
+<tr class="separator:a2338da6c31a355698d87be44ad181f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:afc18015a572455c258e599b5a17c0db1" id="r_afc18015a572455c258e599b5a17c0db1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc18015a572455c258e599b5a17c0db1">int_cast</a> (Cell cell)</td></tr>
+<tr class="memdesc:afc18015a572455c258e599b5a17c0db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.  <br /></td></tr>
+<tr class="separator:afc18015a572455c258e599b5a17c0db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89fbeaaf2b344bceb811609854fdc5d4" id="r_a89fbeaaf2b344bceb811609854fdc5d4"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89fbeaaf2b344bceb811609854fdc5d4">double_cast</a> (Cell cell)</td></tr>
+<tr class="memdesc:a89fbeaaf2b344bceb811609854fdc5d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to cast a Cell to a double.  <br /></td></tr>
+<tr class="separator:a89fbeaaf2b344bceb811609854fdc5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76fbea41eb1b951e4391d815981cbf7a" id="r_a76fbea41eb1b951e4391d815981cbf7a"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76fbea41eb1b951e4391d815981cbf7a">str_cast</a> (Cell cell)</td></tr>
+<tr class="memdesc:a76fbea41eb1b951e4391d815981cbf7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static function to cast a Cell to a double.  <br /></td></tr>
+<tr class="separator:a76fbea41eb1b951e4391d815981cbf7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca1ac57b20291519e443ccdcc12ddd4" id="r_a2ca1ac57b20291519e443ccdcc12ddd4"><td class="memItemLeft" align="right" valign="top"><a id="a2ca1ac57b20291519e443ccdcc12ddd4" name="a2ca1ac57b20291519e443ccdcc12ddd4"></a>
+static unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>read_csv</b> (const std::string &amp;file_path)</td></tr>
+<tr class="separator:a2ca1ac57b20291519e443ccdcc12ddd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -161,44 +208,53 @@ vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>col
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1be1d2d322cd5d633c6ce6afe10526c3" id="r_a1be1d2d322cd5d633c6ce6afe10526c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1be1d2d322cd5d633c6ce6afe10526c3">calculateEntropy</a> (const vector&lt; double &gt; &amp;labels)</td></tr>
-<tr class="memdesc:a1be1d2d322cd5d633c6ce6afe10526c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate the entropy of a set of labels.  <br /></td></tr>
-<tr class="separator:a1be1d2d322cd5d633c6ce6afe10526c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61187bfa789567ccc329a3b363b6929f" id="r_a61187bfa789567ccc329a3b363b6929f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61187bfa789567ccc329a3b363b6929f">calculateInformationGain</a> (int attributeIndex, string label_column)</td></tr>
-<tr class="memdesc:a61187bfa789567ccc329a3b363b6929f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate the information gain of an attribute.  <br /></td></tr>
-<tr class="separator:a61187bfa789567ccc329a3b363b6929f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e4fa2414fcd8a0046f35a80508497bc" id="r_a3e4fa2414fcd8a0046f35a80508497bc"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4fa2414fcd8a0046f35a80508497bc">filter_lt</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:a3e4fa2414fcd8a0046f35a80508497bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than the threshold.  <br /></td></tr>
-<tr class="separator:a3e4fa2414fcd8a0046f35a80508497bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1333d70f6c8852915b60a854a125a835" id="r_a1333d70f6c8852915b60a854a125a835"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1333d70f6c8852915b60a854a125a835">filter_leq</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:a1333d70f6c8852915b60a854a125a835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold.  <br /></td></tr>
-<tr class="separator:a1333d70f6c8852915b60a854a125a835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8235d871a79ee7fd312b3327545a14e8" id="r_a8235d871a79ee7fd312b3327545a14e8"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8235d871a79ee7fd312b3327545a14e8">filter_gt</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:a8235d871a79ee7fd312b3327545a14e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold.  <br /></td></tr>
-<tr class="separator:a8235d871a79ee7fd312b3327545a14e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73963447b6f22f9e07fc3e3d32a5a082" id="r_a73963447b6f22f9e07fc3e3d32a5a082"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73963447b6f22f9e07fc3e3d32a5a082">filter_geq</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:a73963447b6f22f9e07fc3e3d32a5a082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold.  <br /></td></tr>
-<tr class="separator:a73963447b6f22f9e07fc3e3d32a5a082"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34413f4375d53e1d03d7e0b87120ea45" id="r_a34413f4375d53e1d03d7e0b87120ea45"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34413f4375d53e1d03d7e0b87120ea45">filter_eq</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:a34413f4375d53e1d03d7e0b87120ea45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold.  <br /></td></tr>
-<tr class="separator:a34413f4375d53e1d03d7e0b87120ea45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2dac7b5d6f47ce370f46782fc0fbc84" id="r_af2dac7b5d6f47ce370f46782fc0fbc84"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2dac7b5d6f47ce370f46782fc0fbc84">filter_neq</a> (int attributeIndex, double threshold)</td></tr>
-<tr class="memdesc:af2dac7b5d6f47ce370f46782fc0fbc84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold.  <br /></td></tr>
-<tr class="separator:af2dac7b5d6f47ce370f46782fc0fbc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a2338ca0616795a3afaa961ca6289e" id="r_a86a2338ca0616795a3afaa961ca6289e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86a2338ca0616795a3afaa961ca6289e">calculateInformationGain</a> (string attribute_column, string label_column) const</td></tr>
+<tr class="memdesc:a86a2338ca0616795a3afaa961ca6289e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate the information gain of an attribute.  <br /></td></tr>
+<tr class="separator:a86a2338ca0616795a3afaa961ca6289e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297108c177939d209b42c3922ed109d4" id="r_a297108c177939d209b42c3922ed109d4"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a297108c177939d209b42c3922ed109d4">numeric_filter_lt</a> (string column_name, double threshold) const</td></tr>
+<tr class="memdesc:a297108c177939d209b42c3922ed109d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than the threshold.  <br /></td></tr>
+<tr class="separator:a297108c177939d209b42c3922ed109d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e2e7a7584fba57a29789eba058ff61" id="r_a87e2e7a7584fba57a29789eba058ff61"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87e2e7a7584fba57a29789eba058ff61">numeric_filter_leq</a> (string column_name, double threshold) const</td></tr>
+<tr class="memdesc:a87e2e7a7584fba57a29789eba058ff61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold.  <br /></td></tr>
+<tr class="separator:a87e2e7a7584fba57a29789eba058ff61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407c106e9a4e6ccac80e67867bf54055" id="r_a407c106e9a4e6ccac80e67867bf54055"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a407c106e9a4e6ccac80e67867bf54055">numeric_filter_gt</a> (string column_name, double threshold) const</td></tr>
+<tr class="memdesc:a407c106e9a4e6ccac80e67867bf54055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold.  <br /></td></tr>
+<tr class="separator:a407c106e9a4e6ccac80e67867bf54055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2081c2c9dc356a160afb7deb9d71d00d" id="r_a2081c2c9dc356a160afb7deb9d71d00d"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2081c2c9dc356a160afb7deb9d71d00d">numeric_filter_geq</a> (string column_name, double threshold) const</td></tr>
+<tr class="memdesc:a2081c2c9dc356a160afb7deb9d71d00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold.  <br /></td></tr>
+<tr class="separator:a2081c2c9dc356a160afb7deb9d71d00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a4f5e12a6fac1acdb88b59eabc84f6" id="r_ab9a4f5e12a6fac1acdb88b59eabc84f6"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a4f5e12a6fac1acdb88b59eabc84f6">filter_eq</a> (string column_name, Cell value) const</td></tr>
+<tr class="memdesc:ab9a4f5e12a6fac1acdb88b59eabc84f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold.  <br /></td></tr>
+<tr class="separator:ab9a4f5e12a6fac1acdb88b59eabc84f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b78b5b94187bf92ff94562c88c0c5c" id="r_a85b78b5b94187bf92ff94562c88c0c5c"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85b78b5b94187bf92ff94562c88c0c5c">filter_neq</a> (string column_name, Cell value) const</td></tr>
+<tr class="memdesc:a85b78b5b94187bf92ff94562c88c0c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to filter all rows where the value of the attribute at the given index is not equal to the threshold.  <br /></td></tr>
+<tr class="separator:a85b78b5b94187bf92ff94562c88c0c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25925294568c6da41098ddfc84c4a7b" id="r_ac25925294568c6da41098ddfc84c4a7b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac25925294568c6da41098ddfc84c4a7b">cellToString</a> (const Cell &amp;cell) const</td></tr>
+<tr class="memdesc:ac25925294568c6da41098ddfc84c4a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to print a single cell of the data frame.  <br /></td></tr>
+<tr class="separator:ac25925294568c6da41098ddfc84c4a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a24c9305ef61562c7c65633d9c5c90a11" id="r_a24c9305ef61562c7c65633d9c5c90a11"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24c9305ef61562c7c65633d9c5c90a11">is_integer</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a24c9305ef61562c7c65633d9c5c90a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to check if a string is an integer.  <br /></td></tr>
+<tr class="separator:a24c9305ef61562c7c65633d9c5c90a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce70d04e6545bd0af1e1c567d2da148" id="r_a1ce70d04e6545bd0af1e1c567d2da148"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ce70d04e6545bd0af1e1c567d2da148">is_double</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a1ce70d04e6545bd0af1e1c567d2da148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to check if a string is a double.  <br /></td></tr>
+<tr class="separator:a1ce70d04e6545bd0af1e1c567d2da148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3af5e5864b06c416027e9da0530ddb1c" id="r_a3af5e5864b06c416027e9da0530ddb1c"><td class="memItemLeft" align="right" valign="top"><a id="a3af5e5864b06c416027e9da0530ddb1c" name="a3af5e5864b06c416027e9da0530ddb1c"></a>
-vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="memdesc:a3af5e5864b06c416027e9da0530ddb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D matrix of data <br /></td></tr>
-<tr class="separator:a3af5e5864b06c416027e9da0530ddb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93813807dfe9ed4e6d97c75889b2ecbc" id="r_a93813807dfe9ed4e6d97c75889b2ecbc"><td class="memItemLeft" align="right" valign="top"><a id="a93813807dfe9ed4e6d97c75889b2ecbc" name="a93813807dfe9ed4e6d97c75889b2ecbc"></a>
+std::unordered_map&lt; string, <a class="el" href="class_series.html">Series</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="memdesc:a93813807dfe9ed4e6d97c75889b2ecbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of column names to column data. <br /></td></tr>
+<tr class="separator:a93813807dfe9ed4e6d97c75889b2ecbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> class. </p>
 <p>This class represents a <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> object, which is a formatted 2D matrix of data along with column names. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a386118b2c08f3261812f70bfa16501f9" name="a386118b2c08f3261812f70bfa16501f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a386118b2c08f3261812f70bfa16501f9">&#9670;&#160;</a></span>DataFrame()</h2>
+<a id="a69a9dc47b7506b8062fd34aedacbf579" name="a69a9dc47b7506b8062fd34aedacbf579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a9dc47b7506b8062fd34aedacbf579">&#9670;&#160;</a></span>DataFrame() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,12 +262,38 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
         <tr>
           <td class="memname">DataFrame::DataFrame </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; vector&lt; double &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>2D matrix of data </td></tr>
+    <tr><td class="paramname">columns</td><td>Vector of column names </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad1d289395a8fb1a00ccd6db60fd9d496" name="ad1d289395a8fb1a00ccd6db60fd9d496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d289395a8fb1a00ccd6db60fd9d496">&#9670;&#160;</a></span>DataFrame() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DataFrame::DataFrame </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; string &gt;</td>          <td class="paramname"><span class="paramname"><em>columns</em></span>&#160;)</td>
+          <td class="paramtype">const vector&lt; string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>columns</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -228,49 +310,186 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1be1d2d322cd5d633c6ce6afe10526c3" name="a1be1d2d322cd5d633c6ce6afe10526c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1be1d2d322cd5d633c6ce6afe10526c3">&#9670;&#160;</a></span>calculateEntropy()</h2>
+<a id="a31ce818e42fdcd81e7dcd7a7b7f8c7e1" name="a31ce818e42fdcd81e7dcd7a7b7f8c7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ce818e42fdcd81e7dcd7a7b7f8c7e1">&#9670;&#160;</a></span>add_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double DataFrame::calculateEntropy </td>
+          <td class="memname">void DataFrame::add_column </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>labels</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Function to calculate the entropy of a set of labels. </p>
+<p>Adds a column to the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">labels</td><td>vector of labels </td></tr>
+    <tr><td class="paramname">name</td><td>Column name. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>double entropy of the set of labels</dd></dl>
-<p>The entropy of a set of labels is calculated as follows:</p><ol type="1">
-<li>Count the frequency of each unique label in the set.</li>
-<li>For each unique label, calculate the probability of that label by dividing its frequency by the total number of labels.</li>
-<li>For each unique label, calculate the term -p * log2(p), where p is the probability of the label.</li>
-<li>Sum all the terms calculated in step 3 to get the entropy.</li>
-</ol>
-<p>Entropy is a measure of the impurity or disorder of the set of labels. A higher entropy value indicates more disorder. </p>
 
 </div>
 </div>
-<a id="a61187bfa789567ccc329a3b363b6929f" name="a61187bfa789567ccc329a3b363b6929f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61187bfa789567ccc329a3b363b6929f">&#9670;&#160;</a></span>calculateInformationGain()</h2>
+<a id="af0570158f16c4086eb969f89efb239fa" name="af0570158f16c4086eb969f89efb239fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0570158f16c4086eb969f89efb239fa">&#9670;&#160;</a></span>add_row()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataFrame::add_row </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; Cell &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a row of values to the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>A vector of Cell (int, double, or string) matching column count. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3314dae1299481f12b92efb87c4398b" name="ad3314dae1299481f12b92efb87c4398b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3314dae1299481f12b92efb87c4398b">&#9670;&#160;</a></span>bootstrap_sample() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::bootstrap_sample </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing a bootstrap sample of the data</dd></dl>
+<p>This function creates a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> by randomly sampling rows with replacement. The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the bootstrap sample.</p>
+<div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; sample = {</div>
+<div class="line">{0,0,0,0},</div>
+<div class="line">{1,0,1,0},</div>
+<div class="line">{0,2,0,2},</div>
+<div class="line">{3,3,3,3},</div>
+<div class="line">{4,0,0,4}};</div>
+<div class="line"><a class="code hl_function" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> df(sample, {<span class="stringliteral">&quot;a&quot;</span>, <span class="stringliteral">&quot;b&quot;</span>, <span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;d&quot;</span>});</div>
+<div class="line"> </div>
+<div class="line">std::unique_ptr&lt;DataFrame&gt; <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a> = df.bootstrapSample();</div>
+<div class="line"> </div>
+<div class="line">printf(<span class="stringliteral">&quot;Bootstrap sample has the same number of rows: %s&quot;</span>, <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a>-&gt;get_num_rows() == df.get_num_rows() ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+<div class="ttc" id="aclass_data_frame_html_a69a9dc47b7506b8062fd34aedacbf579"><div class="ttname"><a href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame::DataFrame</a></div><div class="ttdeci">DataFrame()</div><div class="ttdoc">Constructor for DataFrame.</div><div class="ttdef"><b>Definition</b> DataFrame.cpp:308</div></div>
+<div class="ttc" id="aclass_data_frame_html_ad3314dae1299481f12b92efb87c4398b"><div class="ttname"><a href="#ad3314dae1299481f12b92efb87c4398b">DataFrame::bootstrap_sample</a></div><div class="ttdeci">unique_ptr&lt; DataFrame &gt; bootstrap_sample()</div><div class="ttdoc">Function to create a bootstrap sample of the DataFrame.</div><div class="ttdef"><b>Definition</b> DataFrame.cpp:889</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a7c0a700a6b12f7060fee4116f0095e67" name="a7c0a700a6b12f7060fee4116f0095e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0a700a6b12f7060fee4116f0095e67">&#9670;&#160;</a></span>bootstrap_sample() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::bootstrap_sample </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num_features</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> with a specified number of features. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_features</td><td>Number of features to sample </td></tr>
+    <tr><td class="paramname">label_column</td><td>Name of the column containing the labels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing a bootstrap sample of the data with the specified number of features</dd></dl>
+<p>This function creates a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> by randomly sampling rows with replacement and selecting a subset of features. The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the bootstrap sample with the specified number of features.</p>
+<div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; sample = {</div>
+<div class="line">{0,0,0,0},</div>
+<div class="line">{1,0,1,0},</div>
+<div class="line">{0,2,0,2},</div>
+<div class="line">{3,3,3,3},</div>
+<div class="line">{4,0,0,4}};</div>
+<div class="line"><a class="code hl_function" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> df(sample, {<span class="stringliteral">&quot;a&quot;</span>, <span class="stringliteral">&quot;b&quot;</span>, <span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;d&quot;</span>});</div>
+<div class="line"> </div>
+<div class="line">std::unique_ptr&lt;DataFrame&gt; <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a> = df.bootstrap_sample(2, <span class="stringliteral">&quot;d&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">printf(<span class="stringliteral">&quot;Bootstrap sample has the same number of rows: %s&quot;</span>, <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a>-&gt;get_num_rows() == df.get_num_rows() ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+<div class="line">printf(<span class="stringliteral">&quot;Bootstrap sample has the correct number of features: %s&quot;</span>, <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a>-&gt;get_num_columns() == 2 ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ada47de8a90f07035c88fd30e14ee5564" name="ada47de8a90f07035c88fd30e14ee5564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada47de8a90f07035c88fd30e14ee5564">&#9670;&#160;</a></span>bootstrap_sample() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::bootstrap_sample </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num_features</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>random_state</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to create a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> with a specified number of features and random state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_features</td><td>Number of features to sample </td></tr>
+    <tr><td class="paramname">label_column</td><td>Name of the column containing the labels </td></tr>
+    <tr><td class="paramname">random_state</td><td>Random seed for sampling </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing a bootstrap sample of the data with the specified number of features</dd></dl>
+<p>This function creates a bootstrap sample of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> by randomly sampling rows with replacement and selecting a subset of features. The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the bootstrap sample with the specified number of features.</p>
+<div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; sample = {</div>
+<div class="line">{0,0,0,0},</div>
+<div class="line">{1,0,1,0},</div>
+<div class="line">{0,2,0,2},</div>
+<div class="line">{3,3,3,3},</div>
+<div class="line">{4,0,0,4}};</div>
+<div class="line"><a class="code hl_function" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> df(sample, {<span class="stringliteral">&quot;a&quot;</span>, <span class="stringliteral">&quot;b&quot;</span>, <span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;d&quot;</span>});</div>
+<div class="line"> </div>
+<div class="line">std::unique_ptr&lt;DataFrame&gt; <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a> = df.bootstrap_sample(2, <span class="stringliteral">&quot;d&quot;</span>, 42);</div>
+<div class="line"> </div>
+<div class="line">printf(<span class="stringliteral">&quot;Bootstrap sample has the same number of rows: %s&quot;</span>, <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a>-&gt;get_num_rows() == df.get_num_rows() ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+<div class="line">printf(<span class="stringliteral">&quot;Bootstrap sample has the correct number of features: %s&quot;</span>, <a class="code hl_function" href="#ad3314dae1299481f12b92efb87c4398b">bootstrap_sample</a>-&gt;get_num_columns() == 2 ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a86a2338ca0616795a3afaa961ca6289e" name="a86a2338ca0616795a3afaa961ca6289e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a2338ca0616795a3afaa961ca6289e">&#9670;&#160;</a></span>calculateInformationGain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,12 +500,12 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
         <tr>
           <td class="memname">double DataFrame::calculateInformationGain </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>attribute_column</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>&#160;)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -314,74 +533,105 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 
 </div>
 </div>
-<a id="a4dffdfe5c861ace228a1b07524729918" name="a4dffdfe5c861ace228a1b07524729918"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dffdfe5c861ace228a1b07524729918">&#9670;&#160;</a></span>column_median()</h2>
+<a id="ac25925294568c6da41098ddfc84c4a7b" name="ac25925294568c6da41098ddfc84c4a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25925294568c6da41098ddfc84c4a7b">&#9670;&#160;</a></span>cellToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DataFrame::cellToString </td>
+          <td>(</td>
+          <td class="paramtype">const Cell &amp;</td>          <td class="paramname"><span class="paramname"><em>cell</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to print a single cell of the data frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to print </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string representation of the cell </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ac3945e60b39b991bb9473e9be79d1917" title="Function which prints the DataFrame as a table.">DataFrame::print</a></dd></dl>
+<p>This function returns a string representation of a single cell of the data frame. The representation depends on the type of the cell (int, double, or string). This helper function is primarily used by the <a class="el" href="#ac3945e60b39b991bb9473e9be79d1917" title="Function which prints the DataFrame as a table.">DataFrame::print</a> function. </p>
+
+</div>
+</div>
+<a id="a89fbeaaf2b344bceb811609854fdc5d4" name="a89fbeaaf2b344bceb811609854fdc5d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89fbeaaf2b344bceb811609854fdc5d4">&#9670;&#160;</a></span>double_cast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DataFrame::double_cast </td>
+          <td>(</td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>cell</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to cast a Cell to a double. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to cast </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double value of the Cell</dd></dl>
+<p>Static function to cast a Cell to a double </p>
+
+</div>
+</div>
+<a id="a9a32a4f43211df1821e5e33b972b1bf0" name="a9a32a4f43211df1821e5e33b972b1bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a32a4f43211df1821e5e33b972b1bf0">&#9670;&#160;</a></span>drop_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double DataFrame::column_median </td>
+          <td class="memname">void DataFrame::drop_column </td>
           <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the median of a column. </p>
+<p>Function to drop a column from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">col_name</td><td>Name of the column </td></tr>
+    <tr><td class="paramname">column_name</td><td>Name of the column to drop</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>double median of the column </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This function calculates the median of the specified column. </p>
+<p>This function removes the specified column from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
 
 </div>
 </div>
-<a id="ac9a62f0b7229277c1aac323781f5f7c9" name="ac9a62f0b7229277c1aac323781f5f7c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a62f0b7229277c1aac323781f5f7c9">&#9670;&#160;</a></span>column_mode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double DataFrame::column_mode </td>
-          <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the mode of a column. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">col_name</td><td>Name of the column </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>double mode of the column </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This function calculates the mode of the specified column. </p>
-
-</div>
-</div>
-<a id="a04a5009251e037857f4d31bc2c19a64c" name="a04a5009251e037857f4d31bc2c19a64c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04a5009251e037857f4d31bc2c19a64c">&#9670;&#160;</a></span>filter()</h2>
+<a id="a4bcca3ce2045f697c1f0f7b5a7cdbf8f" name="a4bcca3ce2045f697c1f0f7b5a7cdbf8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bcca3ce2045f697c1f0f7b5a7cdbf8f">&#9670;&#160;</a></span>filter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,12 +639,12 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
         <tr>
           <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>, </td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -428,12 +678,27 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 <li>"==" (equal to)</li>
 <li>"!=" (not equal to)</li>
 </ul>
-<p>The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows that satisfy the condition, using the specified attribute and threshold. </p>
-
+<p>The function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows that satisfy the condition, using the specified attribute and threshold.</p>
+<div class="fragment"><div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; sample = {</div>
+<div class="line">{0,0,0,0},</div>
+<div class="line">{1,0,1,0},</div>
+<div class="line">{0,2,0,2},</div>
+<div class="line">{3,3,3,3},</div>
+<div class="line">{4,0,0,4}};</div>
+<div class="line"><a class="code hl_function" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> df(sample, {<span class="stringliteral">&quot;a&quot;</span>, <span class="stringliteral">&quot;b&quot;</span>, <span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;d&quot;</span>});</div>
+<div class="line"> </div>
+<div class="line">std::unique_ptr&lt;DataFrame&gt; filtered_df = df.filter(0, 1, <span class="stringliteral">&quot;&lt;&quot;</span>);</div>
+<div class="line">std::vector&lt;std::vector&lt;double&gt;&gt; expected_data = {</div>
+<div class="line">{0,0,0,0},</div>
+<div class="line">{0,2,0,2}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">printf(<span class="stringliteral">&quot;Filtered DataFrame correctly gives %s : %s&quot;</span>, expected_data, filtered_df-&gt;get_data() == expected_data ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span> );</div>
+</div><!-- fragment --> 
 </div>
 </div>
-<a id="a34413f4375d53e1d03d7e0b87120ea45" name="a34413f4375d53e1d03d7e0b87120ea45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34413f4375d53e1d03d7e0b87120ea45">&#9670;&#160;</a></span>filter_eq()</h2>
+<a id="ab9a4f5e12a6fac1acdb88b59eabc84f6" name="ab9a4f5e12a6fac1acdb88b59eabc84f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a4f5e12a6fac1acdb88b59eabc84f6">&#9670;&#160;</a></span>filter_eq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,12 +709,12 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
         <tr>
           <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_eq </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -462,8 +727,8 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 <p>Helper function to filter all rows where the value of the attribute at the given index is equal to the threshold. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+    <tr><td class="paramname">column_name</td><td>Name of the column to filter on </td></tr>
+    <tr><td class="paramname">value</td><td>Threshold value for the filter </td></tr>
   </table>
   </dd>
 </dl>
@@ -472,168 +737,8 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 
 </div>
 </div>
-<a id="a73963447b6f22f9e07fc3e3d32a5a082" name="a73963447b6f22f9e07fc3e3d32a5a082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73963447b6f22f9e07fc3e3d32a5a082">&#9670;&#160;</a></span>filter_geq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_geq </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than or equal to the threshold</dd></dl>
-<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than or equal to the threshold. </p>
-
-</div>
-</div>
-<a id="a8235d871a79ee7fd312b3327545a14e8" name="a8235d871a79ee7fd312b3327545a14e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8235d871a79ee7fd312b3327545a14e8">&#9670;&#160;</a></span>filter_gt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_gt </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than the threshold</dd></dl>
-<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than the threshold. </p>
-
-</div>
-</div>
-<a id="a1333d70f6c8852915b60a854a125a835" name="a1333d70f6c8852915b60a854a125a835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1333d70f6c8852915b60a854a125a835">&#9670;&#160;</a></span>filter_leq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_leq </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than or equal to the threshold</dd></dl>
-<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than or equal to the threshold. </p>
-
-</div>
-</div>
-<a id="a3e4fa2414fcd8a0046f35a80508497bc" name="a3e4fa2414fcd8a0046f35a80508497bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e4fa2414fcd8a0046f35a80508497bc">&#9670;&#160;</a></span>filter_lt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_lt </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Helper function to filter all rows where the value of the attribute at the given index is less than the threshold. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than the threshold</dd></dl>
-<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than the threshold. </p>
-
-</div>
-</div>
-<a id="af2dac7b5d6f47ce370f46782fc0fbc84" name="af2dac7b5d6f47ce370f46782fc0fbc84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2dac7b5d6f47ce370f46782fc0fbc84">&#9670;&#160;</a></span>filter_neq()</h2>
+<a id="a85b78b5b94187bf92ff94562c88c0c5c" name="a85b78b5b94187bf92ff94562c88c0c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b78b5b94187bf92ff94562c88c0c5c">&#9670;&#160;</a></span>filter_neq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -644,12 +749,12 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
         <tr>
           <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::filter_neq </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>attributeIndex</em></span>, </td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;)</td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -663,7 +768,7 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">attributeIndex</td><td>Index of the attribute to filter on </td></tr>
-    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+    <tr><td class="paramname">value</td><td>Threshold value for the filter </td></tr>
   </table>
   </dd>
 </dl>
@@ -672,14 +777,421 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 
 </div>
 </div>
-<a id="ac0df43cb83d0f8d7a41a0ab153c76aa3" name="ac0df43cb83d0f8d7a41a0ab153c76aa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0df43cb83d0f8d7a41a0ab153c76aa3">&#9670;&#160;</a></span>get_column()</h2>
+<a id="abb4ad8341df2a5ee00398848464c8f48" name="abb4ad8341df2a5ee00398848464c8f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4ad8341df2a5ee00398848464c8f48">&#9670;&#160;</a></span>get_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; double &gt; DataFrame::get_column </td>
+          <td class="memname"><a class="el" href="class_series.html">Series</a> DataFrame::get_column </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the index of a column in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>the index of the specified column </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function returns the index of the specified column in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.</p>
+<div class="fragment"><div class="line">   std::vector&lt;std::vector&lt;double&gt;&gt; sample = {</div>
+<div class="line">   {0,0,0,0},</div>
+<div class="line">   {1,0,1,0},</div>
+<div class="line">   {0,2,0,2},</div>
+<div class="line">   {3,3,3,3},</div>
+<div class="line">   {4,0,0,4}};</div>
+<div class="line">   <a class="code hl_function" href="#a69a9dc47b7506b8062fd34aedacbf579">DataFrame</a> df(sample, {<span class="stringliteral">&quot;a&quot;</span>, <span class="stringliteral">&quot;b&quot;</span>, <span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;d&quot;</span>});</div>
+<div class="line">   </div>
+<div class="line">   <span class="keywordtype">size_t</span> index = df.get_column_index(<span class="stringliteral">&quot;c&quot;</span>);</div>
+<div class="line">   <span class="comment">//TRUE</span></div>
+<div class="line">   printf(<span class="stringliteral">&quot;Index of column &#39;c&#39; is 2: %s&quot;</span>, index == 2 ? <span class="stringliteral">&quot;TRUE&quot;</span> : <span class="stringliteral">&quot;FALSE&quot;</span>);</div>
+<div class="line">  /</div>
+<div class="line"><span class="keywordtype">size_t</span> get_column_index(<span class="keywordtype">string</span> col_name);</div>
+<div class="line"></div><!-- fragment --> 
+</div>
+</div>
+<a id="a0869365560e4964a24d289be30ad1106" name="a0869365560e4964a24d289be30ad1106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0869365560e4964a24d289be30ad1106">&#9670;&#160;</a></span>get_num_columns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t DataFrame::get_num_columns </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the number of columns in a data frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>number of columns </dd></dl>
+
+</div>
+</div>
+<a id="a8a3d112a971e78551f4c27ad3f28d8a0" name="a8a3d112a971e78551f4c27ad3f28d8a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3d112a971e78551f4c27ad3f28d8a0">&#9670;&#160;</a></span>get_num_rows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t DataFrame::get_num_rows </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the number of rows / samples in a data frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>number of rows </dd></dl>
+
+</div>
+</div>
+<a id="ad9f3c2ef9538a748020a448b45ea9ca3" name="ad9f3c2ef9538a748020a448b45ea9ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f3c2ef9538a748020a448b45ea9ca3">&#9670;&#160;</a></span>get_row()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; Cell &gt; DataFrame::get_row </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get a row of data from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Index of the row to retrieve </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of data values in the row </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the row index is out of bounds</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function returns a vector containing the data values in the specified row of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+
+</div>
+</div>
+<a id="af310b50395b0b3a0f678de4384a26c0d" name="af310b50395b0b3a0f678de4384a26c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af310b50395b0b3a0f678de4384a26c0d">&#9670;&#160;</a></span>head()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::head </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num_rows</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the head of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_rows</td><td>Number of rows to include in the head </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the head of the data</dd></dl>
+<p>This function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the first num_rows rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.</p>
+<div class="fragment"></div><!-- fragment --> 
+</div>
+</div>
+<a id="afc18015a572455c258e599b5a17c0db1" name="afc18015a572455c258e599b5a17c0db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc18015a572455c258e599b5a17c0db1">&#9670;&#160;</a></span>int_cast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataFrame::int_cast </td>
+          <td>(</td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>cell</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>2D matrix of data </td></tr>
+    <tr><td class="paramname">columns</td><td>Vector of column names</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Static function to cast a Cell to an integer </p>
+
+</div>
+</div>
+<a id="a1ce70d04e6545bd0af1e1c567d2da148" name="a1ce70d04e6545bd0af1e1c567d2da148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce70d04e6545bd0af1e1c567d2da148">&#9670;&#160;</a></span>is_double()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataFrame::is_double </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to check if a string is a double. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the string is a double, false otherwise </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a24c9305ef61562c7c65633d9c5c90a11" title="Helper function to check if a string is an integer.">is_integer</a></dd></dl>
+<p>This function checks if a string is a double by attempting to convert it to a double. </p>
+
+</div>
+</div>
+<a id="a24c9305ef61562c7c65633d9c5c90a11" name="a24c9305ef61562c7c65633d9c5c90a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24c9305ef61562c7c65633d9c5c90a11">&#9670;&#160;</a></span>is_integer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataFrame::is_integer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to check if a string is an integer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the string is an integer, false otherwise </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a1ce70d04e6545bd0af1e1c567d2da148" title="Helper function to check if a string is a double.">is_double</a></dd></dl>
+<p>This function checks if a string is an integer by attempting to convert it to an integer. </p>
+
+</div>
+</div>
+<a id="a2081c2c9dc356a160afb7deb9d71d00d" name="a2081c2c9dc356a160afb7deb9d71d00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2081c2c9dc356a160afb7deb9d71d00d">&#9670;&#160;</a></span>numeric_filter_geq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::numeric_filter_geq </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is greater than or equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column_name</td><td>Name of the column to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than or equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than or equal to the threshold. </p>
+
+</div>
+</div>
+<a id="a407c106e9a4e6ccac80e67867bf54055" name="a407c106e9a4e6ccac80e67867bf54055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407c106e9a4e6ccac80e67867bf54055">&#9670;&#160;</a></span>numeric_filter_gt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::numeric_filter_gt </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is greater than the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column_name</td><td>Name of the column to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is greater than the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being greater than the threshold. </p>
+
+</div>
+</div>
+<a id="a87e2e7a7584fba57a29789eba058ff61" name="a87e2e7a7584fba57a29789eba058ff61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e2e7a7584fba57a29789eba058ff61">&#9670;&#160;</a></span>numeric_filter_leq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::numeric_filter_leq </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is less than or equal to the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column_name</td><td>Name of the column to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than or equal to the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than or equal to the threshold. </p>
+
+</div>
+</div>
+<a id="a297108c177939d209b42c3922ed109d4" name="a297108c177939d209b42c3922ed109d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297108c177939d209b42c3922ed109d4">&#9670;&#160;</a></span>numeric_filter_lt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::numeric_filter_lt </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>column_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>threshold</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to filter all rows where the value of the attribute at the given index is less than the threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column_name</td><td>Name of the column to filter on </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold value for the filter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing only the rows where the value of the attribute is less than the threshold</dd></dl>
+<p>This function filters the rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> based on the value of the attribute at the given index being less than the threshold. </p>
+
+</div>
+</div>
+<a id="a2338da6c31a355698d87be44ad181f8c" name="a2338da6c31a355698d87be44ad181f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2338da6c31a355698d87be44ad181f8c">&#9670;&#160;</a></span>one_hot_encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DataFrame::one_hot_encode </td>
           <td>(</td>
           <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>col_name</em></span></td><td>)</td>
           <td></td>
@@ -687,60 +1199,19 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
       </table>
 </div><div class="memdoc">
 
-<p>Function to get the number of columns in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of columns </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+<p>Function which converts a row of string data to numeric categories. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col_name</td><td>Name of the column to convert to numeric catagories</td></tr>
   </table>
   </dd>
 </dl>
-<p>This function returns a vector containing the values of the specified column. </p>
+<p>This function converts a column of string data to numeric categories, which is necessary for some some classification algorithms. Thhe algorithms iterates through the data and assigns a unique numeric value to each unique string value. </p>
 
 </div>
 </div>
-<a id="a59923427bd0a1af4a8a3c555d2836f36" name="a59923427bd0a1af4a8a3c555d2836f36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59923427bd0a1af4a8a3c555d2836f36">&#9670;&#160;</a></span>get_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; vector&lt; double &gt; &gt; DataFrame::get_data </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function to get the data of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>2D matrix of data </dd></dl>
-
-</div>
-</div>
-<a id="a58fd05fb5f216fdb64a5daeea411b450" name="a58fd05fb5f216fdb64a5daeea411b450"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58fd05fb5f216fdb64a5daeea411b450">&#9670;&#160;</a></span>get_num_rows()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int DataFrame::get_num_rows </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function to get the column names of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of column names </dd></dl>
-
-</div>
-</div>
-<a id="abc5875fe944b7482cfe727576df8f17d" name="abc5875fe944b7482cfe727576df8f17d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc5875fe944b7482cfe727576df8f17d">&#9670;&#160;</a></span>print()</h2>
+<a id="ac3945e60b39b991bb9473e9be79d1917" name="ac3945e60b39b991bb9473e9be79d1917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3945e60b39b991bb9473e9be79d1917">&#9670;&#160;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -749,7 +1220,7 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
           <td class="memname">string DataFrame::print </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -759,16 +1230,54 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
 
 </div>
 </div>
-<a id="ae0a9596528bc58a13b7a2f9282ab1b0d" name="ae0a9596528bc58a13b7a2f9282ab1b0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0a9596528bc58a13b7a2f9282ab1b0d">&#9670;&#160;</a></span>selectBestAttribute()</h2>
+<a id="a7ee8ce2192ff32138106ccaf7855ecdf" name="a7ee8ce2192ff32138106ccaf7855ecdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee8ce2192ff32138106ccaf7855ecdf">&#9670;&#160;</a></span>retrieve()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int DataFrame::selectBestAttribute </td>
+          <td class="memname">Cell DataFrame::retrieve </td>
           <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_column</em></span></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to retrieve a data value from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Index of the row </td></tr>
+    <tr><td class="paramname">col</td><td>Name of the column &mdash; this can be either a string or an integer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Data value at the specified row and column </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the column name is not found</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function retrieves the data value at the specified row and column from the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. The column can be specified using either the column name or the column index.</p>
+<div class="fragment"></div><!-- fragment --> 
+</div>
+</div>
+<a id="afc18adaa108a156b862221a92cb52d82" name="afc18adaa108a156b862221a92cb52d82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc18adaa108a156b862221a92cb52d82">&#9670;&#160;</a></span>selectBestAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DataFrame::selectBestAttribute </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>label_name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -782,8 +1291,70 @@ vector&lt; vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Index of the attribute with the greatest information gain</dd></dl>
-<p>This function calculates the information gain for each attribute in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> and returns the index of the attribute with the greatest information gain. </p>
+<p>This function calculates the information gain for each attribute in the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> and returns the index of the attribute with the greatest information gain.</p>
+<div class="fragment"></div><!-- fragment --> 
+</div>
+</div>
+<a id="a76fbea41eb1b951e4391d815981cbf7a" name="a76fbea41eb1b951e4391d815981cbf7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76fbea41eb1b951e4391d815981cbf7a">&#9670;&#160;</a></span>str_cast()</h2>
 
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DataFrame::str_cast </td>
+          <td>(</td>
+          <td class="paramtype">Cell</td>          <td class="paramname"><span class="paramname"><em>cell</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static function to cast a Cell to a double. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>Cell to cast </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double value of the Cell</dd></dl>
+<p>Static function to cast a Cell to a double </p>
+
+</div>
+</div>
+<a id="a26e79ddcb7bb3d4247e344076750493f" name="a26e79ddcb7bb3d4247e344076750493f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e79ddcb7bb3d4247e344076750493f">&#9670;&#160;</a></span>tail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unique_ptr&lt; <a class="el" href="class_data_frame.html">DataFrame</a> &gt; DataFrame::tail </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num_rows</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to get the tail of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_rows</td><td>Number of rows to include in the tail </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the tail of the data</dd></dl>
+<p>This function returns a new <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a> containing the last num_rows rows of the <a class="el" href="class_data_frame.html" title="DataFrame class.">DataFrame</a>.</p>
+<div class="fragment"></div><!-- fragment --> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

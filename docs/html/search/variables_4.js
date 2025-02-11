@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_0',['right',['../class_node.html#aa0e6fd281068bb34c5b7442bddd567b4',1,'Node::right'],['../class_decision_node.html#aa9a24a6d941c61fbc43ec644ea518345',1,'DecisionNode::right']]]
+  ['left_0',['left',['../class_node.html#a45121b79c7ce5151664b76188d613ed0',1,'Node::left'],['../class_decision_node.html#afb5fabd6981844bf54519c2fba6652f5',1,'DecisionNode::left']]]
 ];

@@ -216,7 +216,11 @@ TEST(DataFrameTest, DataFrameSeriesConversion) {
     EXPECT_THROW(DataFrame::int_cast(df2.retrieve(0, "Day")), std::invalid_argument);
 }
 
-
+/**
+ * @brief Unit tests for data frame operations
+ * 
+ * @test Test the dataframe ReadFromCSV functionality
+ */
 TEST(DataFrameTest, ReadFromCSVTest) {
 
     unique_ptr<DataFrame> df = DataFrame::read_csv("../../samples/seattle-weather.csv");
@@ -225,7 +229,6 @@ TEST(DataFrameTest, ReadFromCSVTest) {
     EXPECT_EQ(df->get_num_columns(), 6);
 
     unique_ptr<DataFrame> df2 = df->head(5);
-    printf("%s\n", df2->print().c_str());
 
     EXPECT_EQ(df2->get_num_rows(), 5);
     EXPECT_EQ(df2->get_num_columns(), 6);
@@ -236,6 +239,11 @@ TEST(DataFrameTest, ReadFromCSVTest) {
     EXPECT_EQ(DataFrame::str_cast(df2->retrieve(1, "weather")), "rain");
 }
 
+/**
+ * @brief Unit tests for data frame operations
+ * 
+ * @test Test the dataframe drop functionality
+ */
 TEST(DataFrameTest, DataFrameDropColumn) {
     DataFrame df;
 
@@ -255,6 +263,39 @@ TEST(DataFrameTest, DataFrameDropColumn) {
     EXPECT_THROW(df.get_column("a"), std::invalid_argument);
     EXPECT_EQ(df.get_num_columns(), 3);
 
+}
+
+
+TEST(DataFrameTest, HeadAndTailTest) {
+    DataFrame df2;
+    df2.add_column("Temp");
+    df2.add_column("Day");
+    df2.add_column("IsWeekend");
+    df2.add_column("Humidity");
+
+    df2.add_row({32.4, "Sat", "Yes", 10.1});
+    df2.add_row({36.2, "Sun", "Yes", 9.2});
+    df2.add_row({30.4, "Mon", "No", 9.4});
+    df2.add_row({39.5, "Tue", "No", 9.6});
+    df2.add_row({42.1, "Wed", "No", 13.1});
+    df2.add_row({44.3, "Thu", "No", 12.9});
+    df2.add_row({40.9, "Fri", "No", 11.1});
+    df2.add_row({41.5, "Sat", "Yes", 8.5});
+    df2.add_row({38.1, "Sun", "Yes", 8.1});
+    df2.add_row({37.7, "Mon", "No", 10.2});
+
+
+    unique_ptr<DataFrame> head = df2.head(3);
+
+    EXPECT_EQ(head->get_num_rows(), 3);
+    EXPECT_EQ(DataFrame::str_cast(head->retrieve(0, "Day")), "Sat");
+    EXPECT_EQ(DataFrame::str_cast(head->retrieve(1, "Day")), "Sun");
+    EXPECT_EQ(DataFrame::str_cast(head->retrieve(2, "Day")), "Mon");
+
+    unique_ptr<DataFrame> tail = df2.tail(2);
+    EXPECT_EQ(tail->get_num_rows(), 2);
+    EXPECT_EQ(DataFrame::str_cast(tail->retrieve(0, "Day")), "Sun");
+    EXPECT_EQ(DataFrame::str_cast(tail->retrieve(1, "Day")), "Mon");
 }
 
 TEST(DataFrameTest, OneHotEncodeTest) {
@@ -326,6 +367,8 @@ TEST(SeriesTest, SeriesMedian) {
     EXPECT_EQ(col3.median(), 3.5);
 }
 
+
+
 TEST(SeriesTest, SeriesMode) {
     Series col1 = Series({0, 2, 0, 4, 5});
     Series col2 = Series({1, 2, 3, 3, 0, 1});
@@ -336,6 +379,11 @@ TEST(SeriesTest, SeriesMode) {
     EXPECT_EQ(DataFrame::str_cast(col3.mode()), "Y");
 }
 
+/**
+ * @brief Unit tests for Series operations
+ * 
+ * @test Test the conversion to numeric catagories functionality
+ */
 TEST(SeriesTest, SeriesNumericCatagories) {
 
     Series col1 = Series({"Y", "N", "Y", "N", "Y", "Y"});
@@ -364,6 +412,11 @@ TEST(SeriesTest, SeriesNumericCatagories) {
 }
 
 
+/**
+ * @brief Unit tests for data frame operations
+ * 
+ * @test Test the bootstrap sampling functionality
+ */
 TEST(DataFrameTest, BootstrapSampleTest) {
     DataFrame df;
 
@@ -380,8 +433,6 @@ TEST(DataFrameTest, BootstrapSampleTest) {
 
 
     unique_ptr<DataFrame> sample = df.bootstrap_sample(3, "d", 54313);
-
-    
 
 
     EXPECT_EQ(sample->get_num_rows(), 5);

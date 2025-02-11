@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../class_leaf_node.html#a804a0c1ada30c1c0025ba98e8999c092',1,'LeafNode']]]
+  ['threshold_0',['threshold',['../class_decision_node.html#a3c647d210ebc81ea45138d95b4ad759b',1,'DecisionNode']]]
 ];

@@ -25,7 +25,7 @@ Inheritance diagram for Decision\+Node\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_decision_node}{Decision\+Node}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_decision_node_af3269bf9a2a8f8f5e01a61b67fcca1e9}{predict}} (const vector$<$ double $>$ \&sample) const override
 \begin{DoxyCompactList}\small\item\em Predict method. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{print}} () override
+std\+::string \mbox{\hyperlink{class_decision_node_aa05b41e58652561fb8d0010e2040ec72}{print}} () override
 \begin{DoxyCompactList}\small\item\em Print method. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_decision_node_ab1d515884940f3093b5b12b7f35e1fef}{set\+\_\+feature\+\_\+index}} (int idx)
 \begin{DoxyCompactList}\small\item\em Sets the feature index. \end{DoxyCompactList}\item 
@@ -215,11 +215,11 @@ Node\+::predict(std\+::vector$<$double$>$ sample)
 
 Implements \mbox{\hyperlink{class_node_a3e25c1fda66492a49fdc8dfcb02931a2}{Node}}.
 
-\Hypertarget{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}\index{DecisionNode@{DecisionNode}!print@{print}}
+\Hypertarget{class_decision_node_aa05b41e58652561fb8d0010e2040ec72}\index{DecisionNode@{DecisionNode}!print@{print}}
 \index{print@{print}!DecisionNode@{DecisionNode}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily \label{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc} 
-std\+::string Decision\+Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_decision_node_aa05b41e58652561fb8d0010e2040ec72} 
+string Decision\+Node\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -228,7 +228,7 @@ Print method.
 \begin{DoxyReturn}{Returns}
 String representation of the node
 \end{DoxyReturn}
-This function returns a string representation of the node. The function prints the decision rule based on the feature index and threshold, and the left and right child nodes. The function is called by the \doxylink{class_decision_node_ac6df40dc71b2ce75bb6b682057d5e7fc}{print()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class. The format of the string is "{}\+Feature $<$feature\+\_\+index$>$ $<$= $<$threshold$>$ ? $<$left\+\_\+child$>$ \+: $<$right\+\_\+child$>$"{}. For example, if the feature index is 0, the threshold is 0.\+5, and the left and right child nodes are leaf nodes with values 1.\+0 and 0.\+0, respectively, the string representation would be "{}\+Feature 0 $<$= 0.\+5 ? (1.\+0) \+: (0.\+0)"{}.
+This function returns a string representation of the node. The function prints the decision rule based on the feature index and threshold, and the left and right child nodes. The function is called by the \doxylink{class_decision_node_aa05b41e58652561fb8d0010e2040ec72}{print()} method of the \doxylink{class_decision_tree}{Decision\+Tree} class. The format of the string is "{}\+Feature $<$feature\+\_\+index$>$ $<$= $<$threshold$>$ ? $<$left\+\_\+child$>$ \+: $<$right\+\_\+child$>$"{}. For example, if the feature index is 0, the threshold is 0.\+5, and the left and right child nodes are leaf nodes with values 1.\+0 and 0.\+0, respectively, the string representation would be "{}\+Feature 0 $<$= 0.\+5 ? (1.\+0) \+: (0.\+0)"{}.
 
 \begin{DoxySeeAlso}{See also}
 \doxylink{class_decision_tree_a87a02c9842a2e727248535d86bcfb29e}{Decision\+Tree\+::print()} 

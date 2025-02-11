@@ -12,17 +12,7 @@ using std::vector;
 
 
 
-
-RandomForest::RandomForest(int num_trees, int max_depth, int min_samples_split)
-        : num_trees(num_trees), max_depth(max_depth), min_samples_split(min_samples_split) {
-            num_features = -1;  // -1 indicates that the number of features should be the square root of the total number of features
-        }
-
-RandomForest::RandomForest(int num_trees, int max_depth, int min_samples_split, size_t random_state)
-        : num_trees(num_trees), max_depth(max_depth), min_samples_split(min_samples_split), random_state(random_state) {
-            num_features = -1;  // -1 indicates that the number of features should be the square root of the total number of features
-        }
-
+// Constructors
 RandomForest::RandomForest(int num_trees, int max_depth, int min_samples_split, int num_features)
         : num_trees(num_trees), max_depth(max_depth), min_samples_split(min_samples_split), num_features(num_features) {}
 
@@ -95,6 +85,8 @@ std::string RandomForest::print() {
     }
 
     string output_string = "Random forest of length " + std::to_string(num_trees) + " with trees:\n";
+
+    // Print each tree in the forest
     for (const auto& tree : trees) {
         std::vector<std::string> feature_subset = tree_feature_map.at(tree.get());
         output_string += tree->print(feature_subset) + "\n";

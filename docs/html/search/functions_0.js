@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['calculateentropy_0',['calculateEntropy',['../class_data_frame.html#a1be1d2d322cd5d633c6ce6afe10526c3',1,'DataFrame']]],
-  ['calculateinformationgain_1',['calculateInformationGain',['../class_data_frame.html#a61187bfa789567ccc329a3b363b6929f',1,'DataFrame']]],
-  ['column_5fmedian_2',['column_median',['../class_data_frame.html#a4dffdfe5c861ace228a1b07524729918',1,'DataFrame']]],
-  ['column_5fmode_3',['column_mode',['../class_data_frame.html#ac9a62f0b7229277c1aac323781f5f7c9',1,'DataFrame']]]
+  ['add_5fcolumn_0',['add_column',['../class_data_frame.html#a31ce818e42fdcd81e7dcd7a7b7f8c7e1',1,'DataFrame']]],
+  ['add_5frow_1',['add_row',['../class_data_frame.html#af0570158f16c4086eb969f89efb239fa',1,'DataFrame']]]
 ];

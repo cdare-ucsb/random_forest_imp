@@ -348,8 +348,24 @@ class DataFrame {
          */
         string cellToString(const Cell& cell) const;
 
-
+        /**
+         * @brief Helper function to check if a string is an integer
+         * @param str String to check
+         * @return true if the string is an integer, false otherwise
+         * @see is_double
+         * 
+         * This function checks if a string is an integer by attempting to convert it to an integer.
+         */
         static bool is_integer(const std::string& str);
+
+        /**
+         * @brief Helper function to check if a string is a double
+         * @param str String to check
+         * @return true if the string is a double, false otherwise
+         * @see is_integer
+         * 
+         * This function checks if a string is a double by attempting to convert it to a double.
+         */
         static bool is_double(const std::string& str);
 
     public:
@@ -695,9 +711,51 @@ class DataFrame {
          */
         unique_ptr<DataFrame> head(size_t num_rows) const;
 
+        /**
+         * @brief Function to get the tail of the DataFrame
+         * @param num_rows Number of rows to include in the tail
+         * @return DataFrame containing the tail of the data
+         * 
+         * This function returns a new DataFrame containing the last num_rows rows of the DataFrame.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> tail = df.tail(3);
+         * std::vector<std::vector<double>> expected_data = {
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}
+         * };
+         * 
+         * printf("Tail of DataFrame correctly gives %s : %s", expected_data, tail->get_data() == expected_data ? "TRUE" : "FALSE" );
+         * @endcode
+         */
+        unique_ptr<DataFrame> tail(size_t num_rows) const;
 
+
+        /**
+         * @brief Function to drop a column from the DataFrame
+         * @param column_name Name of the column to drop
+         * 
+         * This function removes the specified column from the DataFrame.
+         */
         void drop_column(string column_name);
 
+        /**
+         * @brief Function which converts a row of string data to numeric categories
+         * @param col_name Name of the column to convert to numeric catagories
+         * 
+         * This function converts a column of string data to numeric categories, which is necessary
+         * for some some classification algorithms. Thhe algorithms iterates through the data and 
+         * assigns a unique numeric value to each unique string value.
+         */
         void one_hot_encode(string col_name);
 
         static unique_ptr<DataFrame> read_csv(const std::string& file_path);

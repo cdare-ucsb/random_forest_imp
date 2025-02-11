@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['selectbestattribute_0',['selectBestAttribute',['../class_data_frame.html#ae0a9596528bc58a13b7a2f9282ab1b0d',1,'DataFrame']]],
-  ['set_5ffeature_5findex_1',['set_feature_index',['../class_decision_node.html#ab1d515884940f3093b5b12b7f35e1fef',1,'DecisionNode']]],
-  ['set_5fthreshold_2',['set_threshold',['../class_decision_node.html#aac62382d66731ad4da8acba9ff276504',1,'DecisionNode']]],
-  ['set_5fvalue_3',['set_value',['../class_leaf_node.html#aa18afe60343225f7028d344be16f809f',1,'LeafNode']]]
+  ['int_5fcast_0',['int_cast',['../class_data_frame.html#afc18015a572455c258e599b5a17c0db1',1,'DataFrame']]],
+  ['is_5fdouble_1',['is_double',['../class_data_frame.html#a1ce70d04e6545bd0af1e1c567d2da148',1,'DataFrame']]],
+  ['is_5finteger_2',['is_integer',['../class_data_frame.html#a24c9305ef61562c7c65633d9c5c90a11',1,'DataFrame']]],
+  ['is_5fnumeric_3',['is_numeric',['../class_series.html#a67cdc138e5243c39def6c84916cf0a05',1,'Series']]]
 ];

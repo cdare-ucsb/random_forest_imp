@@ -7,7 +7,7 @@ var class_decision_node =
     [ "get_num_nodes", "class_decision_node.html#afebb779c1a5dc736746f65e8b7c7b8fa", null ],
     [ "get_threshold", "class_decision_node.html#af7335e5cb2a1942780065ddffd73a71d", null ],
     [ "predict", "class_decision_node.html#af3269bf9a2a8f8f5e01a61b67fcca1e9", null ],
-    [ "print", "class_decision_node.html#ac6df40dc71b2ce75bb6b682057d5e7fc", null ],
+    [ "print", "class_decision_node.html#aa05b41e58652561fb8d0010e2040ec72", null ],
     [ "set_feature_index", "class_decision_node.html#ab1d515884940f3093b5b12b7f35e1fef", null ],
     [ "set_threshold", "class_decision_node.html#aac62382d66731ad4da8acba9ff276504", null ],
     [ "feature_index", "class_decision_node.html#a3702271193eb7798180b96d8cf6ed4f3", null ],

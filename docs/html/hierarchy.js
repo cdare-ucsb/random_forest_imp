@@ -5,5 +5,7 @@ var hierarchy =
     [ "Node", "class_node.html", [
       [ "DecisionNode", "class_decision_node.html", null ],
       [ "LeafNode", "class_leaf_node.html", null ]
-    ] ]
+    ] ],
+    [ "RandomForest", "class_random_forest.html", null ],
+    [ "Series", "class_series.html", null ]
 ];

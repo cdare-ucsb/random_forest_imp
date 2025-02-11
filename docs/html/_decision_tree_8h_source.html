@@ -120,41 +120,43 @@ $(function(){initNavTree('_decision_tree_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
 <div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_decision_tree.html">   28</a></span><span class="keyword">class </span><a class="code hl_function" href="class_decision_tree.html#a470fba8e51d63ec23701050de3f06647">DecisionTree</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_decision_tree.html">   28</a></span><span class="keyword">class </span><a class="code hl_function" href="class_decision_tree.html#a53cb548b1804785a4c359db17c4a1310">DecisionTree</a> {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        unique_ptr&lt;Node&gt; root; </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> print_helper(<span class="keyword">const</span> <a class="code hl_class" href="class_node.html">Node</a>* node, <span class="keyword">const</span> vector&lt;string&gt;&amp; col_names,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                                        <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; prefix, <span class="keywordtype">bool</span> isLeft, std::ostringstream&amp; oss); </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        unique_ptr&lt;Node&gt; fit_helper(unique_ptr&lt;DataFrame&gt; df, <span class="keywordtype">string</span> label_column, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> minSamplesSplit);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_function" href="class_decision_tree.html#a470fba8e51d63ec23701050de3f06647">DecisionTree</a>();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_decision_tree.html#a02eeb6db8794933b278d5e1399551058">   80</a></span>        <a class="code hl_function" href="class_decision_tree.html#a02eeb6db8794933b278d5e1399551058">~DecisionTree</a>();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5">predict</a>(std::vector&lt;double&gt; sample);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a">get_num_nodes</a>();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_decision_tree.html#a375a37a13ace5f6e303f7e180f73f0e8">get_height</a>();</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_decision_tree.html#a6b385d7f9b6650e12a8dcace04866456">fit</a>(unique_ptr&lt;DataFrame&gt; df, <span class="keywordtype">string</span> label_column, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> minSamplesSplit);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordtype">string</span> <a class="code hl_function" href="class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e">print</a>(vector&lt;string&gt; col_names);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">int</span> max_depth; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">int</span> minSamplesSplit; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">void</span> print_helper(<span class="keyword">const</span> <a class="code hl_class" href="class_node.html">Node</a>* node, <span class="keyword">const</span> vector&lt;string&gt;&amp; col_names,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                        <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; prefix, <span class="keywordtype">bool</span> isLeft, std::ostringstream&amp; oss); </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        unique_ptr&lt;Node&gt; fit_helper(unique_ptr&lt;DataFrame&gt; df, <span class="keywordtype">string</span> label_column, <span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> minSamplesSplit);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="class_decision_tree.html#a53cb548b1804785a4c359db17c4a1310">DecisionTree</a>(<span class="keywordtype">int</span> max_depth, <span class="keywordtype">int</span> minSamplesSplit);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_decision_tree.html#a02eeb6db8794933b278d5e1399551058">   82</a></span>        <a class="code hl_function" href="class_decision_tree.html#a02eeb6db8794933b278d5e1399551058">~DecisionTree</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5">predict</a>(std::vector&lt;double&gt; sample);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a">get_num_nodes</a>();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_decision_tree.html#a375a37a13ace5f6e303f7e180f73f0e8">get_height</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_decision_tree.html#a5a95b49177a4998fd39a1abc2d5d3dbe">fit</a>(unique_ptr&lt;DataFrame&gt; df, <span class="keywordtype">string</span> label_column);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordtype">string</span> <a class="code hl_function" href="class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e">print</a>(vector&lt;string&gt; col_names);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>};</div>
 </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#endif </span><span class="comment">// DECISIONTREE_H</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#endif </span><span class="comment">// DECISIONTREE_H</span></div>
 <div class="ttc" id="aclass_decision_tree_html_a02eeb6db8794933b278d5e1399551058"><div class="ttname"><a href="class_decision_tree.html#a02eeb6db8794933b278d5e1399551058">DecisionTree::~DecisionTree</a></div><div class="ttdeci">~DecisionTree()</div><div class="ttdoc">Destructor for the DecisionTree class.</div></div>
 <div class="ttc" id="aclass_decision_tree_html_a30ee6b32be46c944992d22298a9d03d5"><div class="ttname"><a href="class_decision_tree.html#a30ee6b32be46c944992d22298a9d03d5">DecisionTree::predict</a></div><div class="ttdeci">double predict(std::vector&lt; double &gt; sample)</div><div class="ttdoc">Predict method.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:91</div></div>
 <div class="ttc" id="aclass_decision_tree_html_a375a37a13ace5f6e303f7e180f73f0e8"><div class="ttname"><a href="class_decision_tree.html#a375a37a13ace5f6e303f7e180f73f0e8">DecisionTree::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdoc">Get the height of the decision tree.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:126</div></div>
-<div class="ttc" id="aclass_decision_tree_html_a470fba8e51d63ec23701050de3f06647"><div class="ttname"><a href="class_decision_tree.html#a470fba8e51d63ec23701050de3f06647">DecisionTree::DecisionTree</a></div><div class="ttdeci">DecisionTree()</div><div class="ttdoc">Constructor for the DecisionTree class.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:86</div></div>
+<div class="ttc" id="aclass_decision_tree_html_a53cb548b1804785a4c359db17c4a1310"><div class="ttname"><a href="class_decision_tree.html#a53cb548b1804785a4c359db17c4a1310">DecisionTree::DecisionTree</a></div><div class="ttdeci">DecisionTree(int max_depth, int minSamplesSplit)</div><div class="ttdoc">Constructor for the DecisionTree class.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:86</div></div>
+<div class="ttc" id="aclass_decision_tree_html_a5a95b49177a4998fd39a1abc2d5d3dbe"><div class="ttname"><a href="class_decision_tree.html#a5a95b49177a4998fd39a1abc2d5d3dbe">DecisionTree::fit</a></div><div class="ttdeci">void fit(unique_ptr&lt; DataFrame &gt; df, string label_column)</div><div class="ttdoc">The fit method trains the decision tree using the ID3 algorithm.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:101</div></div>
 <div class="ttc" id="aclass_decision_tree_html_a5f555b5ecf4a639abae198d996e49a5a"><div class="ttname"><a href="class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a">DecisionTree::get_num_nodes</a></div><div class="ttdeci">int get_num_nodes()</div><div class="ttdoc">Get the number of nodes in the decision tree.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:117</div></div>
-<div class="ttc" id="aclass_decision_tree_html_a6b385d7f9b6650e12a8dcace04866456"><div class="ttname"><a href="class_decision_tree.html#a6b385d7f9b6650e12a8dcace04866456">DecisionTree::fit</a></div><div class="ttdeci">void fit(unique_ptr&lt; DataFrame &gt; df, string label_column, int max_depth, int minSamplesSplit)</div><div class="ttdoc">The fit method trains the decision tree using the ID3 algorithm.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:101</div></div>
 <div class="ttc" id="aclass_decision_tree_html_a87a02c9842a2e727248535d86bcfb29e"><div class="ttname"><a href="class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e">DecisionTree::print</a></div><div class="ttdeci">string print(vector&lt; string &gt; col_names)</div><div class="ttdoc">Print method for the decision tree.</div><div class="ttdef"><b>Definition</b> DecisionTree.cpp:106</div></div>
 <div class="ttc" id="aclass_node_html"><div class="ttname"><a href="class_node.html">Node</a></div><div class="ttdoc">A class that represents a node in a decision tree.</div><div class="ttdef"><b>Definition</b> Node.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -904,6 +904,7 @@ unique_ptr<DataFrame> DataFrame::bootstrap_sample() {
     return sample;
 }
 
+
 unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string label_column) {
 
     if (num_features > columns.size() - 1) {
@@ -946,6 +947,7 @@ unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string la
     return sample;
 }
 
+// Overloaded version that also allows controlling the random process through a seed
 unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string label_column, size_t random_state) {
     if (num_features > columns.size() - 1) {
         num_features = columns.size() - 1;
@@ -961,7 +963,6 @@ unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string la
     std::unordered_set<std::string> selected_features;
     
     while (selected_features.size() < static_cast<size_t>(num_features) && selected_features.size() < columns.size() - 1) {
-        
         // select a random index
         int random_index = distribution(generator);
         if (columns[random_index] == label_column) {
@@ -1081,6 +1082,28 @@ unique_ptr<DataFrame> DataFrame::head(size_t num_rows) const {
 
     // Copy rows to the new DataFrame
     for (size_t row = 0; row < rows_to_copy; ++row) {
+        std::vector<Cell> row_data = this->get_row(row);
+        result->add_row(row_data);
+    }
+
+    return result;
+}
+
+
+unique_ptr<DataFrame> DataFrame::tail(size_t num_rows) const {
+    // Create a new DataFrame for the result
+    auto result = std::make_unique<DataFrame>();
+
+    // Copy column names to the new DataFrame
+    for (const auto& col : columns) {
+        result->add_column(col);
+    }
+
+    // Get the actual number of rows to copy (in case num_rows exceeds the number of rows in the DataFrame)
+    size_t rows_to_copy = std::min(num_rows, this->get_num_rows());
+
+    // Copy rows to the new DataFrame
+    for (size_t row = this->get_num_rows() - rows_to_copy; row < this->get_num_rows(); ++row) {
         std::vector<Cell> row_data = this->get_row(row);
         result->add_row(row_data);
     }

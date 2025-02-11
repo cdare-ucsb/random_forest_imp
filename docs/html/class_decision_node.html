@@ -138,9 +138,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af3269bf9a2a8f8f5e01a61b67fcca1e9" id="r_af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3269bf9a2a8f8f5e01a61b67fcca1e9">predict</a> (const vector&lt; double &gt; &amp;sample) const override</td></tr>
 <tr class="memdesc:af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predict method.  <br /></td></tr>
 <tr class="separator:af3269bf9a2a8f8f5e01a61b67fcca1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6df40dc71b2ce75bb6b682057d5e7fc" id="r_ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6df40dc71b2ce75bb6b682057d5e7fc">print</a> () override</td></tr>
-<tr class="memdesc:ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print method.  <br /></td></tr>
-<tr class="separator:ac6df40dc71b2ce75bb6b682057d5e7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b41e58652561fb8d0010e2040ec72" id="r_aa05b41e58652561fb8d0010e2040ec72"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa05b41e58652561fb8d0010e2040ec72">print</a> () override</td></tr>
+<tr class="memdesc:aa05b41e58652561fb8d0010e2040ec72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print method.  <br /></td></tr>
+<tr class="separator:aa05b41e58652561fb8d0010e2040ec72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1d515884940f3093b5b12b7f35e1fef" id="r_ab1d515884940f3093b5b12b7f35e1fef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d515884940f3093b5b12b7f35e1fef">set_feature_index</a> (int idx)</td></tr>
 <tr class="memdesc:ab1d515884940f3093b5b12b7f35e1fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the feature index.  <br /></td></tr>
 <tr class="separator:ab1d515884940f3093b5b12b7f35e1fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -401,8 +401,8 @@ Node::predict(std::vector&lt;double&gt; sample) </dd></dl>
 
 </div>
 </div>
-<a id="ac6df40dc71b2ce75bb6b682057d5e7fc" name="ac6df40dc71b2ce75bb6b682057d5e7fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6df40dc71b2ce75bb6b682057d5e7fc">&#9670;&#160;</a></span>print()</h2>
+<a id="aa05b41e58652561fb8d0010e2040ec72" name="aa05b41e58652561fb8d0010e2040ec72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa05b41e58652561fb8d0010e2040ec72">&#9670;&#160;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,7 +411,7 @@ Node::predict(std::vector&lt;double&gt; sample) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string DecisionNode::print </td>
+          <td class="memname">string DecisionNode::print </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -426,7 +426,7 @@ Node::predict(std::vector&lt;double&gt; sample) </dd></dl>
 
 <p>Print method. </p>
 <dl class="section return"><dt>Returns</dt><dd>String representation of the node</dd></dl>
-<p>This function returns a string representation of the node. The function prints the decision rule based on the feature index and threshold, and the left and right child nodes. The function is called by the <a class="el" href="#ac6df40dc71b2ce75bb6b682057d5e7fc" title="Print method.">print()</a> method of the <a class="el" href="class_decision_tree.html" title="A class that represents a decision tree model using the ID3 algorithm for classification.">DecisionTree</a> class. The format of the string is "Feature &lt;feature_index&gt; &lt;= &lt;threshold&gt; ? &lt;left_child&gt; : &lt;right_child&gt;". For example, if the feature index is 0, the threshold is 0.5, and the left and right child nodes are leaf nodes with values 1.0 and 0.0, respectively, the string representation would be "Feature 0 &lt;= 0.5 ? (1.0) : (0.0)".</p>
+<p>This function returns a string representation of the node. The function prints the decision rule based on the feature index and threshold, and the left and right child nodes. The function is called by the <a class="el" href="#aa05b41e58652561fb8d0010e2040ec72" title="Print method.">print()</a> method of the <a class="el" href="class_decision_tree.html" title="A class that represents a decision tree model using the ID3 algorithm for classification.">DecisionTree</a> class. The format of the string is "Feature &lt;feature_index&gt; &lt;= &lt;threshold&gt; ? &lt;left_child&gt; : &lt;right_child&gt;". For example, if the feature index is 0, the threshold is 0.5, and the left and right child nodes are leaf nodes with values 1.0 and 0.0, respectively, the string representation would be "Feature 0 &lt;= 0.5 ? (1.0) : (0.0)".</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_decision_tree.html#a87a02c9842a2e727248535d86bcfb29e" title="Print method for the decision tree.">DecisionTree::print()</a> </dd>
 <dd>
 <a class="el" href="class_node.html#abd3b4b561203553104c753fb944b2dad" title="Print method.">Node::print()</a> </dd></dl>

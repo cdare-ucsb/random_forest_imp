@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['get_5fcolumn_0',['get_column',['../class_data_frame.html#ac0df43cb83d0f8d7a41a0ab153c76aa3',1,'DataFrame']]],
-  ['get_5fdata_1',['get_data',['../class_data_frame.html#a59923427bd0a1af4a8a3c555d2836f36',1,'DataFrame']]],
-  ['get_5ffeature_5findex_2',['get_feature_index',['../class_decision_node.html#a2d28a72547269535728146fc1789975a',1,'DecisionNode']]],
-  ['get_5fheight_3',['get_height',['../class_decision_tree.html#a375a37a13ace5f6e303f7e180f73f0e8',1,'DecisionTree::get_height()'],['../class_node.html#aa8ce774f99b4384d233dd8daa896b2f0',1,'Node::get_height()'],['../class_leaf_node.html#a4ee9a05ea28248b080ec0c42a4747490',1,'LeafNode::get_height()'],['../class_decision_node.html#add4bd7ef5bdf6a83f445f9689ce0ee16',1,'DecisionNode::get_height()']]],
-  ['get_5fnum_5fnodes_4',['get_num_nodes',['../class_decision_tree.html#a5f555b5ecf4a639abae198d996e49a5a',1,'DecisionTree::get_num_nodes()'],['../class_node.html#a79538468d2e025e22bbfd5089f364921',1,'Node::get_num_nodes()'],['../class_leaf_node.html#a8ffeee81f3646b47ce0661439c478585',1,'LeafNode::get_num_nodes()'],['../class_decision_node.html#afebb779c1a5dc736746f65e8b7c7b8fa',1,'DecisionNode::get_num_nodes()']]],
-  ['get_5fnum_5frows_5',['get_num_rows',['../class_data_frame.html#a58fd05fb5f216fdb64a5daeea411b450',1,'DataFrame']]],
-  ['get_5fthreshold_6',['get_threshold',['../class_decision_node.html#af7335e5cb2a1942780065ddffd73a71d',1,'DecisionNode']]]
+  ['dataframe_0',['DataFrame',['../class_data_frame.html#a69a9dc47b7506b8062fd34aedacbf579',1,'DataFrame::DataFrame()'],['../class_data_frame.html#ad1d289395a8fb1a00ccd6db60fd9d496',1,'DataFrame::DataFrame(const vector&lt; vector&lt; double &gt; &gt; &amp;data, const vector&lt; string &gt; &amp;columns)']]],
+  ['decisionnode_1',['DecisionNode',['../class_decision_node.html#a7c1e80ff87e99986e3f96979dc8002b4',1,'DecisionNode']]],
+  ['decisiontree_2',['DecisionTree',['../class_decision_tree.html#a53cb548b1804785a4c359db17c4a1310',1,'DecisionTree']]],
+  ['double_5fcast_3',['double_cast',['../class_data_frame.html#a89fbeaaf2b344bceb811609854fdc5d4',1,'DataFrame']]],
+  ['drop_5fcolumn_4',['drop_column',['../class_data_frame.html#a9a32a4f43211df1821e5e33b972b1bf0',1,'DataFrame']]]
 ];

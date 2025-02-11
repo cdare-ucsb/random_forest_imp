@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['_7edataframe_0',['~DataFrame',['../class_data_frame.html#ae8baea1e0005895e8b18870befe21112',1,'DataFrame']]],
-  ['_7edecisionnode_1',['~DecisionNode',['../class_decision_node.html#ae0f701d6611eaeed4ff96aa978068a25',1,'DecisionNode']]],
-  ['_7edecisiontree_2',['~DecisionTree',['../class_decision_tree.html#a02eeb6db8794933b278d5e1399551058',1,'DecisionTree']]],
-  ['_7eleafnode_3',['~LeafNode',['../class_leaf_node.html#a187a88df5fb9fbd6983dab0888345ed8',1,'LeafNode']]],
-  ['_7enode_4',['~Node',['../class_node.html#aa0840c3cb5c7159be6d992adecd2097c',1,'Node']]]
+  ['int_5fcast_0',['int_cast',['../class_data_frame.html#afc18015a572455c258e599b5a17c0db1',1,'DataFrame']]],
+  ['is_5fdouble_1',['is_double',['../class_data_frame.html#a1ce70d04e6545bd0af1e1c567d2da148',1,'DataFrame']]],
+  ['is_5finteger_2',['is_integer',['../class_data_frame.html#a24c9305ef61562c7c65633d9c5c90a11',1,'DataFrame']]]
 ];

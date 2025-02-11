@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['data_0',['data',['../class_data_frame.html#a3af5e5864b06c416027e9da0530ddb1c',1,'DataFrame']]],
-  ['dataframe_1',['DataFrame',['../class_data_frame.html',1,'DataFrame'],['../class_data_frame.html#a386118b2c08f3261812f70bfa16501f9',1,'DataFrame::DataFrame()']]],
-  ['decisionnode_2',['DecisionNode',['../class_decision_node.html',1,'DecisionNode'],['../class_decision_node.html#a7c1e80ff87e99986e3f96979dc8002b4',1,'DecisionNode::DecisionNode()']]],
-  ['decisiontree_3',['DecisionTree',['../class_decision_tree.html',1,'DecisionTree'],['../class_decision_tree.html#a470fba8e51d63ec23701050de3f06647',1,'DecisionTree::DecisionTree()']]]
+  ['begin_0',['begin',['../class_series.html#a4d9f73dc5d862013718eaa5c026b78c0',1,'Series']]],
+  ['bootstrap_5fsample_1',['bootstrap_sample',['../class_data_frame.html#ad3314dae1299481f12b92efb87c4398b',1,'DataFrame::bootstrap_sample()'],['../class_data_frame.html#a7c0a700a6b12f7060fee4116f0095e67',1,'DataFrame::bootstrap_sample(size_t num_features, string label_column)'],['../class_data_frame.html#ada47de8a90f07035c88fd30e14ee5564',1,'DataFrame::bootstrap_sample(size_t num_features, string label_column, size_t random_state)']]]
 ];
