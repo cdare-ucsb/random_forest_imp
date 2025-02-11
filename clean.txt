@@ -1,0 +1,2 @@
+drop: date
+one_hot_encode: weather

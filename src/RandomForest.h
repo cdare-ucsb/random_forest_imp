@@ -29,7 +29,6 @@ class RandomForest : public Classifier {
         size_t num_features; ///< Number of features to consider when looking for the best split
         size_t max_depth; ///< Maximum depth of the trees
         size_t min_samples_split; ///< Minimum number of samples required to split a node
-        size_t max_features; ///< Maximum number of features to consider for the best split
         size_t random_state; ///< Random seed for the random number generator
         
         std::vector<std::string> full_feature_names; ///< Original feature names; used when mapping the features back to the original dataset
