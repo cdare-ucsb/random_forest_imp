@@ -6,6 +6,7 @@
 
 using std::vector;
 using std::unique_ptr;
+using std::string;
 
 
 // --------------- Node Class ---------------
@@ -144,7 +145,7 @@ void DecisionNode::set_threshold(double thr) {
 
 
 // Print method; the function returns a string representation of the decision node in the format "Feature feature_index <= threshold ? (left) : (right)"
-std::string DecisionNode::print()  {
+string DecisionNode::print()  {
     return "[Feature " + std::to_string(feature_index) + " <= " + std::to_string(threshold) + "]\n" +
             "├── Left: " + (left ? left->print() : "NULL") + "\n" +
             "└── Right: " + (right ? right->print() : "NULL");

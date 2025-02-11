@@ -51,13 +51,13 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
     // Base cases for recursion
     if (df->get_num_rows() < minSamplesSplit || max_depth == 0) {
         // Compute the most common label in the dataset
-        return std::make_unique<LeafNode>(df->get_column(label_column).mode());
+        return std::make_unique<LeafNode>(DataFrame::double_cast(df->get_column(label_column).mode()));
     }
 
     // Find the best attribute to split on
     string best_feature = df->selectBestAttribute(label_column);
     Series best_feature_data = df->get_column(best_feature);
-
+    int best_feature_index = df->get_column_index(best_feature);
 
 
     // Determine threshold for splitting (using median for continuous data)
@@ -69,7 +69,7 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
 
     // If splitting doesn't separate data, return a leaf node
     if (left_df->get_num_rows() == 0 || right_df->get_num_rows() == 0) {
-        return std::make_unique<LeafNode>(df->get_column(label_column).mode());
+        return std::make_unique<LeafNode>(DataFrame::double_cast(df->get_column(label_column).mode()));
     }
 
     // Recursively build left and right subtrees
@@ -77,13 +77,13 @@ unique_ptr<Node> DecisionTree::fit_helper(unique_ptr<DataFrame> df, string label
     unique_ptr<Node> right_child = fit_helper(std::move(right_df), label_column, max_depth - 1, minSamplesSplit);
 
     // Return the constructed decision node
-    return std::make_unique<DecisionNode>(best_feature, threshold, std::move(left_child), std::move(right_child));
+    return std::make_unique<DecisionNode>(best_feature_index, threshold, std::move(left_child), std::move(right_child));
 }
 
         
 
 // Constructor
-DecisionTree::DecisionTree() : root(nullptr) {}
+DecisionTree::DecisionTree(int max_depth, int minSamplesSplit) : root(nullptr), max_depth(max_depth), minSamplesSplit(minSamplesSplit) {}
 // Destructor; the default destructor handles destruction of the root node and its children
 DecisionTree::~DecisionTree() = default;
 
@@ -98,7 +98,7 @@ double DecisionTree::predict(vector<double> sample) {
 
 
 // Fit method: Entry point for training the decision tree
-void DecisionTree::fit(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit) {
+void DecisionTree::fit(unique_ptr<DataFrame> df, string label_column) {
     root = fit_helper(std::move(df), label_column, max_depth, minSamplesSplit);
 }
 

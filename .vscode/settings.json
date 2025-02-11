@@ -94,6 +94,7 @@
         "text_encoding": "cpp",
         "thread": "cpp",
         "cinttypes": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "future": "cpp"
     }
 }

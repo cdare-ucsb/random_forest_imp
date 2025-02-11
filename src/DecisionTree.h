@@ -28,6 +28,8 @@ using std::unique_ptr;
 class DecisionTree {
     private:
         unique_ptr<Node> root; ///< Pointer to the root node of the decision tree
+        int max_depth; ///< Maximum depth of the decision tree
+        int minSamplesSplit; ///< Minimum number of samples required to split a node
         
         /**
          * @brief Helper method for the print function
@@ -71,7 +73,7 @@ class DecisionTree {
          * 
          * The default constructor is used here to initialize the root node to nullptr.
          */
-        DecisionTree();
+        DecisionTree(int max_depth, int minSamplesSplit);
         /**
          * @brief Destructor for the DecisionTree class
          * 
@@ -136,12 +138,9 @@ class DecisionTree {
          * @brief The fit method trains the decision tree using the ID3 algorithm
          * @param df unique_ptr to the DataFrame object containing the training data
          * @param label_column Name of the column in the DataFrame that contains the class labels
-         * @param max_depth Maximum depth of the decision tree
-         * @param minSamplesSplit Minimum number of samples required to split a node
          * 
          * This is the entry point for training the decision tree. The function takes a unique_ptr to
-         * a DataFrame and the name of the column containing the class labels, as well as the maximum depth
-         * of the tree and the minimum number of samples required to split a node. The function then calls
+         * a DataFrame and the name of the column containing the class labels. The function then calls
          * the fit_helper() method to build the decision tree using the ID3 algorithm.
          * 
          * @see fit_helper(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit)
@@ -150,11 +149,11 @@ class DecisionTree {
          * std::vector<std::vector<double>> data1 = {{2.5, 1.5, 0}, {1.0, 3.0, 1}, {3.5, 2.0, 0}, {4.0, 3.5, 1}, {5.0, 2.5, 1}};
          * std::vector<std::string> columns1 = {"A", "B", "C"};
          * unique_ptr<DataFrame> df1 = std::make_unique<DataFrame>(data1, columns1);
-         * DecisionTree dt1;
-         * dt1.fit(std::move(df1), "C", 3, 1);
+         * DecisionTree dt1(3,1);
+         * dt1.fit(std::move(df1), "C");
          * @endcode
          */
-        void fit(unique_ptr<DataFrame> df, string label_column, int max_depth, int minSamplesSplit);
+        void fit(unique_ptr<DataFrame> df, string label_column);
 
         /**
          * @brief Print method for the decision tree

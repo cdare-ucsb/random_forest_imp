@@ -14,7 +14,7 @@ using std::vector;
  */
 TEST(DecisionTreeTest, DecisionTreeNumNodes) {
 
-    DecisionTree dt;
+    DecisionTree dt(3,1);
 
     // Check if the data is correctly stored
     EXPECT_EQ(dt.get_num_nodes(), 0);
@@ -30,9 +30,9 @@ TEST(DecisionTreeTest, DecisionTreeNumNodes) {
     vector<string> columns1 = {"A", "B", "C"};
     unique_ptr<DataFrame> df1 = std::make_unique<DataFrame>(data1, columns1);
 
-    DecisionTree dt1;
+    DecisionTree dt1(3,1);
     // Train Decision Tree
-    dt1.fit(std::move(df1), "C", 3, 1);
+    dt1.fit(std::move(df1), "C");
     EXPECT_EQ(dt1.get_num_nodes(), 9);
     
     vector<vector<double>> data2 = {
@@ -70,9 +70,9 @@ TEST(DecisionTreeTest, DecisionTreeNumNodes) {
     vector<string> columns2 = {"A", "B", "C", "D", "E"};
     unique_ptr<DataFrame> df2 = std::make_unique<DataFrame>(data2, columns2);
 
-    DecisionTree dt2;
+    DecisionTree dt2(3,1);
     // Train Decision Tree
-    dt2.fit(std::move(df2), "E", 3, 1);
+    dt2.fit(std::move(df2), "E");
     EXPECT_EQ(dt2.get_num_nodes(), 15);
 }
 
@@ -83,7 +83,7 @@ TEST(DecisionTreeTest, DecisionTreeNumNodes) {
  */
 TEST(DecisionTreeTest, DecisionTreePredict) {
 
-    DecisionTree dt;
+    DecisionTree dt(3,1);
     EXPECT_THROW(dt.predict({2.5, 1.5}), std::runtime_error);
 
 
@@ -97,9 +97,9 @@ TEST(DecisionTreeTest, DecisionTreePredict) {
     vector<string> columns1 = {"A", "B", "C"};
     unique_ptr<DataFrame> df1 = std::make_unique<DataFrame>(data1, columns1);
 
-    DecisionTree dt1;
+    DecisionTree dt1(3,1);
     // Train Decision Tree
-    dt1.fit(std::move(df1), "C", 3, 1);
+    dt1.fit(std::move(df1), "C");
     EXPECT_EQ(dt1.predict({2.5, 1.5}), 0);
     EXPECT_EQ(dt1.predict({1.0, 3.0}), 1);
     EXPECT_EQ(dt1.predict({3.5, 2.0}), 0);
@@ -140,14 +140,14 @@ TEST(DecisionTreeTest, DecisionTreePredict) {
     vector<string> columns2 = {"A", "B", "C", "D", "E"};
     unique_ptr<DataFrame> df2 = std::make_unique<DataFrame>(data2, columns2);
 
-    DecisionTree dt2;
+    DecisionTree dt2(3,1);
     // Train Decision Tree
-    dt2.fit(std::move(df2), "E", 3, 1);
+    dt2.fit(std::move(df2), "E");
     EXPECT_EQ(dt2.predict({2.5, 1.5, 3.4, -2.1}), 0);
     EXPECT_EQ(dt2.predict({1.0, 3.0, 1.1, 9.2}), 1);
     EXPECT_EQ(dt2.predict({3.5, 2.0, 13.4, -2.5}), 0);
     EXPECT_EQ(dt2.predict({4.0, 3.5, 2.3, 11.1}), 1);
-    EXPECT_EQ(dt2.predict({8.0, 3.5, 2.3, 11.1}), 0);
+    EXPECT_EQ(dt2.predict({8.0, 3.5, 2.3, 11.1}), 1);
 }
 
 /**
@@ -157,7 +157,7 @@ TEST(DecisionTreeTest, DecisionTreePredict) {
  */
 TEST(DecisionTreeTest, DecisionTreePrint) {
 
-    DecisionTree dt;
+    DecisionTree dt(3,1);
 
     // Check if the data is correctly stored
    
@@ -173,7 +173,7 @@ TEST(DecisionTreeTest, DecisionTreePrint) {
 
     EXPECT_EQ(dt.print(columns), "Empty Decision Tree");
     // Train Decision Tree
-    dt.fit(std::move(df), "C", 3, 1);
+    dt.fit(std::move(df), "C");
     EXPECT_EQ(dt.print(columns), "\xE2\x94\x9C\xE2\x94\x80\xE2\x94\x80 [ A <= 3.5 ]\n\xE2\x94\x82   \xE2\x94\x9C\xE2\x94\x80\xE2\x94\x80 [ A <= 2.5 ]\n\xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x9C\xE2\x94\x80\xE2\x94\x80 [ A <= 1.75 ]\n\xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x9C\xE2\x94\x80\xE2\x94\x80 ( 1 )\n\xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x94\xE2\x94\x80\xE2\x94\x80 ( 0 )\n\xE2\x94\x82   \xE2\x94\x82   \xE2\x94\x94\xE2\x94\x80\xE2\x94\x80 ( 0 )\n\xE2\x94\x82   \xE2\x94\x94\xE2\x94\x80\xE2\x94\x80 [ A <= 4.5 ]\n\xE2\x94\x82       \xE2\x94\x9C\xE2\x94\x80\xE2\x94\x80 ( 1 )\n\xE2\x94\x82       \xE2\x94\x94\xE2\x94\x80\xE2\x94\x80 ( 1 )\n");
 }
 

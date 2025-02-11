@@ -109,7 +109,7 @@ class Series {
          * This function converts the data values of the Series to numeric classes and returns a new Series containing the converted values.
          * This can be thought of as a generalization of one-hot encoding, where each unique value in the column is assigned a unique numeric class.
          */
-        Series convertToNumericClasses() const;
+        Series numeric_classes() const;
 
         /**
          * @brief Calculates the median of the Series, assuming it is numeric
@@ -258,7 +258,6 @@ class DataFrame {
     protected:
 
         std::unordered_map<string, Series> data; ///< Map of column names to column data
-        vector<string> columns; ///< Vector of column names
 
 
 
@@ -349,7 +348,13 @@ class DataFrame {
          */
         string cellToString(const Cell& cell) const;
 
+
+        static bool is_integer(const std::string& str);
+        static bool is_double(const std::string& str);
+
     public:
+
+        vector<string> columns; ///< Vector of column names
 
         /**
          * @brief Constructor for DataFrame
@@ -357,6 +362,13 @@ class DataFrame {
          * @param columns Vector of column names
          */
         DataFrame();
+
+        /**
+         * @brief Constructor for DataFrame
+         * @param data 2D matrix of data
+         * @param columns Vector of column names
+         */
+        DataFrame(const vector<vector<double>>& data, const vector<string>& columns);
         /**
          * @brief Destructor for DataFrame
          */
@@ -379,15 +391,53 @@ class DataFrame {
          * 
          * Static function to cast a Cell to a double
          */
+        static double double_cast(Cell cell);
+
+        /**
+         * @brief Static function to cast a Cell to a double
+         * @param cell Cell to cast
+         * @return double value of the Cell
+         * 
+         * Static function to cast a Cell to a double
+         */
         static string str_cast(Cell cell);
 
 
 
         /**
-         * @brief Function to get the column names of the DataFrame
-         * @return Vector of column names
+         * @brief Function to get the number of rows / samples in a data frame
+         * @return number of rows
          */
-        int get_num_rows();
+        size_t get_num_rows() const;
+
+        /**
+         * @brief Function to get the number of columns in a data frame
+         * @return number of columns
+         */
+        size_t get_num_columns() const;
+
+
+        /**
+         * @brief Function to get the index of a column in the DataFrame
+         * @return the index of the specified column
+         * @throws std::out_of_range if the column name is not found
+         * 
+         * This function returns the index of the specified column in the DataFrame.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * size_t index = df.get_column_index("c");
+         * //TRUE
+         * printf("Index of column 'c' is 2: %s", index == 2 ? "TRUE" : "FALSE");
+         */
+        size_t get_column_index(string col_name);
 
         /**
          * @brief Function to get the number of columns in the DataFrame
@@ -399,16 +449,16 @@ class DataFrame {
          * @code
          * DataFrame df;
          * 
-         * df.addColumn("a");
-         * df.addColumn("b");
-         * df.addColumn("c");
-         * df.addColumn("d");
-         * 
-         * df.addRow({0,0,0,0});
-         * df.addRow({1,0,1,0});
-         * df.addRow({0,2,0,2});
-         * df.addRow({3,3,3,3});
-         * df.addRow({4,0,0,4});;
+         * vector<vector<double>> data = {
+         *  {0,0,0,0},
+         *  {1,0,1,0},
+         *  {0,2,0,2},
+         *  {3,3,3,3},
+         *  {4,0,0,4}
+         * };
+         * vector<string> columns = {"a", "b", "c", "d"};
+         *
+         * unique_ptr<DataFrame> df = std::make_unique<DataFrame>(data, columns);
          * 
          * Series column_b = df.get_column("b");
          * Series expected_b = {0, 0, 2, 3, 0};
@@ -416,19 +466,29 @@ class DataFrame {
          * printf("Column correctly gives %s : %s", column_b, column_b == expected_b ? "TRUE" : "FALSE" );
          * @endcode
          */
-        Series get_column(string col_name);
+        Series get_column(string col_name) const;
 
         /**
         * @brief Adds a column to the DataFrame.
         * @param name Column name.
         */
-        void addColumn(const std::string& name);
+        void add_column(const std::string& name);
 
         /**
         * @brief Adds a row of values to the DataFrame.
         * @param values A vector of Cell (int, double, or string) matching column count.
         */
-        void addRow(const std::vector<Cell>& values);
+        void add_row(const std::vector<Cell>& values);
+
+        /**
+         * @brief Function to get a row of data from the DataFrame
+         * @param row Index of the row to retrieve
+         * @return Vector of data values in the row
+         * @throws std::out_of_range if the row index is out of bounds
+         * 
+         * This function returns a vector containing the data values in the specified row of the DataFrame.
+         */
+        vector<Cell> get_row(size_t row) const;
 
         /**
          * @brief Function to retrieve a data value from the DataFrame
@@ -443,16 +503,16 @@ class DataFrame {
          * @code
          * DataFrame df;
          * 
-         * df.addColumn("a");
-         * df.addColumn("b");
-         * df.addColumn("c");
-         * df.addColumn("d");
+         * df.add_column("a");
+         * df.add_column("b");
+         * df.add_column("c");
+         * df.add_column("d");
          * 
-         * df.addRow({0,0,0,0});
-         * df.addRow({1,0,1,0});
-         * df.addRow({0,2,0,2});
-         * df.addRow({3,3,3,3});
-         * df.addRow({4,0,0,4});
+         * df.add_row({0,0,0,0});
+         * df.add_row({1,0,1,0});
+         * df.add_row({0,2,0,2});
+         * df.add_row({3,3,3,3});
+         * df.add_row({4,0,0,4});
          * 
          * printf("Value at row 2, column 'c' is 0: %s", df.retrieve(2, "c") == 0 ? "TRUE" : "FALSE");
          * @endcode
@@ -493,6 +553,82 @@ class DataFrame {
         string selectBestAttribute(string label_name);
 
         /**
+         * @brief Function to create a bootstrap sample of the DataFrame
+         * @return DataFrame containing a bootstrap sample of the data
+         * 
+         * This function creates a bootstrap sample of the DataFrame by randomly sampling rows with replacement.
+         * The function returns a new DataFrame containing the bootstrap sample.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> bootstrap_sample = df.bootstrapSample();
+         * 
+         * printf("Bootstrap sample has the same number of rows: %s", bootstrap_sample->get_num_rows() == df.get_num_rows() ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        unique_ptr<DataFrame> bootstrap_sample();
+
+        /**
+         * @brief Function to create a bootstrap sample of the DataFrame with a specified number of features
+         * @param num_features Number of features to sample
+         * @param label_column Name of the column containing the labels
+         * @return DataFrame containing a bootstrap sample of the data with the specified number of features
+         * 
+         * This function creates a bootstrap sample of the DataFrame by randomly sampling rows with replacement and selecting a subset of features.
+         * The function returns a new DataFrame containing the bootstrap sample with the specified number of features.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> bootstrap_sample = df.bootstrap_sample(2, "d");
+         * 
+         * printf("Bootstrap sample has the same number of rows: %s", bootstrap_sample->get_num_rows() == df.get_num_rows() ? "TRUE" : "FALSE");
+         * printf("Bootstrap sample has the correct number of features: %s", bootstrap_sample->get_num_columns() == 2 ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        unique_ptr<DataFrame> bootstrap_sample(size_t num_features, string label_column);
+
+        /**
+         * @brief Function to create a bootstrap sample of the DataFrame with a specified number of features and random state
+         * @param num_features Number of features to sample
+         * @param label_column Name of the column containing the labels
+         * @param random_state Random seed for sampling
+         * @return DataFrame containing a bootstrap sample of the data with the specified number of features
+         * 
+         * This function creates a bootstrap sample of the DataFrame by randomly sampling rows with replacement and selecting a subset of features.
+         * The function returns a new DataFrame containing the bootstrap sample with the specified number of features.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> bootstrap_sample = df.bootstrap_sample(2, "d", 42);
+         * 
+         * printf("Bootstrap sample has the same number of rows: %s", bootstrap_sample->get_num_rows() == df.get_num_rows() ? "TRUE" : "FALSE");
+         * printf("Bootstrap sample has the correct number of features: %s", bootstrap_sample->get_num_columns() == 2 ? "TRUE" : "FALSE");
+         * @endcode
+         */
+        unique_ptr<DataFrame> bootstrap_sample(size_t num_features, string label_column, size_t random_state);
+
+        /**
          * @brief Function to filter the DataFrame based on a condition
          * @param attributeIndex Index of the attribute to filter on
          * @param threshold Threshold value for the filter
@@ -530,6 +666,42 @@ class DataFrame {
          * @endcode
          */
         unique_ptr<DataFrame> filter(string column_name, Cell threshold, string condition);
+
+        /**
+         * @brief Function to get the head of the DataFrame
+         * @param num_rows Number of rows to include in the head
+         * @return DataFrame containing the head of the data
+         * 
+         * This function returns a new DataFrame containing the first num_rows rows of the DataFrame.
+         * 
+         * @code
+         * std::vector<std::vector<double>> sample = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2},
+         * {3,3,3,3},
+         * {4,0,0,4}};
+         * DataFrame df(sample, {"a", "b", "c", "d"});
+         * 
+         * std::unique_ptr<DataFrame> head = df.head(3);
+         * std::vector<std::vector<double>> expected_data = {
+         * {0,0,0,0},
+         * {1,0,1,0},
+         * {0,2,0,2}
+         * };
+         * 
+         * printf("Head of DataFrame correctly gives %s : %s", expected_data, head->get_data() == expected_data ? "TRUE" : "FALSE" );
+         * @endcode
+         */
+        unique_ptr<DataFrame> head(size_t num_rows) const;
+
+
+        void drop_column(string column_name);
+
+        void one_hot_encode(string col_name);
+
+        static unique_ptr<DataFrame> read_csv(const std::string& file_path);
+        
 
         
 };

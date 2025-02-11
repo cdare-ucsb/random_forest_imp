@@ -7,6 +7,9 @@
 #include <sstream>
 #include <unordered_map>
 #include <variant>
+#include <unordered_set>
+#include <fstream>
+#include <random>
 
 #include "DataFrame.h"
 
@@ -126,7 +129,7 @@ double Series::median() const {
 }
 
 
-Series Series::convertToNumericClasses() const {
+Series Series::numeric_classes() const {
     std::unordered_map<std::string, int> class_map;
     Series numeric_classes;
     int class_counter = 0;
@@ -140,7 +143,7 @@ Series Series::convertToNumericClasses() const {
                 }
                 numeric_classes.push_back(class_map[value]);
             } else {
-                throw std::runtime_error("convertToNumericClasses: Series contains non-string data.");
+                throw std::runtime_error("numeric_classes: Series contains non-string data.");
             }
         }, cell);
     }
@@ -223,7 +226,7 @@ Series Series::operator+(const Series& other) const {
 
 Cell& Series::operator[](size_t index) {
     if (index >= data.size()) {
-        throw std::out_of_range("index out of bounds");
+        throw std::out_of_range("index out of bounds; series only has length " + std::to_string(data.size()));
     }
     return data[index];
 }
@@ -303,6 +306,26 @@ double Series::calculateEntropy() const {
 
 // Constructor
 DataFrame::DataFrame() : data(std::unordered_map<string, Series>()), columns(vector<string>()) {}
+
+// Parameter constructor
+DataFrame::DataFrame(const vector<vector<double>>& data, const vector<string>& columns) : data(std::unordered_map<string, Series>()), columns(columns) {
+    if (data.size() == 0) {
+        throw std::runtime_error("Empty data");
+    }
+
+    if (data[0].size() != columns.size()) {
+        throw std::runtime_error("Data and columns size mismatch");
+    }
+
+    for (size_t i = 0; i < columns.size(); ++i) {
+        Series col;
+        for (const auto& row : data) {
+            col.push_back(row[i]);
+        }
+        this->data[columns[i]] = col;
+    }
+}
+
 // Destructor
 DataFrame::~DataFrame() {}
 
@@ -341,7 +364,7 @@ double DataFrame::calculateInformationGain(string attribute_name, string label_n
         // Create a temporary DataFrame for subset
         DataFrame subset;
         for (const auto& col : columns) {
-            subset.addColumn(col);
+            subset.add_column(col);
         }
 
         for (size_t row : row_indices) {
@@ -350,7 +373,7 @@ double DataFrame::calculateInformationGain(string attribute_name, string label_n
                 Series col_data = data.at(col);
                 new_row.push_back(col_data[row]);
             }
-            subset.addRow(new_row);
+            subset.add_row(new_row);
         }
 
         // Compute entropy of this subset
@@ -377,7 +400,7 @@ unique_ptr<DataFrame> DataFrame::filter_neq(string column_name, Cell value) cons
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     size_t num_rows = this->data.begin()->second.size();
@@ -404,7 +427,7 @@ unique_ptr<DataFrame> DataFrame::filter_neq(string column_name, Cell value) cons
                 Series col_data = data.at(col);
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(static_cast<const std::vector<Cell>&>(new_row));
+            filtered_df->add_row(static_cast<const std::vector<Cell>&>(new_row));
         }
     }
 
@@ -422,7 +445,7 @@ unique_ptr<DataFrame> DataFrame::filter_eq(string column_name, Cell value) const
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     size_t num_rows = this->data.begin()->second.size();
@@ -449,7 +472,7 @@ unique_ptr<DataFrame> DataFrame::filter_eq(string column_name, Cell value) const
                 Series col_data = data.at(col);
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(static_cast<const std::vector<Cell>&>(new_row));
+            filtered_df->add_row(static_cast<const std::vector<Cell>&>(new_row));
         }
     }
 
@@ -475,7 +498,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_geq(string column_name, double t
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     // Iterate through rows and filter values
@@ -495,7 +518,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_geq(string column_name, double t
             for (const auto& col : columns) {
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(new_row);
+            filtered_df->add_row(new_row);
         }
     }
 
@@ -520,7 +543,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_gt(string column_name, double th
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     // Iterate through rows and filter values
@@ -540,7 +563,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_gt(string column_name, double th
             for (const auto& col : columns) {
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(new_row);
+            filtered_df->add_row(new_row);
         }
     }
 
@@ -566,7 +589,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_leq(string column_name, double t
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     // Iterate through rows and filter values
@@ -586,7 +609,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_leq(string column_name, double t
             for (const auto& col : columns) {
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(new_row);
+            filtered_df->add_row(new_row);
         }
     }
 
@@ -611,7 +634,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_lt(string column_name, double th
 
     // Copy column names to the new DataFrame
     for (const auto& col : columns) {
-        filtered_df->addColumn(col);
+        filtered_df->add_column(col);
     }
 
     // Iterate through rows and filter values
@@ -631,7 +654,7 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_lt(string column_name, double th
             for (const auto& col : columns) {
                 new_row.push_back(data.at(col).retrieve(row));
             }
-            filtered_df->addRow(new_row);
+            filtered_df->add_row(new_row);
         }
     }
 
@@ -640,7 +663,10 @@ unique_ptr<DataFrame> DataFrame::numeric_filter_lt(string column_name, double th
 
 
 
-void DataFrame::addRow(const std::vector<Cell>& values) {
+/*------------------ROW AND COLUMN METHODS --------------------*/
+
+
+void DataFrame::add_row(const std::vector<Cell>& values) {
     if (values.size() != this->columns.size()) {
         throw std::runtime_error("Row size does not match column count.");
     }
@@ -651,7 +677,7 @@ void DataFrame::addRow(const std::vector<Cell>& values) {
 
 
 
-void DataFrame::addColumn(const std::string& name) {
+void DataFrame::add_column(const std::string& name) {
     if (data.find(name) == data.end()) {
         data[name] = {};
         columns.push_back(name);
@@ -662,25 +688,55 @@ void DataFrame::addColumn(const std::string& name) {
 
 
 
-Series DataFrame::get_column(string col_name) {
+Series DataFrame::get_column(string col_name) const {
     if (data.find(col_name) == data.end()) {
         throw std::invalid_argument("Column not found");
     }
-    return data[col_name];
+    return this->data.at(col_name);
 }
 
+size_t DataFrame::get_num_columns() const {
+    return columns.size();
+}   
 
 
-int DataFrame::get_num_rows() {
+size_t DataFrame::get_num_rows() const {
     if (data.empty()) return 0;
     return this->data.begin()->second.size();
 }
+
+
+vector<Cell> DataFrame::get_row(size_t row) const {
+    if (row >= this->get_num_rows()) {
+        throw std::out_of_range("row index out of bounds");
+    }
+
+    vector<Cell> row_data;
+    for (const auto& col : columns) {
+        row_data.push_back(this->data.at(col).retrieve(row));
+    }
+    return row_data;
+}
+
+
+size_t DataFrame::get_column_index(string col_name) {
+    for (size_t i = 0; i < columns.size(); ++i) {
+        if (columns[i] == col_name) {
+            return i;
+        }
+    }
+    throw std::out_of_range("Column not found");
+}
+
+
+
+
 
 // Function which returns the value of a cell when called using row and col 
 // the col can be either a string or an integer 
 Cell DataFrame::retrieve(size_t row, Cell col) {
     if (row >= this->get_num_rows()) {
-        throw std::runtime_error("row index out of bounds");
+        throw std::out_of_range("row index out of bounds");
     }
 
 
@@ -695,7 +751,7 @@ Cell DataFrame::retrieve(size_t row, Cell col) {
         }, col);
     if (col_int_cast >= 0 && col_int_cast < this->columns.size()) {
         string column_name = this->columns[col_int_cast];
-        return (data[column_name])[row];
+        return (data.at(column_name))[row];
     }
 
     std::string col_str_cast = std::visit([](auto&& value) -> std::string {
@@ -708,14 +764,11 @@ Cell DataFrame::retrieve(size_t row, Cell col) {
     }, col);
 
     if (!col_str_cast.empty()) {
-        return (data[col_str_cast])[row];
+        return (data.at(col_str_cast))[row];
     } else {
         throw std::runtime_error("Invalid column identifier");
     }
 }
-
-
-
 
 
 
@@ -820,6 +873,133 @@ string DataFrame::selectBestAttribute(string label_name) {
 }
 
 
+void DataFrame::one_hot_encode(string col_name) {
+    if (data.find(col_name) == data.end()) {
+        throw std::invalid_argument("Column not found");
+    }
+
+    Series column_data = data.at(col_name);
+
+    Series categorical_column = column_data.numeric_classes();
+
+    data[col_name] = categorical_column;
+}
+
+
+unique_ptr<DataFrame> DataFrame::bootstrap_sample() {
+    // Create a new DataFrame for the sample
+    std::unique_ptr<DataFrame> sample = std::make_unique<DataFrame>();
+
+    int num_rows = this->get_num_rows();
+    if (num_rows == 0) {
+        throw std::runtime_error("No rows to sample from.");
+    }
+
+    for (int i = 0; i < num_rows; ++i) {
+        // get a random index
+        int random_index = rand() % num_rows;
+        // build a new row
+        sample->add_row(this->get_row(random_index));
+    }
+    return sample;
+}
+
+unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string label_column) {
+
+    if (num_features > columns.size() - 1) {
+        num_features = columns.size() - 1;
+    }
+
+    std::unique_ptr<DataFrame> sample = std::make_unique<DataFrame>();
+
+    // Randomly select num_features columns (excluding the label column)
+    std::unordered_set<std::string> selected_features;
+    
+    
+    while (selected_features.size() < num_features && selected_features.size() < columns.size() - 1) {
+        int random_index = rand() % columns.size();
+        if (columns[random_index] == label_column) {
+            continue;
+        }
+        selected_features.insert(columns[random_index]);
+    }
+
+    // Add selected columns to the new DataFrame
+    for (const auto& feature : selected_features) {
+        sample->add_column(feature);
+    }
+    sample->add_column(label_column);
+
+    // Bootstrap sampling (random rows with replacement)
+    int num_rows = this->get_num_rows();
+    for (int i = 0; i < num_rows; ++i) {
+        int random_index = rand() % num_rows;
+        // Build a new row only with the selected columns
+        std::vector<Cell> new_row;
+        for (const auto& col : sample->columns) {
+            new_row.push_back(this->data.at(col).retrieve(random_index));
+        }
+
+        sample->add_row(new_row);
+    }
+
+    return sample;
+}
+
+unique_ptr<DataFrame> DataFrame::bootstrap_sample(size_t num_features, string label_column, size_t random_state) {
+    if (num_features > columns.size() - 1) {
+        num_features = columns.size() - 1;
+    }
+
+    std::unique_ptr<DataFrame> sample = std::make_unique<DataFrame>();
+
+    // Mersenne twister random number generator
+    std::mt19937 generator(random_state);
+    std::uniform_int_distribution<int> distribution(0, columns.size() - 1);
+
+    // Randomly select num_features columns (excluding the label column)
+    std::unordered_set<std::string> selected_features;
+    
+    while (selected_features.size() < static_cast<size_t>(num_features) && selected_features.size() < columns.size() - 1) {
+        
+        // select a random index
+        int random_index = distribution(generator);
+        if (columns[random_index] == label_column) {
+            continue;
+        }
+        selected_features.insert(columns[random_index]);
+    }
+
+    // Add selected columns to the new DataFrame
+    for (const auto& feature : selected_features) {
+        sample->add_column(feature);
+    }
+    sample->add_column(label_column);
+
+    // Bootstrap sampling (random rows with replacement)
+    int num_rows = this->get_num_rows();
+    std::uniform_int_distribution<int> row_distribution(0, num_rows - 1);
+
+
+    if (num_rows == 0) {
+        throw std::runtime_error("No rows to sample from.");
+    }
+    for (int i = 0; i < num_rows; ++i) {
+        int random_index = row_distribution(generator);
+        // Build a new row only with the selected columns
+        std::vector<Cell> new_row;
+        for (const auto& col : sample->columns) {
+            new_row.push_back(this->data.at(col).retrieve(random_index));
+        }
+
+        sample->add_row(new_row);
+    }
+
+    return sample;
+}
+
+
+
 // Filter method
 unique_ptr<DataFrame> DataFrame::filter(string column_name, Cell threshold, string condition) {
     if (condition == "<") {
@@ -877,11 +1057,55 @@ unique_ptr<DataFrame> DataFrame::filter(string column_name, Cell threshold, stri
 }
 
 
+void DataFrame::drop_column(string column_name) {
+    if (data.find(column_name) == data.end()) {
+        throw std::invalid_argument("Column not found");
+    }
+
+    data.erase(column_name);
+    columns.erase(std::remove(columns.begin(), columns.end(), column_name), columns.end());
+}
+
+
+unique_ptr<DataFrame> DataFrame::head(size_t num_rows) const {
+    // Create a new DataFrame for the result
+    auto result = std::make_unique<DataFrame>();
+
+    // Copy column names to the new DataFrame
+    for (const auto& col : columns) {
+        result->add_column(col);
+    }
+
+    // Get the actual number of rows to copy (in case num_rows exceeds the number of rows in the DataFrame)
+    size_t rows_to_copy = std::min(num_rows, this->get_num_rows());
+
+    // Copy rows to the new DataFrame
+    for (size_t row = 0; row < rows_to_copy; ++row) {
+        std::vector<Cell> row_data = this->get_row(row);
+        result->add_row(row_data);
+    }
+
+    return result;
+}
+
+
+
 int DataFrame::int_cast(Cell cell) {
     return std::visit([](auto&& value) -> double {
             using T = std::decay_t<decltype(value)>;
-            if constexpr (std::is_same_v<T, int>) {
+            if constexpr (std::is_same_v<T, int> || std::is_same_v<T, double>) {
                 return static_cast<int>(value);
+            } else {
+                throw std::invalid_argument("Cell is non-numeric");
+            }
+        }, cell);
+}
+
+double DataFrame::double_cast(Cell cell) {
+    return std::visit([](auto&& value) -> double {
+            using T = std::decay_t<decltype(value)>;
+            if constexpr (std::is_same_v<T, int> || std::is_same_v<T, double>) {
+                return static_cast<double>(value);
             } else {
                 throw std::invalid_argument("Cell is non-numeric");
             }
@@ -897,4 +1121,86 @@ string DataFrame::str_cast(Cell cell) {
                 throw std::invalid_argument("Cell is not a string");
             }
         }, cell);
+}
+
+
+std::unique_ptr<DataFrame> DataFrame::read_csv(const std::string& file_path) {
+    std::ifstream file(file_path);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file: " + file_path);
+    }
+
+    std::string line;
+    std::vector<std::string> columns;
+    std::vector<std::vector<Cell>> data;
+    
+    // Read the header line
+    if (std::getline(file, line)) {
+        std::istringstream header_stream(line);
+        std::string column;
+        while (std::getline(header_stream, column, ',')) {
+            // Remove carriage return characters
+            column.erase(std::remove(column.begin(), column.end(), '\r'), column.end());
+            columns.push_back(column);
+        }
+    } else {
+        throw std::runtime_error("Empty CSV file: " + file_path);
+    }
+
+    // Read the rest of the lines
+    while (std::getline(file, line)) {
+        // remove carriage return characters
+        line.erase(std::remove(line.begin(), line.end(), '\r'), line.end());
+
+        std::istringstream line_stream(line);
+        std::string cell;
+        std::vector<Cell> row;
+        
+        size_t col_index = 0;
+        while (std::getline(line_stream, cell, ',')) {
+            // Determine the type of the cell (int, double, or string)
+            if (is_integer(cell)) {
+                row.push_back(std::stoi(cell));
+            } else if (is_double(cell)) {
+                row.push_back(std::stod(cell));
+            } else {
+                row.push_back(cell);
+            }
+            col_index++;
+        }
+
+        // Ensure the row has the same number of columns as the header
+        if (row.size() != columns.size()) {
+            throw std::runtime_error("Row size mismatch in CSV file.");
+        }
+
+        data.push_back(std::move(row));
+    }
+
+    file.close();
+
+    // Create the DataFrame
+    auto df = std::make_unique<DataFrame>();
+    for (size_t i = 0; i < columns.size(); ++i) {
+        Series column_data;
+        for (const auto& row : data) {
+            column_data.push_back(row[i]);
+        }
+        df->add_column(columns[i]);
+        df->data[columns[i]] = std::move(column_data);
+    }
+
+    return df;
+}
+
+// Utility functions to check if a string is an integer or double
+bool DataFrame::is_integer(const std::string& str) {
+    return !str.empty() && std::all_of(str.begin(), str.end(), ::isdigit);
+}
+
+bool DataFrame::is_double(const std::string& str) {
+    std::istringstream iss(str);
+    double d;
+    char c;
+    return iss >> d && !(iss >> c);  // Check if the string is a valid double
 }
