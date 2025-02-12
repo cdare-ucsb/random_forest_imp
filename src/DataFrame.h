@@ -886,18 +886,18 @@ class DataFrame {
          * {4,0,0,4}};
          * DataFrame df(sample, {"a", "b", "c", "d"});
          * 
-         * std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> train_test = df.split_train_test(0.8);
+         * std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> train_test = df.split_train_test(0.8);
          * 
          * printf("Training set has 80%% of the data: %s", train_test.first->get_num_rows() == 4 ? "TRUE" : "FALSE");
          * printf("Testing set has 20%% of the data: %s", train_test.second->get_num_rows() == 1 ? "TRUE" : "FALSE");
          * @endcode
          */
-        std::pair<unique_ptr<DataFrame>, unique_ptr<DataFrame>> split_train_test(double percent_training);
+        std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> split_train_test(double percent_training);
 
 
         /**
          * @brief Function to split the DataFrame into training and testing sets with a specified random state
-         * @param percent_training Percentage of the data to include in the training set
+         * @param percent_training Percentage of the data to include in the training set as a decimal between 0 and 1
          * @param random_state Random seed for splitting the data
          * @return Pair of DataFrames containing the training and testing sets
          * 
@@ -913,13 +913,13 @@ class DataFrame {
          * {4,0,0,4}};
          * DataFrame df(sample, {"a", "b", "c", "d"});
          * 
-         * std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> train_test = df.split_train_test(0.8, 42);
+         * std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> train_test = df.split_train_test(0.8, 42);
          * 
          * printf("Training set has 80%% of the data: %s", train_test.first->get_num_rows() == 4 ? "TRUE" : "FALSE");
          * printf("Testing set has 20%% of the data: %s", train_test.second->get_num_rows() == 1 ? "TRUE" : "FALSE");
          * @endcode
          */
-        std::pair<unique_ptr<DataFrame>, unique_ptr<DataFrame>> split_train_test(double percent_training, size_t random_state);
+        std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> split_train_test(double percent_training, size_t random_state);
         
         /**
          * @brief Function to split the DataFrame into k folds for cross-validation
@@ -949,7 +949,7 @@ class DataFrame {
          * 
          * This function creates a hard copy of the current DataFrame and returns it as a unique_ptr.
          */
-        std::shared_ptr<DataFrame> copy() const;
+        std::unique_ptr<DataFrame> copy() const;
 };
 
 

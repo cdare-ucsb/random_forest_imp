@@ -1,0 +1,2 @@
+drop: date,age
+one_hot_encode: degree_lvl,hired

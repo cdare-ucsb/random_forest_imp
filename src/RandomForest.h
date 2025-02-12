@@ -164,11 +164,13 @@ class RandomForest : public Classifier {
          * @endcode
          */
          
-        static std::tuple<int,int,int,int> hypertune(std::unique_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
+        static std::tuple<int,int,int,int> hypertune(std::shared_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
                              const std::vector<int>& num_trees_values,
                              const std::vector<int>& max_depth_values,
                             const std::vector<int>& min_samples_split_values,
                              const std::vector<int>& num_features_values,
                              bool verbose = false);
+
+        double score(std::shared_ptr<DataFrame> data, const std::string& label_column);
 
 };

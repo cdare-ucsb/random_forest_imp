@@ -134,7 +134,7 @@ double RandomForest::majorityVote(const std::vector<double>& predictions) const 
 }
 
 
-std::tuple<int,int,int,int> RandomForest::hypertune(std::unique_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
+std::tuple<int,int,int,int> RandomForest::hypertune(std::shared_ptr<DataFrame> data, const std::string& label_column, size_t num_folds, size_t seed,
                              const std::vector<int>& num_trees_values,
                              const std::vector<int>& max_depth_values,
                             const std::vector<int>& min_samples_split_values,
@@ -230,4 +230,38 @@ std::tuple<int,int,int,int> RandomForest::hypertune(std::unique_ptr<DataFrame> d
                                                  [](const auto& a, const auto& b) { return a.second < b.second; });
     return best_hyperparameters->first;
 
+}
+
+
+double RandomForest::score(std::shared_ptr<DataFrame> data, const std::string& label_column) {
+
+    if (trees.empty()) {
+        throw std::runtime_error("RandomForest has not been fit");
+    }
+
+    double correct_predictions = 0.0;
+    size_t num_rows = data->get_num_rows();
+
+    Series label_column_data = data->get_column(label_column);
+    data->drop_column(label_column);
+
+    for (size_t i = 0; i < num_rows; ++i) {
+        vector<Cell> sample = data->get_row(i);
+
+        vector<double> sample_doubles;
+
+        for (const auto& cell : sample) {
+            sample_doubles.push_back( DataFrame::double_cast(cell) );
+        }
+
+        double prediction = predict(sample_doubles);
+        if (prediction == DataFrame::double_cast(label_column_data.retrieve(i))) {
+            correct_predictions += 1.0;
+        }
+
+    }
+
+    data->add_column(label_column, label_column_data);
+
+    return correct_predictions / num_rows;
 }

@@ -21,6 +21,15 @@ std::string trim(const std::string& str) {
 }
 
 
+/**
+ * @brief Function to parse the bounds for a hyperparameter from a string
+ * @param bound_str The string containing the bounds
+ * @return A pair of integers representing the lower and upper bounds
+ * 
+ * This function parses the bounds for a hyperparameter from a string in the format "lower-upper".
+ * It returns a pair of integers representing the lower and upper bounds.
+ * 
+ */
 std::pair<int, int> parse_bounds(const std::string& bound_str) {
     int lower, upper;
     char dash;
@@ -32,7 +41,20 @@ std::pair<int, int> parse_bounds(const std::string& bound_str) {
     }
 }
 
-
+/**
+ * @brief helper function to read the 'cleaning' file consisting of instructions to clean the data
+ * @param filename The name of the file to read
+ * @return A pair of vectors containing the columns to drop and the columns to one-hot encode
+ * 
+ * This function reads the 'cleaning' file, which contains instructions to clean the data. The file
+ * should contain lines in the following format:
+ * 
+ * drop:column1,column2,column3
+ * one_hot_encode:column4,column5,column6
+ * 
+ * The function reads the file and returns a pair of vectors containing the columns to drop and the columns
+ * to one-hot encode.
+ */
 std::pair<std::vector<std::string>, std::vector<std::string>> read_clean_file(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -64,7 +86,12 @@ std::pair<std::vector<std::string>, std::vector<std::string>> read_clean_file(co
 }
 
 
-
+/**
+ * @brief Function to get the proportion of data to use as training data
+ * @return The proportion of data to use as training data, as a double
+ * 
+ * This function prompts the user to enter the proportion of data to use as training data.
+ */
 double get_training_data_ratio() {
     double ratio;
     std::cout << "Enter the proportion of data to use as training data (decimal between 0 and 1): ";
@@ -85,6 +112,13 @@ double get_training_data_ratio() {
     return ratio;
 }
 
+
+/**
+ * @brief Function to get the name of the label column from the user
+ * @return The name of the label column
+ * 
+ * This function prompts the user to enter the name of the label column in the DataFrame.
+ */
 std::string get_label_column() {
     std::string label_column;
     std::cout << "Enter the name of the label column: ";
@@ -93,6 +127,38 @@ std::string get_label_column() {
     return label_column;
 }
 
+
+
+
+/**
+ * @brief Main function to run the program
+ * @param argc The number of command-line arguments
+ * @param argv The array of command-line arguments
+ * 
+ * This function is the main entry point for the program. It parses the command-line arguments, reads the hyperparameter
+ * bounds from a config file, reads the input data from a CSV file, cleans the data based on instructions in a cleaning file,
+ * splits the data into training and testing sets, and performs hyperparameter tuning for a RandomForest model.
+ * 
+ * The function reads the hyperparameter bounds from a config file, which should contain lines in the following format:
+ * 
+ * num_trees:1-10
+ * max_depth:1-5
+ * min_samples_split:2-5
+ * num_features:1-3
+ * 
+ * The function reads the input data from a CSV file specified by the user using the -f option. It then reads the cleaning
+ * instructions from a cleaning file specified by the user using the -l option. The cleaning file should contain lines in the
+ * following format:
+ * 
+ * drop:column1,column2,column3
+ * one_hot_encode:column4,column5,column6
+ * 
+ * The function then prompts the user to enter the proportion of data to use as training data and the name of the label column.
+ * 
+ * The function performs hyperparameter tuning for a RandomForest model using the RandomForest::hypertune function, which takes
+ * the input data, label column name, number of folds for cross-validation, random seed, and vectors of hyperparameter values.
+ * The function prints the best hyperparameters found during hyperparameter tuning.
+ */
 int main(int argc, char* argv[]) {
     int opt;
     std::string input_file;
@@ -106,6 +172,11 @@ int main(int argc, char* argv[]) {
     std::uniform_int_distribution<> dist(1, INT_MAX);
 
     int seed = dist(gen);
+
+
+    /*-----------------------------------------------------------*/
+    /*---------- STEP 1: Gather Command-Line Arguments ----------*/
+    /*-----------------------------------------------------------*/
 
     // Define short options: h (no argument), f (requires argument), o (requires argument), v (no argument)
     while ((opt = getopt(argc, argv, "hf:c:vl:s:")) != -1) {
@@ -168,6 +239,11 @@ int main(int argc, char* argv[]) {
     }
 
 
+
+    /*-----------------------------------------------------------*/
+    /*-------- STEP 2: Read Config File for Hypertuning ---------*/
+    /*-----------------------------------------------------------*/
+
     std::ifstream file(config_file);
     if (!file) {
         std::cerr << "Error opening file.\n";
@@ -193,65 +269,6 @@ int main(int argc, char* argv[]) {
         for (const auto& [key, value] : hyperparameter_bounds) {
             std::cout << key << ": [" << value.first << ", " << value.second << "]\n";
         }
-    }
-
-
-    unique_ptr<DataFrame> df = DataFrame::read_csv(input_file);
-
-    if (verbose) {
-        std::cout << "\n\n";
-        std::cout << "Read DataFrame from " << input_file << ":\n";
-        std::cout << df->head(5)->print();
-        std::cout << ".\n";
-        std::cout << ".\n";
-        std::cout << ".\n\n";
-    }
-
-    
-
-    // Read and apply cleaning instructions from config file
-    auto [drop_columns, one_hot_encode_columns] = read_clean_file(cleaning_file);
-    if (verbose) {
-        std::cout << "\n\n\033[32mData Cleaning:\033[0m\n" << "\tDrop Columns:\n";
-    }
-    // Clean Data
-    for (const auto& col : drop_columns) {
-        if (verbose) {
-            std::cout << "\t\t" << col << "\n";
-        }
-        df->drop_column(col);
-    }
-    if (verbose) {
-        std::cout << "\n\tOne Hot Encode Columns:\n";
-    }
-    for (const auto& col : one_hot_encode_columns) {
-        if (verbose) {
-            std::cout << "\t\t" << col << "\n";
-        }
-        df->one_hot_encode(col);
-    }
-
-    if (verbose) {
-        std::cout << "\n\n";
-    }
-
-    double training_data_ratio = get_training_data_ratio();
-    if (verbose) {
-        std::cout << "\n";
-    }
-    auto [train_df, test_df] = df->split_train_test(training_data_ratio);
-
-    // Clear any leftover input
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-    std::string label_col = get_label_column();
-    if (std::find(df->columns.begin(), df->columns.end(), label_col) == df->columns.end()) {
-        std::cerr << "Label column not found.\n";
-        return 1;
-    }
-
-    if (verbose) {
-        std::cout << "\n\n";
     }
 
     vector<int> num_trees_values;
@@ -280,6 +297,85 @@ int main(int argc, char* argv[]) {
     }
 
 
+
+    /*-----------------------------------------------------------*/
+    /*-------- STEP 3: Create DataFrame from Input File ---------*/
+    /*-----------------------------------------------------------*/
+
+    unique_ptr<DataFrame> df = DataFrame::read_csv(input_file);
+
+    if (verbose) {
+        std::cout << "\n\n";
+        std::cout << "Read DataFrame from " << input_file << ":\n";
+        std::cout << df->head(5)->print();
+        std::cout << ".\n";
+        std::cout << ".\n";
+        std::cout << ".\n\n";
+    }
+
+
+    /*-----------------------------------------------------------*/
+    /*-------- STEP 4: Clean Data Based on Cleaning File --------*/
+    /*-----------------------------------------------------------*/
+
+    // Read and apply cleaning instructions from config file
+    auto [drop_columns, one_hot_encode_columns] = read_clean_file(cleaning_file);
+    if (verbose) {
+        std::cout << "\n\n\033[32mData Cleaning:\033[0m\n" << "\tDrop Columns:\n";
+    }
+    // Clean Data
+    for (const auto& col : drop_columns) {
+        if (verbose) {
+            std::cout << "\t\t" << col << "\n";
+        }
+        df->drop_column(col);
+    }
+    if (verbose) {
+        std::cout << "\n\tOne Hot Encode Columns:\n";
+    }
+    for (const auto& col : one_hot_encode_columns) {
+        if (verbose) {
+            std::cout << "\t\t" << col << "\n";
+        }
+        df->one_hot_encode(col);
+    }
+
+    if (verbose) {
+        std::cout << "\n\n";
+    }
+
+
+    /*-----------------------------------------------------------*/
+    /*-------- STEP 5: Split Data into Training and Testing -----*/
+    /*-----------------------------------------------------------*/
+
+    double training_data_ratio = get_training_data_ratio();
+    if (verbose) {
+        std::cout << "\n";
+    }
+    auto [train_df, test_df] = df->split_train_test(training_data_ratio, seed);
+
+
+    // Clear any leftover input
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string label_col = get_label_column();
+    if (std::find(df->columns.begin(), df->columns.end(), label_col) == df->columns.end()) {
+        std::cerr << "Label column not found.\n";
+        return 1;
+    }
+
+    if (verbose) {
+        std::cout << "\n\n";
+    }
+
+    
+
+    /*-----------------------------------------------------------*/
+    /*-------- STEP 6: Perform Hyperparameter Tuning ------------*/
+    /*-----------------------------------------------------------*/
+    std::unique_ptr<DataFrame> train_df_copy = train_df->copy();
+
     auto [best_num_trees, best_max_depth, best_min_samples_split, best_num_features] = RandomForest::hypertune(std::move(train_df),
                                                                                      label_col, 3, seed,
                                                                                      num_trees_values,
@@ -295,6 +391,15 @@ int main(int argc, char* argv[]) {
         std::cout << "  max_depth: " << best_max_depth << "\n";
         std::cout << "  min_samples_split: " << best_min_samples_split << "\n";
         std::cout << "  num_features: " << best_num_features << "\n";
+    }
+
+    unique_ptr<RandomForest> rf = std::make_unique<RandomForest>(best_num_trees, best_max_depth, best_min_samples_split, best_num_features, seed);
+    rf->fit(std::move(train_df_copy), label_col);
+    double accuracy = rf->score(std::move(test_df), label_col);
+
+    if (verbose) {
+        std::cout << "\n\n";
+        std::cout << "\033[32mModel accuracy on test data: " << accuracy << "\n\033[0m";
     }
 
     return 0;

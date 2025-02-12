@@ -810,9 +810,9 @@ Cell DataFrame::retrieve(size_t row, Cell col) {
 
 
 
-std::shared_ptr<DataFrame> DataFrame::copy() const {
+std::unique_ptr<DataFrame> DataFrame::copy() const {
     // Create a new DataFrame
-    auto new_df = std::make_shared<DataFrame>();
+    auto new_df = std::make_unique<DataFrame>();
 
     // Copy column names
     for (const auto& col : columns) {
@@ -1269,17 +1269,17 @@ std::unique_ptr<DataFrame> DataFrame::read_csv(const std::string& file_path) {
 
 
 
-std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> DataFrame::split_train_test(double percent_training) {
+std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> DataFrame::split_train_test(double percent_training) {
     if (percent_training <= 0.0 || percent_training >= 100.0) {
         throw std::invalid_argument("percent_training must be between 0 and 100 (exclusive)");
     }
 
     size_t total_rows = this->get_num_rows();
-    size_t num_train_rows = static_cast<size_t>(std::round((percent_training / 100.0) * total_rows));
+    size_t num_train_rows = static_cast<size_t>(std::round(percent_training  * total_rows));
 
     // Create new DataFrames for training and testing sets
-    auto train_df = std::make_unique<DataFrame>();
-    auto test_df = std::make_unique<DataFrame>();
+    auto train_df = std::make_shared<DataFrame>();
+    auto test_df = std::make_shared<DataFrame>();
 
     // Copy column names to the new DataFrames
     for (const auto& col : columns) {
@@ -1310,17 +1310,17 @@ std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> DataFrame::spl
 }
 
 
-std::pair<std::unique_ptr<DataFrame>, std::unique_ptr<DataFrame>> DataFrame::split_train_test(double percent_training, size_t seed) {
+std::pair<std::shared_ptr<DataFrame>, std::shared_ptr<DataFrame>> DataFrame::split_train_test(double percent_training, size_t seed) {
     if (percent_training <= 0.0 || percent_training >= 100.0) {
         throw std::invalid_argument("percent_training must be between 0 and 100 (exclusive)");
     }
 
     size_t total_rows = this->get_num_rows();
-    size_t num_train_rows = static_cast<size_t>(std::round((percent_training / 100.0) * total_rows));
+    size_t num_train_rows = static_cast<size_t>(std::round(percent_training  * total_rows));
 
     // Create new DataFrames for training and testing sets
-    auto train_df = std::make_unique<DataFrame>();
-    auto test_df = std::make_unique<DataFrame>();
+    auto train_df = std::make_shared<DataFrame>();
+    auto test_df = std::make_shared<DataFrame>();
 
     // Copy column names to the new DataFrames
     for (const auto& col : columns) {
@@ -1358,6 +1358,7 @@ std::vector<std::unique_ptr<DataFrame>> DataFrame::split_k_fold(size_t n_folds) 
 
     size_t total_rows = this->get_num_rows();
     if (n_folds > total_rows) {
+        // printf("n_folds: %zu, total_rows: %zu\n", n_folds, total_rows);
         throw std::invalid_argument("n_folds cannot be greater than the number of rows in the DataFrame");
     }
 
@@ -1411,6 +1412,7 @@ std::vector<std::unique_ptr<DataFrame>> DataFrame::split_k_fold(size_t n_folds, 
 
     size_t total_rows = this->get_num_rows();
     if (n_folds > total_rows) {
+        printf("n_folds: %zu, total_rows: %zu\n", n_folds, total_rows);
         throw std::invalid_argument("n_folds cannot be greater than the number of rows in the DataFrame");
     }
 
